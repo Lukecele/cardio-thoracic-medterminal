@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 .vercel
 public/screenshots/
+public/audio/original_backup/

@@ -1,5 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Headphones, Play, Pause, RotateCcw, Volume2, Info, MapPin, Activity } from 'lucide-react';
+import {
+  Headphones, Play, Pause, RotateCcw, Volume2, VolumeX,
+  Info, MapPin, Activity, Repeat, Zap, Sliders, Gauge, Sparkles
+} from 'lucide-react';
 
 export interface AuscultationTrack {
   id: string;
@@ -14,6 +17,8 @@ export interface AuscultationTrack {
   description: string;
   differential: string[];
 }
+
+export type AcousticFilter = 'flat' | 'diaphragm' | 'bell';
 
 export const AUDIO_TRACKS: AuscultationTrack[] = [
   {
@@ -171,7 +176,93 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
   const [duration, setDuration] = useState(0);
   const [filterType, setFilterType] = useState<'all' | 'cardiaca' | 'polmonare'>('all');
   
+  // Advanced Audio Controls State
+  const [volume, setVolume] = useState<number>(0.9);
+  const [isMuted, setIsMuted] = useState<boolean>(false);
+  const [isLooping, setIsLooping] = useState<boolean>(true);
+  const [isBoosted, setIsBoosted] = useState<boolean>(false); // +6dB StethoBoost
+  const [playbackSpeed, setPlaybackSpeed] = useState<number>(1.0); // 1.0x vs 0.75x Didattico
+  const [acousticFilter, setAcousticFilter] = useState<AcousticFilter>('flat'); // Standard, Membrana, Campana
+  
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const audioCtxRef = useRef<AudioContext | null>(null);
+  const sourceNodeRef = useRef<MediaElementAudioSourceNode | null>(null);
+  const filterNodeRef = useRef<BiquadFilterNode | null>(null);
+  const gainNodeRef = useRef<GainNode | null>(null);
+
+  // Initialize Web Audio API nodes lazily on first user interaction
+  const initAudioGraph = () => {
+    if (!audioRef.current) return;
+    if (!audioCtxRef.current) {
+      const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+      if (!AudioCtx) return;
+      try {
+        const ctx = new AudioCtx();
+        audioCtxRef.current = ctx;
+
+        if (!sourceNodeRef.current) {
+          const source = ctx.createMediaElementSource(audioRef.current);
+          sourceNodeRef.current = source;
+
+          const filter = ctx.createBiquadFilter();
+          filter.type = 'allpass';
+          filterNodeRef.current = filter;
+
+          const gain = ctx.createGain();
+          const effectiveGain = (isMuted ? 0 : volume) * (isBoosted ? 2.0 : 1.0);
+          gain.gain.setValueAtTime(effectiveGain, ctx.currentTime);
+          gainNodeRef.current = gain;
+
+          source.connect(filter);
+          filter.connect(gain);
+          gain.connect(ctx.destination);
+        }
+      } catch (err) {
+        console.warn("Web Audio API node routing fallback:", err);
+      }
+    }
+    if (audioCtxRef.current && audioCtxRef.current.state === 'suspended') {
+      audioCtxRef.current.resume();
+    }
+  };
+
+  // Sync acoustic filter node
+  useEffect(() => {
+    if (!filterNodeRef.current || !audioCtxRef.current) return;
+    const filter = filterNodeRef.current;
+    const now = audioCtxRef.current.currentTime;
+
+    if (acousticFilter === 'flat') {
+      filter.type = 'allpass';
+    } else if (acousticFilter === 'diaphragm') {
+      // High-pass filter at 180Hz isolates murmurs, clicks, and rubs by eliminating low rumble
+      filter.type = 'highpass';
+      filter.frequency.setValueAtTime(180, now);
+      filter.Q.setValueAtTime(0.7, now);
+    } else if (acousticFilter === 'bell') {
+      // Low-pass filter at 220Hz isolates S3, S4 gallops, and mitral stenosis rumble
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(220, now);
+      filter.Q.setValueAtTime(0.8, now);
+    }
+  }, [acousticFilter]);
+
+  // Sync Gain node & HTML5 volume
+  useEffect(() => {
+    const effectiveGain = (isMuted ? 0 : volume) * (isBoosted ? 2.0 : 1.0);
+    if (gainNodeRef.current && audioCtxRef.current) {
+      gainNodeRef.current.gain.setValueAtTime(effectiveGain, audioCtxRef.current.currentTime);
+    } else if (audioRef.current) {
+      audioRef.current.volume = isMuted ? 0 : Math.min(1.0, volume);
+    }
+  }, [volume, isMuted, isBoosted]);
+
+  // Sync Playback Speed
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.playbackRate = playbackSpeed;
+    }
+  }, [playbackSpeed]);
 
   useEffect(() => {
     if (initialTrackId) {
@@ -194,6 +285,7 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
 
   const togglePlay = () => {
     if (!audioRef.current) return;
+    initAudioGraph();
     if (isPlaying) {
       audioRef.current.pause();
       setIsPlaying(false);
@@ -242,6 +334,8 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
       <audio
         ref={audioRef}
         src={selectedTrack.file}
+        loop={isLooping}
+        preload="auto"
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleTimeUpdate}
         onEnded={handleEnded}
@@ -257,10 +351,10 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
             <h2 className="text-lg font-bold text-slate-100 flex items-center gap-2">
               Libreria Auscultatoria Ufficiale
               <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                AUDIO REALE STEREO
+                REMASTER HD + GAIN BOOST
               </span>
             </h2>
-            <p className="text-xs text-slate-400">Reperti sonori fisiopatologici ad alta fedeltà con localizzazione anatomica</p>
+            <p className="text-xs text-slate-400">Reperti sonori fisiopatologici con simulazione fonendoscopica (Membrana / Campana)</p>
           </div>
         </div>
 
@@ -338,13 +432,21 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
         {/* Audio Console & Clinical Analysis Column */}
         <div className="lg:col-span-7 flex flex-col bg-slate-900/60 p-6 overflow-y-auto custom-scrollbar space-y-6">
           
-          {/* Active Track Banner */}
-          <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-5 shadow-xl relative overflow-hidden">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+          {/* Active Track Banner & Master Controls */}
+          <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-5 shadow-xl relative overflow-hidden space-y-5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <span className="text-[11px] font-mono tracking-wider uppercase text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded border border-rose-500/20">
-                  {selectedTrack.category.toUpperCase()} • REPERTO ATTIVO
-                </span>
+                <div className="flex items-center gap-2">
+                  <span className="text-[11px] font-mono tracking-wider uppercase text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded border border-rose-500/20">
+                    {selectedTrack.category.toUpperCase()} • REPERTO ATTIVO
+                  </span>
+                  {isPlaying && (
+                    <span className="flex items-center gap-1 text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 animate-pulse">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                      LIVE
+                    </span>
+                  )}
+                </div>
                 <h3 className="text-xl font-bold text-white mt-1.5">{selectedTrack.name}</h3>
                 <p className="text-xs text-slate-400 mt-0.5">{selectedTrack.timing}</p>
               </div>
@@ -352,10 +454,10 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
               {/* Play / Pause Main Button */}
               <button
                 onClick={togglePlay}
-                className={`flex items-center space-x-2 px-5 py-3 rounded-xl font-semibold text-sm shadow-xl transition transform active:scale-95 shrink-0 ${
+                className={`flex items-center space-x-2 px-6 py-3.5 rounded-xl font-semibold text-sm shadow-xl transition transform active:scale-95 shrink-0 ${
                   isPlaying
-                    ? 'bg-amber-500 hover:bg-amber-600 text-slate-950'
-                    : 'bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white'
+                    ? 'bg-amber-500 hover:bg-amber-600 text-slate-950 shadow-amber-500/20'
+                    : 'bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white shadow-rose-500/20'
                 }`}
               >
                 {isPlaying ? (
@@ -393,7 +495,7 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
             </div>
 
             {/* Scrubber & Timestamps */}
-            <div className="mt-4 flex items-center space-x-4">
+            <div className="flex items-center space-x-4">
               <span className="text-xs font-mono text-slate-400 w-10 text-right">{formatSec(currentTime)}</span>
               <input
                 type="range"
@@ -412,12 +514,302 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
                     setCurrentTime(0);
                   }
                 }}
-                className="p-1.5 text-slate-400 hover:text-white bg-slate-800/80 hover:bg-slate-800 rounded-lg"
-                title="Riavvia"
+                className="p-1.5 text-slate-400 hover:text-white bg-slate-800/80 hover:bg-slate-800 rounded-lg transition"
+                title="Riavvia dall'inizio"
               >
                 <RotateCcw className="w-4 h-4" />
               </button>
             </div>
+
+            {/* Master Acoustic Controls Toolbar */}
+            <div className="pt-3 border-t border-slate-800/80 grid grid-cols-1 md:grid-cols-2 gap-3">
+              
+              {/* Left Column: Volume Slider & StethoBoost */}
+              <div className="flex flex-col gap-2 bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+                <div className="flex items-center justify-between text-xs text-slate-300 font-medium">
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      onClick={() => setIsMuted(!isMuted)}
+                      className="text-slate-400 hover:text-white transition"
+                      title={isMuted ? "Riattiva Audio" : "Disattiva Audio"}
+                    >
+                      {isMuted || volume === 0 ? <VolumeX className="w-4 h-4 text-rose-400" /> : <Volume2 className="w-4 h-4" />}
+                    </button>
+                    <span>Volume: {isMuted ? 'Muto' : `${Math.round(volume * 100)}%`}</span>
+                  </div>
+                  
+                  {/* StethoBoost Toggle */}
+                  <button
+                    onClick={() => {
+                      initAudioGraph();
+                      setIsBoosted(!isBoosted);
+                    }}
+                    className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-bold tracking-wide transition ${
+                      isBoosted
+                        ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-sm shadow-amber-500/20'
+                        : 'bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-700'
+                    }`}
+                    title="Amplificazione digitale +6 dB per altoparlanti a bassa potenza"
+                  >
+                    <Zap className={`w-3.5 h-3.5 ${isBoosted ? 'text-amber-400 fill-amber-400 animate-pulse' : ''}`} />
+                    <span>StethoBoost {isBoosted ? '+6dB ON' : '+6dB'}</span>
+                  </button>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <input
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.05"
+                    value={isMuted ? 0 : volume}
+                    onChange={(e) => {
+                      setVolume(parseFloat(e.target.value));
+                      if (isMuted) setIsMuted(false);
+                    }}
+                    className="flex-1 accent-amber-500 bg-slate-800 h-1.5 rounded-lg cursor-pointer"
+                  />
+                </div>
+              </div>
+
+              {/* Right Column: Loop Continuo & Velocità Didattica */}
+              <div className="flex flex-col gap-2 bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+                <div className="flex items-center justify-between text-xs text-slate-300 font-medium">
+                  <div className="flex items-center gap-1.5">
+                    <Repeat className="w-4 h-4 text-slate-400" />
+                    <span>Modalità Riproduzione</span>
+                  </div>
+
+                  {/* Loop Toggle */}
+                  <button
+                    onClick={() => setIsLooping(!isLooping)}
+                    className={`flex items-center gap-1 px-2 py-0.5 rounded-lg text-[11px] font-semibold transition ${
+                      isLooping
+                        ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
+                        : 'bg-slate-800 text-slate-400 border border-slate-700'
+                    }`}
+                    title="Riproduzione continua a ciclo infinito come un vero fonendoscopio"
+                  >
+                    <Repeat className="w-3 h-3" />
+                    <span>{isLooping ? 'Loop Continuo' : 'Singolo'}</span>
+                  </button>
+                </div>
+
+                {/* Speed Selector */}
+                <div className="flex items-center gap-1 pt-0.5">
+                  <Gauge className="w-3.5 h-3.5 text-slate-400 shrink-0 mr-1" />
+                  <span className="text-[11px] text-slate-400 mr-2">Velocità:</span>
+                  <button
+                    onClick={() => setPlaybackSpeed(1.0)}
+                    className={`flex-1 py-1 text-[11px] font-medium rounded-md transition ${
+                      playbackSpeed === 1.0
+                        ? 'bg-rose-500 text-white font-bold'
+                        : 'bg-slate-800/80 text-slate-300 hover:bg-slate-800'
+                    }`}
+                  >
+                    1.0x Normale
+                  </button>
+                  <button
+                    onClick={() => setPlaybackSpeed(0.75)}
+                    className={`flex-1 py-1 text-[11px] font-medium rounded-md transition ${
+                      playbackSpeed === 0.75
+                        ? 'bg-rose-500 text-white font-bold'
+                        : 'bg-slate-800/80 text-slate-300 hover:bg-slate-800'
+                    }`}
+                    title="Rallentatore didattico per isolare frazioni di secondo tra S1, soffi e schiocchi"
+                  >
+                    0.75x Didattico
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Acoustic Filters (Filtro Fonendoscopio Littmann) */}
+            <div className="bg-slate-900/80 border border-slate-800/90 rounded-xl p-3 space-y-2">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Sliders className="w-4 h-4 text-sky-400" />
+                  <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider">
+                    Filtro Acustico Fonendoscopio
+                  </h4>
+                </div>
+                <span className="text-[10px] font-mono text-slate-400">
+                  {acousticFilter === 'flat' && 'Spettro lineare (20-20.000 Hz)'}
+                  {acousticFilter === 'diaphragm' && 'Passa-Alto > 180 Hz (Isola Soffi)'}
+                  {acousticFilter === 'bell' && 'Passa-Basso < 220 Hz (Isola S3, S4, Rullio)'}
+                </span>
+              </div>
+
+              <div className="grid grid-cols-3 gap-2">
+                <button
+                  onClick={() => {
+                    initAudioGraph();
+                    setAcousticFilter('flat');
+                  }}
+                  className={`py-2 px-2.5 rounded-lg text-xs font-semibold border transition text-center ${
+                    acousticFilter === 'flat'
+                      ? 'bg-slate-800 text-white border-slate-600 shadow-sm'
+                      : 'bg-slate-950/60 text-slate-400 border-slate-800 hover:border-slate-700'
+                  }`}
+                >
+                  <div className="font-bold">Standard</div>
+                  <div className="text-[10px] opacity-75 mt-0.5">Lineare</div>
+                </button>
+
+                <button
+                  onClick={() => {
+                    initAudioGraph();
+                    setAcousticFilter('diaphragm');
+                  }}
+                  className={`py-2 px-2.5 rounded-lg text-xs font-semibold border transition text-center ${
+                    acousticFilter === 'diaphragm'
+                      ? 'bg-rose-500/20 text-rose-300 border-rose-500/40 shadow-sm shadow-rose-500/10'
+                      : 'bg-slate-950/60 text-slate-400 border-slate-800 hover:border-slate-700'
+                  }`}
+                  title="Attenua il rimbombo sub-bass e mette in primo piano i soffi ad alta frequenza"
+                >
+                  <div className="font-bold">🔘 Membrana</div>
+                  <div className="text-[10px] opacity-75 mt-0.5">Soffi & Sfregamenti</div>
+                </button>
+
+                <button
+                  onClick={() => {
+                    initAudioGraph();
+                    setAcousticFilter('bell');
+                  }}
+                  className={`py-2 px-2.5 rounded-lg text-xs font-semibold border transition text-center ${
+                    acousticFilter === 'bell'
+                      ? 'bg-sky-500/20 text-sky-300 border-sky-500/40 shadow-sm shadow-sky-500/10'
+                      : 'bg-slate-950/60 text-slate-400 border-slate-800 hover:border-slate-700'
+                  }`}
+                  title="Esclude i fruscii acuti per far emergere i suoni cupi a bassa frequenza"
+                >
+                  <div className="font-bold">🔔 Campana</div>
+                  <div className="text-[10px] opacity-75 mt-0.5">Galoppi S3/S4 & Rullio</div>
+                </button>
+              </div>
+            </div>
+
+            {/* Clinical Listening Advice Banner */}
+            <div className="bg-rose-950/20 border border-rose-500/20 rounded-xl p-3 flex items-start gap-3">
+              <Sparkles className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
+              <div className="text-xs leading-relaxed text-slate-300">
+                <span className="font-semibold text-rose-300">Consiglio Clinico per l'Ascolto: </span>
+                I soffi valvolari risiedono nella banda 150-600 Hz. Se utilizzi altoparlanti integrati del laptop o telefono, attiva <strong className="text-amber-300">StethoBoost (+6dB)</strong> e seleziona il filtro <strong className="text-rose-300">Membrana</strong> per esaltare le microturbolenze di stenosi e rigurgiti.
+              </div>
+            </div>
+
+          </div>
+
+          {/* Phonocardiogram / Cardiac & Pulmonary Cycle Visualizer */}
+          <div className="bg-slate-950/60 border border-slate-800 rounded-xl p-4 space-y-3">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-2 text-rose-400">
+                <Activity className="w-4 h-4" />
+                <h4 className="text-xs font-bold uppercase tracking-wider">
+                  {selectedTrack.category === 'cardiaca' ? 'Fasi del Ciclo Cardiaco & Timing Acustico' : 'Ciclo Ventilatorio & Timing Acustico'}
+                </h4>
+              </div>
+              <span className="text-[10px] font-mono text-slate-400">
+                {selectedTrack.category === 'cardiaca' ? 'S1 ➔ SISTOLE ➔ S2 ➔ DIASTOLE' : 'INSPIRAZIONE ➔ PAUSA ➔ ESPIRAZIONE'}
+              </span>
+            </div>
+
+            {selectedTrack.category === 'cardiaca' ? (
+              <div className="grid grid-cols-4 gap-2 text-center text-xs">
+                {/* S1 Phase */}
+                <div className={`p-2.5 rounded-lg border transition ${
+                  selectedTrack.id === 's1-s2' || selectedTrack.id === 's4'
+                    ? 'bg-rose-500/20 border-rose-500/40 text-rose-200'
+                    : 'bg-slate-900 border-slate-800 text-slate-400'
+                }`}>
+                  <div className="font-bold">S1</div>
+                  <div className="text-[10px] opacity-80 mt-0.5">Chiusura AV</div>
+                </div>
+
+                {/* Systole Phase */}
+                <div className={`p-2.5 rounded-lg border transition ${
+                  selectedTrack.id === 'aortic-stenosis' || selectedTrack.id === 'mitral-regurgitation' || selectedTrack.id === 'pericardial-rub'
+                    ? 'bg-amber-500/20 border-amber-500/50 text-amber-200 ring-1 ring-amber-500/30'
+                    : 'bg-slate-900 border-slate-800 text-slate-400'
+                }`}>
+                  <div className="font-bold flex items-center justify-center gap-1">
+                    SISTOLE
+                    {(selectedTrack.id === 'aortic-stenosis' || selectedTrack.id === 'mitral-regurgitation') && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
+                    )}
+                  </div>
+                  <div className="text-[10px] opacity-80 mt-0.5">
+                    {selectedTrack.id === 'aortic-stenosis' && 'Soffio a Diamante'}
+                    {selectedTrack.id === 'mitral-regurgitation' && 'Soffio Olosistolico'}
+                    {selectedTrack.id !== 'aortic-stenosis' && selectedTrack.id !== 'mitral-regurgitation' && 'Eiezione'}
+                  </div>
+                </div>
+
+                {/* S2 Phase */}
+                <div className={`p-2.5 rounded-lg border transition ${
+                  selectedTrack.id === 's1-s2' || selectedTrack.id === 'aortic-regurgitation'
+                    ? 'bg-sky-500/20 border-sky-500/40 text-sky-200'
+                    : 'bg-slate-900 border-slate-800 text-slate-400'
+                }`}>
+                  <div className="font-bold">S2</div>
+                  <div className="text-[10px] opacity-80 mt-0.5">Semilunari</div>
+                </div>
+
+                {/* Diastole Phase */}
+                <div className={`p-2.5 rounded-lg border transition ${
+                  selectedTrack.id === 'mitral-stenosis' || selectedTrack.id === 'aortic-regurgitation' || selectedTrack.id === 's3' || selectedTrack.id === 'pericardial-rub'
+                    ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-200 ring-1 ring-emerald-500/30'
+                    : 'bg-slate-900 border-slate-800 text-slate-400'
+                }`}>
+                  <div className="font-bold flex items-center justify-center gap-1">
+                    DIASTOLE
+                    {(selectedTrack.id === 'mitral-stenosis' || selectedTrack.id === 'aortic-regurgitation' || selectedTrack.id === 's3') && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                    )}
+                  </div>
+                  <div className="text-[10px] opacity-80 mt-0.5">
+                    {selectedTrack.id === 'mitral-stenosis' && 'Rullio & Snap'}
+                    {selectedTrack.id === 'aortic-regurgitation' && 'Decrescendo'}
+                    {selectedTrack.id === 's3' && 'Galoppo S3'}
+                    {selectedTrack.id !== 'mitral-stenosis' && selectedTrack.id !== 'aortic-regurgitation' && selectedTrack.id !== 's3' && 'Riempimento'}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="grid grid-cols-3 gap-2 text-center text-xs">
+                {/* Inspiratory */}
+                <div className={`p-2.5 rounded-lg border transition ${
+                  selectedTrack.id === 'crackles' || selectedTrack.id === 'bronchial-breath'
+                    ? 'bg-sky-500/20 border-sky-500/50 text-sky-200 ring-1 ring-sky-500/30'
+                    : 'bg-slate-900 border-slate-800 text-slate-400'
+                }`}>
+                  <div className="font-bold">INSPIRAZIONE</div>
+                  <div className="text-[10px] opacity-80 mt-0.5">
+                    {selectedTrack.id === 'crackles' ? 'Crepitii Tele-inspiratori' : 'Flusso d\'aria'}
+                  </div>
+                </div>
+
+                {/* Pause */}
+                <div className="p-2.5 rounded-lg border bg-slate-900 border-slate-800 text-slate-400">
+                  <div className="font-bold">PAUSA</div>
+                  <div className="text-[10px] opacity-80 mt-0.5">Tele-inspiratoria</div>
+                </div>
+
+                {/* Expiratory */}
+                <div className={`p-2.5 rounded-lg border transition ${
+                  selectedTrack.id === 'wheezing' || selectedTrack.id === 'bronchial-breath'
+                    ? 'bg-amber-500/20 border-amber-500/50 text-amber-200 ring-1 ring-amber-500/30'
+                    : 'bg-slate-900 border-slate-800 text-slate-400'
+                }`}>
+                  <div className="font-bold">ESPIRAZIONE</div>
+                  <div className="text-[10px] opacity-80 mt-0.5">
+                    {selectedTrack.id === 'wheezing' ? 'Sibili & Fischi' : 'Svuotamento'}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Focal Point & Stethoscope Recommendation */}
@@ -477,3 +869,4 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
 };
 
 export default AuscultationDock;
+
