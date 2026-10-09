@@ -2,10 +2,25 @@ import React, { useState } from 'react';
 import { Stethoscope, User, AlertTriangle, ChevronRight, ChevronDown } from 'lucide-react';
 import oralCasesData from '../data/oralCases.json';
 
-export const OralExamSimulator: React.FC = () => {
-  const [selectedCaseId, setSelectedCaseId] = useState<string>(oralCasesData[0].id);
+interface OralExamSimulatorProps {
+  initialStationId?: number | null;
+}
+
+export const OralExamSimulator: React.FC<OralExamSimulatorProps> = ({ initialStationId }) => {
+  const [selectedCaseId, setSelectedCaseId] = useState<string>(() => {
+    if (initialStationId && initialStationId >= 1 && initialStationId <= oralCasesData.length) {
+      return oralCasesData[initialStationId - 1].id;
+    }
+    return oralCasesData[0].id;
+  });
   const [revealedAnswers, setRevealedAnswers] = useState<{ [key: string]: boolean }>({});
   const [userAssessments, setUserAssessments] = useState<{ [key: string]: 'good' | 'ok' | 'bad' }>({});
+
+  React.useEffect(() => {
+    if (initialStationId && initialStationId >= 1 && initialStationId <= oralCasesData.length) {
+      setSelectedCaseId(oralCasesData[initialStationId - 1].id);
+    }
+  }, [initialStationId]);
 
   const currentCase = oralCasesData.find(c => c.id === selectedCaseId) || oralCasesData[0];
 

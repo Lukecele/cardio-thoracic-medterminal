@@ -1,14 +1,12 @@
-PNEUMO
+ PNEUMO
 TORACICA
-
-2FAST
-
-A cura di Lorenzo Pessetti
-
-Auscultazione
+ 2FAST
+   A cura di Lorenzo Pessetti
+                                 Auscultazione
 Murmure vescicolare
 Suono di frequenza aspirata a 400 Hz, dolce . Si ottiene per l’espansione degli alveoli polmonari durante l’inspirazione.
 Dura per tutta l’inspirazione e solo all’inizio della espirazione.
+
 
 Varianti fisiologiche
 Bambino → acuto aspro, espirazione prolungata (puerile)
@@ -16,146 +14,183 @@ Anziano → debole
 uomini → intenso nelle porzioni basse del torace
 donne → intenso nelle porzioni alte del torace.
 
+
 Variazioni patologiche
 Quando aumenta?
 Febbre ,versamenti, PNX.
 
+
 Quando diminuisce?
 Rigidità di parete (fratture costali, ferite, contusioni) , versamento, PNX (?) ,ostruzione via aeree, patologie parenchimali (enfisema)
+
+
+
 
 Rumori broncopolmonari
 SECCHI
 • ronchi (riduzione pervietà delle vie aeree). Evidenti in espirazione e non si modificano con la tosse (→BPCO)
+
 • sibili → avvertiti in entrambe le parti della respirazione. Dovuti a ostruzione di vie aeree maggiori
-(asma bronchiale, tonsille ipertrofiche, edema laringeo, gozzo intratoracico).
+                    (asma bronchiale, tonsille ipertrofiche, edema laringeo, gozzo intratoracico).
+
 
 UMIDI
+
 • Rantoli
 Dovuti al passaggio di aria attraverso una sostanza che si comporta come un fluido.
 Si hanno per formazione di bolle all’interno del muco che è arrivato in superficie, scoppiano.
-◦Rantoli a piccole bolle SOLO INSPIRATORI (gravi → edema , broncopolmoniti).
-◦Rantolo tracheale “a grandissime bolle” → segno prognostico molto grave e udibile anche da lontano.
+
+
+      ◦Rantoli a piccole bolle SOLO INSPIRATORI (gravi → edema , broncopolmoniti).
+      ◦Rantolo tracheale “a grandissime bolle” → segno prognostico molto grave e udibile anche da lontano.
+
+
 Sono modificabili (compaiono o scompaiono) con i colpi di tosse che spostano il muco.
 
-• Crepitii → rumori velcri tipici della fibrosi polmonare.
 
-Test di funzionalità respiratoria
+• Crepitii → rumori velcri tipici della fibrosi polmonare.
+                         Test di funzionalità respiratoria
 DLCO (Diffusing Lung Capacity for Carbon Monoxide) o “diffusione alveolo-capillare del CO”
 Si utilizza il monossido di carbonio per valutare la capacità di diffusione alveolo-capillare, dal momento che lega l’emoglobina in
 maniera più forte dell’ossigeno.
 
+
 Procedura
 1. Il paziente, collegato ad uno spirometro, inala in 4-5 atti respiratori a volume corrente (VC) una miscela contenente CO <0,3% e
-un gas tracciante non assorbibile (elio).
+   un gas tracciante non assorbibile (elio).
 2. Si chiede poi di eseguire una inspirazione massimale e trattenere il respiro 10”.
 3. Il paziente espira fino al volume residuo (VR)
+
 
 Interpretazione risultati →la differenza tra CO inspirato-espirato è funzione della quantità di gas passata alveoli→sangue.
 • Valori ridotti → fibrosi polmonare, sarcoidosi , enfisema , ipertensione polmonare , anemia.
 • valori aumentati → policitemia , emorragia alveolare.
 
+
 Limiti → fattori confondenti come anemia o obesità. Richiede corretta esecuzione da parte del pz e del tecnico.
+
 DLCO nei diversi pattern funzionali
 • Pattern restrittivo (fibrosi o sarcoidosi)
 
 → la membrana alveolo-capillare si ispessisce, facendo perdere superficie di scambio gassoso. DLCO ridotto.
-• Pattern ostruttivo (BPCO) → DLCO Normale o ridotto.
-Utilizza la Legge di Fick
 
-V = [ A x D x (P1 - P2) ]
-L
+• Pattern ostruttivo (BPCO) → DLCO Normale o ridotto.
+
+
+Utilizza la Legge di Fick
+                         V = [ A x D x (P1 - P2) ]
+                                               L
 A = Area di diffusione
 P1-P2 = differenza di pressione del gas tra polmoni e sangue
 D = coeff.diffusione
 L= spessore membrana alveolo-capillare.
-
-SPIROMETRIA
+                                  SPIROMETRIA
 Esame diagnostico non invasivo che misura volumi e flussi polmonari, valutando funzionalità respiratoria e rilevando eventuali
 ostruzioni o restrizioni delle vie aeree.
+
+
 • Spirometria SEMPLICE → valuta volumi polmonari dinamici (FEV1 , CVF)
+             → studia deficit ostruttivi (asma e BPCO) con limitazione della capacità espiratoria.
 
-→ studia deficit ostruttivi (asma e BPCO) con limitazione della capacità espiratoria.
+
 • spirometria GLOBALE → valuta volumi polmonari statici (VR , TLC)
+             → studia patologie restrittive (riduzione armonica di volumi polmonari statici e dinamici).
 
-→ studia patologie restrittive (riduzione armonica di volumi polmonari statici e dinamici).
+
 Si serve di uno spirometro collegato attraverso un boccaglio allo pneumotacografo.
+
+
+
 
 Spirometria SEMPLICE
 Manovra di capacità vitale lenta
-
 → tracciato volume-tempo
 1. respirazione normale
 2. espirazione massimale
 3. inspirazione massimale
 4. espirazione massimale
 
+
 Ci permette di ottenere:
 • Volume corrente (VC) o tidal volume (VT)
-
 → volume inspirato ed espirato a ogni atto respiratorio a riposo. (500 ml)
+
+
 • Volume di riserva inspiratoria (VRI)
-
 → volume che può essere inspirato al termine di un'inspirazione a volume corrente. (2500 ml)
-• Volume di riserva espiratoria (VRE)
 
+
+• Volume di riserva espiratoria (VRE)
 → volume espirato al termine di un'espirazione tranquilla a volume corrente. (1500 ml)
+
+
 • Capacità vitale (CV)
 
 → volume ottenuto da un'inspirazione massimale a partire da un'espirazione massimale
-CV = VT + VRI + VRE (4500 ml)
+                           CV = VT + VRI + VRE (4500 ml)
+
+
 • Capacità inspiratoria (CI)
 
 → volume ottenuto da un'inspirazione massimale partendo dalla fine di un'espirazione tranquilla a VT
-CI = VT + VRI (3000 ml)
-
+                           CI = VT + VRI (3000 ml)
 Manovra di capacità vitale forzata → tracciato flusso-volume
 
-1. espirazione tranquilla
-2. inspirazione massimale vigorosa
-3. espirazione massimale lunga (“fuori il piu lento possibile”)
+                   1. espirazione tranquilla
+                   2. inspirazione massimale vigorosa
+                   3. espirazione massimale lunga (“fuori il piu lento possibile”)
+
 Dalla manovra di capacità vitale forzata è invece possibile misurare:
 • capacità vitale forzata (CVF) → volume espirato forzatamente a partire da un'inspirazione massimale. (4500 ml)
+
+
 • volume espiratorio massimo nel primo secondo (VEMS) → (FEV1)
+
 volume di aria che viene espirato durante il 1° secondo di un'espirazione forzata a partire da un'inspirazione massima.
 (3500-4500 ml uomo 170 cm di 20-40 anni, 2500-3500 ml donna)
-•
 
-picco di flusso espiratorio (PFE)
 
-→ il più alto valore di flusso espiratorio durante la manovra di espirazione forzata, dipendente dallo sforzo del pz.
-•
+•   picco di flusso espiratorio (PFE)
 
-massimo flusso espiratorio (MEF o FEF) al 25% (MEF25 o FEF25), 50% e 75%
+      → il più alto valore di flusso espiratorio durante la manovra di espirazione forzata, dipendente dallo sforzo del pz.
 
-→ è il flusso misurato nel momento in cui viene espirato rispettivamente il 25%, 50% e 75% della CVF.
+•   massimo flusso espiratorio (MEF o FEF) al 25% (MEF25 o FEF25), 50% e 75%
+
+      → è il flusso misurato nel momento in cui viene espirato rispettivamente il 25%, 50% e 75% della CVF.
+
 
 Indice di Tiffenau (IT) = FEV1 / CVF
 Ci permette di discriminare tra pz con patologia restrittiva o ostruttiva.
 Un soggetto sano espira forzatamente durante il 1º secondo il 70% della CV → IT> 0,7
 
+
+
+
 Nelle sindromi ostruttive, la gravità del quadro viene classificata in:
-◦grave VEMS →
+      ◦grave VEMS →           <50%
+      ◦molto grave → VEMS <35%.
 
-<50%
-
-◦molto grave → VEMS <35%.
 
 Interpretare i valori in maniera più accurata possibile, le variabili spirometriche e pletismografiche vengono rapportate in base ad età,
 sesso, altezza ed etnia da equazioni di riferimento, determinando la soglia di variabilità dei risultati ottenuti.
 Oggi per tenere conto della profonda variabilità della funzionalità polmonare in soggetti diversi, utilizziamo il limite inferiore di
-
 normalità (LLN).
-
-Varie tipologie di grafico flusso-volume
+                           Varie tipologie di grafico flusso-volume
 • curva nera → caso normale
+
+
 • curva blu → pattern restrittivo
 nell’ IT calano proporzionalmente numeratore e denominatore,
 mantenendo il rapporto bilanciato.
 
+
 • Curva arancione → pattern ostruttivo
 l’ostruzione bronchiale fa emergere il problema bronchiale (diminuzione di VEMS ,
 il numeratore) in espirazione.
-IT diminuirà.
+                                 IT diminuirà.
+
+
+
 
 Test di wash-out dell’azoto → Misura CFR.
 Procedura
@@ -164,226 +199,269 @@ Procedura
 3. il paziente continua a respirare fin quando la concentrazione di N2 nell’aria ispirata scende sotto 1%.
 4. Il tempo necessario varia in base alla funzione polmonare.
 
-CFR = Volume totale di azoto espirato / frazione di azoto nell’aria alveolare (circa 0,78 ).
+
+              CFR = Volume totale di azoto espirato / frazione di azoto nell’aria alveolare (circa 0,78 ).
+
 SIGNIFICATO
 Malattie ostruttive → aumentano CFR e RV
 malattie restrittive (fibrosi) → riducono TLC ( o CPT , capacità polmonare totale).
+
+
 ✅ Vantaggi → precisione, non invasivo e semplice da eseguire.
 ❌ Limiti → collaborazione del paziente e poco accurata nelle malattie ostruttive rispetto alla pletismografia corporea.
 
+
+
+
 Test di diluizione dell’elio → Misura TLC e RV .
 Procedura
-1.
-
-il paziente attraverso un boccaglio collegato ad un circuito chiuso respira una miscela di He e O2, mentre è collegato ad uno
-spirometro
-
-2.
-
-respirando normalmente , He si distribuisce nei polmoni
-
-3.
-
-L’ He nel circuito e nei polmoni raggiunge un equilibrio dopo alcuni minuti
-
-4.
-
-una volta raggiunto l’equilibrio si applica il principio di diluizione e la legge di conservazione della massa per calcolare il volume
-polmonare con le concentrazioni iniziali e finale di He.
-
+1.   il paziente attraverso un boccaglio collegato ad un circuito chiuso respira una miscela di He e O2, mentre è collegato ad uno
+     spirometro
+2.   respirando normalmente , He si distribuisce nei polmoni
+3.   L’ He nel circuito e nei polmoni raggiunge un equilibrio dopo alcuni minuti
+4.   una volta raggiunto l’equilibrio si applica il principio di diluizione e la legge di conservazione della massa per calcolare il volume
+     polmonare con le concentrazioni iniziali e finale di He.
 Pletismografia → misura VR
 Funziona utilizzando la legge di Boyle, che stabilisce che pressione e volume di un gas sono inversamente proporzionali a
 temperatura costante (P1V1 = P2V2).
+
+
 Il pz respira in una cabina sigillata, causando variazioni di p all’interno della stessa quando inspira (p cabina diminuisce)
 o espira (p cabina aumenta).
 
+
 La cabina è in comunicazione con uno spirometro, che registra la variazione di volume polmonare.
 Un manometro misura le variazioni di pressione.
+
+
 Conoscendo la p iniziale , l’incremento di p ,le variazioni di volume, calcoliamo il volume polmonare iniziale (VR).
 
-DIAGNOSTICA STRUMENTALE
+
+
+
+                   DIAGNOSTICA STRUMENTALE
 Broncoscopia
 Effettuabile con broncoscopio rigido (tubo metallico di 40 cm), dotato di lenti telescopiche per la visione ingrandita diretta e
+
 angolata (90°, 180°).
 L’attrezzatura comprende aspiratore per secrezioni bronchiali , pinze per biopsia e asportazione di corpi estranei e
+
 apparecchiature fotografiche.
 Consente l’esplorazione dell’albero bronchiale fino agli orifizi dei bronchi segmentari.
 
-Indicazioni ‼ ️
-◦diagnosi e trattamento conservativo dei corpi estranei
 
-◦ Varici tracheali sanguinanti
-◦ trattamento neoplasie peduncolate tracheali con termocauterizzatore.
-◦ Impianto anelli protesici tracheobronchiali
+Indicazioni ‼ ️
+      ◦diagnosi e trattamento conservativo dei corpi estranei
+      ◦ Varici tracheali sanguinanti
+      ◦ trattamento neoplasie peduncolate tracheali con termocauterizzatore.
+      ◦ Impianto anelli protesici tracheobronchiali
 
 Fibrobroncoscopia
 Il broncoscopio flessibile permette di esplorare l’albero bronchiale fino ai rami di 5º-6º ordine.
 Rotazione fino a 160°. Ottima tollerabilità anche in pazienti instabili dal punto di vista cardiorespiratorio.
 
+
 Utilizzo → biopsie parenchimali per via transbronchiale , biopsie in settori periferici a livello dei lobi superiori.
+
 🥇 Indicazione principale → neoplasie polmonari (origine quasi sempre broncogeno), permettendo di individuare:
-◦segni diretti → lesioni vegetanti e infiltranti endoluminali del tumore
-◦segni indiretti → segni compressivi della massa tumorale (stenosi del lume) o linfonodi ipertrofici.
+      ◦segni diretti → lesioni vegetanti e infiltranti endoluminali del tumore
+      ◦segni indiretti → segni compressivi della massa tumorale (stenosi del lume) o linfonodi ipertrofici.
+
+
+
 
 Endoscopia bronchiale interventistica (HDRBT , brachiterapia endobronchiale High Dose Rate)
 Permette di concentrare dosi radianti superiori a quelle realizzabili con radioterapia a fasci esterni senza penalizzare il pz con gli e.c.
 di quest’ultima.
-
-Lavaggio broncoalveolare
-
-(BAL)
-
+Lavaggio broncoalveolare                                                      (BAL)
 Procedura fibrobroncoscopica usata per studiare le popolazioni cellulari del polmone profondo.
 Si introducono quattro parti da 50 ml ciascuna di fisiologica, per poi aspirare (inline suction).
-
-È un lavaggio che forza l'esfoliazione delle cellule della mucosa.
+             È un lavaggio che forza l'esfoliazione delle cellule della mucosa.
 
 Indicazioni
-◦polmonite eosinofila
-◦istiocitosi di Langherans
-◦proteinosi alveolare
-◦tumori
-◦intossicazione da asbesto
-◦infezioni
+      ◦polmonite eosinofila
+      ◦istiocitosi di Langherans
+      ◦proteinosi alveolare
+      ◦tumori
+      ◦intossicazione da asbesto
+      ◦infezioni
+
 
 Una volta recuperato il liquido, se ne valutano le caratteristiche e lo si filtra su un doppio strato di garza per eliminare tracce di muco.
 Viene osservato in microscopia ottica con la colorazione Trypane blu.
 
+
 Quali elementi si analizzano?
-◦Sopranatante
-◦mediatori dell’infiammazione
-◦numero assoluto di cellule e %
-◦morfologia
+      ◦Sopranatante
+      ◦mediatori dell’infiammazione
+      ◦numero assoluto di cellule e %
+      ◦morfologia
 
 Valori normali
 • conta cellulare 150.000-300.000 cell/mL (nei fumatori fino a 1.000.000)
-• macrofagi alveolari (AMs) 90%, si analizza cosa hanno fagocitato (nero = fumo , blu = emosiderina).
-• linfociti 5-15% , neutrofili (PMNs) 3% , eosinofili (Els) 1% , mastociti 1%
 
+• macrofagi alveolari (AMs) 90%, si analizza cosa hanno fagocitato (nero = fumo , blu = emosiderina).
+
+
+• linfociti 5-15% , neutrofili (PMNs) 3% , eosinofili (Els) 1% , mastociti 1%
 Bronchiectasie
 Patologia ostruttiva caratterizzata da dilatazione anomala e irreversibile (>2 mm) dei bronchi, a causa di
-
 alterazioni strutturali della componente elastica e muscolare delle loro pareti.
 
 Localizzazione
 Frequentemente nei bronchi di medio calibro (sotto segmentali 4°-9° generazione).
+
 Spesso colpiscono le diramazioni distali poiché sprovviste dell’impalcatura cartilaginea.
 Incidenza maggiore nelle donne anziane.
 
+
 Classificazione morfologica di Reid ‼ 🛤
-️ 👑
-️
-◦cilindriche (“a binario.)
-◦varicose (“a corona di rosario”)
-◦ cistiche o sacculari.
+                                      ️ 👑
+                                        ️
+      ◦cilindriche (“a binario.)
+      ◦varicose (“a corona di rosario”)
+      ◦ cistiche o sacculari.
 
 Eziologia
 • idiopatica (44% dei casi)
-
 • deficit A1-antitripsina
 • patologie ostruttive (linfoadenopatia, corpi estranei, asma, BPCO).
-
 • Infezioni polmonari gravi e/o ricorrenti (Klebsiella , Aureus , TBC ,Morbillo , Pertosse , Mycoplasma , HIV , Aspergillus)
+
 • Tracheobroncomalacia → dilatazione diffusa dell’albero bronchiale per flaccidità degli anelli cartilaginei
 • broncomalacia → assenza completa o parziale delle cartilagini bronchiali da IV-VIII ordine
+
 • Disfunzioni S.I. (Deficit Ig)
 • Patologie reumatologiche (LES , AR , Sjorgen)
+
 
 Fisiopatologia
 La presenza di bronchiectasie compromette la clearance muco ciliare, provocando quadro infiammatorio e richiamo di neutrofili e
 PMN, che danneggiano la parete bronchiale (con i loro granuli contenenti elastasi e perossidasi), irrigidendola.
 
+
 Clinica
 La storia naturale comprende fasi di stabilità clinica a cui si intervallano >48 ore di peggioramento dei sintomi
-
-‣ tosse cronica prevalentemente notturna e accentuata dal cambio di posizione
+             ‣ tosse cronica prevalentemente notturna e accentuata dal cambio di posizione
 Il paziente tossisce nel passaggio tra clino e ortostatismo oppure su un fianco piuttosto dell’altro.
 
-‣ emottisi
-‣ dispnea
-‣ febbre moderata e ricorrente
-‣ dolore toracico
 
-‣ Espettorato mucopurulento
-
+             ‣ emottisi
+             ‣ dispnea
+             ‣ febbre moderata e ricorrente
+             ‣ dolore toracico
+             ‣ Espettorato mucopurulento
 ‼🔎
-Il pz riferirà di avere la “”””bronchite recidivante”””” (muco + febbre + tosse persistente).
-️
+ ️ Il pz riferirà di avere la “”””bronchite recidivante”””” (muco + febbre + tosse persistente).
+
+
 Casi gravi (bambini e anziani) → dispnea, cianosi, sinusiti
+
+
+
 
 DIAGNOSI = CLINICA + HRCT (Conferma solo con HRCT !!!)
 • Esame obiettivo
-◦ Anamnesi → infez. respiratorie gravi o persistenti (Pseudomonas), con frequenti riacutizzazioni ; emottisi ,
-espettorato .
-◦Ispezione →
-‣ segni di difficoltà respiratoria = tachipnea, tachicardia, cianosi
+      ◦ Anamnesi → infez. respiratorie gravi o persistenti (Pseudomonas), con frequenti riacutizzazioni ; emottisi ,
 
-‣ torace a botte
-‣ Ippocratismo digitale (aumento curvatura delle unghie e ingrossamento delle falangi distali)
-◦Palpazione → FVT ipertrasmesso (= addensamenti polmonari)
-◦Auscultazione → grossi rantoli inspiratori LOCALIZZATI + MV ridotto o assente
+        espettorato .
+
+
+      ◦Ispezione →
+            ‣ segni di difficoltà respiratoria = tachipnea, tachicardia, cianosi
+            ‣ torace a botte
+            ‣ Ippocratismo digitale (aumento curvatura delle unghie e ingrossamento delle falangi distali)
+
+
+      ◦Palpazione → FVT ipertrasmesso (= addensamenti polmonari)
+
+
+      ◦Auscultazione → grossi rantoli inspiratori LOCALIZZATI + MV ridotto o assente
+
+
+
 
 • Imaging → HRCT (gold standard) da eseguire durante il periodo di stabilità clinica
 Criteri 💍
-◦dilatazione bronchiale (“segno dell’anello con castone”)
+      ◦dilatazione bronchiale (“segno dell’anello con castone”)
 = rapporto tra diametro del bronco e quello del vaso adiacente superiore >1
 
-◦Segno del binario 🛤 ️
+
+      ◦Segno del binario 🛤 ️
+
 = perdita dell’assottigliamento fisiologico dei bronchi (= pareti ispessite ‼ )️ nelle diramazioni più periferiche.
-◦Bronchi visibili nella periferia polmonare (segno di dilatazione delle piccole vie aeree).
+
+
+      ◦Bronchi visibili nella periferia polmonare (segno di dilatazione delle piccole vie aeree).
+
 
 Classificazione
-‣ bronchiectasie piene di muco , radiopache.
-‣ bronchiectasie deterse (senza muco) che appaiono pervie e segni tipici come “binario” o “grani di rosario”.
+            ‣ bronchiectasie piene di muco , radiopache.
+            ‣ bronchiectasie deterse (senza muco) che appaiono pervie e segni tipici come “binario” o “grani di rosario”.
+
+
+
 
 • TEST DI FUNZIONALITÀ POLMOMARE
-◦Spirometria → Riduzione CVF e FEV1 (pattern ostruttivo).
-◦DLCO → air trapping (70%) , ostruzione bronchiale (41%)
 
+      ◦Spirometria → Riduzione CVF e FEV1 (pattern ostruttivo).
+
+      ◦DLCO → air trapping (70%) , ostruzione bronchiale (41%)
 • Test microbiologici → esame dell’espettorato con antibiogramma e test per micobatteri non tubercolari
 • test genetici per CFTR (FC)
 • valutazione allergologica per aspergillosi broncopolmonare allergica (ABPA)
+
+
 Se una dilatazione da corpo estraneo è sospettabile → fibrobroncoscopia
+
 
 DDX con BPCO
 Il pz BPCO ha una tosse che non si modifica con la posizione ed è sempre grassa. Rantoli DIFFUSI.
 
-STADIAZIONE
-Il Bronchiectasis Severity Index (BSI) classifica con un punteggio multidimensionale la patologia in lieve, moderata o grave,
 
+
+
+                               STADIAZIONE
+Il Bronchiectasis Severity Index (BSI) classifica con un punteggio multidimensionale la patologia in lieve, moderata o grave,
 identificando i pazienti a più alto rischio di complicanze.
 Tiene conto di:
-◦età, BMI
-◦FEV1
-◦precedenti riacutizzazioni e ospedalizzazioni
-◦infezioni da Pseudomonas
-◦riscontri radiologici
+      ◦età, BMI
+      ◦FEV1
+      ◦precedenti riacutizzazioni e ospedalizzazioni
+      ◦infezioni da Pseudomonas
+      ◦riscontri radiologici
 
-TERAPIA
+
+                               TERAPIA
 Non esiste un farmaco autorizzato da FDA o EMA ad hoc per le bronchiectasie.
+
 
 • Eradicare la prima infezione e prevenire riacutizzazioni
 Le linee guida internazionali concordano nel optare per terapia antibiotica (post-antibiogramma) per 7-10 giorni , oppure per 10-14
 giorni in caso di infezione o rischio di infezione da pseudomomas.
+
+
 • Trattamento a lungo termine (3+ riacutizzazioni/anno)
 
-1ª scelta → Azitromicina (Macrolidi)
-E.C. = epatotox , cardiotox (monitoraggio AST/ALT e QTc) , ototox.
 
-2ª scelta → Gentamicina o Colistina per via inalatoria (→ ridurre e.c. sistemici).
-E.C. = broncospasmo. Non sono state ancora approvati ufficialmente
+            1ª scelta → Azitromicina (Macrolidi)
+                  E.C. = epatotox , cardiotox (monitoraggio AST/ALT e QTc) , ototox.
+
+
+            2ª scelta → Gentamicina o Colistina per via inalatoria (→ ridurre e.c. sistemici).
+                  E.C. = broncospasmo. Non sono state ancora approvati ufficialmente
+
 
 • Miglioramento clearance muco-ciliare
-◦ FKT respiratoria
-‣ Drenaggio posturale e percussioni del torace con vibratori meccanici
-‣ Pepmask (maschera a pressione positiva ad uso domiciliare) dove si soffia
+      ◦ FKT respiratoria
+            ‣ Drenaggio posturale e percussioni del torace con vibratori meccanici
+            ‣ Pepmask (maschera a pressione positiva ad uso domiciliare) dove si soffia
+      ◦ Soluzione salina ipertonica nebulizzata
+      ◦ mannitolo inalatorio
+      ◦mucolitici solo se il paziente è in grado di espettorare.
 
-◦ Soluzione salina ipertonica nebulizzata
-◦ mannitolo inalatorio
-◦mucolitici solo se il paziente è in grado di espettorare.
 
 ‼ ️ MAI SOMMINISTRARE ANTITUSSIGENI IN BPCO E BRONCHIECTASIE !!!
-
 • Chirurgia (lobectomia o segmentectomia) → Forme localizzate e non progressive , refrattarie a terapia medica e fkt.
 
 Norme igieniche fondamentali
@@ -391,360 +469,394 @@ Norme igieniche fondamentali
 2. umidificare ambiente e fare aerosol per fluidificare i muchi
 3. sospensione del fumo (ciliotossico e macrofago-tossico)
 
-POLMONITI
+
+
+                                 POLMONITI
 Processo infiammatorio acuto o subacuto che coinvolge il parenchima polmonare con essudato endoalveolare, peribronchiale e
 interstiziale. Sono la 1ª causa di morte per cause infettive.
 
+
 Classificazione istopatologica
 • alveolare → essudato infiammatorio nel lume alveolare
-◦a focolaio → interessano un lobo intero o più segmenti
-◦broncopolmoniti → interessa contemporaneamente albero bronchiale e parenchima.
+      ◦a focolaio → interessano un lobo intero o più segmenti
+      ◦broncopolmoniti → interessa contemporaneamente albero bronchiale e parenchima.
+
 
 • interstiziale infiltrato infiammatorio (linfociti o monociti) e edema nel tessuto interstiziale
 • mista
 • necrotizzante → evoluzione verso ascessualizzazione.
 
+
 Eziologica → batterica ,virale ,micotica ,protozoaria ,elmintica.
+
 Condizioni che predispongono ad una specifica infezione
-‣ etilisti cronici → Klebsiella
-‣ tossicodipendenti di droghe inalatorie o EV → stafilococco aureo (cutaneo) , TBC , P.Carinii.
-‣ Disturbi neurologici o scarsa igiene orale → polmonite ab ingestis.
-‣ BPCO e fumatori → Moraxella Catarrhalis , S.Pneumoniae , H.Influenzae , Legionella.
+             ‣ etilisti cronici → Klebsiella
+             ‣ tossicodipendenti di droghe inalatorie o EV → stafilococco aureo (cutaneo) , TBC , P.Carinii.
+             ‣ Disturbi neurologici o scarsa igiene orale → polmonite ab ingestis.
+             ‣ BPCO e fumatori → Moraxella Catarrhalis , S.Pneumoniae , H.Influenzae , Legionella.
+
 
 Classificazione Epidemiologica (la più usata)
-comunitaria (CAP , pz non ospedalizzati da almeno 14gg) → tipica / atipica.
+• comunitaria (CAP , pz non ospedalizzati da almeno 14gg) → tipica / atipica.
 • polmonite acquisita in ospedale (HAP) → insorge dopo 48-72h dall’ospedalizzazione / dimissione da un reparto.
 • polmonite associata al ventilatore (VAP) → insorge dopo 48h dall’intubazione.
 • polmoniti nei soggetti immunocompromessi
-•
 
 • cause rare di infezioni polmonari
+                    DIAGNOSI POLMONITE (generale)
+            Tosse + uno tra: febbre / dispnea / tachipnea
+                               Conferma → RX.
+Se RX negativa → TC.        Se TC negativa → ci orientiamo verso BPCO.
 
-DIAGNOSI POLMONITE (generale)
-Tosse + uno tra: febbre / dispnea / tachipnea
-Conferma → RX.
-Se RX negativa → TC.
-
-Se TC negativa → ci orientiamo verso BPCO.
 
 • Esami aggiuntivi
-‣ emocoltura ( in ospedale si fa sempre quando c’è febbre)
-‣ test urinari per legionella e pneumococco
-‣ esame liquido pleurico
-‣ esame espettorato (facilmente contaminabile dalla flora endogena delle vie aeree superiori) o BAL.
+            ‣ emocoltura ( in ospedale si fa sempre quando c’è febbre)
+            ‣ test urinari per legionella e pneumococco
+            ‣ esame liquido pleurico
+            ‣ esame espettorato (facilmente contaminabile dalla flora endogena delle vie aeree superiori) o BAL.
+
 
 • Scelta del LUOGO di CURA → Indice CURB-65
-◦Confusione
-◦Urea >7 mmol/L
-◦(Respiratory) FR >30 atti/min
-◦(Blood Pressure) PAS <90
-◦>65 anni di età
+
+      ◦Confusione
+      ◦Urea >7 mmol/L
+      ◦(Respiratory) FR >30 atti/min
+      ◦(Blood Pressure) PAS <90
+      ◦>65 anni di età
 
 • Indicazioni all’ospedalizzazione
-◦età avanzata con comorbidità
-◦bambini molto piccoli con virus respiratorio sinciziale o insufficienza respiratoria acuta
+      ◦età avanzata con comorbidità
+      ◦bambini molto piccoli con virus respiratorio sinciziale o insufficienza respiratoria acuta
 
-TERAPIA
+
+                    TERAPIA
 • Amoxicillina e macrolidi (principalmente) 7-10 gg
 • Fluorochinoloni e Tetracicline (casi gravi)
+
 La febbre scende dopo 7gg. Negativizzazione RX >6 mesi. La tosse scompare dopo circa 1 mese.
 
-Polmoniti acquisite in COMUNITÀ
+
+
+
+            Polmoniti acquisite in COMUNITÀ                                                                 (CAP)
+
+
 Il paziente non deve essere stato ricoverato nei precedenti 14 giorni.
-
 Incidenza → 15/1000/anno. È la più frequente.
-Colpisce le due fasce estreme d’età <5 anni e >65 anni.
-
+                         Colpisce le due fasce estreme d’età <5 anni e >65 anni.
 Fattori di rischio
-‣ età
-‣ Comorbidità (BPCO, DM , HF, insufficienza respiratoria cronica)
-‣ fumo
-‣ fattori favorenti l’aspirazione (neurologici / neuromuscolari di deglutizione)
-‣ scarsa igiene orale
-‣ tossicodipendenza.
-
-(CAP)
-
+            ‣ età
+            ‣ Comorbidità (BPCO, DM , HF, insufficienza respiratoria cronica)
+            ‣ fumo
+            ‣ fattori favorenti l’aspirazione (neurologici / neuromuscolari di deglutizione)
+            ‣ scarsa igiene orale
+            ‣ tossicodipendenza.
 Eziologia → S.Pneumoniae (60-75%), Mycoplasma pneumoniae (5-18%).
 
-TIPOLOGIE (CAP Lobare tipica , CAP atipica)
+                             TIPOLOGIE (CAP Lobare tipica , CAP atipica)
 
 CAP Lobare TIPICA
-◦Preferisce adulti
-◦esordio brusco
-◦tosse inizialmente secca, continua e stizzosa nelle ore notturne, poi produttiva con
-espettorato muco purulento
-◦dolore toracico puntorio, accentuato da respirazione profonda e movimenti
-◦febbre elevata e leucocitosi
+     ◦Preferisce adulti
+     ◦esordio brusco
+     ◦tosse inizialmente secca, continua e stizzosa nelle ore notturne, poi produttiva con
+      espettorato muco purulento
+     ◦dolore toracico puntorio, accentuato da respirazione profonda e movimenti
+     ◦febbre elevata e leucocitosi
 
 Anatomia patologica , fasi:
 • congestione vascolare → essudato endoalveolare
 • epatizzazione rossa → accumulo RBC e leucociti (inglobano pneumococchi e fibrina negli alveoli) → espettorato rosso o
-rugginoso
-
+  rugginoso
 • epatizzazione grigia → degradazione di neutrofili ed eritrociti
 • Risoluzione (eliminazione essudato con espettorato abbondante)
 
-Complicanze
-◦diffusione ematica → endocarditi, meningiti.
 
-◦ pleurite metapneumoica (più comune) → versamento pleurico ed empiema.
-◦ rare→ sepsi fulminante (pz splenectomizzati), CID , ascessi cerebrali.
+Complicanze
+     ◦diffusione ematica → endocarditi, meningiti.
+     ◦ pleurite metapneumoica (più comune) → versamento pleurico ed empiema.
+     ◦ rare→ sepsi fulminante (pz splenectomizzati), CID , ascessi cerebrali.
+
 
 DIAGNOSI
-
 1. E.O.
 • ISPEZIONE
-
-‣ ipoespansione dell’emitorace colpito
-‣ ipofonesi e ottusità
+              ‣ ipoespansione dell’emitorace colpito
+              ‣ ipofonesi e ottusità
 • AUSCULTAZIONE
-
-◦rantoli crepitanti
-◦soffio bronchiale (epatizzazione)
-◦riduzione MV
+     ◦rantoli crepitanti
+     ◦soffio bronchiale (epatizzazione)
+     ◦riduzione MV
 
 2. RX torace
-‣ addensamento di grado variabile
-‣ versamento pleurico
-‣ ascessi
+              ‣ addensamento di grado variabile
+              ‣ versamento pleurico
+              ‣ ascessi
 
 3. Laboratorio → leucocitosi neutrofila.
-
 Tipologie di CAP lobari
-
 • Polmonite pneumococcica
 Prima causa di polmonite e di ospedalizzazioni da polmonite.
 
+
 Spesso preceduta da infezione da virus influenzale di tipo A, tipicamente con:
-
-‣ brividi e febbre elevata
-‣ violento dolore puntorio all’emitorace colpito
-‣ Herpes Labialis
-
+             ‣ brividi e febbre elevata
+             ‣ violento dolore puntorio all’emitorace colpito
+             ‣ Herpes Labialis
 Diagnosi
-◦espettorato color
 
-ruggine, giallastro in fase di risoluzione.
+      ◦espettorato color   ruggine, giallastro in fase di risoluzione.
+      ◦RX → Opacità omogenea nella zona colpita dove l’aria non riesce a penetrare
+      ◦TC → “broncogramma aereo” = opacità con all’interno la canalizzazione bronchiale perché le vie aeree sono intatte.
 
-◦RX → Opacità omogenea nella zona colpita dove l’aria non riesce a penetrare
-◦TC → “broncogramma aereo” = opacità con all’interno la canalizzazione bronchiale perché le vie aeree sono intatte.
 
 Terapia
-1ª scelta → beta-lattamine
-2ª scelta → macrolidi
+      1ª scelta → beta-lattamine
+      2ª scelta → macrolidi
 
 • Polmonite da H.Influenzae → addensamento ad aspetto di albero in fiore.
-
 • Polmonite da S.Aureus
 Può essere CAP tipica o nosocomiale, essendo il batterio trasmesso per via aerogena o ematogena (post endocardite).
 Spesso complica polmoniti virali o infezioni delle vie aeree superiori.
+
+
 Causa microascessi peribronchiolari che, comunicando con il lume delle vie aeree ,vsi riempiono d’aria prendendo il
 nome di pneumatoceli. La loro rottura può causare un PNX.
 
-In base all’età, osserviamo:
 
+                                       In base all’età, osserviamo:
 • nell’infanzia
-◦ infezione bilaterale subpleurica
-◦ tende ad ascessualizzare e perforare il cavo pleurico
+      ◦ infezione bilaterale subpleurica
+      ◦ tende ad ascessualizzare e perforare il cavo pleurico
+
 
 • nell’adulto ,spesso:
-‣ empiema pleurico
-‣ microascessi peribronchiolari e pneumatoceli (visibili alla TC ‼ )️
-‣ batteriemia di infezioni cutanee.
+             ‣ empiema pleurico
+             ‣ microascessi peribronchiolari e pneumatoceli (visibili alla TC ‼ )️
+             ‣ batteriemia di infezioni cutanee.
 
+
+
+   ️ ️ In adulti e bambini 🐟 🐷
 • ⚠‼
-️ ️ In adulti e bambini 🐟 🐷
+                   • espettorato purulento giallastro o color salmone.
 
-• espettorato purulento giallastro o color salmone.
 
-• emboli settici da endocardite tricuspidale (❗ FARE
-TC )
-️
-• RX → focolai multipli o addensamento da focolai confluenti.
-
+                   • emboli settici da endocardite tricuspidale (❗ FARE
+                                                                   ️    TC )
+                   • RX → focolai multipli o addensamento da focolai confluenti.
 Terapia
 • 1ª linea MSSA → penicilline EV (MSSA). Cefazolina nei pz allergici.
+
 • 1ª linea MRSA → Vancomicina EV (MRSA).
+
+
 
 Polmonite nell’anziano
 Indipendentemente dall’essere tipica o atipica, si caratterizza per nausea, vomito, delirio, stato confusionale
-
 cronico, cadute a terra, comorbidità cardiache o respiratorie croniche che compromettono la specificità dei rilievi fisici.
+
 
 CAP ATIPICA
 Caratteristiche
-◦Preferisce i giovani
-◦sviluppo progressivo (subdolo , insidioso)
-◦tosse secca stizzosa + faringodinia
+                          ◦Preferisce i giovani
+                          ◦sviluppo progressivo (subdolo , insidioso)
+                          ◦tosse secca stizzosa + faringodinia
+                          ◦ espettorato scarso e mucoide, senza patogeni
+                          ◦bruciore retrosternale
+                          ◦scarsa febbre
+                          ◦cefalea , mialgie , sintomi GI
+                          ◦assenza leucocitosi‼ ️ + NO FEBBRE
 
-◦ espettorato scarso e mucoide, senza patogeni
-◦bruciore retrosternale
-◦scarsa febbre
-◦cefalea , mialgie , sintomi GI
-
-◦assenza leucocitosi‼ ️ + NO FEBBRE
 
 Eziologia
-◦ batteri → Mycoplasma e Chlamydia Pneumoniae , Legionella Pneumophila.
-◦ virus → influenzali, sinciziale, CMV, morbillo, VZV, adenovirus.
+      ◦ batteri → Mycoplasma e Chlamydia Pneumoniae , Legionella Pneumophila.
+
+      ◦ virus → influenzali, sinciziale, CMV, morbillo, VZV, adenovirus.
+
 
 Fisiopatologia
 Nelle fasi iniziali il polmone rimane ventilato (⚠ nella
-lobare manca sia ventilazione che perfusione).
-️
+                                                   ️     lobare manca sia ventilazione che perfusione).
 La flogosi si localizza nell’interstizio ma può interessare anche i vasi (perivascolare, pericapillare, periarteriolare).
 
+
 DIAGNOSI
-• E.O. → murmure aspro +
-
-crepitii inspiratori diffusi
-
+• E.O. → murmure aspro +       crepitii inspiratori diffusi
 (Ddx con sfregamenti da pleurite → tossendo gli sfregamenti coprono entrambe le fasi della respirazione)
+
+
 • Laboratorio → leucociti normali ridotti
 
-• RX → strie lineari e reticolazioni
-• EGA → ipossiemia + ipocapnia
 
+• RX → strie lineari e reticolazioni
+
+• EGA → ipossiemia + ipocapnia
 TERAPIA generale CAP ATIPICA → macrolidi (azitro), tetracicline (doxi) o fluorochinoloni.
 
-Tipologie di CAP atipica
+
+                   Tipologie di CAP atipica
 • Polmonite atipica da Mycoplasma pneumoniae
 Caratteristiche
-◦Stato generale conservato ma quadro di infezione simile a virale (tosse non produttiva, cefalea, febbre)
+      ◦Stato generale conservato ma quadro di infezione simile a virale (tosse non produttiva, cefalea, febbre)
+      ◦dolore auricolare
+      ◦raro interessamento pleurico
+      ◦manifestazioni extratoraciche → meningite asettica, trombosi, encefalite, pericardite, miocardite.
 
-◦dolore auricolare
-◦raro interessamento pleurico
-◦manifestazioni extratoraciche → meningite asettica, trombosi, encefalite, pericardite, miocardite.
 
 Imaging
-◦RX → infiltrati interstiziali si propagano dall’ilo in senso centrifugo verso il mantello polmonare.
-◦TC → piccole aree di addensamento circondate da aree di Ground Glass.
+      ◦RX → infiltrati interstiziali si propagano dall’ilo in senso centrifugo verso il mantello polmonare.
+
+      ◦TC → piccole aree di addensamento circondate da aree di Ground Glass.
+
 
 • Polmonite da Legionella
 Polmonite che nasce con un pattern interstiziale per poi arrivare ad una fase alveolitica.
 Non si trasmette da persona a persona ma attraverso l’inalazione di goccioline d’acqua contaminate (condizionatori, conduttori
 idrauliche, serbatoi d’acqua).
 
+
 Forme cliniche
 
 • lieve (simil-influenzale) → Febbre di Pontiac
+
 • grave insufficienza respiratoria → malattia dei legionari.
 
 Sintomi extrapolmonari frequenti
-‣ febbre 39 °C
-‣ cefalea e stato confusionale
-‣ ‼ nausea
-e vomito → ipoNa+
-️
+            ‣ febbre 39 °C
+            ‣ cefalea e stato confusionale
+            ‣ ‼ nausea
+                ️      e vomito → ipoNa+
+            ‣ diarrea → ipoK+
+            ‣ bradicardia
+            ‣ aumento transaminasi con coinvolgimento epatico e multiorgano
+            ‣ microematuria.
 
-‣ diarrea → ipoK+
-‣ bradicardia
-‣ aumento transaminasi con coinvolgimento epatico e multiorgano
-‣ microematuria.
 
 Imaging → RX
-◦ versamento pleurico
-◦ infiltrato unico o multipli confluenti, talvolta bilaterali.
+      ◦ versamento pleurico
+      ◦ infiltrato unico o multipli confluenti, talvolta bilaterali.
+
 
 Conferma diagnostica → ricerca antigene urinario (del sierogruppo 1) con metodo immunoenzimatico.
 
 Terapia → Eritromicina o Ciprofloxacina , spesso con Rifampicina.
-
 • Polmonite da Covid-19
 Causata dal SARS-CoV-2 (virus a RNA a singolo filamento).
 La proteina spike lega ACE in polmoni e intestino → trasmiss. con droplets e orofecale.
+
 
 Fasi CLINICHE
 • Replicazione virale e risposta sistemica → febbre (90%) , tosse secca , affaticamento, dispjea , cefalea , atralgie.
 • Fase polmonare → PCT bassa e aumento transaminasi.
 • Stato di iperinfiammazione → markers infiammatori elevati.
 
+
 IMAGING → HCRT evidenzia aree ground glass multifocali bilaterali + aree di consolidamento.
 
 TERAPIA
 • Febbre e atralgie → FANS (ibuprofene, Brufen© )
-️.
+                                                ️.
+
 • MABs anti-spike → Bamlavinimab , Etesevimab.
+
 
 Profilassi → desametasone (broncodilatante nella O2-terapia) , LMWH (tromboembolismo).
 
-POLMONITE NOSOCOMIALE
 
-(HAP)
 
+            POLMONITE NOSOCOMIALE                                                                 (HAP)
 Insorge dopo 48-72h dal ricovero o entro 3 giorni dalla dimissione.
+
 
 Eziologia → MRSA , P.Aeruginosa , Enterobacteriacea produttori di B-Lattamasi , Klebsiella produttori di carbapenemasi.
 
 HAP più comuni
+
 • Polmonite da S.Aureus (vedi CAP)
 • Polmonite da P.Aeruginosa → mortalità x2 (colpisce pz con preesistente BPCO , enfisema , FC , bronchiectasia)
 
-Polmonite nei pz IMMUNOCOMPROMESSI
+
+
+
+            Polmonite nei pz IMMUNOCOMPROMESSI
 Polmonite da Pneumocystis Jirovecii (P. Carinii)
 1. I trofozoiti aderiscono agli pneumociti provocandone morte e desquamazione.
 2. L’alveolo si riempie di materiale proteinaceo.
 3. poi compare infiltrato interstiziale → ipossia + normo/ipocapnia.
 
-SINTOMI → tosse secca , dispnea , rantoli crepitanti basali teleinspiratori.
 
+SINTOMI → tosse secca , dispnea , rantoli crepitanti basali teleinspiratori.
 DIAGNOSI
-BAL , sierologia e PCR.
+• BAL , sierologia e PCR.
 • RX → aree di consolidamento lobare
 • TC → pneumatoceli , aree di addensamento ground glass , nido d’api (forme croniche).
-•
 
 TERAPIA → cotrimossazolo , pentamidina.
+
 Altri patogeni che possono colpire immunocompromessi → CMV, criptococco , Candida.
 
-POLMONITI NECROTIZZANTI
+
+
+
+                    POLMONITI NECROTIZZANTI
 Infezione localizzata con fenomeni di necrosi suppurativa e tendenza all'evoluzione verso l'ascesso che
 spesso si complica con empiema.
 
+
 Fattori di rischio
-◦ malattie neurologiche‼ ️
-◦ tecniche endoscopiche
-◦carcinoma broncogeno
-◦intossicazione da farmaci / alcolismo
-◦alterazione transito esofageo o inalazione di corpi estranei.
+      ◦ malattie neurologiche‼ ️
+      ◦ tecniche endoscopiche
+      ◦carcinoma broncogeno
+      ◦intossicazione da farmaci / alcolismo
+      ◦alterazione transito esofageo o inalazione di corpi estranei.
+
 
 Condizioni predisponenti → immunosoppressione, antibiotici, DM, scarsa igiene orale ,
 gengivite.
 
+
 EZIOLOGIA → S. aureus, P. aeruginosa, S. pyogenes, Batteri anaerobi, Klebsiella pneumoniae , Actinomyces.
+
 NB Sono spesso causate da batteri anaerobi del cavo orale (es. prevotella) in seguito ad aspirazione nelle vie aeree.
 Questo accade soprattutto nel pz neurologico che perde il controllo della deglutizione, in pz con scarsa igiene orale e gengiviti.
 L'espettorazione talvolta assume i caratteri della "vomica"
 
+
 CLINICA → tosse con abbondante espettorato purulento.
+
 DIAGNOSI → RX: addensamento infiammatorio opaco, parzialmente escavato e con livelli idroaerei.
 (negli allettati ai segmenti posteriori dei lobi superiori, altrimenti nei segmenti dei lobi inferiori).
 
+
 TERAPIA → cefalosporina o Metronidazolo + benzilpenicillina.
 Se infezione mista add-on gentamicina.
-
-TUBERCOLOSI
+                          TUBERCOLOSI
 Infezione batterica cronica a decorso progressivo, causata principalmente da M.Tubercolosis Hominis.
 Ricordiamo anche M.Novis , M.Africanum , etc…
 Resta tra le prime 10 cause di morte del mondo, nonostante l’incidenza globale stia lentamente diminuendo.
+
 
 Modalità di trasmissione → via aerogena attraverso droplets (saliva e muco) <5 µm.
 Il rischio di contagio aumenta all’aumentare della quantità di batteri presenti nell’escreato, diminuendo quando l’esame colturale è
 negativo o il paziente è in trattamento efficace.
 
+
 Il patogeno può persistere nel corpo anche senza dare sintomi, fino anche a dopo il trattamento o addirittura dopo la morte del
 paziente.
 
+
+
+
 Mycobacterium Tubercolosis
 Patogeno intracellulare aerobio obbligato dotato di genoma stabile (4 milioni bp).
-
 Incubazione di 45 giorni.
 Trasmissione per via aerea, causando infezione a vita (non si guarisce dalla TBC).
+
 CARATTERISTICHE
-◦immobili, asporigeni , a lenta replicazione (tra 12-24 ore)
-◦alcol-acido resistenti (ARR) → non si colorano con Gram ma dobbiamo utilizzare Ziehl-Niesse
-◦Producono trealosio dimicolato (TDIM) → immunostimolatore + li rende resistente ai farmaci
+      ◦immobili, asporigeni , a lenta replicazione (tra 12-24 ore)
+      ◦alcol-acido resistenti (ARR) → non si colorano con Gram ma dobbiamo utilizzare Ziehl-Niesse
+      ◦Producono trealosio dimicolato (TDIM) → immunostimolatore + li rende resistente ai farmaci
+
 
 Parete batterica dei micobatteri
 • peptidoglicano → composto da NAG e acido N-glicosilmuramico (MurNGly)
@@ -753,429 +865,475 @@ Parete batterica dei micobatteri
 • glicolipidi
 • lipoarabinomannani (sostituisce LPS dei Gram -)
 
+
 EVOLUZIONE clinica
 1. ingresso micobatterio nelle vie respiratorie.
-2.
-
-localizzazione a livello dei macrofagi alveolari (basse vie) , che lo inglobano.
-
+2.   localizzazione a livello dei macrofagi alveolari (basse vie) , che lo inglobano.
 3. 🟢 S.I. → IL-12 , TNF-V , citochine, Heat Shock Proteins, linfociti T → formaz. Granuloma tubercolare
-4.
+4.   Il batterio sopravvive ma non è in grado di moltiplicarsi
+5.   Elusione dai macrofagi e produzione di NO e anione superossido (facilitano replicazione).
 
-Il batterio sopravvive ma non è in grado di moltiplicarsi
-
-5.
-
-Elusione dai macrofagi e produzione di NO e anione superossido (facilitano replicazione).
 
 10% dell’infezioni → immunopatia diffusa (tubercolosi miliare).
 95% dei casi → granuloma e l’infezione diventa latente (nel 5% dei casi può riattivarsi dando immunopatia).
-• Infezione latente → confinata al polmone
-• reinfezione esogena o riattivazione endogena → progressiva (rischio di morte).
 
+
+                    • Infezione latente → confinata al polmone
+                    • reinfezione esogena o riattivazione endogena → progressiva (rischio di morte).
 Come può reagire il S.I.?
 • Risposta cellulo-mediata → formazione lesione calcificata che può riattivarsi in seguito ad uno stimolo secondario.
 • risposta infiammatoria → si genera un granuloma che impedisce la diffusione sistemica (TBC PRIMARIA).
+
+
+
 
 Granuloma tubercolare (contiene batteri, a differenza di quello della sifilide)
 Step per la formazione:
 1. dopo 24 ore i macrofagi che fagocitano i micobatteri si trasformano in cellule epitelioidi.
 2. queste cellule si fondono tra loro formando le cellule multinucleate e giganti di Langhans.
-3.
-
-reclutamento fibroblasti che delimitano il granuloma
-
+3.   reclutamento fibroblasti che delimitano il granuloma
 4. necrosi caseosa della porzione centrale del tubercolo, possibili conseguenze:
-◦rottura del tubercolo e diffusione dell’infezione (TBC SECONDARIA “DISSEMINATA” o “MILIARE”)
-◦proliferazione dei fibroblasti e isolamento del tubercolo
+      ◦rottura del tubercolo e diffusione dell’infezione (TBC SECONDARIA “DISSEMINATA” o “MILIARE”)
+      ◦proliferazione dei fibroblasti e isolamento del tubercolo
+
+
 ‼⚠
-Il batterio riesce a sopravvivere all’interno del granuloma switchando il proprio metabolismo da aerobio a lipidico,
-️ 🔎
-️
+ ️ 🔎
+   ️ Il batterio riesce a sopravvivere all’interno del granuloma switchando il proprio metabolismo da aerobio a lipidico,
 utilizzando i lipidi sulla membrana dei macrofagi infetti.
 
+
 Strategie di sopravvivenza del M.Tubercolosis
-◦inibizione fagolisosoma ‼ ️
-◦utilizzo recettori preferenziali per entrare nelle cellule
-◦inibizione stress ossidativo
-◦modulazione risposta immunitaria
-◦induzione apoptosi delle cellule bersaglio
+      ◦inibizione fagolisosoma ‼ ️
+      ◦utilizzo recettori preferenziali per entrare nelle cellule
+      ◦inibizione stress ossidativo
+      ◦modulazione risposta immunitaria
+      ◦induzione apoptosi delle cellule bersaglio
+
 
 Fattori di rischio associati a progressione verso malattia attiva:
-◦HIV+
-◦età <5 anni
-◦soggetti recentemente infetti o con storia di tubercolosi non trattata
-◦DM, leucemia, linfoma, K testa-collo o K polmone
+      ◦HIV+
+      ◦età <5 anni
+      ◦soggetti recentemente infetti o con storia di tubercolosi non trattata
+      ◦DM, leucemia, linfoma, K testa-collo o K polmone
+      ◦gastrectomia o bypass
+      ◦fumatori
+      ◦immunosoppressi (CCS o anti-TNF-A).
 
-◦gastrectomia o bypass
-◦fumatori
-◦immunosoppressi (CCS o anti-TNF-A).
-
-CLINICA
+                                       CLINICA
 • TBC PRIMARIA (post-primo contagio)
 Complesso primario di Ghon localizzato a livello polmonare, più spesso a livello del lobo superiore:
-1. lesione flogistica del parenchima polmonare
-2. linfoadenomegalia
-3. linfangite ( infiammazione vasi linfatici)
+            1. lesione flogistica del parenchima polmonare
+            2. linfoadenomegalia
+            3. linfangite ( infiammazione vasi linfatici)
+
 La risposta immunitaria si instaura lentamente, determinando l’evoluzione nel complesso primario verso fibrosi, seguita da
-
 calcificazioni (complesso di Ranke).
-
 Nel 95% dei casi (pz immunocompetenti) → guarigione clinica ma non biologica → infezione latente (LTBI).
-Il 5% dei casi (bambini o immunocompromessi) → TBC primaria progressiva , con sintomatologia grave:
 
-◦adenopatia ilare‼ ,️ dolore al petto
-◦emottisi, dispnea, cianosi
-◦ipoNa+ , anemia
+
+Il 5% dei casi (bambini o immunocompromessi) → TBC primaria progressiva , con sintomatologia grave:
+      ◦adenopatia ilare‼ ,️ dolore al petto
+      ◦emottisi, dispnea, cianosi
+      ◦ipoNa+ , anemia
+
 
 [ Ricapitolando: quadro clinico acuto nei soggetti predisposti con adenopatia ilare e alto rischio di disseminazione. ]
+
 
 • TBC SECONDARIA
 (anni dopo il primo contagio, quando l’infezione latente si riattiva oppure quando si viene esposti al bacillo).
 L’incidenza di riattivazione di una forma latente nei primi 2 anni dopo l’infezione è del 5%, diminuendo progressivamente.
 
+
 Fattori di rischio per la riattivazione → immunosoppressione (rischio del 20%) , HIV+ .
+
 Caratteristiche
-‣ linfonodi meno coinvolti
-‣ rapida cavitazione (S.I. reagisce in maniera più aggressiva rispetto alla prima esposizione)
-‣ i granulomi possono fondersi tra loro → caverne tubercolari‼ ️ (malattia avanzata)
+            ‣ linfonodi meno coinvolti
+            ‣ rapida cavitazione (S.I. reagisce in maniera più aggressiva rispetto alla prima esposizione)
+            ‣ i granulomi possono fondersi tra loro → caverne tubercolari‼ ️ (malattia avanzata)
+
 
 🚨 ⚠ ️ Complicanze delle caverne tubercolari
-◦rottura e comunicazione con un bronco
+      ◦rottura e comunicazione con un bronco
 
-◦erosione un vaso polmonare → disseminazione ematogena → TBC MILIARE (10%)
-→ emottisi massiva da erosione dell’arteria bronchiale → formazione aneurisma di Rasmussen.
+
+      ◦erosione un vaso polmonare → disseminazione ematogena → TBC MILIARE (10%)
+              → emottisi massiva da erosione dell’arteria bronchiale → formazione aneurisma di Rasmussen.
+
 
 CLINICA TBC
 Inizialmente può essere asintomatica con malessere generale e sintomi costituzionali.
 Alcuni pz riferiscono febbricola persistente, sudorazioni notturne profuse (malattia avanzata).
 
+
 • Sintomo respiratorio più comune
 → tosse inizialmente scarsa e poco produttiva con ispettorato verdastro, soprattutto al mattino.
+
+
 Tubercolosi cavitaria → emottisi
 Quadri estesi e bilaterali → dispnea.
 
+
 • Laboratorio → leucocitosi , anemia normocromica normocitica , ipoalbuminemia , ipergammaglobulinemia.
+
 [ Ricapitolando: quadro cronico e subdolo con tosse persistente e cavitazione, basso coinvolgimento linfonodale e minor probabilità
 di disseminazione sistemica ] .
-
 • TBC EXTRA-POLMONARE (15%).
 Frequente nei pazienti HIV e nei gruppi a rischio, quali la popolazione immigrata.
-In ordine di
 
-frequenza:
 
-◦Linfoadenite tubercolare (25%)
+In ordine di   frequenza:
+
+      ◦Linfoadenite tubercolare (25%)
 Tumefazione dura, ricoperta da cute arrossata e non dolente, nell’80% dei casi unilaterale in sede laterocervicale o sovraclaveare.
 I linfonodi si fondono tra loro formando tragitti fistolosi drenanti materiale caseoso (scrofola).
-
 Diagnosi → agoaspirato o biopsia.
 
-◦Pleurite tubercolare (23%)
+      ◦Pleurite tubercolare (23%)
 Si manifesta per colliquazione di un linfonodo subpleurico, potendo esordire in diversi modi:
-◦ versamento esiguo fibrinoso (secco)
-◦asintomatico e risoluzione spontanea
-◦ essudato con sintomi come febbre elevata, dolore toracico, tosse, dispnea.
+      ◦ versamento esiguo fibrinoso (secco)
+      ◦asintomatico e risoluzione spontanea
+      ◦ essudato con sintomi come febbre elevata, dolore toracico, tosse, dispnea.
+
 
 Clinica → Spesso guarisce in pochi mesi ma può causare disseminazione ematica altrettanto frequentemente.
+
 Diagnosi
 • biopsia pleurica → evidenzia granulomi
 • esame batterioscopico del sedimento del liquido pleurico → positivo solo nel 30% dei casi.
 
-◦TBC osteoarticolare (10%)
+      ◦TBC osteoarticolare (10%)
 Dovuta alla riattivazione di focolai ematogene o alla diffusione a partire da linfonodi paravertebrali.
 
+
 Localizzazione → colonna vertebrale (morbo di Pott)
+
 • Spondilite (adulto)
 Fisiopatologia → infezione delle vertebre inizia nella regione anteriore, maggiormente vascolarizzata.
 Poi si diffonde ai dischi vertebrali.
 
-• Spondilodiscite (bambino)
-‣ → inizia interessando i dischi intervertebrali.
-‣ Attraverso il leg. longitudinale ant. si propaga alle altre vertebre, anche in maniera non contigua (skip lesion)
-‣ Collasso corpi vertebrali → gibbo (cifosi)
 
-‣ ascessi freddi paraspinali
-‣ miosite dello psoas.
+• Spondilodiscite (bambino)
+               ‣ → inizia interessando i dischi intervertebrali.
+               ‣ Attraverso il leg. longitudinale ant. si propaga alle altre vertebre, anche in maniera non contigua (skip lesion)
+               ‣ Collasso corpi vertebrali → gibbo (cifosi)
+               ‣ ascessi freddi paraspinali
+               ‣ miosite dello psoas.
 
 IMAGING → RX:
-‣ lesioni evidenti se interessano almeno il 30% della vertebra
+               ‣ lesioni evidenti se interessano almeno il 30% della vertebra
+               ‣ osteoporosi della superficie superiore vertebrale con collasso dei corpi vertebrali
+               ‣ restringimento spazio discale
+               ‣ distruzioni litiche della porzione anteriore del corpo vertebrale
+            ‣ ascesso paravertebrale
+            ‣ ingrandimento ombra psoas
 
-‣ osteoporosi della superficie superiore vertebrale con collasso dei corpi vertebrali
-‣ restringimento spazio discale
-‣ distruzioni litiche della porzione anteriore del corpo vertebrale
-
-‣ ascesso paravertebrale
-‣ ingrandimento ombra psoas
 
 • RM → diagnosi precoce individuando edema osseo
 • TC → per guidare la biopsia
 
-◦TBC GENITO-URINARIA (9%)
+
+      ◦TBC GENITO-URINARIA (9%)
+
 • MASCHILE
 Lesioni corticali renali fino alla necrosi papillare.
 La tendenza all’escavazione di queste lesioni, favorisce l’eliminazione con le urine del materiale
-
 caseoso ricco di micobatteri, mettendo a rischio di infezione ureteri, vescica, prostata, vescichette seminali.
+
 Clinica → disuria, pollachiuria , ematuria, dolore dorsale, piuria acida e ematuria.
+
 Sospetto → ‼ urinocoltura
-negativa e pH urinario acido
-️
+             ️            negativa e pH urinario acido
+
 
 Diagnosi → coltura di 3 campioni di urine al mattino (diagnostica al 90%) .
 
 • FEMMINILE
 Origina in endosalpinge dalla quale può diffondere all’endometrio (50%), ovaie, cervice e vagina.
 
+
 Clinica → dolore pelvico e anormalità mestruali, fino all’infertilità.
+
 Diagnosi → biopsia cervicale o endometriale.
-◦Meningite tubercolare
+
+      ◦Meningite tubercolare
 Rottura di un tubercolo sub-ependimale nello spazio subaracnoideo. Frequente nell’infanzia . Rari i tubercolomi e le meningiti spinali.
 
-◦TBC gastrointestinale
+
+      ◦TBC gastrointestinale
 Massa in giunzione ileocecale, con caratteristiche endoscopiche e radiologiche simil carcinoma.
 Comporta anoressia, diarrea e ostruzione intestinale più febbre, perdita di peso e sudorazioni notturne. Complicanze → peritonite.
 
-◦TBC surrenalica → Addison
-◦TBC laringea (massima contagiosità) → disfonia e disfagia.
-◦TBC oculare → uveiti e Corio retinati.
-◦TBC pericardica → tamponamento cardiaco o fibrosi nota come “cornetio cordis”.
 
-DIAGNOSI TBC
+      ◦TBC surrenalica → Addison
+      ◦TBC laringea (massima contagiosità) → disfonia e disfagia.
+      ◦TBC oculare → uveiti e Corio retinati.
+      ◦TBC pericardica → tamponamento cardiaco o fibrosi nota come “cornetio cordis”.
+
+                               DIAGNOSI TBC
 • ‼ anamnesi
-e valutazione clinica
-️
-
+    ️        e valutazione clinica
 • ‼ Imaging
-→ RX. HRCT per le caverne tubercolari
-️
+    ️       → RX. HRCT per le caverne tubercolari
 • ‼ ️ esami microbiologici e immunologici:
-
-TEST INDIRETTI
+                                       TEST INDIRETTI
 Test cutaneo alla tubercolina (intradermoreazione di Mantoux)
 Si inoculano 5 unità di PPD (derivato proteico purificato) sull’avambraccio del pz e si aspettano 48-72h.
 Positivo se si forma una papula eritematosa.
-
 Vantaggi
-• basso costo
-• semplice da eseguire
-• evita la progressione nel 60% dei casi
-
+                   • basso costo
+                   • semplice da eseguire
+                   • evita la progressione nel 60% dei casi
 Svantaggi
-◦il paziente deve tornare due volte in ambulatorio (rischio di autodiagnosi in caso di test - e paura di tornare in caso di test +)
-◦falsi negativi nei pz HIV+, perché a causa dell’immunodeficienza c’è scarsa reattività
-◦falsi positivi in pz vaccinati con BCG
+      ◦il paziente deve tornare due volte in ambulatorio (rischio di autodiagnosi in caso di test - e paura di tornare in caso di test +)
+      ◦falsi negativi nei pz HIV+, perché a causa dell’immunodeficienza c’è scarsa reattività
+      ◦falsi positivi in pz vaccinati con BCG
+
 
 Interpretazione positività (dimensioni papula)
-◦pz tossicodipendenti, HIV → >5 mm
-◦paesi endemici o operatori sanitari → 10-15 mm
-◦pz senza fattori di rischio → >15 mm
+      ◦pz tossicodipendenti, HIV → >5 mm
+      ◦paesi endemici o operatori sanitari → 10-15 mm
+      ◦pz senza fattori di rischio → >15 mm
+
+
+
 
 IGRA-TEST o “saggio di produzione di IFN-V (SPECIE-SPECIFICO)
 • SAGGIO ELISA (QFT-PLUS ,ha anche i T-CD8)
 Si preleva un campione di sangue venoso del pz e lo si miscela con gli antigeni (ESAT6 e CP10) del micobatterio.
 Se il sangue contiene linfociti sensibilizzati (⚠ entro
-24h !!!) contro gli antigeni → prod. IFN-V.
-️
+                                                  ️     24h !!!) contro gli antigeni → prod. IFN-V.
+
+
 Necessita di 4 provette:
-1. controllo negativo (provetta grigia)
-2. controllo positivo (provetta viola) con la fitoemoagglutinina che stimola la produzione di IFN-V
-3. provetta per osservare la risposta dei T-CD4+
-4. provetta per i T-CD8+
-
+                   1. controllo negativo (provetta grigia)
+                   2. controllo positivo (provetta viola) con la fitoemoagglutinina che stimola la produzione di IFN-V
+                   3. provetta per osservare la risposta dei T-CD4+
+                   4. provetta per i T-CD8+
 Vantaggi
-◦molto specifico, non essendo influenzato da vaccinazioni
-◦pratico
-◦interpretazione non operatore-dipendente
+      ◦molto specifico, non essendo influenzato da vaccinazioni
+      ◦pratico
+      ◦interpretazione non operatore-dipendente
 
-TEST DIRETTI
+
+                                TEST DIRETTI
 1. Ricerca di acidi nucleici, attraverso PCR:
 • SecA → codifica per la superossido dismutasi micobatterica
 • rRNA 16S
-
 2. Test microscopico (gold standard) (GENERE-SPECIFICO)
 Si esegue su espettorato (3 campioni in 3 giorni) , BAL , urine (?).
-Utilizza colorazione Ziehl-Nielsen:
-◦fucsina basica defenicata
-◦poi decolorazione con etanolo 90% + HCl
-◦Blu di metilene per colorare lo sfondo
 
-⚠🔎
-️ 🔬 I bacilli appaiono rossi su sfondo blu.
+
+Utilizza colorazione Ziehl-Nielsen:
+
+      ◦fucsina basica defenicata
+      ◦poi decolorazione con etanolo 90% + HCl
+      ◦Blu di metilene per colorare lo sfondo
+
+
+                          ⚠🔎
+                           ️ 🔬 I bacilli appaiono rossi su sfondo blu.
+
 🟢 Vantaggi → rapido ed economico, molto specifico, forte correlazione con la contagiosità.
 🔴 Svantaggi:
-◦non identifica la specie
-◦Può risultare negativo in pazienti con TBC attiva
-◦servono molti batteri (1000-10.000 batteri/mL) per dare positività
+      ◦non identifica la specie
+      ◦Può risultare negativo in pazienti con TBC attiva
+      ◦servono molti batteri (1000-10.000 batteri/mL) per dare positività
+
+
+
 
 3. Coltura escreato su terreni specifici in laboratorio
-(SPECIE-SPECIFICO)
+                          (SPECIE-SPECIFICO)
 In provette particolari inseriamo terreni (generalmente di colore verde per identificare il giallo di alcuni micobatteri) come quello di
-
 • Lowestein-Jensen, contenente:
-‣ tuorlo d’uovo → fornisce FFA , lipidi,proteine, aumenta solidificazione.
-‣ glicerolo → favorisce crescita del mycobatterio umano e rende il terreno piú solido.
-‣ verde di malachite → impedisce la crescita di batteri che non siano micobatteri.
-
+             ‣ tuorlo d’uovo → fornisce FFA , lipidi,proteine, aumenta solidificazione.
+             ‣ glicerolo → favorisce crescita del mycobatterio umano e rende il terreno piú solido.
+             ‣ verde di malachite → impedisce la crescita di batteri che non siano micobatteri.
 Procedura
-1. Campionamento espettorato / BAL
-2. Trattamento con N-Acetilcisteina (mucolitico).
-3. Infiggo campione dentro le provette con terreno disposto “a becco di clarino”.
-4. Infiggo in profondità (cosi c’è poca p02) ed estraggo con movimento a zig-zag.
+                   1. Campionamento espettorato / BAL
+                   2. Trattamento con N-Acetilcisteina (mucolitico).
+                   3. Infiggo campione dentro le provette con terreno disposto “a becco di clarino”.
+                   4. Infiggo in profondità (cosi c’è poca p02) ed estraggo con movimento a zig-zag.
+
 
 Svantaggio: richiede 8 settimane.
+
+
+
 
 • Terreno liquido MGIT (risposta in 15-20 gg)
 Terreno contenente miscela di antibiotici e arricchimento.
 Sul fondo della provetta in un film di silicone c’ è un composto fluorescente che viene inibito quando la concentrazione di O2 si riduce
 a seguito della presenza dei batteri.
-
 Terapia TBC
 Non è difficile da curare ma bisogna fare i conti con resistenza e inizio tardivo della terapia.
 Serve instaurare uno schema antibiotico di lunga durata:
 
-• fase
 
-INTENSIVA (2 mesi) → protocollo HRZE (Isoniazide , Rifampicina , Pirazinamide , Etambutolo)
-
+• fase   INTENSIVA (2 mesi) → protocollo HRZE (Isoniazide , Rifampicina , Pirazinamide , Etambutolo)
 Etambutolo:
-◦ eliminabile in caso di quadro quadro non-cavitario ed espettorato negativo o se quadro extra polmonare
-◦ sostituibile da streptomicina in caso di meningite tubercolare
+      ◦ eliminabile in caso di quadro quadro non-cavitario ed espettorato negativo o se quadro extra polmonare
+      ◦ sostituibile da streptomicina in caso di meningite tubercolare
 
-• Fase
 
-MANTENIMENTO (4 mesi) → HR
+• Fase   MANTENIMENTO (4 mesi) → HR
 
-• ⚠ ️ Forme
+• ⚠ ️ Forme   RESISTENTI (MDR)
+      ◦tappa 1 → farmaci 1ª scelta
+      ◦tappa 2 → Cicloserina OS , Etionamide OS , PAS (acido para-amminosalicilico)
+      ◦Tappa 3 (difficile arrivarci) → Linezolid.
 
-RESISTENTI (MDR)
-
-◦tappa 1 → farmaci 1ª scelta
-◦tappa 2 → Cicloserina OS , Etionamide OS , PAS (acido para-amminosalicilico)
-◦Tappa 3 (difficile arrivarci) → Linezolid.
 
 VACCINO
 Bacillo di Calmette-Guerin (BCG) basato su Mycobacterium Bovis privato del suo potenziale patogeno (grazie alla delezione genica),
 che cross reagisce con il reattivo di Mantoux (PPD).
 Viene utilizzato per il carcinoma della vescica data la sua azione immunostimolante.
 
-SARCOIDOSI
-Patologia infiammatoria cronica che può coinvolgere tutti gli organi, soprattutto polmoni, fegato , linfonodi, milza , occhi, cute, reni.
 
-Paziente tipico: giovane donna <40 anni (picco 20-29 anni).
+
+
+                          SARCOIDOSI
+Patologia infiammatoria cronica che può coinvolgere tutti gli organi, soprattutto polmoni, fegato , linfonodi, milza , occhi, cute, reni.
+                   Paziente tipico: giovane donna <40 anni (picco 20-29 anni).
+
 
 Eziologia → sconosciuta
 Lesioni caratteristiche → granuloma non caseoso contenente linf. T per che rilasciano IL2 e monociti attivati.
 
-3 Fasi della malattia
+                          3 Fasi della malattia
+
 1. Alveolite linfocitaria (infiltrato di leucociti e monociti che formano il granuloma non caseoso)
 2. Granuloma non caseoso (o “sarcoideo”)
-◦ macrofagi che confluiscono in cellule giganti di Langhans
-◦ parte centrale → TCD4+
-◦ Periferia → TCD8+ e linfociti B.
+      ◦ macrofagi che confluiscono in cellule giganti di Langhans
+      ◦ parte centrale → TCD4+
+      ◦ Periferia → TCD8+ e linfociti B.
+
 
 3. Fibrosi interstiziale , bronco-pneumopatia restrittiva alla spirometria
-⚠⚠
-️ ⚠
-️ ️
-
-Nel granuloma il numero di linfociti TCD4+ è 3,5 volte maggiore dei TCD8+.
-Nel sangue il rapporto si inverte.
-
+                                              ⚠⚠
+                                               ️ ⚠
+                                                 ️ ️
+              Nel granuloma il numero di linfociti TCD4+ è 3,5 volte maggiore dei TCD8+.
+                                Nel sangue il rapporto si inverte.
 [ Infatti se hai la TBC attiva o latente, il test la tubercolina risulterà sempre negativo perché i TCD4+ sono tutti nel granuloma della
 sarcoidosi ] .
+
 
 CLINICA
 Il 30-40% dei pz è asintomatico.
 Sintomatologia iniziale, spesso aspecifica → malessere, febbricola, tosse SECCA , dispnea , wheezing.
 
+
 Nei 3/4 dei casi si osserva remissione spontanea. Nei restanti casi diventa una malattia cronica recidivante, con il 5% di mortalità.
+
 
 Sintomi extrapolmonari
 • Cute (30% dei pz)
-◦lupus perni → lesioni violacee tra guance, sotto gli occhi e naso.
-◦lesioni maculo-papulari (fase cronica) → indolori, causate da granulomi.
+      ◦lupus perni → lesioni violacee tra guance, sotto gli occhi e naso.
+      ◦lesioni maculo-papulari (fase cronica) → indolori, causate da granulomi.
 • eritema nodoso → ipodermite temporanea (lesione modulare, molto dolente e calda al tatto sulla superficie delle gambe).
 • occhio (30%) → uveite con fotofobia e visione sfocata.
 • fegato → colestasi intraepatica (non frequente).
 • sangue → linfopenia o anemia.
-
 • ipercalcemia e ipercalciuria.
 • CV (50%) → aritmie e disfunzione dei muscoli papillari, rischio HF.
 • rene → granulomi renali.
 • SNC → paralisi nervo facciale, ipopituitarismo.
 
-DIAGNOSI
+
+                                             DIAGNOSI
 Sintomi clinici accendono il sospetto.
 
+
 IMAGING
+
 • 1º livello RX → STADIAZIONE di SCADDING
 • Stadio 0 → RX normale (rare forme extrapolmonari)
+
+
 • stadio 1→ linfoadenomegalia bilaterale (I linfomi di solito sono monolaterali)
-◦ 90% pz asintomatico
-◦ 60-90% dei pazienti → remissione spontanea.
+
+      ◦ 90% pz asintomatico
+      ◦ 60-90% dei pazienti → remissione spontanea.
+
+
 • Stadio 2 → inizio interessamento parenchimale (alveolite)
-‣ 65% asintomatico
-‣ 40-70% remissione.
+
+             ‣ 65% asintomatico
+             ‣ 40-70% remissione.
+
+
 • Stadio 3 → scompare adenopatia ilare bilaterale ,anche senza terapia. Solo 10% remissione spontanea.
 
-⚠ ️ rischio insufficienza respiratoria cronica.
 
+             ⚠ ️ rischio insufficienza respiratoria cronica.
 • Stadio 4 → forma diffusa irreversibile con granulomi + grave dispnea progressiva e MoF.
 
-🚫 biopsia negativa per granulomi (diagnosi grazie a infiltrato linfocitario e tipico rapporto CD4/CD8)
 
-🔎‼🚨
-Se RX torace + → biopsia della lesione cutanea o una broncoscopia per rivelare granulomi.
-️
+      🚫 biopsia negativa per granulomi (diagnosi grazie a infiltrato linfocitario e tipico rapporto CD4/CD8)
+
+
+      🔎‼🚨
+        ️ Se RX torace + → biopsia della lesione cutanea o una broncoscopia per rivelare granulomi.
+
 
 • HRCT
 Evidenzia con precisione le stazioni linfonodali nel mediastino e nel torace, nonché le reticolazioni parenchimali a distribuzione ilare,
 tipiche dei quadri fibrosanti.
 
+
 • Spirometria → dallo stadio 2 in poi
 • PET total-body → stabilisce il grado di attività della patologia
 • BAL → aumento cellularità e predominanza della linea T, rapporto CD4/CD8
+
+ ️ per la conferma è necessaria la biopsia → evidenzia granulomi non caseosi.
 ‼🔎
-️ per la conferma è necessaria la biopsia → evidenzia granulomi non caseosi.
+
 Dove viene eseguita?
-◦Livello medio transbronchiale (90%)
-◦ bronchiale (40%)
-◦ cute → linfonodi superficiali ascellari o inguinali.
+      ◦Livello medio transbronchiale (90%)
+      ◦ bronchiale (40%)
+      ◦ cute → linfonodi superficiali ascellari o inguinali.
+
 
 Laboratorio
-◦ACE >2 upr
+      ◦ACE >2 upr
+      ◦ IperCa+
+      ◦Lisozima , B12 e B2-microglobunina elevati
 
-◦ IperCa+
-◦Lisozima , B12 e B2-microglobunina elevati
 
 TERAPIA
 Glucocorticosteroidi, sui quali mancano accordi su inizio, durata, dose e indicazioni, vista la variabilità delle manifestazioni e l’alta
 percentuale di remissioni spontanee.
+
+
 Per i casi extrapolmonari gravi → dosaggio iniziale di Prednisone 40 mg/die per almeno 2 anni.
+
+
 • Stadio 1 → nessun trattamento
 • Stadio 2 e 3 → il trattamento inizia in presenza di sintomatologia e/o alterazioni funzionali respiratorie, altrimenti viene avviato a 6
-mesi dalla diagnosi
+  mesi dalla diagnosi
 • Stadio 4 → trattamento necessario per tutti
+
 
 Prednisone 20-40 mg/die (forme polmonari) per 2-3 mesi (il meno possibile)
 Se il pz risponde si diminuisce la dose gradualmente, fino a 5-10 mg/die per 12 mesi..
+
+
 Prima di sospenderlo definitivamente si fa uno stretto follow-up con PET-18-FDG (🔎 parametro SUV) per valutare ricadute.
-
-Alveoliti allergiche estrinseche
-
-(AAE)
-
+Alveoliti allergiche estrinseche                                                        (AAE)
 Dette anche polmoniti da ipersensibilità (HP), sono affezioni infiammatorie acute o subacute delle strutture
-
 bronchiolo alveolari, dovute all’inalazione e alla sensibilizzazione di vari antigeni da parte di
 soggetti predisposti.
-Rappresentano il 15% delle interstiziopatie polmonari.
+                           Rappresentano il 15% delle interstiziopatie polmonari.
+
 
 Patogenesi → Antigeni batterici, fungini, micobatteri, proteine animali e agenti chimici.
 Sono coinvolti:
-◦reazione da ipersensibilità ritardata di tipo IV → reazione granulomatosa
-◦reazione da ipersensibilità di tipo III (deposizione IC e attivazione complemento).
+      ◦reazione da ipersensibilità ritardata di tipo IV → reazione granulomatosa
+      ◦reazione da ipersensibilità di tipo III (deposizione IC e attivazione complemento).
+
 
 Classificazione
 • Acuta→ 2-9 ore dopo l’esposizione. Regrediscono alla rimozione del fattore scatenante. Durano poche ore o pochi giorni.
@@ -1184,41 +1342,43 @@ Classificazione
 
 Diagnosi
 Non ci sono criteri codificati ma si integrano una serie di predittori clinici:
-‣ sintomi ricorrenti in presenza di un particolare fattore scatenante
-‣ ‼ Precipitine
-(Ig precipitanti) positivi , ma non tutti i laboratori le dosano.
-️
+             ‣ sintomi ricorrenti in presenza di un particolare fattore scatenante
+             ‣ ‼ Precipitine
+                 ️           (Ig precipitanti) positivi , ma non tutti i laboratori le dosano.
 
-‣ crepitii inspiratori
+             ‣ crepitii inspiratori
 
 • TC
-◦Aree ground glass (forma acuta)
-◦forma cronica → ispessimento settale e bronchiectasie da trazione.
+      ◦Aree ground glass (forma acuta)
+      ◦forma cronica → ispessimento settale e bronchiectasie da trazione.
+
 
 • Fibrobroncoscopia con BAL (🥇 molto sensibile) → ipercellularità >20.000.000 cell/100 mL.
 
 Terapia
 • forma ACUTA → prednisone 0,5-1 mg/kg/die (max 60 mg/die) per 1-2 settimane.
+
 • forma subacuta e cronica → idem ma per 4-8 settimane.
+
+
 La prognosi per le forme subacute e croniche peggiora in caso di pattern fibrotici NSIP e UIP.
+Pneumopatie infiltrative diffuse                                                               (PID o DPLD)
 
-Pneumopatie infiltrative diffuse
-
-(PID o DPLD)
 
 Gruppo eterogeneo di affezioni polmonari caratterizzate dalla presenza di
-
-cicatrizzazioni dell’interstizio polmonare:
+                          cicatrizzazioni dell’interstizio polmonare:
 fibrosi delle strutture alveolo interstiziali, esito di una riparazione aberrante come risposta ad un danno infiammatorio.
 
+
 Hanno un decorso cronico e progressivo, con evoluzione costante e irreversibile .
+
 
 Fisiopatologia
 L’interstizio polmonare è lo stroma del parenchima polmonare.
 Deve essere il più sottile possibile, per permettere un rapporto intimo tra capillare polmonare e alveolo, permettendo l’ematosi.
 
-4 forme principali
 
+                                4 forme principali
 1. Forme idiopatiche:
 • Fibrosi polmonare idiopatica (IFP) o Polmonite Interstiziale Usuale (UIP);
 • Pneumopatia interstiziale desquamativa (DIP);
@@ -1228,93 +1388,118 @@ Deve essere il più sottile possibile, per permettere un rapporto intimo tra cap
 • Pneumopatia criptogenetica organizzante (COP);
 • Bronchiolite respiratoria associata a malattia polmonare interstiziale (RB_ILD).
 
+
+
+
 2. Pneumopatie infiltrative diffuse secondarie, con causa nota:
-◦patologie del connettivo (AR , LES , sclerodermia , dermatomiosite) → pattern NSIP
-◦ereditarie
-◦professionali (es. pneumoconiosi da polveri)
-◦iatrogene da RT o amiodarone
+      ◦patologie del connettivo (AR , LES , sclerodermia , dermatomiosite) → pattern NSIP
+      ◦ereditarie
+      ◦professionali (es. pneumoconiosi da polveri)
+      ◦iatrogene da RT o amiodarone
+
+
+
 
 3. Granulomatose → sarcoidosi
 4. Forme rare → linfoangioeliomiomatosi (LAM) , istiocitosi X
-CLINICA
+                                       CLINICA
 🥇 Dispnea + tosse secca e stizzosa
+
+
 • Ippocratismo digitale (dita a bacchetta di tamburo con unghie a vetrino di orologio) → IPF e asbestosi
 • Fenomeno di Raynaud → sclerosi sistemica
 • Mani da meccanico (ipercheratosi e fissurazioni dei polpastrelli) → dermatomiosite.
-
-Diagnosi
+                                        Diagnosi
 • Anamnesi + e.o.
 
+
 • Imaging (RX spesso poco specifica)
-◦ HRCT → Diagnostica nel 50% dei casi + aiuta a localizzare la sede più opportuna per una biopsia
-◦ prove di funzionalità respiratoria
+      ◦ HRCT → Diagnostica nel 50% dei casi + aiuta a localizzare la sede più opportuna per una biopsia
+      ◦ prove di funzionalità respiratoria
+
 
 4 pattern radiologici principali
+
 1. Alveolare
 → opacità parenchimali dal ground glass (riempimento parziale) alla consolidazione (riempimento totale degli alveoli).
 
+
 2. Nodulare (bronchiolite respiratoria , sarcoidosi).
+
 3. Reticolare🥇 (più comune)
+
 4. Cistico (LAM e istiocitosi)
+
 • Esami ematochimici → utili solo nelle forme secondarie a malattie reumatologiche (ANA , ENA , anti-CCP , FR , …).
 
-Fibrosi polmonare idiopatica
 
-(IPF)
 
-Interstiziopatia polmonare idiopatica più frequente,
-caratterizzata da fibrosi progressiva ed eziologia sconosciuta.
+
+Fibrosi polmonare idiopatica                                                             (IPF)
+                          Interstiziopatia polmonare idiopatica più frequente,
+             caratterizzata da fibrosi progressiva ed eziologia sconosciuta.
+
 Predilige il sesso maschile 40-70 anni. In Italia ci sono 5-9000 casi
+
+
 Patologia infausta, seconda come mortalità solo al K polmone e K pancreas, con exitus compreso tra 2-4 anni.
 
+
 Fattori di rischio
-◦ fumo di sigaretta , invecchiamento, GERD
-◦ familiarità IPF
-◦ mutazioni geni surfactante (SPC o SPA2) o gene TERT (telomeri)
-◦polimorfismi promotore proteina MUC5B.
+      ◦ fumo di sigaretta , invecchiamento, GERD
+      ◦ familiarità IPF
+      ◦ mutazioni geni surfactante (SPC o SPA2) o gene TERT (telomeri)
+      ◦polimorfismi promotore proteina MUC5B.
+
 
 Patogenesi🐝 🍯
 1. Insulto alveolare, in particolare gli pneumociti di tipo II
 2. proliferazione dei miofibroblasti e fibroblasti residenti che formano i foci fibroblastici
 3. Evolve in bronchioloectasie da trazione → polmone a favo d’api.
 
-Con la progressione della malattia vengono inficiati gli scambi gassosi comportando ipossiemia.
 
+Con la progressione della malattia vengono inficiati gli scambi gassosi comportando ipossiemia.
 Localizzazione
 → livello periferico o basale, con distribuzione eterogenea delle lesioni, alternando aree sane con aree di fibrosi evidente.
 
+
 CLINICA
 Classici 4 sintomi di tutte le interstiziopatie polmonari:
-
-1.
-2.
-3.
-4.
-
-tosse secca, stizzosa, persistente e non produttiva
-dispnea ingravescente
-tachipnea
-febbre e artralgie (25%).
+                    1.   tosse secca, stizzosa, persistente e non produttiva
+                    2.   dispnea ingravescente
+                    3.   tachipnea
+                    4.   febbre e artralgie (25%).
 
 DIAGNOSI deve essere più precoce possibile, per :
-‣ escludere interstiziopatie con prognosi migliore
-‣ far accedere i pazienti a centri specifici o a clinical trials
-‣ inserire i pz in lista trapianto
+             ‣ escludere interstiziopatie con prognosi migliore
+             ‣ far accedere i pazienti a centri specifici o a clinical trials
+             ‣ inserire i pz in lista trapianto
+
+
+
 
 • 🩺 Reperto auscultatorio tipico dell’interstiziopatie polmonari fibrosanti
-rumori secchi tipo-velcro → crepitii basali bilaterali alla fine dell’inspirazione
-(l’interstizio cicatriziale sfrega come il velcro quando lo si fa estendere)
+       rumori secchi tipo-velcro → crepitii basali bilaterali alla fine dell’inspirazione
 
-🔎 ⚠ ️ Basali perché la fibrosi inizia dalle basi per poi portarsi cranialmente.
+                    (l’interstizio cicatriziale sfrega come il velcro quando lo si fa estendere)
+
+
+             🔎 ⚠ ️ Basali perché la fibrosi inizia dalle basi per poi portarsi cranialmente.
+
 • Laboratorio → escludere infezioni e malattie autoimmuni.
-EGA mostra ipossiemia )PaO2) e ipocapnia (PaCO2).
-In caso di emogas normale a riposo, eseguiamo 6MWT e monitoriamo eventuale desaturazione (SatO2 <90%).
+             EGA mostra ipossiemia )PaO2) e ipocapnia (PaCO2).
+      In caso di emogas normale a riposo, eseguiamo 6MWT e monitoriamo eventuale desaturazione (SatO2 <90%).
+
 
 • Spirometria → deficit ventilatorio di tipo restrittivo ( riduzione proporzionale di FEV1 e CVF. IT invariato).
 Si è visto che un declino >10% della CVF tra 6-12 mesi aumenta x8 la mortalità rispetto al pz con declino del 5%.
 
+
+
+
 Diagnostica per immagini
 • RX → accentuazione della trama polmonare “bianca” perché il contenuto fibrotico determina maggiore diffrazione dei raggi X.
+
 
 • HRCT🥇 (gold standard diagnosi interstiziopatie) , di cui riconosciamo 4 pattern:
 1. UIP 🐝 (es. IPF)
@@ -1322,187 +1507,230 @@ Reticolazioni da fibrosi a livello subpleurico e basale e nido d’ape
 (le cellette sono spazi cistici derivanti dalla rottura e cicatrizzazione di qualche setto Interalveolare).
 Fibrosi ad andamento caudo-craniale.
 Possono essere presenti o meno le bronchiectasie da trazione.
-
 2. UIP Probabile
-Non c’è honeycombing ma può esserci opacità Ground Glass estesa. Presenti reticolazioni e fibrosi periferiche e subpleuriche.
+ Non c’è honeycombing ma può esserci opacità Ground Glass estesa. Presenti reticolazioni e fibrosi periferiche e subpleuriche.
+
 
 3 . UIP Indeterminata → reticolazione a livello superiore o centrale. Ground Glass prevale rispetto al nido d’ape.
 Sono presenti caratteristiche che suggeriscono diagnosi alternativa (noduli, granulomi, infiammazione senza fibrosi).
 
+
 4. Diagnosi alternative
-◦fibrosi NON localizzate alle basi o in sede subpleurica
-◦cisti, noduli
-◦anomalie caratteristiche di altre patologie (es. placche pleuriche da asbestosi).
+         ◦fibrosi NON localizzate alle basi o in sede subpleurica
+         ◦cisti, noduli
+         ◦anomalie caratteristiche di altre patologie (es. placche pleuriche da asbestosi).
 
-In caso di pattern poco chiaro alla TC, usiamo la
 
-Il
+In caso di pattern poco chiaro alla TC, usiamo la   biopsia VATS o in open.
 
-biopsia VATS o in open.
-
-BAL può essere usato per escludere altre patologie. In IPF aumentano PMN e eosinofili.
+Il   BAL può essere usato per escludere altre patologie. In IPF aumentano PMN e eosinofili.
 
 Le nuove linee guida permettono di incrociare i pattern HRCT con quelli istopatologici:
 
+
+
+
 Differenze IPF-NSIP
 • IPF → prognosi peggiore perché nell’honeycombing la cicatrizzazione è irreversibile.
+
+
 • NSIP → flogosi reversibile (a volte) con cortisone. Mancano i foci e l’honeycombing.
 
-💔 Fattori che peggiorano la prognosi di IPF
-◦ipertensione polmonare
-◦“Scar Cancer” (K polmone su cicatrice)
-◦Patologie CV
 
-TERAPIA→ anti-fibrotici
+💔 Fattori che peggiorano la prognosi di IPF
+         ◦ipertensione polmonare
+         ◦“Scar Cancer” (K polmone su cicatrice)
+         ◦Patologie CV
+                                 TERAPIA→ anti-fibrotici
 Pirfenidone OS a stomaco pieno. Da continuare a tempo indeterminato.
 • Criteri di eleggibilità:
-◦FVC >50%
-◦DLCO >35%
+       ◦FVC >50%
+       ◦DLCO >35%
+       ◦età 40-80 anni.
 
-◦età 40-80 anni.
 • m.d.a. → 🔴 sintesi collagene , 🔴 TGF-B , 🔴 Citochine (TNF-A)
+
+
 • E.C. → Fotosensibilizzante , EPATITE (monitoraggio ⚠ funzione
-epatica), GI-tox (antiacidi e antiemetici).
-️
+                                                       ️        epatica), GI-tox (antiacidi e antiemetici).
+
+
+
 
 Nintedanib OS a stomaco pieno. Da continuare a tempo indeterminato
 • Criteri di eleggibilità:
-◦FVC >50%
-◦DLCO >30%
+       ◦FVC >50%
+       ◦DLCO >30%
+       ◦età >40 anni
 
-◦età >40 anni
 • m.d.a. → RTK-i (VEGFR , FGFR , PDGFR)
-• E.C. → GI-tox (antiacidi , Loperamide) , epatite⚠ ‼
-️ ️ (monitoraggio epatico ogni mese per i primi 3 mesi).
-Pirfenidone e Nintedanib NON SONO ASSOCIABILI (troppo GI-tox).
-🚨 Cause di morte nei pz con IPF
 
+
+• E.C. → GI-tox (antiacidi , Loperamide) , epatite⚠ ‼
+                                                    ️ ️ (monitoraggio epatico ogni mese per i primi 3 mesi).
+
+
+                     Pirfenidone e Nintedanib NON SONO ASSOCIABILI (troppo GI-tox).
+
+
+🚨 Cause di morte nei pz con IPF
 → esacerbazione acuta (40%), insufficienza respiratoria, K polmone (10%) , polmoniti (7%).
 
+
+
 Nerandomilast SPERIMENTALE (PDE4B-i)
-Risultati pubblicati sul New England Journal of Medicine a maggio 2025.
+              Risultati pubblicati sul New England Journal of Medicine a maggio 2025.
 Maggiore tollerabilità con e.c. (diarrea) gestibili. È potenzialmente combinabile con gli altri due farmaci attuali.
-Riduce necessità di O2-terapia e riduce il rischio di morte fino al 43%.
+              Riduce necessità di O2-terapia e riduce il rischio di morte fino al 43%.
+
+
+
 
 Pneumopatie infiltrative diffuse secondarie a connettivopatie
 Le connettivopatie come la sclerosi sistemica variante diffusa, associate ad auto-Ab come anti-Jo1 , FR , anti-centromero ,
 anti-topoisomerasi , polimiosite, anti-RNApol,
+       predispongono alla comparsa di interstiziopatia polmonare, mediata da TH17, TH2 e IL-6.
 
-predispongono alla comparsa di interstiziopatia polmonare, mediata da TH17, TH2 e IL-6.
+
 Distinguiamo 2 fenotipi:
 • malattia limitata → alterazioni radiologiche <10% o 10-30% + CVF>70%
 • malattia estesa → alterazioni radiologiche >30% o 10-30% + CVF <70% .
-
 Terapia
-◦ corticosteroidi
-◦immunosoppressori (MTZ , AZA , CYC)
-◦farmaci biologici (Tocilizumab , Rituximab , anti-TNF-a)
-◦anti-fibrotici.
+      ◦ corticosteroidi
+      ◦immunosoppressori (MTZ , AZA , CYC)
+      ◦farmaci biologici (Tocilizumab , Rituximab , anti-TNF-a)
+
+      ◦anti-fibrotici.
+
 
 ⚠‼
-→ Fibrosi polmonare , polmonite , edema non cardiogeno.
-️ E.C.
-️
+ ️ E.C.
+   ️    → Fibrosi polmonare , polmonite , edema non cardiogeno.
 
-BPCO
 
-o COPD
+
+
+                                       BPCO                  o COPD
+
 
 Patologia polmonare eterogenea caratterizzata da sintomi cronici (tosse, dispnea, espettorato) e riacutizzazioni dovute ad
 anomalie delle vie aeree (bronchite, bronchiolite) e/o degli alveoli (enfisema).
-È una patologia ostruttiva progressiva.
-La resistenza a valle è dovuta al muco (nell’asma al broncospasmo).
+                             È una patologia ostruttiva progressiva.
 
-Nella maggior parte dei casi ne sono affetti pazienti con altre comorbidità.
+             La resistenza a valle è dovuta al muco (nell’asma al broncospasmo).
 
-Evoluzione clinica
+
+             Nella maggior parte dei casi ne sono affetti pazienti con altre comorbidità.
+
+
+                             Evoluzione clinica
 1. bronchite cronica semplice→ tosse ed espettorazione ricorrenti da almeno 2 anni, presenti ogni anno per almeno 3 mesi.
 2. bronchite cronica ostruttiva→ si aggiunge la dispnea ingravescente.
-
 3. BPCO → coinvolgimento di tutto il parenchima polmonare.
+
+
 Sono caratteristiche le riacutizzazioni, che spesso coincidono con infezioni respiratorie.
+
+
 Ad ogni ciclo la condizione peggiora rispetto a quella di partenza, a causa dell’ispessimento della parete bronchiale dovuta ai
 fenomeni riparativi.
 
-Fattori di rischio
+
+                             Fattori di rischio
 • ESOGENI → inquinanti ambientali, fattori occupazionali, virus o batteri.
 
+
 • ENDOGENI
-◦fattori genetici (deficit A1-antitripsina)
-◦basso peso alla nascita
-◦iperattività bronchiale
-◦infezioni infantili
+      ◦fattori genetici (deficit A1-antitripsina)
+      ◦basso peso alla nascita
+      ◦iperattività bronchiale
+      ◦infezioni infantili
+
 
 🥇 🚬 Fattore di rischio principale → fumo di sigaretta:
-‣ altera funzione macrofagica , riducendo fagocitosi e funzionalità APC
-‣ CO2, CO, formaldeide
-‣ riduce clearance muco ciliare (cilio-tox)
-
+             ‣ altera funzione macrofagica , riducendo fagocitosi e funzionalità APC
+             ‣ CO2, CO, formaldeide
+             ‣ riduce clearance muco ciliare (cilio-tox)
 Le linee guida GOLD-2023 si considerano anche i pazienti a rischio di svilupparla, i quali rientrano in 2 categorie:
 
+
 • PRE-COPD → pz con fattori di rischio ma senza alterazioni alla spirometria.
+
 • PRISm (Preserved Ratio Impaired Spirometry)
-→ pz con fattori di rischio + alterazioni visibili alla TC + spirometria anomala con IT = 70-80%
+            → pz con fattori di rischio + alterazioni visibili alla TC + spirometria anomala con IT = 70-80%
+
 
 Fisiopatologia → squilibrio tra proteasi/anti proteasi e tra ossidanti/antiossidanti polmonari.
 Il fumo di sigaretta recluta macrofagi e neutrofili che rilasciano enzimi proteolitici e agenti ossidanti.
+
+
 I peptidi rilasciati fungono da autoantigeni, scatenando reazioni S.I. coinvolgenti cellule dendritiche, linfociti B, CD4+ e CD8+.
+
+
 • Nei bronchioli <2 mm l’ispessimento delle pareti determina fibrosi e iperplasia delle cellule caliciformi che producono
-muco, ostruendo le vie aeree.
+  muco, ostruendo le vie aeree.
+
+
 • L’Enfisema riduce la forza elastica del polmone
+      ◦ → aumento VR
+      ◦ → torace espanso anche a riposo (torace a botte) .
 
-◦ → aumento VR
-◦ → torace espanso anche a riposo (torace a botte) .
 
-Anatomia patologica
-1. alterazioni epitelio ciliato
-2. iperplasia cellule caliciformi
-3. iperplasia e ipertrofia ghiandole tubulo-acinose.
+                         Anatomia patologica
+                  1. alterazioni epitelio ciliato
+                  2. iperplasia cellule caliciformi
+                  3. iperplasia e ipertrofia ghiandole tubulo-acinose.
 
-CLINICA
+
+                         CLINICA
 • TOSSE che va stimolata e favorita, per eliminare muco e materiale tossico. Max intensità al risveglio.
+
 • Espettorato:
-◦mucoso (biancastro) → bronchite cronica semplice.
-◦mucopurulento (giallastro) → Bronchite cronica mucopurulenta.
-◦purulento (giallo o verde) → infezione in corso.
+      ◦mucoso (biancastro) → bronchite cronica semplice.
+      ◦mucopurulento (giallastro) → Bronchite cronica mucopurulenta.
+      ◦purulento (giallo o verde) → infezione in corso.
+
 
 In caso di odore fetido potrebbe esserci contaminazione da Pseudomonas.
 
+
 • DISPNEA ESPIRATORIA ingravescente.
+
 • Casi gravi → sintomi da insufficienza respiratoria (cianosi) , IP pre-capillare.
-
-Vecchi FENOTIPI “didattici”
-
+                   Vecchi FENOTIPI “didattici”
 Pink-Puffer
 Pz BPCO con enfisema, magro e cachettico (la dispnea peggiora durante i pasti).
-Non è ipersecretivo né catarrale.
+                                Non è ipersecretivo né catarrale.
 Respirazione efficace ma con grande dispendio energetico (purché non si compiano sforzi).
 Tendono a essere “immobili”.
 Utilizzano le unità polmonari indenni,
 compensando il danno polmonare a carico dei bronchioli terminali (dilatazione spazi aerei).
+
+
 Il paziente respira a bocca socchiusa, in posizione da tripode, piegando i gomiti per
 rinforzare l’azione dello SCM (muscolo espiratorio accessorio).
+
+
 E.O. → tachipnea , torace a botte , iperfonesi alle basi , FVT e MV ridotti.
+
 
 Blue Bloater (Fenotipo bronchitico)
 • pletorico
-
 • ipersecretivo.
+
 Gli spazi alveolari sono risparmiati ma non vengono ventilati adeguatamente,
 quindi i capillari non riescono ad assorbire O2
-•
+•   → Ipossiemia
 
-→ Ipossiemia
 
-•
+•   → IP, cuore polmonare cronico
 
-→ IP, cuore polmonare cronico
 
 • respirano meno frequentemente rispetto ai Pink-Puffers → ipercapnia
-
 • edema e cianosi
 
 🩺 E.O. → crepiti grossolani inspiratori , Precoci rantoli diffusi.
+
 
 Comorbidità frequenti nei pz BPCO
 • malattie CV → richiedono beta-bloccanti, i quali antagonizzano il broncodilatatori
@@ -1511,48 +1739,60 @@ Comorbidità frequenti nei pz BPCO
 • diabete
 • obesità (→OSAS)
 • osteoporosi
-
-⚠🚨
-️ Complicanze
+ ️ Complicanze
+⚠🚨
 
 • riacutizzazioni causate da polmoniti
-◦batteriche / virali → Rhinovirus, RSV , influenza. Raccomandate vaccinazioni antinfluenzali e antipneumococco.
+      ◦batteriche / virali → Rhinovirus, RSV , influenza. Raccomandate vaccinazioni antinfluenzali e antipneumococco.
+
 
 • microembolia polmonare (ipossiemia → 🟢 EPO → poliglobulia → aumento viscosità sangue)
+
 • insufficienza respiratoria
 → fasi iniziali ipossemia che progredisce verso insufficienza ipossiemica-ipercapnica+p-globale
 
+
 • IP pre-capillare
+
 • Enfisema centrolobulare post-bronchitico
 
 Diagnosi
 1. anamnesi + E.O.
+
+
 2. spirometria con test di bronco-reversibilità con salbutamolo:
+
 nella BPCO l’ostruzione è irreversibile e il quadro non migliora.
+                   • VR aumenta ,diventando il 50% della CPT.
+                   • IT <0,7
+                   • Riduzione VEMS
 
-• VR aumenta ,diventando il 50% della CPT.
-• IT <0,7
-• Riduzione VEMS
+            Stadiazione di gravità, sulla base del livello dei sintomi, misurati col:
 
-Stadiazione di gravità, sulla base del livello dei sintomi, misurati col:
 "Questionario mMRC" sulla dispnea (0-4 = assenza → anche a riposo)
+
+
 "Questionario CAT" (COPD Assessment Test)
 8 domande per valutare l'impatto della BPCO sulla qualità della vita del pz.
-Il punteggio va da 0 a 40. Cut-off 10 pti (<10 indica pochi sintomi).
+            Il punteggio va da 0 a 40. Cut-off 10 pti (<10 indica pochi sintomi).
+
 
 Questi questionari inquadravano il paziente in uno dei quattro quadranti a, B, C, D.
 L'aggiornamento delle linee guida GOLD 2023, prevede la fusione dei precedenti quadranti C e D in un unico quadrante E:
 
+
 • Stadio A (lieve) → mMRC 0-1 o punteggio CAT<10.
-Max 1 riacutizzazione nell'anno precedente, che non ha richiesto ricovero
+             Max 1 riacutizzazione nell'anno precedente, che non ha richiesto ricovero
+
 
 • Stadio B (moderato) → mMRC ≥2 o CAT ≥10.
-Max 1 riacutizzazione nell'anno precedente, che non ha richiesto ricovero.
+            Max 1 riacutizzazione nell'anno precedente, che non ha richiesto ricovero.
+
 
 • Stadio E (grave)
-‼ ️ 2 o più riacutizzazioni nell'anno precedente oppure 1 riacutizzazione che ha richiesto ricovero.
-
+            ‼ ️ 2 o più riacutizzazioni nell'anno precedente oppure 1 riacutizzazione che ha richiesto ricovero.
 Classificazione della gravità con spirometria
+
 Ulteriori indagini
 • EGA (insuff,resp.)
 • TC torace (enfisema)
@@ -1562,378 +1802,444 @@ Ulteriori indagini
 • emocromo (poliglobulia)
 • Screening deficit a1-antitripsina
 
+
 TERAPIA farmacologica secondo linee guida GOLD 2023
 • Stadio A
-◦pochi sintomi e rare riacutizzazioni → broncodilatatore
-◦dispnea occasionale → SABA
+      ◦pochi sintomi e rare riacutizzazioni → broncodilatatore
+      ◦dispnea occasionale → SABA
+
 
 • Stadio B → LABA + LAMA
+
 • Stadio E
-1ª scelta → LABA + LAMA
+
+                                1ª scelta → LABA + LAMA
 Se eosinofili >300/uL → ICS + LABA + LAMA.
 Se persistenza riacutizzazioni → azitromicina oppure Roflumilast.
 
-Terapia non farmacologica
+
+                         Terapia non farmacologica
 • ossigenoterapia se pO2< 60 mmHg o grave desaturazione emersa con 6MWT.
 • Insufficienza respiratoria globale → NIV.
+
 
 Monitoraggio post ricovero
 • spirometria ogni 12-16 settimane.
 • Terapia antibiotica solo dopo conferma diagnostica, (colore muco + antibiogramma) , vista la possibilità di patogeni resistenti.
 • Mucolitici
 • liquidi
-
 Enfisema polmonare cronico
 Malattia polmonare ostruttiva cronica caratterizzata da distruzione degli alveoli e riduzione della superficie disponibile per lo scambio
 gassoso.
 
+
 Eziologia → fumo di sigaretta, inquinanti ambientali, deficit a1-antitripsina.
+
 Tipologie di enfisema
 • centrolobulare (ECL)
-◦coinvolge bronchioli e cavità alveolari adiacenti, soprattutto nei lobi superiori.
-◦associato a bronchite cronica.
+      ◦coinvolge bronchioli e cavità alveolari adiacenti, soprattutto nei lobi superiori.
+      ◦associato a bronchite cronica.
+
 
 • Panlobulare (EPL)
-◦colpisce lobi inferiori.
-◦associato al deficit di a1-antitripsina.
+    ◦colpisce lobi inferiori.
+    ◦associato al deficit di a1-antitripsina.
+
+
 • primitivo idiopatico (raro ,2%) → colpisce giovani non fumatori.
 
 Fisiopatologia
-• iperdistensione alveolare causata dall’Air trapping dovuto alla flogosi e ostruzione bronchiale
-• squilibrio elastasi-antielastasi
-• fumo
+                   • iperdistensione alveolare causata dall’Air trapping dovuto alla flogosi e ostruzione bronchiale
+                   • squilibrio elastasi-antielastasi
+                   • fumo
+
+
 Si instaurano insufficienza respiratoria e ipossemia → IP precapillare‼ ,️ causata da:
-◦occlusione trombotica dei piccoli vasi
-◦iperviscosità da poliglobulia (indotta dall’ipossia)
-◦Remodelling vascolare con ispessimento dell’intima e aumento delle resistenze.
+      ◦occlusione trombotica dei piccoli vasi
+      ◦iperviscosità da poliglobulia (indotta dall’ipossia)
+      ◦Remodelling vascolare con ispessimento dell’intima e aumento delle resistenze.
+
 
 Clinica , accentuata durante le riacutizzazioni.
-1. tosse più o meno produttiva
-2. dispnea progressiva
-3. cianosi da compromissione del rapporto V/P.
+                   1. tosse più o meno produttiva
+                   2. dispnea progressiva
+                   3. cianosi da compromissione del rapporto V/P.
+
 
 DIAGNOSI
 • E.O.
-◦Ispezione → torace a botte , cifosi dorsale accentuata.
-◦Palpazione → ipomobilità emitoraci e riduzione FVT.
-◦Percussione → iperfonesi , atteggiamento inspiratorio fisso.
+      ◦Ispezione → torace a botte , cifosi dorsale accentuata.
+      ◦Palpazione → ipomobilità emitoraci e riduzione FVT.
+      ◦Percussione → iperfonesi , atteggiamento inspiratorio fisso.
+      ◦🩺 Auscultazione → riduzione MV, rantoli bollosi.
 
-◦🩺 Auscultazione → riduzione MV, rantoli bollosi.
+
 Modifiche funzionali → ❌ CV, VEMS , IT ridotti. AUMENTO ✅ VR !!!
-
 IMAGING
+
 • RX → iperdiafania polmonare da eccesso di aria.
+
 • TC → polmone enfisematoso “evanishing lung”.
 
 TERAPIA, prova ad agire riducendo le resistenze al flusso, trattando le componenti reversibili dell’ostruzione:
-‣ corticosteroidi topici e/o sistemici
-‣ broncodilatatori (B2-agonisti , metilexantine , anti-muscarinici)
-‣ mucolitici e antiossidanti.
+             ‣ corticosteroidi topici e/o sistemici
+             ‣ broncodilatatori (B2-agonisti , metilexantine , anti-muscarinici)
+             ‣ mucolitici e antiossidanti.
 
-ASMA BRONCHIALE
+
+
+
+             ASMA BRONCHIALE
 Malattia infiammatoria cronica delle vie aeree caratterizzata da flogosi minima persistente, anche quando il pz è asintomatico.
 Questa, a lungo andare, può causare remodelling nelle vie aeree con progressiva ostruzione in risposta ai cicli di danno-riparazione.
 
+
 Condizioni come esercizio fisico, iperventilazione, IBA (rilascio istamina e metacolina) nei soggetti asmatici causano crisi a
 concentrazioni inferiori rispetto alla norma.
+
 
 Epidemiologia
 300 milioni di persone ne sono affette in tutto il mondo. Sono affetti il 10% dei bambini e il 5% degli adulti (soprattutto donne) .
 Sono più a rischio bambini maschi che non svolgono regolarmente attività fisica.
 
+
 Fattori predisponenti
 • Predisposizione genetica
-◦ geni per interleuchine (IL-4 , IL-5 , IL-13)
-◦ metalloproteasi ADAMTS33
-◦geni per recettori B-adrenergici (stimolati da farmaci come il salbutamolo).
+      ◦ geni per interleuchine (IL-4 , IL-5 , IL-13)
+      ◦ metalloproteasi ADAMTS33
+      ◦geni per recettori B-adrenergici (stimolati da farmaci come il salbutamolo).
+
 
 • Fattori ambientali scatenanti
-◦ allergeni (gruppo DERP 1/2/3) → polveri , peli di animali (Fel D1 , Can F1) , erbacee (parietali, graminacee).
-[ DERP 1 e 2 sono enzimi della digestione degli acari intrappolati nelle particelle fecali ]
+      ◦ allergeni (gruppo DERP 1/2/3) → polveri , peli di animali (Fel D1 , Can F1) , erbacee (parietali, graminacee).
+                   [ DERP 1 e 2 sono enzimi della digestione degli acari intrappolati nelle particelle fecali ]
 
-◦FANS (ASA) → Triade di Widal: Asma, poliposi nasale, intolleranza ad ASA.
-◦B-bloccanti
-◦esercizio fisico
-◦GERD
-◦emozioni intense
-◦asma professionale (15%)
-◦Fumo di tabacco (20%)
-◦cause ormonali → riacutizzazioni frequenti durante il ciclo mestruale o nei giorni precedenti.
 
-FISIOPATOLOGIA
+
+      ◦FANS (ASA) → Triade di Widal: Asma, poliposi nasale, intolleranza ad ASA.
+      ◦B-bloccanti
+      ◦esercizio fisico
+      ◦GERD
+      ◦emozioni intense
+      ◦asma professionale (15%)
+      ◦Fumo di tabacco (20%)
+      ◦cause ormonali → riacutizzazioni frequenti durante il ciclo mestruale o nei giorni precedenti.
+                         FISIOPATOLOGIA
 Il diffuso restringimento delle vie aeree e IBA causano una riduzione del flusso aereo, che viene compensato dal paziente con una
 ventilazione a volumi polmonari più elevati.
 Ciò aumenta il lavoro respiratorio resistivo ed elastico, con progressivo aumento del VR.
 
+
 Il paziente appare ipocapnico, ipossico e in alcalosi respiratoria(a causa dell’iperventilazione). Necessaria la valutazione con EGA
 
-CLASSIFICAZIONE
+
+                         CLASSIFICAZIONE
 2 macrocategorie:
-‣ fenotipo TH2-High → risponde ai glucocorticoidi.
-‣ Fenotipo TH2-Low
+            ‣ fenotipo TH2-High → risponde ai glucocorticoidi.
+            ‣ Fenotipo TH2-Low
 
-3 Varianti FENOTIPICHE:
+
+                         3 Varianti FENOTIPICHE:
 • eosinofila allergica (TH2-High) → Broncocostrizione e crisi asmatiche da degranulazione mastocitaria.
-• eosinofila non allergica (TH2-High)
-‣ IL-5 coinvolta nel remodelling.
-‣ Danno vissuta con rilascio MBP ed ECP.
 
+
+• eosinofila non allergica (TH2-High)
+            ‣ IL-5 coinvolta nel remodelling.
+            ‣ Danno vissuta con rilascio MBP ed ECP.
 • neutrofila non allergica (TH2-Low)
-◦colpisce adulti obesi e fumatori.
-◦ non risponde al glucocorticoidi ma ai macrolidi (‼ Azitromicina)
-️
+      ◦colpisce adulti obesi e fumatori.
+      ◦ non risponde al glucocorticoidi ma ai macrolidi (‼ Azitromicina)
+                                                           ️
+
+
 ~ “ classificazione per gravità” pagina 54 ~
+
 
 Patogenesi fenotipo TH2-High
 • Forma allergica IgE- mediata = legame IgE-allergene → degranulazione → rilascio istamina → broncocostrizione.
-• forma NON allergica
 
-◦ IL-5 attiva i granulociti eosinofili facendogli rilasciare MBP ed ECP
-◦ → alterazione integrità epiteliale che permette agli allergeni/apteni di attraversarlo.
+
+• forma NON allergica
+      ◦ IL-5 attiva i granulociti eosinofili facendogli rilasciare MBP ed ECP
+      ◦ → alterazione integrità epiteliale che permette agli allergeni/apteni di attraversarlo.
 (anche perché le ciglia iniziano a muoversi senza coordinazione perdendo la funzione antimicrobica)
 
+
 Patogenesi fenotipo TH2-Low → i neutrofili mediano danno all’epitelio facendovi perdere integrità.
+
 Questi meccanismi si autoamplificano ad opera degli stessi mediatori che li causano.
 
-CLINICA
-‣ dispnea parossistica espiratoria
-‣ respiro sibilante (wheezing)
-‣ tosse con scarso escreto sieroso
-‣ senso di costrizione al torace.
 
-‣ Cianosi (casi gravi)
+
+
+                         CLINICA
+            ‣ dispnea parossistica espiratoria
+            ‣ respiro sibilante (wheezing)
+            ‣ tosse con scarso escreto sieroso
+            ‣ senso di costrizione al torace.
+            ‣ Cianosi (casi gravi)
+
 
 CRISI asmatica
 Dispnea e respiro sibilante con il pz sudato cianotico/sub-cianotico e in decubito ortopnoico.
 Tra una crisi e la successiva il pz può presentarsi asintomatico, solo con respiro sibilante o dispnoico da sforzo.
 
-⚠‼
-️ ️ MALE asmatico
-Persistenza dei sintomi per un lungo periodo di tempo: insufficienza respiratoria, ipossiemia, ipercapnia → cianosi, e tachicardia.
 
+⚠‼
+ ️ ️ MALE asmatico
+Persistenza dei sintomi per un lungo periodo di tempo: insufficienza respiratoria, ipossiemia, ipercapnia → cianosi, e tachicardia.
 🚑 Pz da ricoverare d’urgenza in terapia intensiva.
 
-DIAGNOSI
+
+
+                         DIAGNOSI
 ANAMNESI → allergie, infezioni, esposizione a fattori scatenanti.
+
 E.O. TORACE (può essere normale se ci troviamo durante la fase di remissione)
 • fase di riacutizzazione =
-◦gabbia toracica in posizione inspiratoria con appiattimento degli spazi sopraclaveari
-◦all’ auscultazione sibili (wheezing) in fase espiratoria.
+      ◦gabbia toracica in posizione inspiratoria con appiattimento degli spazi sopraclaveari
+      ◦all’ auscultazione sibili (wheezing) in fase espiratoria.
 
-• SPIROMETRIA
+
+                   • SPIROMETRIA
 Permette di evidenziare quadro ostruttivo (IT <0,7) . Attenzioniamo VEMS e PEF.
 La classifichiamo in:
 
+
 1. Asma intermittente
-◦sintomi <2 giorni/settimana. notturni <2/mese
-◦VEMS e PEF > 80%
+      ◦sintomi <2 giorni/settimana. notturni <2/mese
+      ◦VEMS e PEF > 80%
+
 
 2. Asma lieve-persistente
-‣ sintomi >2 gg/settimana, ma meno di una volta al giorno. Notturni 3-4/mese
-‣ VEMS e PEF > 80%
+            ‣ sintomi >2 gg/settimana, ma meno di una volta al giorno. Notturni 3-4/mese
+            ‣ VEMS e PEF > 80%
+
 
 3. Asma moderata-persistente
-◦sintomi ogni giorno.notturni più di una volta a settimana ma non tutte le notti.
-◦VEMS e PEF 60-80%
+      ◦sintomi ogni giorno.notturni più di una volta a settimana ma non tutte le notti.
+      ◦VEMS e PEF 60-80%
+
 
 4. Asma grave-persistente
-‣ sintomi durante tutto il giorno, ogni notte o quasi.
-‣ VEMS e PEF <60%, con variabilità giornaliera >30%.
-
-• TEST ALLA METACOLINA
+            ‣ sintomi durante tutto il giorno, ogni notte o quasi.
+            ‣ VEMS e PEF <60%, con variabilità giornaliera >30%.
+                      • TEST ALLA METACOLINA
 Si usa per bypassare la possibilità che la spirometria venga fatta durante il periodo di remissione.
 Viene anche definito test di provocazione bronchiale aspecifico.
 Questo broncocostrittore viene somministrato per via inalatoria due volte, raddoppiando il dosaggio a distanza di 5’ tra la
-
 prima e la seconda somministrazione .
 Il risultato viene espresso in PD20-FEV1: il valore di dose di metacolina che ha determinato una caduta di FEV1 >20%,
 rispetto al basale.
 
-Valori attesi (PD20-FEV1 , mg/mL) :
-‣ <8 → IBA compatibile con asma
-‣ 8-16 → asma lieve o BPCO iniziale
-‣ >16 → test negativo
 
-• PROVE ALLERGICHE
+                      Valori attesi (PD20-FEV1 , mg/mL) :
+
+             ‣ <8 → IBA compatibile con asma
+
+             ‣ 8-16 → asma lieve o BPCO iniziale
+
+
+             ‣ >16 → test negativo
+
+
+                      • PROVE ALLERGICHE
 • PRICK test
 • indagini sierologiche:
-◦PRIST → discriminazione tra asma e BPCO.
-◦RAST → quando sospetto asma bronchiale allergico, per individuare l’allergene.
+      ◦PRIST → discriminazione tra asma e BPCO.
+      ◦RAST → quando sospetto asma bronchiale allergico, per individuare l’allergene.
 
-• INDAGINI COMPLEMENTARI
-◦ RX torace
-◦ EGA
-◦ ECG
-◦ph-metria esofagea.
+
+                      • INDAGINI COMPLEMENTARI
+      ◦ RX torace
+      ◦ EGA
+      ◦ ECG
+      ◦ph-metria esofagea.
 Servono per discriminare asma da altre possibili cause di dispnea e dall’asma bronchiale da GERD.
+
 
 Indagini per fenotipizzare l’asma
 • esame dell’espettorato (=“forma con eosinofili o neutrofili”??)
-◦ serve per Discriminare tra forme TH2-H e TH2-L.
-◦Al diminuire del numero di eosinofili → migliore quadro clinico (=pz sta rispondendo alla terapia con ICS).
+      ◦ serve per Discriminare tra forme TH2-H e TH2-L.
+      ◦Al diminuire del numero di eosinofili → migliore quadro clinico (=pz sta rispondendo alla terapia con ICS).
+
+
 • Misurazione concentrazione FENO (NO espirato)
+             ‣ Aumenta nelle forme eosinofile, essendo indice di esposizione allergenica e quindi di instabilità clinica.
 
-‣ Aumenta nelle forme eosinofile, essendo indice di esposizione allergenica e quindi di instabilità clinica.
 
+ ️ 🚨 DDX ASMA-BPCO (entrambe ostruttive)
 ‼👀
-️ 🚨 DDX ASMA-BPCO (entrambe ostruttive)
-Nella BPCO:
-
-‣ maggiore secrezione di muco
-‣ maggiore edema mucosale
-‣ risponde molto meno dell’asma ai broncodilatatori → eseguiamo il “test di reversibilità bronchiale”.
-
+                           Nella BPCO:
+             ‣ maggiore secrezione di muco
+             ‣ maggiore edema mucosale
+             ‣ risponde molto meno dell’asma ai broncodilatatori → eseguiamo il “test di reversibilità bronchiale”.
 • Test di reversibilità bronchiale con Salbutamolo
 1. Si effettua spirometria.
 2. somministrano 4 puffs di salbutamolo.
-3.
+3.   dopo 15’ si ripete la spirometria e si confrontano i due spirogrammi.
 
-dopo 15’ si ripete la spirometria e si confrontano i due spirogrammi.
 
-Interpretazione
-◦ se VEMS è migliorata (>= 80% della CVF) dopo il salbutamolo (
+                                Interpretazione
+       ◦ se VEMS è migliorata (>= 80% della CVF) dopo il salbutamolo (           Ventolin ©) → asma bronchiale.
+       ◦se VEMS migliora fino al 12% → BPCO (significa che risponde poco ai broncodilatatori).
 
-Ventolin ©) → asma bronchiale.
 
-◦se VEMS migliora fino al 12% → BPCO (significa che risponde poco ai broncodilatatori).
 
-TERAPIA
+
+                          TERAPIA
 Obiettivi:
-‣ risolvere o ridurre sintomatologia
-‣ mantenere funzione polmonare più vicino possibile al Normale
-‣ prevenire riacutizzazione e abbreviarne la durata
-‣ ridurre per quanto possibile gli effetti secondari del farmaco.
+             ‣ risolvere o ridurre sintomatologia
+             ‣ mantenere funzione polmonare più vicino possibile al Normale
+             ‣ prevenire riacutizzazione e abbreviarne la durata
+             ‣ ridurre per quanto possibile gli effetti secondari del farmaco.
+
 
 [ Farmaci
 • altri ICS
-◦BECLOMETASONE (Clenil © )️
-◦MOMETASONE
+       ◦BECLOMETASONE (Clenil © )️
+
+       ◦MOMETASONE
+
 
 • SABA
-◦ SALBUTAMOLO
-◦ TERBUTALINA (Brycanyl © )️
+       ◦ SALBUTAMOLO
+       ◦ TERBUTALINA (Brycanyl © )️
+
 
 • LABA
-◦ SALMETEROLO (+ Fluticasone , Seretide ©)
-◦ FORMOTEROLO ]
+       ◦ SALMETEROLO (+ Fluticasone , Seretide ©)
+       ◦ FORMOTEROLO ]
+
+
 Distinguiamo:
-•
-
-broncodilatatori
-◦b2-agonisti a breve (SABA) e lunga durata (LABA)
-◦xantine
-◦anticolinergici
-
+•    broncodilatatori
+       ◦b2-agonisti a breve (SABA) e lunga durata (LABA)
+       ◦xantine
+       ◦anticolinergici
 • antinfiammatori → corticosteroidi
-◦ ICS (budesonide , fluticasone , ciclesonide) → no soppressione surrenale , no disfonia , no candidosi.
-◦Sistemici
-‣ prednisone e prednisolone → OS
-‣ idrocortisone e metilprednisolone → EV (casi molto gravi).
+
+       ◦ ICS (budesonide , fluticasone , ciclesonide) → no soppressione surrenale , no disfonia , no candidosi.
+       ◦Sistemici
+             ‣ prednisone e prednisolone → OS
+             ‣ idrocortisone e metilprednisolone → EV (casi molto gravi).
+
 
 • Cromoni (inalatori) → Prevengono degranulazione mastocitaria
-◦ indicati in asma professionale e da sforzo
-
+       ◦ indicati in asma professionale e da sforzo
 • LTRA ( Montelukast e Zafirlukast )
-◦Utili come trattamento complementare in asma lieve e moderata.
-◦Nei bambini si usano per l’asma persistente
-◦ mai usarli in monoterapia !!!
+      ◦Utili come trattamento complementare in asma lieve e moderata.
+      ◦Nei bambini si usano per l’asma persistente
+      ◦ mai usarli in monoterapia !!!
 
-• MABs
-🔹 OMALIZUMAB (XOLAIR© ) → anti-IgE , sottocute
-🔹 MEPOLIZUMAB (NUCALA© ️ ) → anti-IL5 = riduce sopravvivenza eosinofili // 100 mg SC ogni 4 settimane
-🔹 BENRALIZUMAB (FASENRA© ) → lega sub. alfa di IL5-R
-induce ADCC : citotossicità (degli eosinofili) “cellulo-mediata anticorpo-dipendente”
-🔹 DUPILUMAB (anti IL4-R) → DUPIXENT© 300 mg SC ogni 2 settimane
-🔹 TEZEPELUMAB ( TEZSPIRE© ️ ) → anti-TSLP= lega linfopoietina stromale timica.
 
-PERCORSI TERAPEUTICI
-STEP 1-2
+                                        • MABs
+            🔹 OMALIZUMAB (XOLAIR© ) → anti-IgE , sottocute
+
+
+            🔹 MEPOLIZUMAB (NUCALA© ️ ) → anti-IL5 = riduce sopravvivenza eosinofili // 100 mg SC ogni 4 settimane
+
+
+            🔹 BENRALIZUMAB (FASENRA© ) → lega sub. alfa di IL5-R
+                         induce ADCC : citotossicità (degli eosinofili) “cellulo-mediata anticorpo-dipendente”
+
+
+            🔹 DUPILUMAB (anti IL4-R) → DUPIXENT© 300 mg SC ogni 2 settimane
+
+
+            🔹 TEZEPELUMAB ( TEZSPIRE© ️ ) → anti-TSLP= lega linfopoietina stromale timica.
+
+
+
+
+                   PERCORSI TERAPEUTICI
+                   STEP 1-2
 • asma lieve con sintomi occasionali e basso rischio futuro
-◦ → device inalatore con ICS o Formoterolo al bisogno.
+      ◦ → device inalatore con ICS o Formoterolo al bisogno.
 
-STEP 3-4
+
+                   STEP 3-4
 • Asma moderata con sintomi frequenti o giornalieri e rischio per riacutizzazioni future:
-◦ → ICS/LABA a basse/medie dosi.
+      ◦ → ICS/LABA a basse/medie dosi.
 
-STEP 5
+
+                   STEP 5
 • Asma grave con sintomi quotidiani, frequenti riacutizzazioni e limitazioni nella vita quotidiana:
-◦ → ICS/LABA alte dosi ad uso regolare + anticolinergico a lunga durata (LAMA)
+      ◦ → ICS/LABA alte dosi ad uso regolare + anticolinergico a lunga durata (LAMA)
+INSUFFICIENZA RESPIRATORIA                                                               (PaO2 <60 mmHg)
 
-INSUFFICIENZA RESPIRATORIA
-
-(PaO2 <60 mmHg)
 
 Definizione
 Rappresenta l’incapacità del polmone di ossigenare adeguatamente il sangue arterioso e/o eliminare la CO2.
 
+
 Ipossiemia
-PaO2 <80 mmHg → SpO2 <90%
+                         PaO2 <80 mmHg → SpO2 <90%
 Consiste in basse concentrazioni di ossigeno a livello arterioso.
-Al Cut-off sovracitato può essere aggiunto anche il
+Al Cut-off sovracitato può essere aggiunto anche il   rapporto PaO2/FiO2 <285
+                   (FiO2= frazione inspiratoria di O2, pari al 21% in aria ambiente)
 
-rapporto PaO2/FiO2 <285
-
-(FiO2= frazione inspiratoria di O2, pari al 21% in aria ambiente)
 
 Ipossia
 Deficit di distribuzione dell’ossigeno ai tessuti, a carico principalmente dell’apparato cardiovascolare.
-Queste due condizioni possono non essere concomitanti.
+                                Queste due condizioni possono non essere concomitanti.
+
 
 Classificazione clinica
 
 • Tipo 1 (ipossemica o parziale)
 Fallimento del polmone e del cuore a mantenere un’adeguata ossigenazione per provvedere alle esigenze metaboliche.
-
 Criteri:
-◦pO2 <60
-◦pCO2 <40 (normale o ridotta)
-◦PA-aO2 (gradiente alveolo-arterioso di O2) normale o basso.
+      ◦pO2 <60
+      ◦pCO2 <40 (normale o ridotta)
+      ◦PA-aO2 (gradiente alveolo-arterioso di O2) normale o basso.
+
 
 Cause:
-‣ alta quota
-‣ mismatch V/Q 0-0,8 (vr 0,8 ; range 0,3-3)
-
-‣ ipoventilazione alveolare
-‣ problemi della diffusione (polmoniti o ARDS)
-‣ Shunt dx-sx (aumento PA-aO2).
+            ‣ alta quota
+            ‣ mismatch V/Q 0-0,8 (vr 0,8 ; range 0,3-3)
+            ‣ ipoventilazione alveolare
+            ‣ problemi della diffusione (polmoniti o ARDS)
+            ‣ Shunt dx-sx (aumento PA-aO2).
 
 • Tipo 2 (ipercapnica o globale)
 Fallimento della pompa respiratoria nell’eliminare abbastanza CO2.
 
+
 Criteri → ipossiemia + ipercapnia (pO2 <60 + PaCO2 >50)
+
 Cause:
-◦aumento resistenze vie aeree (BPCO, asma, soffocamento)
-◦ minor sforzo respiratorio (depress.centro respiratorio da barbiturici, obesità grave, lesione cerebrale)
-◦ridotta area per gli scambi (bronchite cronica)
-◦ disordini neuromuscolari (Guillain-Barrè)
-◦ malformazioni gabbia toracica (cifoscoliosi, spondilite anchilosante)
+      ◦aumento resistenze vie aeree (BPCO, asma, soffocamento)
+      ◦ minor sforzo respiratorio (depress.centro respiratorio da barbiturici, obesità grave, lesione cerebrale)
+      ◦ridotta area per gli scambi (bronchite cronica)
+      ◦ disordini neuromuscolari (Guillain-Barrè)
 
+      ◦ malformazioni gabbia toracica (cifoscoliosi, spondilite anchilosante)
 Sintomi
-‣ IP
-‣ encefalopatia ipercapnica + sonnolenza + flapping tremor , fino al coma ipercapnico.
-‣ ipotensione
-‣ poliglobulia e macroglobulia
+            ‣ IP
+            ‣ encefalopatia ipercapnica + sonnolenza + flapping tremor , fino al coma ipercapnico.
+            ‣ ipotensione
+            ‣ poliglobulia e macroglobulia
 
-Ulteriori classificazioni
+                   Ulteriori classificazioni
 • IR scompensata → non c’è riassorbimento renale di HCO3- = forte abbassamento del pH.
+
 • Modalità di insorgenza
-◦ acuta
+      ◦ acuta
 Si sviluppa nel giro di ore o giorni in un apparato precedentemente normofunzionante (polmoniti, embolia polmonare, ARDS).
 
-◦Cronica
+
+      ◦Cronica
 Si sviluppa nel corso dei mesi e della manifestazione terminale di una patologia pregressa (BPCO, fibrosi polmonare).
 
-◦Cronica riacutizzata o acuta su cronica
+
+      ◦Cronica riacutizzata o acuta su cronica
 Peggioramento nel giro di ore o giorni di un quadro già compromesso in partenza.
 
+
 • Presentazione dei sintomi
-‣
-
-manifesta → ipossiemia a riposo
-
-‣
-
-latente → ipossiemia dopo 6MWT o PSG (SatO2 <90% per almeno il 30% della notte)
+            ‣   manifesta → ipossiemia a riposo
+            ‣   latente → ipossiemia dopo 6MWT o PSG (SatO2 <90% per almeno il 30% della notte)
 
 Clinica
 • cianosi centrale, sudorazione e iperventilazione
@@ -1944,68 +2250,76 @@ Clinica
 • tremori grossolani
 • cefalea mattutina.
 
-DIAGNOSI IR
-1.
 
-Supporto del pz garantendo pervietà vie aeree, mantenimento del circolo, stato neurologico.
-
+                              DIAGNOSI IR
+1.   Supporto del pz garantendo pervietà vie aeree, mantenimento del circolo, stato neurologico.
 Identificazione della componente del sistema respiratorio coinvolto (SNC, parenchima, gabbia toracica, eccetera).
 
+
 2. Esami strumentali
-
-‣ EGA → pO2 [ pO2 = 109 - (0,43 x anni) +/- 4 ] , pO2/FiO2.
-‣ Pulsossimetria
-‣ Laboratorio → emocromo, lattati, glicemia, enzimi cardiaci, D-Dimero (TEP).
-
-IMAGING → RX TORACE:
+            ‣ EGA → pO2 [ pO2 = 109 - (0,43 x anni) +/- 4 ] , pO2/FiO2.
+            ‣ Pulsossimetria
+            ‣ Laboratorio → emocromo, lattati, glicemia, enzimi cardiaci, D-Dimero (TEP).
+                               IMAGING → RX TORACE:
 • RX negativa + ipossiemia + normocapnia
 Cause → embolia polmonare, shock, shunt . Problema vascolare o di perfusione, non parenchimale.
+
 • RX polmone bianco + ipossiemia + normocapnia
 Cause → ARDS, EPA , IPF.
 Perché? coinvolgimento parenchimale.
+
 • RX anomalie localizzate + ipossiemia
 Cause → polmonite, atelettasia, versamento pleurico.
 Perché? Problema focale. Opacità specifica localizzata.
+
 • RX Negativa + ipossiemia + ipercapnia
 Cause → problema ventilatorio (asma , BPCO , malattie neuromuscolari).
 
-TERAPIA IPOSSIEMIA
+                            TERAPIA IPOSSIEMIA
 O2-terapia → quando pO2<60 o SatO2%<90.
 
-Devices per l’erogazione
+
+                         Devices per l’erogazione
 Devices a BASSO flusso
 Quando? Pazienti con vie aeree superiori intatte, respirazione e frequenza respiratoria stabile.
 
+
 • Cannula nasale
-◦ flusso max 6 L/min.
-◦Non causa accumulo CO2 espirata.
-◦Può dare secchezza mucosa nasale.
+      ◦ flusso max 6 L/min.
+
+      ◦Non causa accumulo CO2 espirata.
+      ◦Può dare secchezza mucosa nasale.
+
 
 • Maschera semplice
 Si sospende durante l’alimentazione. Può causare accumulo di CO2 per il
 meccanismo di re-breathing.
 (CO2 inspirata si accumula nella maschera, venendo inspirata durante l’atto
 successivo. Flusso fino a 10 L/min
+
+
 ❌ Complicanze → ulcere da decubito nei punti di contatto sul viso.
 
+
 • Maschera con RESERVOIR
-NON RE-BREATHER MASK”)
 
-(“
+ (“NON RE-BREATHER MASK”)
+      ◦Flusso fino a 15 L/min, anche fino al 100%.
 
-◦Flusso fino a 15 L/min, anche fino al 100%.
-◦Viene utilizzato per brevi periodi perché si accumula CO2.
-◦Spesso funge da tramite nel passare da NIV a ventilazione invasiva.
-
+      ◦Viene utilizzato per brevi periodi perché si accumula CO2.
+      ◦Spesso funge da tramite nel passare da NIV a ventilazione invasiva.
 Devices ad ALTO flusso
 • Maschera di Venturi
 Oz-terapia a concentrazione controllata che sfrutta il principio fisico dell’effetto Venturi:
 
+
 un flusso di gas che attraversa un restringimento
 aumenta la propria velocità e genera una caduta di p laterale,
 richiamando aria ambiente in quantità prevedibile.
+
 In questo modo è possibile ottenere una FiO₂ relativamente costante e indipendente dal pattern respiratorio del paziente, a differenza
 dei sistemi a basso flusso.
+
 
 Funzionamento
 Si basa su una sorgente di O2 che entra ad alta pressione in un ugello calibrato (ad ogni FiO2 ne corrisponde un codice colore).
@@ -2013,237 +2327,266 @@ Il diametro dell’ugello determina la velocità del flusso e quindi la quantit�
 La miscela risultante di O2 e aria viene convogliata nella maschera facciale con un flusso totale elevato, sufficiente a superare la
 richiesta inspiratoria del paziente e a prevenire la diluizione imprevedibile con aria esterna.
 
+
 Principali indicazioni
-◦ evitare l’ipossia ma anche l’iperossia nei pz con insufficienza respiratoria cronica (es. BPCO con ritenzione di CO₂).
-◦ monitoraggio iniziale di insufficienze respiratorie acute di gravità lieve-moderata.
+      ◦ evitare l’ipossia ma anche l’iperossia nei pz con insufficienza respiratoria cronica (es. BPCO con ritenzione di CO₂).
+
+      ◦ monitoraggio iniziale di insufficienze respiratorie acute di gravità lieve-moderata.
+
 
 Struttura
 Maschera facciale in materiale plastico, adattabile al volto e dotata di fori di espirazione; un sistema di connessione alla fonte di O2.
 
-TERAPIA IPERCAPNIA
-(=bisogna far espirare la CO2 in eccesso, stimolando la FORZA ESPIRATORIA)
+
+                          TERAPIA IPERCAPNIA
+             (=bisogna far espirare la CO2 in eccesso, stimolando la FORZA ESPIRATORIA)
+
+
 • Forme LIEVI → ventiloterapia contro resistenza (FKT respiratoria).
-• Forme GRAVI →
 
-NIV
 
+• Forme GRAVI →         NIV
 Eseguibile con:
 
-◦CPAP (Continous Positive Airway Pressure)
+
+      ◦CPAP (Continous Positive Airway Pressure)
 Non è un vero e proprio sostegno ventilatorio perché la respirazione avviene esclusivamente grazie agli sforzi del paziente.
 Mantiene stabile la PEEP (pressione positiva di fine espirazione), evitando il collasso alveolare.
+
 Ha ‼ benefici
-sulla funzione cardiaca, aumentando GS e FE.
-️
+     ️        sulla funzione cardiaca, aumentando GS e FE.
+
 
 Indicazioni
-‣ EPA cardiogeno
-‣ OSAS
-‣ insufficienza respiratoria ipossiemica
-‣ recupero post operatorio
-
-⚠ NO IN PZ IPERCAPNICI
-perché non oﬀre supporto inspiratorio
-attivo
-
-◦BiPAP (Bi-Level Positive Airway Pressure)
+                                                                                           ⚠ NO IN PZ IPERCAPNICI
+             ‣ EPA cardiogeno                                                              perché non oﬀre supporto inspiratorio
+             ‣ OSAS                                                                                       attivo
+             ‣ insufficienza respiratoria ipossiemica
+             ‣ recupero post operatorio
+      ◦BiPAP (Bi-Level Positive Airway Pressure)
 Stabilizza con un flusso a bassa pressione.
 Con un flusso a pressione più alta, attivato durante l’ inspirazione, aumenta il volume respiratorio con un
+
 minore sforzo toraco vitale.
+
+
 Permette di eliminare una maggiore quantità di CO2, essendo pertanto preferita per l’Ipercapnia.
+
+
 La BiPAP-PSV interviene erogando la pressione solo quando il paziente inizia un atto inspiratorio.
 
+
+
+
 MIV Mechanical Invasive Ventilation
-(
-
-)
-
-‣ Maschera laringea
-‣ Tubo endotracheale
-‣ Cannula tracheostomica
+             (                                      )
+            ‣ Maschera laringea
+            ‣ Tubo endotracheale
+            ‣ Cannula tracheostomica
 
 Indicazioni
-◦alterazioni di coscienza con perdita di riflessi protettivi delle vie aeree (GCS<9)
-◦ arresto respiratorio o cardiaco
-◦shock
+      ◦alterazioni di coscienza con perdita di riflessi protettivi delle vie aeree (GCS<9)
+      ◦ arresto respiratorio o cardiaco
 
-◦ fallimento della NIV.
+      ◦shock
+      ◦ fallimento della NIV.
 
 Tipologie di MIV
+
 • CONTROLLATA
-‣ gestita interamente dal ventilatore
-‣ sedazione profonda e blocco neuromuscolare
+            ‣ gestita interamente dal ventilatore
+            ‣ sedazione profonda e blocco neuromuscolare
+
 
 • ASSISTITA → sfrutta lo sforzo inspiratorio del pz come Trigger (pressorio o di flusso) per attivare il ventilatore.
+
 Complicanze MIV
-◦Ipoventilazione / ipotensione
-◦barotrauma (PNX o pneumomediastino)
-◦VAP (polmonite associata a ventilazione) da Pseudomonas o Klebsiella
-◦distensione gastrica
-◦ulcere da stress
-
-ARDS
-
-(Acute Respiratory Distress Syndrome)
-
+      ◦Ipoventilazione / ipotensione
+      ◦barotrauma (PNX o pneumomediastino)
+      ◦VAP (polmonite associata a ventilazione) da Pseudomonas o Klebsiella
+      ◦distensione gastrica
+      ◦ulcere da stress
+                                    ARDS                (Acute Respiratory Distress Syndrome)
 Emergenza da insufficienza respiratoria acuta grave che insorge rapidamente (<7 gg) con:
+              ‣ riduzione della distensibilità polmonare
+              ‣ infiltrati polmonari diffusi alla RX torace.
 
-‣ riduzione della distensibilità polmonare
-‣ infiltrati polmonari diffusi alla RX torace.
-Rappresenta uno stadio più grave rispetto all’insufficienza respiratoria.
-
+                      Rappresenta uno stadio più grave rispetto all’insufficienza respiratoria.
 Eziologia
 • cause INDIRETTE → shock settico , ipoperfusione ,pancreatite , trasfusioni.
 • cause DIRETTE →. polmonite, traumi, lesioni da inalazione (aspirazione gastrica, intossicazione da O2).
 
+
 Fisiopatologia
-1.
-
-la lesione della membrana alveolo-capillare scatenata da stimoli esogeni, causa lo stravaso di plasma ricco di proteine
-nell’interstizio e negli alveoli
-
+1.   la lesione della membrana alveolo-capillare scatenata da stimoli esogeni, causa lo stravaso di plasma ricco di proteine
+     nell’interstizio e negli alveoli
 2. insorge edema interstiziale e collasso alveolare → riduzione distensibilità polmonare e rapporto V/P
-
 3. l’ipossia causava vasocostrizione arteriosa polmonare reattiva → ipertensione polmonare.
 4. I processi riparativi anomali depongono collagene ed ECM → fibrosi
 
+
 Clinica → dispnea a rapido esordio, tachipnea
+
 Diagnosi
 • Clinica
 • EGA → ipossiemia ipocapnica (da iperventilazione) , poi ipercapnia
 • RX torace → infiltrati interstiziali bilaterali basali, poi bilaterali e diffusi.
 
+
 Edema polmonare CARDIOGENO
-(USO STEROIDI che sono ANTI-EDEMIGENI‼ )️
+                      (USO STEROIDI che sono ANTI-EDEMIGENI‼ )️
+
+
 RX → opacità verso le basi + cardiomegalia + linee di Kerley.
 TC → ispessimento alle basi.
 
+
 CRITERI DIAGNOSTICI ARDS
-1. Esordio acuto
-2. PaO2/FiO2 <200
-3. Infiltrati polmonari bilaterali
-4. Nessuna evidenza di ipertensione atriale SX (PCWP <18)
+                      1. Esordio acuto
+                      2. PaO2/FiO2 <200
+                      3. Infiltrati polmonari bilaterali
+                      4. Nessuna evidenza di ipertensione atriale SX (PCWP <18)
+
 
 Terapia
 • controllo malattia primitiva (es. antibiotici empirici per sepsi )
 • Nutrizione enterale o parenterale
 • evitare farmaci nefrotossici
 • O2-terapia (FiO2~50%) + EGA quotidiano
-
 ⚠⏳
-️ Rischio VAP tempo-dipendente. Monitorare se PaCO2 >55 (=acidosi respiratoria) → proning
+ ️ Rischio VAP tempo-dipendente. Monitorare se PaCO2 >55 (=acidosi respiratoria) → proning
 La pronazione del pz libera la porz. posteriore del polmone , altrimenti compressa in posiz.supina. Serve a espellere più CO2.
+
+
 • Steroidi (metilprednisolone 2mg/kg e poi a scalare) → sono anti-edemigeni !!!
 Antinfiammatori in caso di diabete, ulcera , glaucoma.
 
-OSAS
 
-(Sindrome delle apnee ostruttive del sonno)
+
+
+                          OSAS                    (Sindrome delle apnee ostruttive del sonno)
+
 
 Ostruzione intermittente delle vie aeree superiori .
 Le apnee consistono nell’assenza di flusso aereo oronasale per >10”.
 
+
 Tipologie
 • CENTRALI
-◦ assenza di movimenti toraco addominali per cessazione dello stimolo respiratorio (idiopatica, da oppioidi, da IRC).
-◦fattori di rischio → HF, ictus in anamnesi , sesso maschile, età, Obesità .
+      ◦ assenza di movimenti toraco addominali per cessazione dello stimolo respiratorio (idiopatica, da oppioidi, da IRC).
+      ◦fattori di rischio → HF, ictus in anamnesi , sesso maschile, età, Obesità .
+
 
 • OSTRUTTIVE
-◦sbilanciamento tra fattori anatomici e funzionali.
-◦Sono presenti movimenti toraco addominali ma non sono coordinati tra loro.
+      ◦sbilanciamento tra fattori anatomici e funzionali.
+      ◦Sono presenti movimenti toraco addominali ma non sono coordinati tra loro.
+
 
 • MISTE → consistono in episodi centrali seguiti da un episodio ostruttivo.
 
 Fisiopatologia
 I ripetuti eventi ostruttivi portano a microrisvegli (“arousal”) non percepiti ,
+
 i quali alterano la regolazione del sonno fisiologico,
 
-aumentando l’attività simpatica → 🟢 RAAS 🟢 catecolamine surrenaliche
-→ ipertensione.
 
+                   aumentando l’attività simpatica → 🟢 RAAS 🟢 catecolamine surrenaliche
+                                       → ipertensione.
 Eziopatogenesi
 • Alterazioni maxillo-facciali delle vie aeree superiori (VAS) predispongono al rischio di collasso faringeo:
-il genioglosso e il tensore palatino diminuiscono di tono, rendendo la faringe più deformabile.
+  il genioglosso e il tensore palatino diminuiscono di tono, rendendo la faringe più deformabile.
+
+
 • Una riduzione dei volumi polmonari, tipica negli obesi in posizione supina, causerà un’espansione polmonare
-ridotta, non contribuendo a mantenere aperta la faringe.
+  ridotta, non contribuendo a mantenere aperta la faringe.
+
 
 • Loop gain (arousal seguito dall’iper ventilazione)
-Questo loop si ripete, sostenuto da alterazioni del controller gain (risposta dei centri respiratori all’ipossia e all’ipercapnia) e del
 
+Questo loop si ripete, sostenuto da alterazioni del controller gain (risposta dei centri respiratori all’ipossia e all’ipercapnia) e del
 plant gain (sensibilità del sistema respiratorio alle variazioni di CO2 e ossigeno).
 🔎 Un loop elevato determina forte risposta neurale ed un’eccessiva risposta ventilatoria a piccoli cambiamenti dei gas.
-
-CLINICA
+                                             CLINICA
 • sintomi NOTTURNI
-◦ russamento
+      ◦ russamento
+      ◦ apnee notturne riferite dai partner ‼ ️
+      ◦ gasping , choking
+      ◦ deficit di MBT
+      ◦ aumento rischio CV-cerebrovascolare (citochine rilasciate come conseguenza dell’ipossia intermittente).
 
-◦ apnee notturne riferite dai partner ‼ ️
-◦ gasping , choking
-◦ deficit di MBT
-◦ aumento rischio CV-cerebrovascolare (citochine rilasciate come conseguenza dell’ipossia intermittente).
 • Sintomi DIURNI
-◦sonnolenza ( sonno non ristoratore)
-◦astenia e bocca asciutta al risveglio
-◦mal di testa
-◦compromissione relazioni interpersonali, funzioni attentive, esecutive e mnemonica a breve termine.
+      ◦sonnolenza ( sonno non ristoratore)
+      ◦astenia e bocca asciutta al risveglio
+
+      ◦mal di testa
+      ◦compromissione relazioni interpersonali, funzioni attentive, esecutive e mnemonica a breve termine.
+
 
 DIAGNOSI
 
 • Anamnesi
-◦Questionario di Berlino
+      ◦Questionario di Berlino
 Stratificazione del pz in classi di rischio sulla base dei sintomi sovradescritti + nicturia + vita lavorativa e sessuale + aumento peso.
 
-◦ESS (Epworth Slepiness Scale)
+
+      ◦ESS (Epworth Slepiness Scale)
 Valuta da 0-3 punti (3 =probabilmente mi addormento) il grado di sonnolenza diurna come probabilità di appisolarsi o addormentarsi
 in una determinata situazione, indipendentemente dalla sensazione di stanchezza.
 
+
 • E.O.
-◦valutare morfologia e conformazione delle VAS (ipertrofia tonsillare, malocclusione, macroglossia, retrognazia).
-
-◦BMI >26
-
-◦Circonferenza del collo → >43 cm uomini, >40 cm donne.
-
+      ◦valutare morfologia e conformazione delle VAS (ipertrofia tonsillare, malocclusione, macroglossia, retrognazia).
+      ◦BMI >26
+      ◦Circonferenza del collo → >43 cm uomini, >40 cm donne.
 • Polisonnografia notturna (PSG) 🥇
 Esame multiparametrico che include valutazione:
-
-‣ ossimmetria
-‣ russamento
-‣ movimenti del corpo e delle gambe
-‣ flusso d’aria oronasale
-‣ escursione del torace e dell’addome.
+            ‣ ossimmetria
+            ‣ russamento
+            ‣ movimenti del corpo e delle gambe
+            ‣ flusso d’aria oronasale
+            ‣ escursione del torace e dell’addome.
 È possibile implementare ECG, EEG , EOG , EMG.
-Essendo un esame complesso è costoso, si opta spesso per il monitoraggio cardiorespiratorio (MCR) durante il sonno.
-Non prevedendo l’EEG, MCR non permette di studiare le fasi del sonno (REM/NREM).
 
-Indici per stabilire la GRAVITÀ del quadro ostruttivo:
+
+Essendo un esame complesso è costoso, si opta spesso per il monitoraggio cardiorespiratorio (MCR) durante il sonno.
+            Non prevedendo l’EEG, MCR non permette di studiare le fasi del sonno (REM/NREM).
+
+
+            Indici per stabilire la GRAVITÀ del quadro ostruttivo:
 
 • AHI🥇 (Apnea-Ipopnea Index)
-numero di apnee + ipopnee per ora di sonno (PSG) o di registrazione (MCR)
-◦⚪ assente
-(<5)
-️
-◦🟢 lieve (>5)
-◦🟡 moderata (15<AHI<30)
-◦🔴 grave (>30 )
+            numero di apnee + ipopnee per ora di sonno (PSG) o di registrazione (MCR)
+      ◦⚪ assente
+         ️       (<5)
+      ◦🟢 lieve (>5)
+      ◦🟡 moderata (15<AHI<30)
+      ◦🔴 grave (>30 )
+
 
 • RDI (Respiratory Disturbance Index , SOLO CON PSG!!!)
 → numero di ipopnee + apnee + limitazione del flusso correlato all’arousal.
 
+
 • ODI (O2 Desaturation Index)
 Numero di eventi con caduta della SatO2 >3% per ora di sonno di registrazione.
 
-TERAPIA
-Modifiche dello stile di vita (riduzione del peso, igiene del sonno , orari regolari).
+
+                                            TERAPIA
+                  Modifiche dello stile di vita (riduzione del peso, igiene del sonno , orari regolari).
+
+
 • 🟢 🟡 Casi lievi-moderati → CPAP (scomoda , e.c. = scarsa compliance)
+
+
 • 🔴 Casi gravi + ipoventilazione (obesità e/o BPCO) → BiPAP
+
+
 • Retrognatismo → MAD (Alternative Mandibular Advancement Device)
-
 • Proning
-• Chirurgia → uvulopalatolaringoplastica.
 
+• Chirurgia → uvulopalatolaringoplastica.
 FIBROSI CISTICA
-Generalità, mutazioni , fisiopatologia → Vedi “Fisiopato 2Fast”
+                    Generalità, mutazioni , fisiopatologia → Vedi “Fisiopato 2Fast”
 
 Clinica
 • Apparato respiratorio → sinusite e poliposi nasali. Bronchiectasie. Emottisi.
@@ -2251,156 +2594,181 @@ Clinica
 • infertilità maschile
 • osteoporosi, ipertensione, infarto, ansia, depressione.
 
+
 Diagnosi
 • test genetico CFTR NECESSARIO‼ ⚠
-️ ️
-• test del sudore →
+                                 ️ ️
 
->60 mmol Cl- diagnostico (40-60 mmol → borderline).
+
+• test del sudore →      >60 mmol Cl- diagnostico (40-60 mmol → borderline).
 
 Terapia sintomatica
 • enzimi pancreatici
 • nutrizione 3000-4000 kcal/die , altrimenti PEG
-
 • FKT respiratoria (giubbotti oscillatori, Pep Mask)
-
 • antibiotici
-◦Pseudomonas (adulti) → Tobramicina , Aztreonam , Amikacina.
-◦S.Aureus ( bambini) → Flucloxacillina.
+      ◦Pseudomonas (adulti) → Tobramicina , Aztreonam , Amikacina.
+      ◦S.Aureus ( bambini) → Flucloxacillina.
+
+
+
 
 Terapia genica e modulatori CFTR
-• Ivacaftor (Kalydeco © ,️ potenziatore ) → mutaz. gating classe 3.
-• Kaftrio (lumacaftor + elexacaftor + tezacaftor) → mutaz. F508.
-E.C. → Epatotox , aumento clearance muco-ciliare (aumento iniziale secrezioni).
+                    • Ivacaftor (Kalydeco © ,️ potenziatore ) → mutaz. gating classe 3.
+                    • Kaftrio (lumacaftor + elexacaftor + tezacaftor) → mutaz. F508.
 
+E.C. → Epatotox , aumento clearance muco-ciliare (aumento iniziale secrezioni).
 CHIRURGIA
 TORACICA
-
-2FAST
-
-NEOPLASIE POLMONARI BENIGNE
+ 2FAST
+                    NEOPLASIE POLMONARI BENIGNE
 Adenoma bronchiale
 Famiglia di tumori epiteliali benigni, tra cui:
 • Tumori carcinoidi (età <40 anni , non fumatore , massa centrale), potenzialmente metastatizzante.
 • Mucoepidermoidi.
 • Cilindroma adenocistico.
 
+
+
+
 Amartoma polmonare (75%)
 Lesione benigna del polmone di origine mesenchimale. Generalmente asintomatici e diagnosticati spesso incidentalmente.
+
 
 Classificazione → endobronchiali (sintomi da ostruzione bronchiale), parenchimali (asintomatici).
 
 CLINICA → asintomatico o sintomi da ostruzione bronchiale (tosse e emottisi).
+
 DIAGNOSI 🍿
+
 • RX torace → nodulo solitario circoscritto e lobulato con calcificazioni a pop-corn
 • TC torace → massa di tessuto adiposo (patognomonico) e cartilagineo
 
-Poi
 
-biopsia (se imaging poco chiaro) o broncoscopia (se forma endobronchiale).
+Poi   biopsia (se imaging poco chiaro) o broncoscopia (se forma endobronchiale).
 
 TERAPIA
 Follow-up con RX o TC per 2-3 anni in caso di dubbi diagnostici, altrimenti nullo.
 Chirurgia, in caso di sintomi:
-◦enucleazione semplice, preferibile.
-◦Resezione atipica (lesione profonda).
-◦lobectomia (raramente).
+       ◦enucleazione semplice, preferibile.
+       ◦Resezione atipica (lesione profonda).
+       ◦lobectomia (raramente).
 
-Lobi polmonari
+
+
+
+                                         Lobi polmonari
 • Polmone DX
-◦superiore (apicale, posteriore, anteriore)
-◦medio (laterale, mediale)
-◦inferiore (superiore, basale).
-• Polmone SX
-‣ superiore (lingulare)
-‣ inferiore (3 basali , superiore)
+   ◦superiore (apicale, posteriore, anteriore)
+   ◦medio (laterale, mediale)
+   ◦inferiore (superiore, basale).
 
-TUMORI DEL POLMONE
+• Polmone SX
+      ‣ superiore (lingulare)
+      ‣ inferiore (3 basali , superiore)
+                     TUMORI DEL POLMONE
 Carcinoma del polmone non a piccole cellule (NSCLC, 90%)
 2º posto per incidenza e 1º posto per mortalità in entrambi i sessi.
 Insorge principalmente tra 50 e 70 anni, con un’incidenza di circa 30.000 casi all’anno.
 
+
 Fattori di rischio
-◦fumo attivo e passivo
-◦inquinamento industriale
-◦radon.
+      ◦fumo attivo e passivo
+      ◦inquinamento industriale
+      ◦radon.
+
 
 • Adenocarcinoma 🟡 (o “cicatriziale” , 30-50%)
-Insorge frequentemente nelle donne e nei non fumatori.
-
+                           Insorge frequentemente nelle donne e nei non fumatori.
 Dove? → Posizione periferica che causa versamento pleurico
-Origine → Pneumociti di tipo II. Può originare da cicatrici polmonari croniche (es.TBC).
-Mutazioni → KRAS , EGFR , ALK.
-Crescita lenta ma metastatizza per via ematogena verso fegato, ossa e cervello.
-Detto “a cellule chiare” poiché il clone ha un citosol chiaro e abbondante per la tanta
 
-MUCINA.
+
+Origine → Pneumociti di tipo II. Può originare da cicatrici polmonari croniche (es.TBC).
+
+
+Mutazioni → KRAS , EGFR , ALK.
+
+
+             Crescita lenta ma metastatizza per via ematogena verso fegato, ossa e cervello.
+
+
+      Detto “a cellule chiare” poiché il clone ha un citosol chiaro e abbondante per la tanta   MUCINA.
 
 Può associarsi a sindromi paraneoplastiche come Osteopatia pneumica di Pierre-Marie:
-‣ acropachia → ingrossamento falangi distali
-‣ ipertrofia periostale
-‣ dolore e tumefazione articolare.
-Se localizzato in
+             ‣ acropachia → ingrossamento falangi distali
+             ‣ ipertrofia periostale
+             ‣ dolore e tumefazione articolare.
 
-zona apicale (invasione plesso brachiale o simpatico cervicotoracico) può causare:
 
-◦Sindrome di Pancoast (plesso brachiale)
-→ dolore torace-spalla-braccio, atrofia mm.mano, erosione I-II costa.
+Se localizzato in   zona apicale (invasione plesso brachiale o simpatico cervicotoracico) può causare:
 
-◦Sindrome di Horner (ganglio stellato del simpatico) → miosi, ptosi, enoftalmo, anidrosi.
+      ◦Sindrome di Pancoast (plesso brachiale)
+      → dolore torace-spalla-braccio, atrofia mm.mano, erosione I-II costa.
+
+
+      ◦Sindrome di Horner (ganglio stellato del simpatico) → miosi, ptosi, enoftalmo, anidrosi.
+
 
 • Squamocellulare (30%)
-◦Frequente nel maschio, fortemente fumo correlato.
-◦Localizzazione ai lobi superiori del polmone
+      ◦Frequente nel maschio, fortemente fumo correlato.
+      ◦Localizzazione ai lobi superiori del polmone
+      ◦ origina da metaplasia squamosa → tipica massa “a cavolfiore”🥬 .
 
-◦ origina da metaplasia squamosa → tipica massa “a cavolfiore”🥬 .
 
 • A grandi cellule (o “anaplastico”, 15%) → lesione periferica con alto potere metastatico (encefalo).
-
-Terapia NSCLC
+                                  Terapia NSCLC
 VALUTAZIONE MOLECOLARE:
-‣ EGFR → Gefitinib , Erlotinib , Afatinib
-‣ ROS1 → Osimertinib , Alectinib.
-‣ ALK → Crizotinib.
-‣ PDL1>50% → Pembrolizumab (anti-PD1)
-Se progressione rapida → Nintedanib + Docetaxel.
+             ‣ EGFR → Gefitinib , Erlotinib , Afatinib
+             ‣ ROS1 → Osimertinib , Alectinib.
+             ‣ ALK → Crizotinib.
+             ‣ PDL1>50% → Pembrolizumab (anti-PD1)
+                                  Se progressione rapida → Nintedanib + Docetaxel.
+
 
 • Stadio 1 (T1-T2 , N0 , M0)
 1ª scelta = Chirurgia →
-‣ Lobectomia con linfoadenectomia sistemica.
-‣ Toracectomia en bloc → rimozione lobo invaso + strutture invase (coste , pl.brachiale , mm.invasi)
+           ‣ Lobectomia con linfoadenectomia sistemica.
+           ‣ Toracectomia en bloc → rimozione lobo invaso + strutture invase (coste , pl.brachiale , mm.invasi)
+
 2ª scelta (Comorbidità o rifiuto dell’intervento) → RT stereotassica ablativa.
+
 Opzionale post-chirurgia → chemio adiuvante con cisplatino + vinorelbina per 3-4 cicli (pz.giovani , tumore di grosse dimensioni).
+
 
 • Stadio 3A
 1ª scelta → chemio adiuvante + chirurgia
+
 2ª scelta → Debulking con chemioterapici ,poi chirurgia quando sono raggiunti i criteri di resecabilità.
 
 • Stadio 3B = Cure palliative.
 Prognosi negativa → versamento maligno.
 
-Staging TNM NSCLC
+
+                      Staging TNM NSCLC
 T1 = Limitato al polmone <3 cm (solo parenchima)
 T2 = > 3cm in parenchima oppure bronco o pleura
 T3 = parete toracica, diaframma, pericardio lesioni multiple in un lobo
 T4 = trachea, carena, esofago, grossi vasi, mediastino
 
+
 N1 = intra polmonari o ilari ipsilaterali
 N2 = mediastinici ipsilaterali.
 N3 = controlaterali
 
+
 M1a = metastasi nel polmone controlaterale
 M1b = 1 metastasi in organo distante
 M1c = metastasi multiple in 1+ organi (cervello, fegato, ossa, surrene).
+                   Microcitoma (SCLC )                                                 ,15%
 
-Microcitoma (SCLC )
-,15%
 
-Nel 99% dei casi riguarda pz fumatori.
+                                Nel 99% dei casi riguarda pz fumatori.
 Origina dalle cellule neuroendocrine polmonari (PNEC), localizzate a livello della biforcazione bronchiale, il che ne giustifica la
 crescita in zona mediastinica centrale.
 È un tumore di grandi dimensioni e molto aggressivo, con una sopravvivenza a 2 anni del 10%.
+
 Spesso insorge per perdita di funzione contemporaneamente di Rb, p53, PTEN.
+
 
 Anatomia patologica
 • le cellule tendono ad aderire tra loro (molding) con aspetto vertebra-like
@@ -2408,84 +2776,97 @@ Anatomia patologica
 • aree di necrosi + indice mitotico alto
 • IHC = cromogranina + , sinaptofisina+ , CD56+.
 
+
 Staging SCLC: VAS (“Veteran Administration System”)
 • Malattia limitata → coinvolgimento emitorace ipsilaterale ed eventualmente linf. sovraclaveari, N.laringeo ricor., ostruzione VC.
 • Malattia estesa → nel 70% dei casi.
+
 
 TERAPIA
 • 1ª linea → chemio (platino + etoposide o irinotecano) [ 🔴 BEE ]
 • 2ª linea → topotecano.
 
 • RT quando:
-◦Per consolidare la chemio su sedi non completamente responsive.
+      ◦Per consolidare la chemio su sedi non completamente responsive.
+      ◦Profilassi per metastasi cerebrali.
 
-◦Profilassi per metastasi cerebrali.
 
-CLINICA TUMORI POLMONE
-Aspecifica con tosse, emottisi.
+
+                   CLINICA TUMORI POLMONE
+                          Aspecifica con tosse, emottisi.
 Poi disfagia, dispnea, singhiozzo , pericardite, compressione nervo laringeo. Sindrome VCS.
-Si associa a sindromi paraneoplastiche:
 
+
+Si associa a sindromi paraneoplastiche:
 • Cushing
 • edema “a mantellina”
 • ipercalcemia e osteoporosi
+
 • sindrome di Lambert-Eaton
 (ipotonia muscolare da auto-Ab contro il canale del Ca+)
 
+
 • Acanthosis nigricans , Ciuffini-Pancoast , CID.
-
-COME FARE STAGING TUMORI POLMONE
+      COME FARE STAGING TUMORI POLMONE
 1º livello → TC cranio-collo-addome-pelvi con mdc OBBLIGATORIA‼ ️
-2º livello
-◦Metastasi cerebrali → RM encefalo
-◦studio linfonodi locoregionali → PET-FDG
-◦dolore osseo → scintigrafia ossea
 
-◦ markers tumorali + esami bioumorali
+2º livello
+      ◦Metastasi cerebrali → RM encefalo
+      ◦studio linfonodi locoregionali → PET-FDG
+      ◦dolore osseo → scintigrafia ossea
+      ◦ markers tumorali + esami bioumorali
+
 Purtroppo il 60% delle diagnosi viene fatta in fase metastatica (stadio IV).
 La sopravvivenza a 5 anni in questo caso è del 4%
 
+
+
+
 ✅ Per confermare la diagnosi:
+
 • lesioni centrali → fibrobroncoscopia o citologico su escreto.
 • lesioni periferiche → FNAB percutaneo TC/ecoguidato
 
-TERAPIA GENERALE TUMORI POLMONE
+
+
+
+      TERAPIA GENERALE TUMORI POLMONE
 Valutata in basa a condizioni generali del pz (scala Karnofsky) , istotipo , metastasi.
 
-Criteri di NON resecabilità chirurgica
-◦NSCLC stadio 3A , 3B , 4
-◦Microcitoma Stadio >1
 
-‣ DLCO <60%
-‣ CV<45%
-‣ PaCO2 >45 IRREVERSIBILE
-‣ IP grave
-‣ IMA nei 3 mesi precedenti
-‣ Karnofsky <40%
-‣ aritmie / patologie incontrollabili.
+Criteri di NON resecabilità chirurgica
+      ◦NSCLC stadio 3A , 3B , 4
+      ◦Microcitoma Stadio >1
+
+             ‣ DLCO <60%
+             ‣ CV<45%
+             ‣ PaCO2 >45 IRREVERSIBILE
+             ‣ IP grave
+             ‣ IMA nei 3 mesi precedenti
+             ‣ Karnofsky <40%
+             ‣ aritmie / patologie incontrollabili.
 
 Complicanze post-chirurgia
 Emorragia , fistola bronchiale , insufficienza respiratoria , PNX , ipoventilazione, broncospasmo , edema polmonare.
+
 
 Approcci chirurgici
 • Toracotomia tradizionale (postero-laterale o anterolaterale. Pz in decubito sul lato opposto da operare).
 • VATS (Video-Assisted Thoracoscopic Surgery) senza toracotomia
 • Robotica con il Da Vinci.
-
-PROCEDURE DIAGNOSTICHE
+                   PROCEDURE DIAGNOSTICHE
 Fibrobroncoscopia
 La fibrobroncoscopia permette di indagare tramite uno strumento flessibile le vie aeree superiori e l’albero tracheobronchiale.
-
 Indicazioni: neoplasie polmonari ,sarcoidosi, fibrosi polmonare ,guida per il posizionamento di cannule nasali oro tracheali.
+
 
 Agobiopsia transcutanea TC-guidata
 Prelievo di un campione (frustolo) di tessuto polmonare, in anestesia locale, con un ago 18G (core biopsy) o 20G. ⚠ Rischio
-PNX.
-️
+                                                                                                                    ️       PNX.
+
 
 Toracoscopia (VATS , Video-Assisted Thoracoscopic Surgery)
 Esame visivo delle superfici polmonari e della cavità pleurica con una sonda a fibre ottiche (toracoscopio).
-
 Indicazioni → eseguire biopsie , evacuazione versamento.
 
 Mediastinoscopia
@@ -2493,29 +2874,42 @@ Metodica endoscopica per eseguire biopsie di masse contigue alla trachea e caren
 incisione di 3 cm al giugulo.
 Si scolla la fascia pretracheale dalla trachea e si introduce il mediastinoscopio.
 
+
 Indicazioni → neoformazioni paratracheali , staging NSCLC in caso di linfonodi mediastinici positivi alla TAC.
+
 Controindicazioni → gozzo , compressione VCS , fibrosi mediastinica , tracheostomia definitiva.
+
 Complicanze (0-2,5%) → PNX , paralisi n.laringeo superiore.
-Resa > 90%.
+      Resa > 90%.
+
 
 Per le biopsie del mediastino anteriore a contatto con la parete toracica, l’incisione viene eseguita lungo il margine superiore della III
 costa, incidendo poi il gran pettorle e il muscolo intercostale per poter inserire il mediastinoscopio.
 
-APPROFONDIMENTI
-TORACOTOMIA
+
+
+
+                          APPROFONDIMENTI
+                          TORACOTOMIA
 • Toracotomia POSTERO-LATERALE
 → legatura dotto di Botallo, interventi sull’esofago, resezioni polmonari, chirurgia coartazione aorta.
 
-• Toracotomia ANTERO-LATERALE → staging K polmonare sx, tumori mediastino anteriore.
-• Toracotomia LATERALE (sostituisce quella postero-laterale, indicazioni simili) → riduce il dolore post operatorio.
 
-TORACECTOMIA
+• Toracotomia ANTERO-LATERALE → staging K polmonare sx, tumori mediastino anteriore.
+
+• Toracotomia LATERALE (sostituisce quella postero-laterale, indicazioni simili) → riduce il dolore post operatorio.
+                         TORACECTOMIA
 Asportazione in blocco di più segmenti della parete toracica con muscoli e pleure annessi.
 Si esegue per tumori costali sternali che richiedono margini di escissione ampi, seguita da una ricostruzione plastica
+
 mediante autotrapianto di muscoli e fasce o con materiale artificiali come la rete di Marlex.
 
-EXERESI POLMONARI
-TIPICA / ATIPICA → resezione di parenchima polmonare, seguendo o meno i piani anatomici.
+
+
+
+                         EXERESI POLMONARI
+            TIPICA / ATIPICA → resezione di parenchima polmonare, seguendo o meno i piani anatomici.
+
 
 1. Resezioni TIPICHE (tumori maligni)
 • pneumectomia (asportazione polmone intero).
@@ -2523,303 +2917,385 @@ TIPICA / ATIPICA → resezione di parenchima polmonare, seguendo o meno i piani 
 • Segmentectomia / bisegmentectomia
 
 2. Resezioni ATIPICHE
-◦ lesioni minori ,spesso benigne
+      ◦ lesioni minori ,spesso benigne
+      ◦metastasi polmonari
+      ◦In caso di precedenti exeresi polmonari
 
-◦metastasi polmonari
-◦In caso di precedenti exeresi polmonari
 
 3. Interventi innovativi
 • Sleeve Lobectomy → asportazione lobo superiore , bronco interessato , parte del bronco principale dx.
+
 • Sleeve Pneumonectomy
 → asportazione parte inferiore della trachea e biforcazione, polmone dx, bronco principale dx, una parte del bronco principale sx.
 
-PATOLOGIE PLEURICHE
+
+
+
+                   PATOLOGIE PLEURICHE
 La cavità pleurica è uno spazio virtuale a p negativa che come una ventosa permette al polmone di seguire i movimenti della cassa
 toracica.
 Il liquido pleurico (10-20 mL) viene continuamente trasudato dalla pleura parietale e riassorbito dalla pleura viscerale.
 
+
 Caratteristiche del trasudato
-◦Poche cellule e proteine
-◦riduzione della capillarità
-
-◦si modifica in decubito laterale
-◦dovuto a squilibrio delle forze di Starling che favoriscono la filtrazione.
-
-◦Pleura non coinvolta
-
+      ◦Poche cellule e proteine
+      ◦riduzione della capillarità
+      ◦si modifica in decubito laterale
+      ◦dovuto a squilibrio delle forze di Starling che favoriscono la filtrazione.
+      ◦Pleura non coinvolta
 Caratteristiche dell’essudato (PROTEINE >3,5 g/dL)
-‣ dovuto a processi infiammatori
-‣ contiene cellule, proteine e mediatori flogistici
-‣ aumento della capillarità
+           ‣ dovuto a processi infiammatori
+           ‣ contiene cellule, proteine e mediatori flogistici
 
-‣ pleura coinvolta
+           ‣ aumento della capillarità
+           ‣ pleura coinvolta
 Cause → neoplasie , infezioni , embolia /infarto polmonare, traumi, emotorace, pancreatite, LES , AR, sarcoidosi.
 
 CRITERI di LIGHT → DDX trasudato-essudato con toracentesi
 ESSUDATO QUANDO:
-‣ Rapporto proteine fluido / ematiche→
+           ‣ Rapporto proteine fluido / ematiche→                  >0,5
+           ‣ rapporto LDH fluido / sangue → >0,6
+           ‣ proteine fluido >3 g/dL o colesterolo nel fluido >45 mg/dL
 
->0,5
 
-‣ rapporto LDH fluido / sangue → >0,6
-‣ proteine fluido >3 g/dL o colesterolo nel fluido >45 mg/dL
+
 
 Versamento pleurico
 Eziologia
-• Aumento della Pi capillare, causata da:
-◦ ipertensione del drenaggio venoso
-‣ ipertensione portale da cirrosi epatica
-‣ compressione VCS e vasi mediastinici da parte di tumori o pericardite
-◦ ipertensione del cuore sx (lo scompenso sx causa congestione polmonare)
 
-◦ostruzione drenaggio linfatico (compressione dotto toracico da traumi, interventi, neoplasie, fibrosi → chilotorace.
+• Aumento della Pi capillare, causata da:
+     ◦ ipertensione del drenaggio venoso
+           ‣ ipertensione portale da cirrosi epatica
+           ‣ compressione VCS e vasi mediastinici da parte di tumori o pericardite
+
+
+     ◦ ipertensione del cuore sx (lo scompenso sx causa congestione polmonare)
+
+
+     ◦ostruzione drenaggio linfatico (compressione dotto toracico da traumi, interventi, neoplasie, fibrosi → chilotorace.
+
 
 • Riduzione p oncotica plasmatica
-◦perdita di albumina (da sindrome nefrosica).
-◦ridotta sintesi di albumina (da cirrosi epatica).
-◦deficit nutrizionale “beri-beri” che ne riduce la sintesi.
+     ◦perdita di albumina (da sindrome nefrosica).
+     ◦ridotta sintesi di albumina (da cirrosi epatica).
+     ◦deficit nutrizionale “beri-beri” che ne riduce la sintesi.
+
 
 • Aumento permeabilità pleurica
-◦Infezioni (TBC , SBEA , Aureus , Pseudomonas , S.Pneumoniae).
-◦LES , AR , sclerodermia.
-◦Emotorace , pancreatite , mesotelioma pleurico.
-
+     ◦Infezioni (TBC , SBEA , Aureus , Pseudomonas , S.Pneumoniae).
+     ◦LES , AR , sclerodermia.
+     ◦Emotorace , pancreatite , mesotelioma pleurico.
 Equazione di Starling
 Descrive il flusso netto di liquido attraverso la pleura, spiegando formazione e riassorbimento del liquido pleurico.
 
-Jv = Kf [ (Pc - Pi) - (TTc -TTi) ]
+
+                           Jv = Kf [ (Pc - Pi) - (TTc -TTi) ]
+
 Kf = permeabilità capillare.
 Pc = P Idrostatica capillare.
 TTc = P osmotica plasmatica.
 Pi = P idrostatica interstiziale.
 TTi = P osmotica interstiziale.
+
+
 Se Pc > Pi → il liquido tende a fuoriuscire dai capillari nella cavità pleurica.
+
+
 Se TTc > TTi → il liquido tende a essere trattenuto nei capillari.
 
+
+
+
 CLINICA
-1. dolore pleurico accentuato con tosse e atti respiratori.
-2. Dispnea da compressione diaframmatica e polmonare
-3. tosse secca.
+                    1. dolore pleurico accentuato con tosse e atti respiratori.
+                    2. Dispnea da compressione diaframmatica e polmonare
+                    3. tosse secca.
 
 DIAGNOSI
 1. ANAMNESI
+
 2. E.O.
 • Ispezione
-◦aumento volume emitorace interessato, se almeno 300 c.c.
+      ◦aumento volume emitorace interessato, se almeno 300 c.c.
+      ◦ipomobilità rispetto all’emitorace controlaterale
+      ◦ il pz preferisce decubito dal lato del versamento.
 
-◦ipomobilità rispetto all’emitorace controlaterale
-◦ il pz preferisce decubito dal lato del versamento.
 
 • Palpazione → ipomobilità + FVT abolito sull’area del versamento.
+
 • Percussione → ipofonesi con ottusità pleurica “di coscia”
-‣ Versamento trasudativo
+
+             ‣ Versamento trasudativo
 Secondo il paradosso di Amato, il limite superiore dell’ottusità vertebrale a livello del versamento , facendo decombere il
+
 paziente sul lato opposto del versamento, si abbassa di parecchi centimetri o scompare.
 Il liquido viene accolto nel seno costo mediastinico anteriore.
+             ‣ Versamento essudativo
+Il margine superiore dell’ottusità si dispone secondo una linea curva a convessità superiore:              sphieidea
 
-‣ Versamento essudativo
-Il margine superiore dell’ottusità si dispone secondo una linea curva a convessità superiore:
 
 Linea di Damoiseau-Ellis
 
-sphieidea
 
-Fi
 
+
+                                                                                                                 Fi
 → partendo dalla linea spondiloidea ,
 raggiunge il picco lateralmente tra la linea scapolare e la ascellare post. ,
 scendendo poi in avanti verso lo sterno.
 
+
 Triangolo di Garland IPERFONETICO (base in alto)
-◦ → area tra la linea di Damoiseau-Ellis e la linea spondiloidea.
+      ◦ → area tra la linea di Damoiseau-Ellis e la linea spondiloidea.
+
 
 Triangolo di Grocco (tr.rettangolo con base in basso)
 → area di subottusità a livello del limite inferiore del polmone controlaterale.
 
+
+
 3. In base all’entità del versamento:
+
 • <400 ml → ecografia ci permette di identificare la sede “raccolta saccata” in cui pungere per drenare il versamento.
+
 • >400 ml → RX evidenzia macchia opaca nella parte inferiore del torace , può coprire la silhouette cardiaca (in caso di
-versamento sx).
+  versamento sx).
+
+
+
 
 4. Toracentesi → procura materiale biologico per esame chimico fisico, batteriologico, immunologico, molecolare .
+
 5. TC
+
 6. Esame batteriologico / citologico.
+
+
 🔎 N.B. Nel versamento pleurico l’aria fa spostare tutto il mediastino da un lato, mentre nell’atelettasia il polmone collassa a
 causa di un’ostruzione delle vie aeree ,senza che vi resti aria.
 
+
 TERAPIA
 🥇 → Toracentesi + cura del fattore scatenante.
-Per i versamenti recidivanti / neoplastici / malattie croniche →
 
-PLEURODESI
+Per i versamenti recidivanti / neoplastici / malattie croniche →                   PLEURODESI
 
 = inietto sostanza irritante come il talco o la tetraciclina per indurre fibrosi tra le due pleure in modo che aderiscano,
-prevenendo la formazione di nuovo liquido.
 
+prevenendo la formazione di nuovo liquido.
 Chilotorace
 Raccolta di liquido lattescente linfatico nel cavo pleurico, ricco di grassi e colorabili al Sudan III.
 
+
 Eziologie → linfomi, K polmone, TBC, atresia congenita del dotto toracico , traumi chirurgici al torace, al collo o all’addome.
+
 Clinica → dispnea, dolore toracico, tosse, ascite, linfa nelle secrezioni pleuriche.
+
 Diagnosi → toracentesi = ‼ TAG
->110 mg/dL + aspetto lattescente.
-️
+                           ️   >110 mg/dL + aspetto lattescente.
+
 Terapia
 • conservativa → drenaggio pleurico e alimentazione parenterale
 • medica → diuretici (caso grave) o corticosteroidi
 
+
+
+
 Chirurgia (perdita >1500 mL/die o >2 settimane)
 → legatura del dotto toracico caudalmente alla lesione previa linfangiografia (eseguibile in VATS).
 
+
+
 Emotorace
 Urgenza medica contrassegnata da shock dovuto ad un versamento di sangue nella cavità pleurica.
+
 
 Eziologia
 • emotorace traumatico → traumi chiusi / ferite perforanti / posizionamento non corretto CVC.
 • emotorace non traumatico → enfisema bolloso, infarto polmonare, rottura aneurisma, tumori, difetti coagulativi
 
+
 Clinica → anemia (pallore ,difficoltà respiratorie, tachicardia) , ipotensione, dispnea, dolore al petto.
+
 Diagnosi
-🥇 → HCT del liquido pleurico >50% rispetto al sangue periferico
-=‼‼
-toracico immediato
-️ drenaggio
-️
+
+      🥇 → HCT del liquido pleurico >50% rispetto al sangue periferico
+
+                                            =‼‼
+                                              ️ drenaggio
+                                                ️         toracico immediato
+
 2ª scelta → RX, TC, toracentesi esplorativa.
 
 Terapia
 • arresto dell’emorragia + reintegrazione volemia con emotrasfusioni.
-• Spandimento >1500mL → toracotomia d’urgenza.
 
+• Spandimento >1500mL → toracotomia d’urgenza.
 Empiema pleurico
 Versamento purulento nel cavo pleurico.
+
 
 Eziologia
 • Propagazione infezione da regioni adiacenti polmonari (polmonite , ascesso subfrenico o epatico).
 • Empiemi iatrogeni (arma da fuoco o da taglio / chirurgia ).
 
+
 Evoluzione clinica
 1. Fase essudativa (acuta , 2 settimane) → eseguo antibiogramma dopo toracentesi evacuativa.
-2.
 
-Fibropurulenta (transizione) → liquido torbido e depositi di fibrina.
+
+2.   Fibropurulenta (transizione) → liquido torbido e depositi di fibrina.
 
 3. Empiema cronico → fibrotorace (“corteccia”= la pleura viscerale si fissa con quella parietale).
 
+
 Clinica → febbre elevata, astenia, dolore toracico ,tosse ,dispnea ,calo ponderale.
+
 Diagnosi ✈ ⚪
-️ ️
-‣ leucocitosi neutrofila nel sangue periferico.
-‣ ‼ ️ Toracentesi → >15.000 leucociti/mm³
-‣ ‼ ️ RX → livello idroaereo (aria in alto , pus in basso).
+           ️ ️
+             ‣ leucocitosi neutrofila nel sangue periferico.
+
+
+             ‣ ‼ ️ Toracentesi → >15.000 leucociti/mm³
+
+
+             ‣ ‼ ️ RX → livello idroaereo (aria in alto , pus in basso).
+
 
 Terapia
 • in attesa di antibiogramma → gentamicina + penicillina ampio spettro.
-
 • drenaggio pleurico continuo.
 • empiema cronico → decorticazione chirurgica con VATS , per rimuovere la fibrosi o le aderenze pleuriche.
 
+
+
+
 PLEURITI
 Condizione di flogosi dei foglietti pleurici associati quasi sempre ad un versamento pleurico.
+
 
 Classificazione
 • Essudativa (emotorace, empiema, chi torace).
 • plastica → ispessimento dei foglietti
 • secca o fibrinosa → forte dolore creato da tappi di fibrina che si formano tra i foglietti.
 
+
 Eziologia
-‣ polmonite, tubercolosi, influenza, virus respiratorio sinciziale,
-‣ LES, AR
-‣ embolia polmonare
-‣ fratture costali
-‣ pancreatite , IR
-
+             ‣ polmonite, tubercolosi, influenza, virus respiratorio sinciziale,
+             ‣ LES, AR
+             ‣ embolia polmonare
+             ‣ fratture costali
+             ‣ pancreatite , IR
 Clinica → dolore toracico che peggiora con la respirazione profonda, tosse o movimenti
-+ dispnea, febbre, malessere generale.
+             + dispnea, febbre, malessere generale.
 
-Diagnosi
+
+                                             Diagnosi
 • Auscultazione → sfregamento pleurico.
-• IMAGING
-◦ RX torace → accumulo liquido
-◦ TC torace
 
-◦ecografia torace → presenza e quantità di liquido.
+• IMAGING
+       ◦ RX torace → accumulo liquido
+       ◦ TC torace
+       ◦ecografia torace → presenza e quantità di liquido.
 
 • Esami di laboratorio
-‣ per segni di infezioni o infiammazione.
-‣ esami colturali e test TBC / malattie autoimmuni.
+             ‣ per segni di infezioni o infiammazione.
+             ‣ esami colturali e test TBC / malattie autoimmuni.
+
 
 • PROCEDURE → toracentesi per analisi liquido pleurico.
 
-TERAPIA
+                                         TERAPIA
 • trattamento causa sottostante (antibiotici, antitubercolari, antivirali, immunosoppressori).
 • gestione dolore e infiammazione con analgesici (paracetamolo , FANS) o corticosteroidi.
 
+
 • rimozione liquido pleurico
+       ◦toracentesi (se ascesso o empiema = QUANDO DEVO ANALIZZARE).
+       ◦drenaggio pleurico (se accumulo massivo).
+       ◦pleurodesi chimica o meccanica → prevenzione recidive di versamento pleurico.
 
-◦toracentesi (se ascesso o empiema = QUANDO DEVO ANALIZZARE).
-◦drenaggio pleurico (se accumulo massivo).
-◦pleurodesi chimica o meccanica → prevenzione recidive di versamento pleurico.
 
-MESOTELIOMA
+
+                          MESOTELIOMA
 La pleura può essere colpita da diversi tipi di tumori: benigni, mesotelioma maligni o metastasi pleuriche (mammella, ovaio, stomaco,
 linfomi).
+
+
+
 
 Mesotelioma BENIGNO
 Localizzazione → pleura viscerale 75%. Cresce con aspetto sessile aderente alla pleura o peduncolato.
 Varianti istologiche → fibrosa, cellulare e mista. Può contenere cisti, presentare calcificazioni.
 
+
 Clinica → crescita lenta e asintomatica, quando raggiunge determinate dimensioni può comportare ipoglicemia, versamento
 pleurico, osteoartropatia ipertrofica.
 
-Diagnosi → RX torace , TC torace , agobiopsia in VATS.
-Terapia → asportazione chirurgica.
 
+Diagnosi → RX torace , TC torace , agobiopsia in VATS.
+
+Terapia → asportazione chirurgica.
 Mesotelioma MALIGNO
 Eziologia → Strettamente correlato all’esposizione ad amianto. Anche radiazioni , TBC , infez.pleuriche.
+
 Classificazione
 • Forma CIRCOSCRITTA (rara) → silente e trattabile chirurgicamente.
-• Forma DIFFUSA (comune)
-◦ versamento ematico o sieroematico
 
-◦noduli biancastri e margini irregolari
-◦‼ ️ è una metastasi di AK polmonare o K mammario
-◦‼ non
-operabile
-️
+
+• Forma DIFFUSA (comune)
+      ◦ versamento ematico o sieroematico
+      ◦noduli biancastri e margini irregolari
+      ◦‼ ️ è una metastasi di AK polmonare o K mammario
+      ◦‼ non
+          ️    operabile
 
 Varianti istologiche → epiteliale, sarcomatosa (forma aggressiva) e mista.
+
 CLINICA → dispnea + versamento nell’80% dei casi.
+
 🔴 Stadi avanzati → ascite , deformità toraciche , sindromi paraneoplastiche (anemia emolitica / iperCa+ / ipoglicemia / …)
 
+
 DIAGNOSI
+
 • RX torace 🛡 🧊
-️
-◦segno dell’opacità corazzata
-◦segno del mediastino congelato (versamento pleurico massivo).
+              ️
+
+      ◦segno dell’opacità corazzata
+      ◦segno del mediastino congelato (versamento pleurico massivo).
+
 • TC torace → noduli e versamento.
 • RM → estensione della malattia.
+
 
 🥇 CONFERMA → toracentesi per analisi liquido + biopsia pleurica con VATS.
 
 Terapia
 • ✅ Fasi iniziali (diagnosi precoce) → decorticazione (rimuovendo anche diaframma e pericardio) + RT post chirurgia
-• ❌ Forme inoperabili → cisplatino + pemetrexed.
-Prognosi molto sfavorevole in generale, sopravvivenza media di 4-12 mesi.
 
-TORACENTESI
+
+• ❌ Forme inoperabili → cisplatino + pemetrexed.
+
+
+                  Prognosi molto sfavorevole in generale, sopravvivenza media di 4-12 mesi.
+                                  TORACENTESI
 Procedura utilizzata per diagnosi e trattamento di affezioni pleuriche, soprattutto in caso di versamento pleurico.
 È invasiva e praticata in anestesia locale.
 
-⛔‼
-️ ️ Controindicazioni
 
+
+ ️ ️ Controindicazioni
+⛔‼
 • scompenso cardiaco congestizio con versamento bilaterale (nello scompenso il versamento si riduce con i
-diuretici).
+  diuretici).
+
 
 • Disturbi della coagulazione → rischio emotorace.
+
 • enfisema polmonare → rischio PNX.
 • PNX iperteso
+
 • accertata aderenza pleurica
 
 → rischio di non trovare liquido,danneggiando il polmone.
@@ -2827,144 +3303,171 @@ diuretici).
 • infezione parete toracica nel sito di puntura
 • paziente non collaborante.
 
+
 Procedura
 • 1. Preparazione
-◦ecografia per localizzare il versamento
-◦controllo coagulazione
-◦esclusione controindicazioni + valutazione allergie
+      ◦ecografia per localizzare il versamento
+      ◦controllo coagulazione
+      ◦esclusione controindicazioni + valutazione allergie
+
 
 • 2. Posizione del paziente
-‣ leggermente inclinato in avanti
-‣ se allettato → posizione supina con torace inclinato di 30-45° sul lato opposto.
+                ‣ leggermente inclinato in avanti
+                ‣ se allettato → posizione supina con torace inclinato di 30-45° sul lato opposto.
+
 
 • ‼ ️ 3. Localizzazione sito puntura (percussione + eco o imaging)
-◦linea medio-scapolare o linea ascellare posteriore
-◦‼ tra
-️ 6º-7º ICS
+      ◦linea medio-scapolare o linea ascellare posteriore
 
-, sul MARGINE SUP. DELLA COSTA INFERIORE (evito fascio vascolo-nervoso).
+         ️ 6º-7º ICS
+      ◦‼ tra                    , sul MARGINE SUP. DELLA COSTA INFERIORE (evito fascio vascolo-nervoso).
 
 • 4. Iter procedurale
 1. disinfezione cute anestesia locale con lidocaina , prima intradermica poi in profondità.
 
-2. introduzione ago (l’angolo è stabilito con TC) con siringa vuota, aspirando fin quando non si trova liquido pleurico.
-3. rimozione liquido, max 1 L alla volta per evitare ipotensione o edema polmonare da riespansione
-Si drenano 300-500 mL ogni 15’.
 
+2. introduzione ago (l’angolo è stabilito con TC) con siringa vuota, aspirando fin quando non si trova liquido pleurico.
+
+
+3. rimozione liquido, max 1 L alla volta per evitare ipotensione o edema polmonare da riespansione
+                            Si drenano 300-500 mL ogni 15’.
 ( 4. posizionamento catetere pleurico, se si vuole drenare un volume maggiore gradualmente).
 
+
 • 5. Gestione post-procedura
-◦rimozione ago e catetere + medicazione sterile
-◦monitoraggio paziente per complicanze (vedi dopo).
-◦‼ RX
-per escludere PNX (lo sospetto in caso di sintomi respiratori post procedura).
-️
+      ◦rimozione ago e catetere + medicazione sterile
+      ◦monitoraggio paziente per complicanze (vedi dopo).
+      ◦‼ RX
+         ️  per escludere PNX (lo sospetto in caso di sintomi respiratori post procedura).
+
 
 Differenze con DRENAGGIO pleurico:
 Può aspirare molto più liquido ma va lasciato in sede 3-4 settimane.
 È una procedura dolorosa che necessita di degenza.
 Si usa per versamenti massivi, emotorace, chilotorace, empiema, PNX.
 
-Interpretazione risultati
+
+                  Interpretazione risultati
 • Coltura e antibiogramma
+
 • Esame citologico per eventuali cellule tumorali maligne.
+
 • conta cellulare leucocitaria + rilevamento RBC (eventuale sanguinamento in corso).
+
+
 • eccesso TAG e chilomicroni sono tipici di traumi o neoplasie maligne
 
+
 • AMILASI → pancreatite / cancro esofageo / perforazione esofagea
+
 • LDH, pH, peso specifico e proteine totali:
-◦trasudato (HF , sindrome nefrosica , cirrosi , ostruzione VCS)
+      ◦trasudato (HF , sindrome nefrosica , cirrosi , ostruzione VCS)
+      ◦essudato (AR, cancro, embolia polmonare, emorragia, LES, polmonite). VEDI CRITERI DI LIGHT !!!
 
-◦essudato (AR, cancro, embolia polmonare, emorragia, LES, polmonite). VEDI CRITERI DI LIGHT !!!
 
+
+ ️ Complicanze toracentesi
 ⚠🚨
-️ Complicanze toracentesi
-‣ PNX
-‣ emorragia / ematoma
-‣ edema polmonare (prevenuto drenando 300-500 mL ogni 10-15’)
 
-PNEUMOTORACE
+            ‣ PNX
+            ‣ emorragia / ematoma
+            ‣ edema polmonare (prevenuto drenando 300-500 mL ogni 10-15’)
+                         PNEUMOTORACE
 Collasso polmonare dovuto all’ingresso di aria nel cavo pleurico per perforazione di una delle due pleure.
 La pressione endopleurica uguali a quell’atmosferica, causando risucchio di aria nel cavo pleurico, che fa collassare il parenchima.
 
-CLASSIFICAZIONE
+
+                         CLASSIFICAZIONE
 
 PNX SPONTANEO
 È conseguenza di una patologia polmonare preesistente.
 
-• PRIMARIO o IDIOPATICO (rottura di bolle “blebs” pleuriche congenite)
-◦ frequente in soggetti giovani longilinei i maschi 15-24 anni (<40 anni) durante sforzi lievi o a riposo
-◦‼🔎
-️ recidiva nel 50% dei casi
 
-◦Più frequente a DX. Nel 10% bilaterale.
+• PRIMARIO o IDIOPATICO (rottura di bolle “blebs” pleuriche congenite)
+      ◦ frequente in soggetti giovani longilinei i maschi 15-24 anni (<40 anni) durante sforzi lievi o a riposo
+
+        ️ recidiva nel 50% dei casi
+      ◦‼🔎
+      ◦Più frequente a DX. Nel 10% bilaterale.
+
 
 • SECONDARIO ,causato da:
-‣ piopneumotorace (sconfinamento ascesso) o conglomerati caseosi tubercolari.
-‣ forma catameniale → durante il ciclo mestruale / endometriosi in giovani donne.
+            ‣ piopneumotorace (sconfinamento ascesso) o conglomerati caseosi tubercolari.
+
+            ‣ forma catameniale → durante il ciclo mestruale / endometriosi in giovani donne.
+
 
 PNX TRAUMATICO
 • aperto → l’aria entra da una ferita toracica aperta
 • chiuso → traumi contusivi (es. frattura costale).
 • iatrogeno → agoaspirato trans-toracico / CVC / biopsia pleurica / toracentesi.
 
+
+
+
 PNX IPERTESO (URGENZA🚨 ‼ 🚑
-️ )
+                         ️ )
 L’aria entra nella pleura senza via d’uscita, facendo aumentare la pressione intratoracica, comprimendo il
 mediastino e intaccando il ritorno venoso, fino al collasso cardiovascolare con crisi cardiorespiratoria fatale.
 
-CLINICA PNX
-◦dolore acuto trafittivo UNILATERALE (parete laterale torace o al petto) CHE PEGGIORA CON LA RESPIRAZIONE
-◦dispnea improvvisa
 
-◦SHOCK (pnx massivo o complicato)
-◦CIANOSI
+CLINICA PNX
+      ◦dolore acuto trafittivo UNILATERALE (parete laterale torace o al petto) CHE PEGGIORA CON LA RESPIRAZIONE
+      ◦dispnea improvvisa
+      ◦SHOCK (pnx massivo o complicato)
+      ◦CIANOSI
+
 In alcuni casi: tosse secca, emoftoe.
 
-🔎 DDX
 
-PNX-TEP-IMA
-
+🔎 DDX          PNX-TEP-IMA
 • TEP → Fattori di rischio TVP, immobilizzazione o cancro. Diagnosi con angio-TC o scintigrafia polmonare.
-• IMA → dolore retrosternale costrittivo e irradiato, confermato da ECG e Tn elevate.
 
+
+• IMA → dolore retrosternale costrittivo e irradiato, confermato da ECG e Tn elevate.
 DIAGNOSI
 • 1ª scelta 🥇 → RX torace
-‣ iperdiafania
-‣ collasso ilare
-‣ spostamento controlaterale del mediastino
+            ‣ iperdiafania
+            ‣ collasso ilare
+            ‣ spostamento controlaterale del mediastino
 
 • TC torace (casi complessi) → visualizzazione grande bolla e PNX a più camere.
+
 • Pleuroscopia (casi persistenti o ricorrenti) → Talcaggio (pleurodesi con talco).
 
-TERAPIA
-Monitoraggio imprescindibile.
-• PNX asintomatico senza lesioni polmonari sottostanti → si risolve spontaneamente in 10 giorni con il riposo.
-• Varianti gravi → drenaggio toracico o toracoscopia con tubo e sistema di aspirazione dotato di valvola
-unidirezionale di Heimlich.
-• Forme non responsive o recidivanti ( almeno 2 episodio / quando il paziente è un pilota d’aereo,subacqueo ):
 
-◦ bullectomia tramite VATS per asportare le bolle
-◦ pleurodesi chimica
+
+TERAPIA
+                         Monitoraggio imprescindibile.
+• PNX asintomatico senza lesioni polmonari sottostanti → si risolve spontaneamente in 10 giorni con il riposo.
+
+
+• Varianti gravi → drenaggio toracico o toracoscopia con tubo e sistema di aspirazione dotato di valvola
+
+  unidirezionale di Heimlich.
+
+
+• Forme non responsive o recidivanti ( almeno 2 episodio / quando il paziente è un pilota d’aereo,subacqueo ):
+      ◦ bullectomia tramite VATS per asportare le bolle
+      ◦ pleurodesi chimica
+
+
+
 
 • ‼🚨
-iperteso
-️ ⚠ PNX
-️
+   ️ ⚠ PNX
+       ️   iperteso
 → decompressione immediata con
 
-ago al 2º ICS sulla linea emiclaveare + drenaggio pleurico (toracostomia con ago)
 
-PATOLOGIE DIAFRAMMATICHE
+       ago al 2º ICS sulla linea emiclaveare + drenaggio pleurico (toracostomia con ago)
+             PATOLOGIE DIAFRAMMATICHE
 Ernie diaframmatiche
 Ernia iatale
 Una porzione dello stomaco risale attraverso lo iato esofageo del diaframma.
-
 Fisiopatologia
 Viene meno la funzione antireflusso dello sfintere esofageo inferiore (SEI) che , dislocandosi, non è più avvolto dalle fibre muscolari
-del diaframma crurale →
-
-GERD , esofagite.
+del diaframma crurale →    GERD , esofagite.
 
 Fattori di rischio → aumento p intra-addominale (obesità, gravidanza).
 Terapia sintomatica → PPI.
@@ -2974,137 +3477,160 @@ Per via laparoscopica si riduce l’ernia e si riposiziona lo stomaco in addome.
 La parte superiore dello stomaco viene avvolta attorno all’esofago e suturata, rinforzando il SEI.
 Chiusura dello iato diaframmatico con reti protesiche per prevenire recidive.
 
+
 🚨 ⚠ Complicanze
-→ disfagia, flatulenza, gonfiore (transitori) , recidiva.
-️
+    ️           → disfagia, flatulenza, gonfiore (transitori) , recidiva.
 Recupero ritornando progressivamente a una dieta normale in 2-4 settimane.
+
+
+
 
 Ernie congenite
 Difetti di chiusura del diaframma durante lo sviluppo embrionale, consentendo la migrazione di visceri addominali nel torace.
 
+
 • Ernia di Morgagni-Larrey (anteriore)
 Il colon trasverso ernia attraverso il forame sterno-costale di Morgagni, un’area di debolezza nella porzione anteriore del diaframma.
-
 Sintomi → dispepsia e raramente problemi respiratori.
 
 • Ernia di Bochdalek (postero-laterale)
 Un difetto del trigono costo vertebrale permette l’erniazione di stomaco, intestino e fegato nel torace.
 
+
 Neonati → insuff. respiratoria (serve ECMO) per ipoplasia polmonare controlaterale e compressione mediastinica.
 Adulti → sintomi occlusivi.
 
 Diagnosi ERNIE CONGENITE
-◦RX → livelli idroarerei.
-◦TC torace-addome con mdc.
+      ◦RX → livelli idroarerei.
+      ◦TC torace-addome con mdc.
+
 
 Terapia ERNIE CONGENITE
 1. Ricollocamento visceri in addome
-2.
-
-chiusura del difetto con (patch sintetico in Gore-Tex / sutura diretta / tessuto autologo con lembi muscolari locali).
-
+2.   chiusura del difetto con (patch sintetico in Gore-Tex / sutura diretta / tessuto autologo con lembi muscolari locali).
 RELAXATIO DIAFRAMMATICA
 Malformazioni congenite, paralisi del nervo frenico o traumi, determinano un mal posizionamento del diaframma, che risale nel torace,
 occupando lo spazio normalmente riservato a polmoni e altri visceri addominali.
 
+
 • Risalita a SX
-◦ → atelettasia o ipoplasia polmonare
-◦ lo spazio vuoto lasciato dal polmone collassato permette anche a stomaco e colon di risalire.
+      ◦ → atelettasia o ipoplasia polmonare
+      ◦ lo spazio vuoto lasciato dal polmone collassato permette anche a stomaco e colon di risalire.
+
 
 • Risalita a DX → il colon si interpone tra fegato e diaframma.
 
 DIAGNOSI → E.O. + RX torace.
 
 Clinica
-Paralisi frenica →
-
-Eventrazione di una cupola diaframmatica
-
+Paralisi frenica →   Eventrazione di una cupola diaframmatica
 → la cupola si allunga a causa dell’assottigliamento della porzione muscolare periferica, senza modificare le inserzioni.
-= si lascia spostare verso l’alto dalla p intra-addominale
+                     = si lascia spostare verso l’alto dalla p intra-addominale
+
 
 Terapia chirurgica
 • Plicatura chirurgica
 Ripiegare e suturare il diaframma rilassato per tenderlo e abbassarlo alla posizione normale (toracotomia/toracoscopia/laparoscopia).
 
+
 • Rinforzo protesico non riassorbibile.
+
+
 
 Paralisi diaframmatica
 Tumori polmonari, traumi o infezioni danneggiano il nervo frenico:
-◦nervo non funzionante → plicatura diaframmatica
-◦nervo attivo → pacemaker diaframmatico.
+      ◦nervo non funzionante → plicatura diaframmatica
+      ◦nervo attivo → pacemaker diaframmatico.
 
-Neoplasie mediastiniche
 
-(solo 1/3 sono maligne)
+
+
+Neoplasie mediastiniche                                                       (solo 1/3 sono maligne)
+
 
 • Mediastino antero-superiore (55%) → timoma, tiroide, teratoma, terribile linfoma.
+
 • mediastino posteriore → tumori neurogeni, cisti broncogene.
 • Mediastino medio (20%) → cisti pericardiche.
 
+
 Sintomi
-◦compressione → sindrome VCS , laringeo sup., n.frenico , dotto toracico.
-◦Cushing , feocromocitoma , tireotossicosi.
+      ◦compressione → sindrome VCS , laringeo sup., n.frenico , dotto toracico.
+      ◦Cushing , feocromocitoma , tireotossicosi.
+
 
 Diagnosi → RX torace, TC, RM con mdc . Agobiopsia trans tracheobronchiale (broncoscopia) o transparietale (TC guidata).
-
 Cisti mediastiniche
 • Cisti broncogene (mediastino e polmoni) → Rischio infettivo quindi indicata l’asportazione.
+
 • Cisti pericardica (angolo cardiofrenico dx) → Indicata l’asportazione
+
 • Cisti enteriche → vari tipi di epitelio GI. Causano disfagia. Asportazione.
+
 • Cisti da echinococco (parassita)
 Localizzate in fegato e polmoni, raggiunti quando le uova si schiudono nell’intestino e le larve penetrano nel flusso sanguigno.
-
 Diagnosi con test sierologici e TC.
 Terapia con asportazione e antielmintici.
+
+
 
 Sindrome VCS
 VCS compressa da tumori maligni (75%) o altre patologie (25%, TBC, gozzo mediastinico).
 
+
 Clinica → Cefalea , edema mantellina , Turgore giugulare , edema laringeo.
 Tutto aumenta in posizione sdraiata o seduta.
 
+
 🔴 Casi gravi → trombosi, edema cerebrale , coma e morte.
 
+
 Diagnosi → TC con mdc, RM. Angiografia per circoli collaterali.
+
 Terapia chirurgica → ricostruzione con protesi PTFE, ove possibile.
+
+
 
 Sindrome di Claude-Bernard-Horner
 Compressione tumorale dei tronchi ortosimpatici (ganglio Gasser).
 
 Sintomi → miosi , enoftalmo , paralisi emifrenica.
-
 GRANULOMATOSI POLMONARI
-
 Le granulomatosi polmonari sono una patologia estremamente eterogenea. Esiste un numero impressionante
 di condizioni cara5erizzate dalla presenza, all’interno del parenchima polmonare, di granulomi. La loro
 comparsa può dipendere da cause molto diverse, e proprio questa variabilità eziologica rende spesso
 la diagnosi tardiva, piu5osto che precoce.
+
 Cos’è un granuloma?
 Il granuloma è un inﬁltrato inﬁammatorio cos@tuito principalmente da is@oci@ aAva@ (deA anche cellule
 epitelioidi) e macrofagi aAva@. Queste cellule vengono aAvate in risposta a s@moli infeAvi o non infeAvi. In
 alcuni casi, l’eziologia è sconosciuta, cioè non si conosce cosa aAvi la risposta inﬁammatoria.
 Talvolta, la zona centrale del granuloma può presentare necrosi, specialmente quando la crescita del
 granuloma è molto rapida e non supportata da adeguata vascolarizzazione.
+
 Funzione del granuloma
 Il granuloma rappresenta una strategia difensiva dell’organismo: serve a isolare un germe, un corpo estraneo, o
 una risposta inﬁammatoria cronica, circoscrivendo l’agente eziologico (esempio classico: la tubercolosi).
 Il corpo aAva una risposta immunologica localizzata, con l’obieAvo di contenere l’agente patogeno.
+
 È importante sapere che esistono anche forme non infeAve di granulomatosi dove, pur in assenza di una causa
 nota, si sviluppa lo stesso processo granulomatoso. Ciò che cambia, in ques@ casi, sono:
-- le cellule coinvolte nella reazione inﬁammatoria,
-- la presenza o assenza di necrosi,
-- la sede di insorgenza del granuloma.
+    - le cellule coinvolte nella reazione inﬁammatoria,
+    - la presenza o assenza di necrosi,
+    - la sede di insorgenza del granuloma.
 La diagnosi diﬀerenziale si basa proprio su queste cara5eris@che:
-- @po di granuloma,
-- localizzazione anatomica (es. lobo superiore vs inferiore),
-- coinvolgimento di zone come il compar@mento perialveolare o linfonodale.
+    - @po di granuloma,
+    - localizzazione anatomica (es. lobo superiore vs inferiore),
+    - coinvolgimento di zone come il compar@mento perialveolare o linfonodale.
 
 QUALI SONO LE PATOLOGIE LE PATOLOGIE GRANULOMATOSE? (IMPORTANTE)
+
 -INFETTIVE: Micoba5eri (TBC), infezioni fungine (istoplasma, aspergillus), ab inges@s.
 -NON INFETTIVE: inﬁammatorie, esposizioni, vasculi@, autoimmunitarie, tumori/altro.
+
 CAPISALDI SONO TUBERCOLOSI E SARCOIDOSI. (Capitoli importan@ in generale e chies@ all’esame sono
 tubercolosi, sarcoidosi, polmoni@ da ipersensibilità e vasculi@). Diamo uno sguardo alle NON infeAve:
+
 inﬁammatorie: La genesi del granuloma è di @po inﬁammatoria, @pico della sarcoidosi (Esistono delle
 granulomatosi simil-sarcoidosiche ma che hanno il nucleo necro@zzante, la sarcoidosi non è necro@zzante
 quindi entra nelle diﬀerenziali), della granulomatosi broncocentrica, che parte dal bronco e inﬁne delle IBD.
@@ -3118,90 +3644,100 @@ sanguigni determinando un’inﬁammazione, che può portare alla presenza di gr
 essere necro@zzante (vasculite necro@zzante) cara5eris@ca è che l’azione sui vasi è molto superiore addiri5ura
 allo stesso processo inﬁammatorio polmonare. Sono dunque malaAe mul@-sistemiche che prendono tuA gli
 organi.
-
 mala;e automimmunitare: artrite reumatoide
 mala;e maligne: tumori sarcoidosi-like, Granuloma linfomatoide
 altre: is@ocitosi a cellule di langerhans (@pica dei fumatori)
+
 ricorda che: Il granuloma è solo una parte della risposta. La presenza di granulomatosi può associarsi alla
 presenza di intersAziopaAa (ﬁbrosi) o viceversa alcune di queste malaFe possono non essere presenA come
 granulomatosi, ma dare direGamente intersAziopaAa senza necessariamente dare sviluppo a granulomatosi.
+
 SARCOIDOSI malaAa granulomatosi eterogenea mul@sistemica che coinvolge diversi organi. Il 50% dei pz si
 presenta asintoma@ca. 1-40/100k per anno con predilezione per donne e persone nere.
 La patogenesi eziologica non è nota non si sa se l’an@gene che scatena tu5o questo esiste una forma molto
 molto rara familiare circa il 4-17% dei casi sono familiari e generalmente sono agen@ esogeni che possono
 scatenare la sarcoidosi.
+
 Nella sarcoidosi la cara5eris@ca @pica è questa parete del granuloma, in sede peri-linfa@ca, che è ben formata
 con cellule epitelioidi non necro@zzan@ (a diﬀerenza della forma sarcoidsica necro@zzante) e che hanno la
 presenza di inﬁammazione linfocitaria anche in questo caso, generalmente si ha la disposizione con macrofagi
 all’esterno Is@oci@ aAva@ con cellule CD4+ al centro e in periferia, abbiamo i linfoci@ CD8+ e i linfoci@ B i
 ﬁbroblas@. All’interno, inclusi molto importan@ che ci consentono di fare DD.
+
 Clinicamente presenta sintomi respiratori (tosse, dispnea, dolore toracico) sintomi @pici (anormalità oculari,
 coinvolgimento di ghiandole lacrimali e salivari, lesioni cutanee e linfadenopa@a periferica) sintomi speciﬁci
 acu@ “lofgren syndrome” (linfadenopa@a, febbre, eritema nodoso, artrite poliar@colare e occasionalmente
 uveite e paro@te) manifestazione rara ma sempre acuta è la “Heerfordt syndrome” (febbre, ingrandimento
 della paro@de, paralisi facciale, uveite anteriore).
+
 La diagnosi generalmente si fa in base a test di laboratorio, la RX del torace e TC (ma più o meno per tu5e le
 patologie granulomatose) e accanto a questo il BAL (liquido di lavaggio broncoalveolare) e la biopsia.
 La @pologia di lesione presente alla TC e la disposizione ci consente di indirizzare la diagnosi.
 Tra5amento: cor@costeroidi (1ª linea) immunosoppressivo (2ª linea); terapia biologica.
+
 VASCULITI vengono classiﬁcate in base all’interessamento della grandezza dei vasi, possono interessare:
-- I grandi vasi come l’arterite di Takayasu oppure l’arterite a cellule gigan@
-- I medi vasi, come la poliarterite nodosa o la malaAa Kawasaki
-- I piccoli vasi, come la GPA e la EGPA (granulomatosi con vasculi@)
+   - I grandi vasi come l’arterite di Takayasu oppure l’arterite a cellule gigan@
+   - I medi vasi, come la poliarterite nodosa o la malaAa Kawasaki
+   - I piccoli vasi, come la GPA e la EGPA (granulomatosi con vasculi@)
 
 GRANULOMATOSI CON VASCULITI
+
 EGPA (GRANULOMATOSI EOSINOFILICA CON POLIANGITE) o sindrome di Churg e Strauss scoperta nel 1951 e
 si presentava con una vasculite necro@zzante dei piccoli vasi con dei granulomi extravascolari (in par@colare
 perivascolare, diﬀerentemente dalla sarcoidosi in cui sono perilinfa@ci) in pazien@ con asma ed eosinoﬁlia
 (cara5eris@ca importante). EGPA è una malaAa non molto comune, generalmente prende persone giovani di
 media età.
+
 La malaAa è dunque cara5erizzata da:
 -Vasculite necro@zzante
 -Granulomi in sede perivascolare (extravascolari)
 La sede già mi da indicazioni sulla problema@ca, indirizzandomi alla diagnosi
-
 Ricorda che ciò che diﬀerenzia una malaFa dall’altra, è la reazione immunitaria che si veriﬁca, le cellule che
 sono coinvolte non sono sempre le stesse, a seconda della cellula inﬁammatoria aFvata, avremo la possibilità
 dello sviluppo di una malaFa piuGosto che un’altra e l’instaurarsi di un’inﬁammazione che va a prendere
 precisi organi piuGosto che altri. Quando eseguiamo esami ematochimici, a seconda della cellula presente,
 andremo a valutare la risposta inﬁammatoria. Nel nostro caso (EGPA) il ruolo preponderante è sicuramente
 quello degli eosinoﬁli.
+
 L’eosinoﬁlia è un dato molto importante in quanto nella fase iniziale (prodromica) della EGPA, l’asma
 bronchiale è presente nella quasi totalità dei pazien: (96–100%).
+
 L’eosinoﬁlia non è solo polmonare, ma anche periferica, arriviamo a 300 cellule e oltre le 500 si parla poi di
 ipereosinoﬁlia. Altra cara5eris@ca, comune a tu5e le malaAe granulomatosiche con vasculite, è la presenza di
 an@corpi an@-citoplasma neutroﬁlico (ANCA). Gli auto an@corpi (p-ANCA) sono presen@ all’incirca nel 40% dei
 pazien@. Abbiamo 2 @pi di processi inﬁammatori contemporanei: uno su parenchima uno su vaso.
-1) Inﬁammazione di @po TH2 (eosinoﬁlica, fase eosinoﬁlica) che può ulteriormente suddividersi in TH2high e TH2-low. La TH2-high è cara5erizzata da alte concentrazioni delle classiche citochine TH2, come
-l’IL-4, l’IL-5 e l’IL-13 (IL-5: aFva e prolunga la vita degli eosinoﬁli, Gli eosinoﬁli degranulano e rilasciano
-MBP, ECP, EDN, ROS e provocano danno Assutale direGo (polmone, cuore, nervi) mentre la TH2-low
-(risposta eterogenea non necessariamente polarizzata th1) ha livelli più bassi di queste citochine e può
-anche mostrare un coinvolgimento di citochine @piche delle risposte TH1 e TH17, come l’IL-17.
-(Quando parliamo di un proﬁlo TH2-low, che ha livelli più bassi delle classiche citochine TH2, e può
-includere citochine come l’IL-17 (Apica della risposta TH17), le cellule coinvolte possono essere più
-diversiﬁcate. L’IL-17, ad esempio, aFva e recluta i neutroﬁli, contribuendo a una risposta inﬁammatoria
-diversa da quella classica eosinoﬁlica. In questo contesto, possiamo vedere un coinvolgimento più
-ampio di neutroﬁli, linfociA T helper di Apo 1 e 17, e macrofagi. Quindi, in sintesi, il proﬁlo TH2-low
-riﬂeGe una risposta immunitaria più eterogenea, con un mix di cellule coinvolte).
-2) Inﬁammazione di @po TH1/TH17 (non eosinoﬁlica, fase vasculi:ca) che determina danno vasale e
-formazione del granuloma in sede perivascolare (I TH17 richiamano i neutroﬁli nella sede inﬁammata
-tramite IL-17, mentre gli ANCA li aFvano in modo patologico, causando il rilascio di mediatori
-citotossici che provocano la necrosi della parete vascolare; La formazione dei granulomi perivascolari
-avviene nel contesto di un’inﬁammazione cronica mista, dove neutroﬁli, linfociA e macrofagi
-cooperano, ma è l’aFvazione cronica TH1/TH17 che favorisce la granulomatosi. In parAcolare I
-macrofagi aFvaA si aggregano si trasformano in cellule epitelioidi (con aspeGo allungato, maggiore
-aFvità secretoria) possono fondersi in cellule giganA mulAnucleate, alla periferia avremo la presenza di
-th1 e ﬁbroblasA)
+
+    1) Inﬁammazione di @po TH2 (eosinoﬁlica, fase eosinoﬁlica) che può ulteriormente suddividersi in TH2-
+       high e TH2-low. La TH2-high è cara5erizzata da alte concentrazioni delle classiche citochine TH2, come
+       l’IL-4, l’IL-5 e l’IL-13 (IL-5: aFva e prolunga la vita degli eosinoﬁli, Gli eosinoﬁli degranulano e rilasciano
+       MBP, ECP, EDN, ROS e provocano danno Assutale direGo (polmone, cuore, nervi) mentre la TH2-low
+       (risposta eterogenea non necessariamente polarizzata th1) ha livelli più bassi di queste citochine e può
+       anche mostrare un coinvolgimento di citochine @piche delle risposte TH1 e TH17, come l’IL-17.
+       (Quando parliamo di un proﬁlo TH2-low, che ha livelli più bassi delle classiche citochine TH2, e può
+       includere citochine come l’IL-17 (Apica della risposta TH17), le cellule coinvolte possono essere più
+       diversiﬁcate. L’IL-17, ad esempio, aFva e recluta i neutroﬁli, contribuendo a una risposta inﬁammatoria
+       diversa da quella classica eosinoﬁlica. In questo contesto, possiamo vedere un coinvolgimento più
+       ampio di neutroﬁli, linfociA T helper di Apo 1 e 17, e macrofagi. Quindi, in sintesi, il proﬁlo TH2-low
+       riﬂeGe una risposta immunitaria più eterogenea, con un mix di cellule coinvolte).
+
+    2) Inﬁammazione di @po TH1/TH17 (non eosinoﬁlica, fase vasculi:ca) che determina danno vasale e
+       formazione del granuloma in sede perivascolare (I TH17 richiamano i neutroﬁli nella sede inﬁammata
+       tramite IL-17, mentre gli ANCA li aFvano in modo patologico, causando il rilascio di mediatori
+       citotossici che provocano la necrosi della parete vascolare; La formazione dei granulomi perivascolari
+       avviene nel contesto di un’inﬁammazione cronica mista, dove neutroﬁli, linfociA e macrofagi
+       cooperano, ma è l’aFvazione cronica TH1/TH17 che favorisce la granulomatosi. In parAcolare I
+       macrofagi aFvaA si aggregano si trasformano in cellule epitelioidi (con aspeGo allungato, maggiore
+       aFvità secretoria) possono fondersi in cellule giganA mulAnucleate, alla periferia avremo la presenza di
+       th1 e ﬁbroblasA)
+
 Il quadro clinico nella fase prodromica è molto variabile e la malaAa può durare anni, prima di una diagnosi
 possono passare anche 6-7 anni perché il paziente viene da noi solo per asma e i sintomi associa@ sono
 aspeciﬁci.
--
 
-Nel 96-100% dei pazien@ abbiamo artralgia, mialgia, febbre moderata, perdita di peso e asma.
-Nell’80% dei pazien@ si riscontra alterazione a carico delle alte vie aeree con rino-sinusite cronica,
-poliposi nasale, rinite (associate ad eosinoﬁlia).
-altre manifestazioni: o@te media ipersecretoria, paralisi nervo faciale, perdita udito.
-
+    -   Nel 96-100% dei pazien@ abbiamo artralgia, mialgia, febbre moderata, perdita di peso e asma.
+    -   Nell’80% dei pazien@ si riscontra alterazione a carico delle alte vie aeree con rino-sinusite cronica,
+        poliposi nasale, rinite (associate ad eosinoﬁlia).
+    -   altre manifestazioni: o@te media ipersecretoria, paralisi nervo faciale, perdita udito.
 Il quadro clinico nella fase eosinoﬁlica (alcuni inglobano questa fase nella fase prodromica, dunque in un’unica
 fase pre-vasculi@ca), interessa ﬁno a 2/3 dei pazien@ ed è più grave, gli eosinoﬁli iniziano ad interessare anche
 altri organi, in par@colare cuore e apparato GI (si faccia conto che l’esofago di norma ha un numero di eosinoﬁli
@@ -3213,40 +3749,48 @@ a livello della via di conduzione. Un altro problema importante è la trombosi, 
 polmonare. Nei casi più gravi, in seguito ad interessamento del tra5o GI, possono veriﬁcarsi even@ mortali per
 perforazione intes@nale a causa di inﬁammazioni con ulcere intes@nali. Se facessimo biopsie in questa fase,
 troveremmo al@ livelli di eosinoﬁli.
+
 Il quadro clinico nella fase vasculi:ca interessa altri due appara@ molto importan@ che sono apparato
 neurologico e rene. La vasculite è necro@zzante, nel 70% dei casi abbiamo neuropa@a periferica (per
 inﬁammazione dei vasa nervorum). Altro organo interessato è la cute (purpura, noduli, lesioni maculopapulari).
+
 Per fare diagnosi di EGPA si seguono determina@ score (clinici, laboratoris@ci e biop@ci) si sommano i punteggi
 o5enu@ e se > o = a 6 si fa diagnosi di EGPA. La DD si fa con tu5e le patologie nelle quali abbiamo un aumento
 degli eosinoﬁli ( sindromi da ipereosinoﬁlia, asma, polipi nasali…) e anche con altre forme di vasculite (GPA,
 legate ad alterazione del tessuto conneAvo)
+
 La terapia farmacologica prevede il tra5amento con cor@costeroidi. Sono previste due fasi una iniziale e una di
 mantenimento. Esistono farmaci biologici come an@-IgE e an@ -IL5 (mepolizumab usato anche nell’asma)
+
 GPA (GRANULOMATOSI CON POLIANGITE) anche nota come granulomatosi di Wegener, cara5erizzata da
 granuloma con interessamento di più vasi. Questa è una malaAa descri5a da Wegener cara5erizzato da una
 vasculite necro@zzante, la presenza di c-ANCA nel 80% dei pazien@. Inoltre, è frequente l’interessamento di: vie
 respiratorie superiori, polmone e rene (ques@ ul@mi 2 sono quelli principalmente interessa@).
 L’epidemiologia molto simile alla precedente EGPA e frequentemente in ques@ pazien@ è presente l’infezione
 da S. Aureus.
+
 Il quadro clinico è cara5erizzato da:
-- coinvolgimento polmonare (50-90%) noduli cavita@ per la necrosi all’interno, dovuta alla rapida
-crescita granulomatosa.
-- Coinvolgimento renale (80%)
-- Sintomi ORL (70%)
-- Possibile coinvolgimento oculare, nervoso, cutaneo (purpura necro@zzante, quasi nera per il vaso che è
-andato in necrosi)
+     - coinvolgimento polmonare (50-90%) noduli cavita@ per la necrosi all’interno, dovuta alla rapida
+        crescita granulomatosa.
+     - Coinvolgimento renale (80%)
+     - Sintomi ORL (70%)
+     - Possibile coinvolgimento oculare, nervoso, cutaneo (purpura necro@zzante, quasi nera per il vaso che è
+        andato in necrosi)
+
 La diagnosi si basa sempre su score (clinici, laboratoris@ci, biop@ci e imaging). Uno score > o = a 5 è suﬃciente
 per fare diagnosi, i c-ANCA di fa5o bastano da soli, in quanto se presen@ si da +5, gli esami di laboratorio vanno
 sempre faA se imaging sospe5o.
 La prognosi è abbastanza buona, il problema sono le recidive (ﬁno al 50%). La terapia simile alla precedente
 con cor@costeroidi e immunosoppressori
+
 POLIANGIOITE MICROSCOPICA vasculi@ necro@zzan@ senza granulomi che può avere interessamento
 polmonare e renale, è possibile la presenza di p-ANCA.
-
 POLMONITI DA IPERSENSIBILITÀ (HP/ALVEOLITE ALLERGICA ESTRINSECA)
+
 Le polmoni@ da ipersensibilità sono patologie polmonari secondarie a esposizione a sostanze esogene o
 tossiche (fanno parte, come le vasculi@, delle granulomatosi non infeAve). Inducono una risposta immunitaria
 che porta alla formazione di granulomi non caseosi che entrano in DD con la sarcoidosi.
+
 A seguito dell’ingresso dell’an@gene inalato, si innesca una reazione di ipersensibilità combinata di @po III e IV,
 con aAvazione di linfoci@ CD8+, macrofagi e formazione di granulomi. Il @po cellulare prevalente nel
 granuloma è u@le nella diagnosi diﬀerenziale, specialmente in seguito all’esecuzione del lavaggio
@@ -3257,6 +3801,7 @@ suggeriscono un ruolo gene@co, probabilmente mediato dal complesso maggiore di i
 classe II, in par@colare dagli alleli HLA-DR e HLA-DQ. Curiosamente, il fumo di sigare5a sembra avere un eﬀe5o
 proteAvo nei confron@ dell’evoluzione verso forme ﬁbrosan@, verosimilmente per eﬀe5o inibitorio della
 nico@na sull’aAvazione macrofagica e sulla proliferazione linfocitaria.
+
 Le HP vengono classiﬁcate in forme acuta, subacuta e cronica, in base alla tempis@ca di comparsa dei sintomi e
 dei granulomi. Inoltre, si dis@nguono in forme ﬁbro@che e non ﬁbro@che, poiché alcune evolvono in
 inters@ziopa@e polmonari che entrano in diagnosi diﬀerenziale non solo con la sarcoidosi, ma anche con altre
@@ -3265,22 +3810,24 @@ Da un punto di vista clinico I sintomi principali includono tosse secca, dispnea
 poche ore dopo l’esposizione all’an@gene e regrediscono entro 24–48 ore dall’allontanamento. In caso di
 esposizione cronica o ripetuta, può svilupparsi una forma ﬁbro@ca, associata a dispnea ingravescente e calo
 ponderale.
+
 Alla spirometria, la malaAa si manifesta con un quadro restriAvo, mentre la DLCO risulta marcatamente
 rido5a a causa dell’ispessimento della membrana alveolo-capillare.
 Alla TC ad alta risoluzione (HRCT), la forma non ﬁbro@ca della polmonite da ipersensibilità si cara5erizza per la
 presenza di:
-- opacità a vetro smerigliato (GGO),
-- micronoduli centrolobulari mal deﬁniA,
-- aree di air trapping.
+     - opacità a vetro smerigliato (GGO),
+     - micronoduli centrolobulari mal deﬁniA,
+     - aree di air trapping.
 Ques@ elemen@ deﬁniscono il cosidde5o “headcheese sign” un pa5ern a mosaico in cui coesistono parenchima
 normale, inﬁammato e ostruito, @pico della fase subacuta della malaAa.
-
 t
-ru
 
-es atelettasia
+                     ru
 
-OTTOMATTARNTESA
-offo
 
+
+
+    es atelettasia
+      offo
+OTTOMATTARNTESA
 

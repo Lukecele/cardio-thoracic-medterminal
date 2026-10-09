@@ -1,297 +1,274 @@
 Quale di queste metodiche NON è indicata per valutare la reattività bronchiale?
 Scegli un'alternativa:
-a. Test al salbutamolo
-b. Test alla metacolina
-c. Test al mannitolo
-d. Esercizio fisico
-e. C + D
-
+    a. Test al salbutamolo
+    b. Test alla metacolina
+    c. Test al mannitolo
+    d. Esercizio fisico
+    e. C + D
 Domanda 2
 Quale dei seguenti aspetti non è caratteristico della CAP atipica:
 Scegli un'alternativa:
-a. Frequente è la presentazione in piccole epidemie
-b. Comunemente colpisce soggetti giovani e sani
-c. Risparmio dell’interstizio polmonare
-d. Discrepanza tra rapporto obiettivo toracico e quello radiologico
-e. La componente polmonare è spesso parte di un quadro clinico sistemico
-
+    a. Frequente è la presentazione in piccole epidemie
+    b. Comunemente colpisce soggetti giovani e sani
+    c. Risparmio dell’interstizio polmonare
+    d. Discrepanza tra rapporto obiettivo toracico e quello radiologico
+    e. La componente polmonare è spesso parte di un quadro clinico sistemico
 Domanda 3
 Cosa si intende per stadio zero della sarcoidosi?
 Scegli un'alternativa:
-a. Presenza di manifestazioni extra-toraciche in assenza di anomalie toraciche
-b. Presenza di ingrandimento ilare monolaterale
-c. Presenza di ingrandimento ilare bilaterale
-d. Sindrome di Heerfordt
-e. Sindrome di Loffgren
-
+    a. Presenza di manifestazioni extra-toraciche in assenza di anomalie toraciche
+    b. Presenza di ingrandimento ilare monolaterale
+    c. Presenza di ingrandimento ilare bilaterale
+    d. Sindrome di Heerfordt
+    e. Sindrome di Loffgren
 Domanda 4
 NON rientra nella valutazione dello score di Wells per embolia polmonare (EP):
 Scegli un'alternativa:
-a. Segni e/o sintomi di TVP
-b. EP più probabile rispetto alle possibili diagnosi differenziali
-c. Frequenza cardiaca > 100 bpm
-d. Precedente TVP/EP
-e. Sepsi
-
+    a. Segni e/o sintomi di TVP
+    b. EP più probabile rispetto alle possibili diagnosi differenziali
+    c. Frequenza cardiaca > 100 bpm
+    d. Precedente TVP/EP
+    e. Sepsi
 Domanda 5
 Quale dei seguenti reperti all'esame obiettivo NON è presente nell'enfisema?
 Scegli un'alternativa:
-a. Ipomobilità degli emidiaframmi
-b. Coste orizzontalizzate
-c. Aumento del diametro antero-posteriore del torace
-d. Aumento di intensità del murmure vescicolare
-e. Toni cardiaci parafonici
-
+    a. Ipomobilità degli emidiaframmi
+    b. Coste orizzontalizzate
+    c. Aumento del diametro antero-posteriore del torace
+    d. Aumento di intensità del murmure vescicolare
+    e. Toni cardiaci parafonici
 Domanda 6
 L’indice di Enfisema è il rapporto tra:
 Scegli un'alternativa:
-a. VEMS/CI
-b. VR/CVF
-c. VR/CPT
-d. CFR/CPT
-
-e. VRE/CPT
-
+    a. VEMS/CI
+    b. VR/CVF
+    c. VR/CPT
+    d. CFR/CPT
+    e. VRE/CPT
 Domanda 7
 Il punto di equilibrio del sistema toraco-polmonare a quale capacità viene raggiunto:
 Scegli un'alternativa:
-a. CV
-b. CPT
-c. CVF
-d. CI
-e. CFR
-
+    a. CV
+    b. CPT
+    c. CVF
+    d. CI
+    e. CFR
 Domanda 8
 Un'alveolite linfocitaria a cellule CD8 nel fluido di BAL è indicativa di:
 Scegli un'alternativa:
-a. Pneumoconiosi
-b. Asbestosi
-c. Infezione da Diplocococcus Pneumoniae
-d. Sarcoidosi
-e. Alveolite allergica estrinseca
-
+    a. Pneumoconiosi
+    b. Asbestosi
+    c. Infezione da Diplocococcus Pneumoniae
+    d. Sarcoidosi
+    e. Alveolite allergica estrinseca
 Domanda 9
 Fisiopatologia dell'aterosclerosi: quale delle seguenti affermazioni è ERRATA?
 Scegli un'alternativa:
-a. Il danno endoteliale rappresenta il primum movens della formazione delle lesioni
+    a. Il danno endoteliale rappresenta il primum movens della formazione delle lesioni
 aterosclerotiche
-b. Le cellule muscolari lisce coinvolte nello sviluppo di lesioni aterosclerotiche subiscono uno
+    b. Le cellule muscolari lisce coinvolte nello sviluppo di lesioni aterosclerotiche subiscono uno
 switch fenotipico che le rende capaci di sintetizzare collagene
-c. I linfociti B sono primariamente coinvolti nella formazione delle lesioni aterosclerotiche
-d. Le tecniche di imaging coronarico che consentono la caratterizzazione della placca
+    c. I linfociti B sono primariamente coinvolti nella formazione delle lesioni aterosclerotiche
+    d. Le tecniche di imaging coronarico che consentono la caratterizzazione della placca
 aterosclerotica comprendono l'IVUS (intravascular ultrasound) e l'OCT (optical coherence
 tomography)
-e. Il cappuccio fibroso delle placche aterosclerotiche contiene cellule muscolari, macrofagi,
+     e. Il cappuccio fibroso delle placche aterosclerotiche contiene cellule muscolari, macrofagi,
 linfociti, collagene, elastina, proteoglicani
-
 Domanda 10
 Quale delle seguenti NON è una mutazione tra quelle note e più frequenti che determinano
 cardiomiopatia ipertrofica:
 Scegli un'alternativa:
-a. MYH7
-b. MYBPC3
-c. PPP193
-d. TNNT2
-e. ACTC
-
+    a. MYH7
+    b. MYBPC3
+    c. PPP193
+    d. TNNT2
+    e. ACTC
 Domanda 11
 Quale delle seguenti condizioni identifica tipicamente lo shock cardiogeno?
 Scegli un'alternativa:
-a. Cardiac index > 2 L/min/m2 e Pulmonary Capillary Wedge Pressure (PCWP) > 18 mmHg
-b. Cardiac index > 2 L/min/m2 e Pulmonary Capillary Wedge Pressure (PCWP) < 18 mmHg
-c. Cardiac index < 2 L/min/m2 e Pulmonary Capillary Wedge Pressure (PCWP) > 18 mmHg
-d. Cardiac index < 2 L/min/m2 e Pulmonary Capillary Wedge Pressure (PCWP) < 18 mmHg
-e. Nessuna delle precedenti
-
+    a. Cardiac index > 2 L/min/m2 e Pulmonary Capillary Wedge Pressure (PCWP) > 18 mmHg
+    b. Cardiac index > 2 L/min/m2 e Pulmonary Capillary Wedge Pressure (PCWP) < 18 mmHg
+    c. Cardiac index < 2 L/min/m2 e Pulmonary Capillary Wedge Pressure (PCWP) > 18 mmHg
+    d. Cardiac index < 2 L/min/m2 e Pulmonary Capillary Wedge Pressure (PCWP) < 18 mmHg
+    e. Nessuna delle precedenti
 Domanda 12
 Quale delle seguenti affermazioni sulla Legge di Laplace è FALSA?
 Scegli un'alternativa:
-a. Contribuisce a spiegare perché nello scompenso cardiaco si ha riduzione di efficienza
-
+    a. Contribuisce a spiegare perché nello scompenso cardiaco si ha riduzione di efficienza
 contrattile
-b. L'efficienza contrattile diminuisce al diminuire dello stress di parete
-c. Prevede che lo stress di parete sia uguale a: (pressione x diametro) / (2 x spessore)
-d. La dilatazione ventricolare determina a lungo andare una alterazione dell'efficienza
+    b. L'efficienza contrattile diminuisce al diminuire dello stress di parete
+    c. Prevede che lo stress di parete sia uguale a: (pressione x diametro) / (2 x spessore)
+    d. La dilatazione ventricolare determina a lungo andare una alterazione dell'efficienza
 contrattile
-e. L'ipertrofia riduce lo stress di parete e migliora l'efficienza contrattile
-
+    e. L'ipertrofia riduce lo stress di parete e migliora l'efficienza contrattile
 Domanda 13
 Quale delle seguenti forme di Flutter atriale NON è corretta:
 Scegli un'alternativa:
-a. Flutter atriale destro istmo-dipendente di tipo antiorario (non comune)
-b. Flutter atriale destro non istmo-dipendente cicatriziale
-c. Flutter atriale sinistro dell’annulus mitralico
-d. Flutter atriale destro non istmo-dipendente con circuito superiore
-e. Flutter atriale sinistro delle vene polmonari
+    a. Flutter atriale destro istmo-dipendente di tipo antiorario (non comune)
+    b. Flutter atriale destro non istmo-dipendente cicatriziale
+    c. Flutter atriale sinistro dell’annulus mitralico
+    d. Flutter atriale destro non istmo-dipendente con circuito superiore
+    e. Flutter atriale sinistro delle vene polmonari
+
+
+
 
 Domanda 14
 Quale delle seguenti affermazioni sullo scompenso cardiaco è FALSA?
 Scegli un'alternativa:
-a. Può dipendere da cause extracardiache
-b. Può dipendere dalla incapacità del ventricolo sinistro di espellere una quota di sangue
+    a. Può dipendere da cause extracardiache
+    b. Può dipendere dalla incapacità del ventricolo sinistro di espellere una quota di sangue
 adeguata alle esigenze
-c. Può dipendere da una diminuzione della portata cardiaca
-d. Può essere definito sinistro o destro in base ai segni e sintomi
-e. Può prevedere frazione di eiezione ventricolare sinistra conservata con basse pressioni di
+    c. Può dipendere da una diminuzione della portata cardiaca
+    d. Può essere definito sinistro o destro in base ai segni e sintomi
+    e. Può prevedere frazione di eiezione ventricolare sinistra conservata con basse pressioni di
 riempimento ventricolare
-
 Domanda 15
 Quale tra i seguenti segni/sintomi generalmente NON si riscontra nel paziente con
 insufficienza aortica severa
 Scegli un'alternativa:
-a. Angina pectoris
-b. Dispnea
-c. Sincope
-d. Aumento della pressione differenziale
-e. Edemi declivi
-
+    a. Angina pectoris
+    b. Dispnea
+    c. Sincope
+    d. Aumento della pressione differenziale
+    e. Edemi declivi
 Domanda 16
 Quale delle seguenti affermazioni sul Test Ergometrico è FALSA:
 Scegli un'alternativa:
-a. L’incompetenza cronotropa è l’incapacità di raggiungere un adeguato aumento della
+    a. L’incompetenza cronotropa è l’incapacità di raggiungere un adeguato aumento della
 frequenza cardiaca
-b. Un test è considerato adeguato per valutare la riserva coronarica se il doppio prodotto è
+   b. Un test è considerato adeguato per valutare la riserva coronarica se il doppio prodotto è
 almeno 35.000 all’acme dello sforzo
-c.
+    c.
 In caso di mancato allenamento si può verificare un rapido aumento della frequenza cardiaca (no)
-d.
+     d.
 Il prodotto di pressione arteriosa e frequenza cardiaca è noto come doppio prodotto
-
-e. In condizioni normali la pressione sistolica aumenta progressivamente con lo sforzo mentre
+     e. In condizioni normali la pressione sistolica aumenta progressivamente con lo sforzo mentre
 la diastolica resta invariata o si modifica leggermente
-
 Domanda 17
 Quale dei seguenti casi non rientra nella nuova definizione delle Sindromi Coronariche
 Croniche?
 Scegli un'alternativa:
-a. Paziente sintomatico (angina e/o dispnea) con sospetta arteriopatia coronarica
-b. Paziente con ridotta funzione ventricolare sinistra o scompenso cardiaco di nuova insorgenza
-c. Paziente con coronaropatia cronica di lunga durata (NO)
-d. Paziente con angina senza stenosi delle arterie coronarie epicardiche
-e. Paziente con angina instabile
-
+    a. Paziente sintomatico (angina e/o dispnea) con sospetta arteriopatia coronarica
+    b. Paziente con ridotta funzione ventricolare sinistra o scompenso cardiaco di nuova insorgenza
+    c. Paziente con coronaropatia cronica di lunga durata (NO)
+    d. Paziente con angina senza stenosi delle arterie coronarie epicardiche
+    e. Paziente con angina instabile
 Domanda 18
 Quali sono le caratteristiche del terzo tono (S3)?
 Scegli un'alternativa:
-a. È udibile nella fase precoce della diastole
-b. Occorre durante il riempimento ventricolare passivo
-c. È sempre patologico
-d. Si verifica solo in caso di non-compliance del ventricolo sinistro
-e. A + B
-
+    a. È udibile nella fase precoce della diastole
+    b. Occorre durante il riempimento ventricolare passivo
+    c. È sempre patologico
+    d. Si verifica solo in caso di non-compliance del ventricolo sinistro
+    e. A + B
 Domanda 19
 Quale dei seguenti sintomi/segni NON fa parte della sindrome da prolasso mitralico?
 Scegli un'alternativa:
-a. Gonfiore alle gambe
-b. Dolore toracico
-c. Astenia
-d. Palpitazioni
-e. Stato d'ansia
+    a. Gonfiore alle gambe
+    b. Dolore toracico
+    c. Astenia
+    d. Palpitazioni
+    e. Stato d'ansia
+
+
+
 
 Domanda 20
 Quali delle seguenti è un’indicazione al trattamento transcatetere della stenosi valvolare
 aortica?
 Scegli un'alternativa:
-a. Stenosi aortica moderata e sintomi
-b. Stenosi aortica moderata e riduzione della frazione di eiezione del ventricolo sinistro
-c. Stenosi aortica severa in pazienti con età inferiore ai 75 anni
-d. Stenosi aortica moderata in pazienti con malattia coronarica multivasale
-e. Nessuna delle precedenti
-
+    a. Stenosi aortica moderata e sintomi
+    b. Stenosi aortica moderata e riduzione della frazione di eiezione del ventricolo sinistro
+    c. Stenosi aortica severa in pazienti con età inferiore ai 75 anni
+    d. Stenosi aortica moderata in pazienti con malattia coronarica multivasale
+    e. Nessuna delle precedenti
 Domanda 21
 A quale classe fisiopatologica appartiene la coartazione aortica?
 Scegli un'alternativa:
-a. Cardiopatie congenite con ipoafflusso polmonare
-b. Cardiopatie congenite con ostruzione sinistra
-c. Cardiopatie congenite con inadeguato mixing
-d. Cardiopatie congenite con iperafflusso polmonare
-e. Nessuna delle precedenti (no)
-
+    a. Cardiopatie congenite con ipoafflusso polmonare
+    b. Cardiopatie congenite con ostruzione sinistra
+    c. Cardiopatie congenite con inadeguato mixing
+    d. Cardiopatie congenite con iperafflusso polmonare
+    e. Nessuna delle precedenti (no)
 Domanda 22
 La cardiomiopatia dilatativa familiare può essere causata da geni codificanti per proteine
-
 della seguente struttura cellulare:
 Scegli un'alternativa:
-a. Membrana nucleare
-b. Sarcomero
-c. Citoscheletro
-d. Mitocondrio
-e. Tutte le precedenti
-
+    a. Membrana nucleare
+    b. Sarcomero
+    c. Citoscheletro
+    d. Mitocondrio
+    e. Tutte le precedenti
 Domanda 23
 Nella manovra di Rima-Trendelenburg:
 Scegli un'alternativa:
-a. Il laccio viene posto al di sotto del ginocchio
-b. Il paziente viene posto prima in clinostatismo e poi in ortostatismo
-c. Il paziente viene posto sempre e solo in ortognatismo
-d. Se il sangue refluisce vuol dire che c’è continenza del circolo venoso
-e. Nessuna delle precedenti
-
+    a. Il laccio viene posto al di sotto del ginocchio
+    b. Il paziente viene posto prima in clinostatismo e poi in ortostatismo
+    c. Il paziente viene posto sempre e solo in ortognatismo
+    d. Se il sangue refluisce vuol dire che c’è continenza del circolo venoso
+    e. Nessuna delle precedenti
 Domanda 24
 È indicato l’intervento chirurgico di TEA in un paziente con stenosi carotidea asintomatica ≥
 70%:
 Scegli un'alternativa:
-a. Solo in soggetti fumatori
-b. Solo in soggetti di età superiore a 80 anni
-c. Solo se il rischio dell’intervento è < 3%
-d. Solo nel sesso femminile
-e. Mai
-
+    a. Solo in soggetti fumatori
+    b. Solo in soggetti di età superiore a 80 anni
+    c. Solo se il rischio dell’intervento è < 3%
+    d. Solo nel sesso femminile
+    e. Mai
 Domanda 25
 La vena femorale comune decorre:
 Scegli un'alternativa:
-a. Posterolateralmente all'arteria carotide
-b. Posteriormente all'arteria carotide
-c. Medialmente all'arteria femorale comune
-d. Lateralmente all'arteria femorale comune
-e. La vena femorale comune non decorre in prossimità dell'arteria femorale comune
-
+    a. Posterolateralmente all'arteria carotide
+    b. Posteriormente all'arteria carotide
+    c. Medialmente all'arteria femorale comune
+    d. Lateralmente all'arteria femorale comune
+    e. La vena femorale comune non decorre in prossimità dell'arteria femorale comune
 Domanda 26
 Nell’aneurisma dell’aorta addominale sottorenale è più frequente la rottura in:
 Scegli un'alternativa:
-a. Mediastino
-b. Intestino tenue
-c. Spazio retro-peritoneale
-d. Duodeno
-e. Vena cava inferiore
+    a. Mediastino
+    b. Intestino tenue
+    c. Spazio retro-peritoneale
+    d. Duodeno
+    e. Vena cava inferiore
+
+
+
 
 Domanda 27
 Quale delle seguenti NON fa parte della cura del piede diabetico?
 Scegli un'alternativa:
-a. Applicazione di creme idratanti ed emollienti
-b. Rivascolarizzazione delle arterie degli arti inferiori
-c. Elastocompressione
-
-d. Utilizzo di calzature specifiche
-e. A + D
-
+    a. Applicazione di creme idratanti ed emollienti
+    b. Rivascolarizzazione delle arterie degli arti inferiori
+    c. Elastocompressione
+    d. Utilizzo di calzature specifiche
+    e. A + D
 Domanda 28
 Quale valore di ankle/brachial index (ABI) definisce un'arteriopatia severa?
 Scegli un'alternativa:
-a. ABI > 0,90
-b. ABI 0,90 - 0,70
-c. ABI 0,70 - 0,50
-d. ABI < 0,50
-e. Nessuna delle precedenti
-
+    a. ABI > 0,90
+    b. ABI 0,90 - 0,70
+    c. ABI 0,70 - 0,50
+    d. ABI < 0,50
+    e. Nessuna delle precedenti
 Domanda 29
 Quando si parla di aneurisma aortico sottorenale si definisce “colletto”:
 Scegli un'alternativa:
-a. Il diametro massimo dell’aneurisma
-b. La lunghezza dell’aneurisma
-c. Il tratto di aorta compreso tra l’aneurisma e le arterie renali
-d. Il tratto di aorta compreso tra l’aneurisma e le arterie iliache
-e. Il diametro minimo dell’aorta sovra-aneurismatica (no)
-
+    a. Il diametro massimo dell’aneurisma
+    b. La lunghezza dell’aneurisma
+    c. Il tratto di aorta compreso tra l’aneurisma e le arterie renali
+    d. Il tratto di aorta compreso tra l’aneurisma e le arterie iliache
+    e. Il diametro minimo dell’aorta sovra-aneurismatica (no)
 Domanda 30
 La vena grande safena ha origine:
 Scegli un'alternativa:
-a. Anteriormente al malleolo mediale
-b. Anteriormente al malleolo laterale
-c. Dalla pianta del piede
-d. Posteriormente al malleolo mediale
-e. Posteriormente al malleolo laterale
-
+    a. Anteriormente al malleolo mediale
+    b. Anteriormente al malleolo laterale
+    c. Dalla pianta del piede
+    d. Posteriormente al malleolo mediale
+    e. Posteriormente al malleolo laterale
 Domanda 1
 Quale di queste metodiche NON è indicata per valutare la
 reattività bronchiale?
@@ -327,7 +304,6 @@ e. Sepsi
 Domanda 5
 La polmonite pneumococcica è spesso preceduta da infezione da
 virus influenzale di:
-
 a. Tipo A
 b. Tipo B
 c. Tipo C
@@ -374,7 +350,6 @@ d. Spironolattone
 e. C + D
 Domanda 11
 Quale delle seguenti condizioni identifica tipicamente lo shock
-
 cardiogeno?
 a. Cardiac index > 2 L/min/m2 e Pulmonary Capillary Wedge
 Pressure (PCWP) > 18 mmHg
@@ -385,6 +360,9 @@ Pressure (PCWP) > 18 mmHg
 d. Cardiac index < 2 L/min/m2 e Pulmonary Capillary Wedge
 Pressure (PCWP) < 18 mmHg
 e. Nessuna delle precedenti
+
+
+
 
 Domanda 12
 Il blocco atrioventricolare di I grado:
@@ -415,7 +393,6 @@ c. Può dipendere da una diminuzione della portata cardiaca
 d. Può essere definito sinistro o destro in base ai segni e sintomi
 e. Può prevedere frazione di eiezione ventricolare sinistra
 conservata con basse pressioni di riempimento ventricolare
-
 Domanda 15
 Quale tra i seguenti segni/sintomi generalmente NON si riscontra
 nel paziente con insufficienza aortica severa:
@@ -462,13 +439,15 @@ Domanda 20
 Quali delle seguenti è un’indicazione al trattamento transcatetere
 della stenosi valvolare aortica?
 a. Stenosi aortica moderata e sintomi
-
 b. Stenosi aortica moderata e riduzione della frazione di eiezione
 del ventricolo sinistro
 c. Stenosi aortica severa in pazienti con età inferiore ai 75 anni
 d. Stenosi aortica moderata in pazienti con malattia coronarica
 multivasale
 e. Nessuna delle precedenti
+
+
+
 
 Domanda 21
 A quale classe fisiopatologica appartiene la coartazione aortica?
@@ -503,13 +482,15 @@ d. Solo nel sesso femminile
 e. Mai
 Domanda 25
 La vena femorale comune decorre:
-
 a. Posterolateralmente all'arteria carotide
 b. Posteriormente all'arteria carotide
 c. Medialmente all'arteria femorale comune
 d. Lateralmente all'arteria femorale comune
 e. La vena femorale comune non decorre in prossimità dell'arteria
 femorale comune
+
+
+
 
 Domanda 26
 Nell’aneurisma dell’aorta addominale sottorenale è più frequente
@@ -547,9 +528,11 @@ Il catetere di Fogarty si utilizza:
 a. Nel cateterismo vescicale
 b. Nel cateterismo arterioso
 c. Nel cateterismo venoso
-
 d. Nell’endoarterectomia carotidea
 e. Nelle ischemie acute
+
+
+
 
 1 Quando si parla di Aneurisma Aortico
 2 Catetere di fogarty si usa per: Ischemia Acuta
@@ -581,259 +564,243 @@ riempimento
 28 CD8 nel fluido di Bal: alveolite allergica estrinseca
 29 stadio zero sarcoidosi: presenza di manifestazione extra-toraciche in assenza di anomalie toraciche
 30 non indicato per reattività bronchiale: test salbutamolo
+
+
 BONUS:
 1 condizione associata a soffio olosistolico: Stenosi Aortica
 2 attività neuro-ormonale IC ridotta FE non include: Attivazione parasimpatico
 3 onda epsilon: displasia aritmogena VD
 4 paziente di 80 anni controllo dopo 6 mesi: sopraslivellamento tratto ST e necrosi Q
-
 Quali dei seguenti sintomi caratterizzano un accesso asmatico?
 Scegli un'alternativa:
-a. Tosse
-b. Dispnea, dolore toracico
-c. Espettorazione abbondante
-d. Dispnea, tosse, senso di costrizione toracica
-e. Nessuna delle precedenti
-
+    a. Tosse
+    b. Dispnea, dolore toracico
+    c. Espettorazione abbondante
+    d. Dispnea, tosse, senso di costrizione toracica
+    e. Nessuna delle precedenti
 Domanda 2
 Quale dei seguenti aspetti non è caratteristico della CAP atipica:
 Scegli un'alternativa:
-a. Frequente è la presentazione in piccole epidemie
-b. Comunemente colpisce soggetti giovani e sani
-c. Risparmio dell’interstizio polmonare
-d. Discrepanza tra rapporto obiettivo toracico e quello radiologico
-e. La componente polmonare è spesso parte di un quadro clinico sistemico
-
+    a. Frequente è la presentazione in piccole epidemie
+    b. Comunemente colpisce soggetti giovani e sani
+    c. Risparmio dell’interstizio polmonare
+    d. Discrepanza tra rapporto obiettivo toracico e quello radiologico
+    e. La componente polmonare è spesso parte di un quadro clinico sistemico
 Domanda 3
 Cosa si intende per stadio zero della sarcoidosi?
 Scegli un'alternativa:
-a. Presenza di manifestazioni extra-toraciche in assenza di anomalie toraciche
-b. Presenza di ingrandimento ilare monolaterale
-c. Presenza di ingrandimento ilare bilaterale
-d. Sindrome di Heerfordt
-e. Sindrome di Loffgren
-
+    a. Presenza di manifestazioni extra-toraciche in assenza di anomalie toraciche
+    b. Presenza di ingrandimento ilare monolaterale
+    c. Presenza di ingrandimento ilare bilaterale
+    d. Sindrome di Heerfordt
+    e. Sindrome di Loffgren
 Domanda 4
 NON rientra nella valutazione dello score di Wells per embolia polmonare (EP):
 Scegli un'alternativa:
-a. Segni e/o sintomi di TVP
-b. EP più probabile rispetto alle possibili diagnosi differenziali
-c. Frequenza cardiaca > 100 bpm
-d. Precedente TVP/EP
-e. Sepsi
-
+    a. Segni e/o sintomi di TVP
+    b. EP più probabile rispetto alle possibili diagnosi differenziali
+    c. Frequenza cardiaca > 100 bpm
+    d. Precedente TVP/EP
+    e. Sepsi
 Domanda 5
 Quale dei seguenti reperti all'esame obiettivo NON è presente nell'enfisema?
 Scegli un'alternativa:
-a. Ipomobilità degli emidiaframmi
-b. Coste orizzontalizzate
-c. Aumento del diametro antero-posteriore del torace
-d. Aumento di intensità del murmure vescicolare
-e. Toni cardiaci parafonici
-
+    a. Ipomobilità degli emidiaframmi
+    b. Coste orizzontalizzate
+    c. Aumento del diametro antero-posteriore del torace
+    d. Aumento di intensità del murmure vescicolare
+    e. Toni cardiaci parafonici
 Domanda 6
 L’indice di Enfisema è il rapporto tra:
 Scegli un'alternativa:
-a. VEMS/CI
-b. VR/CVF
-c. VR/CPT
-d. CFR/CPT
-e. VRE/CPT
-
+    a. VEMS/CI
+    b. VR/CVF
+    c. VR/CPT
+    d. CFR/CPT
+    e. VRE/CPT
 Domanda 7
 Il punto di equilibrio del sistema toraco-polmonare a quale capacità viene raggiunto:
 Scegli un'alternativa:
-a. CV
-b. CPT
-c. CVF
-d. CI
-e. CFR
-
+    a. CV
+    b. CPT
+    c. CVF
+    d. CI
+    e. CFR
 Domanda 8
 Un'alveolite linfocitaria a cellule CD8 nel fluido di BAL è indicativa di:
 Scegli un'alternativa:
-a. Pneumoconiosi
-b. Asbestosi
-c. Infezione da Diplocococcus Pneumoniae
-d. Sarcoidosi
-e. Alveolite allergica estrinseca
-
+    a. Pneumoconiosi
+    b. Asbestosi
+    c. Infezione da Diplocococcus Pneumoniae
+    d. Sarcoidosi
+    e. Alveolite allergica estrinseca
 Domanda 9
 Fisiopatologia dell'aterosclerosi: quale delle seguenti affermazioni è ERRATA?
 Scegli un'alternativa:
-a. Il danno endoteliale rappresenta il primum movens della formazione delle lesioni
+    a. Il danno endoteliale rappresenta il primum movens della formazione delle lesioni
 aterosclerotiche
-b. Le cellule muscolari lisce coinvolte nello sviluppo di lesioni aterosclerotiche subiscono uno
+    b. Le cellule muscolari lisce coinvolte nello sviluppo di lesioni aterosclerotiche subiscono uno
 switch fenotipico che le rende capaci di sintetizzare collagene
-c. I linfociti B sono primariamente coinvolti nella formazione delle lesioni aterosclerotiche
-d. Le tecniche di imaging coronarico che consentono la caratterizzazione della placca
+    c. I linfociti B sono primariamente coinvolti nella formazione delle lesioni aterosclerotiche
+    d. Le tecniche di imaging coronarico che consentono la caratterizzazione della placca
 aterosclerotica comprendono l'IVUS (intravascular ultrasound) e l'OCT (optical coherence
 tomography)
-e. Il cappuccio fibroso delle placche aterosclerotiche contiene cellule muscolari, macrofagi,
+     e. Il cappuccio fibroso delle placche aterosclerotiche contiene cellule muscolari, macrofagi,
 linfociti, collagene, elastina, proteoglicani
-
 Domanda 10
 Quale delle seguenti NON è una mutazione tra quelle note e più frequenti che determinano
 cardiomiopatia ipertrofica:
 Scegli un'alternativa:
-a. MYH7
-b. MYBPC3
-c. PPP193
-d. TNNT2
-e. ACTC
-
+    a. MYH7
+    b. MYBPC3
+    c. PPP193
+    d. TNNT2
+    e. ACTC
 Domanda 11
 Quale delle seguenti condizioni identifica tipicamente lo shock cardiogeno?
 Scegli un'alternativa:
-a. Cardiac index > 2 L/min/m2 e Pulmonary Capillary Wedge Pressure (PCWP) > 18 mmHg
-b. Cardiac index > 2 L/min/m2 e Pulmonary Capillary Wedge Pressure (PCWP) < 18 mmHg
-c. Cardiac index < 2 L/min/m2 e Pulmonary Capillary Wedge Pressure (PCWP) > 18 mmHg
-d. Cardiac index < 2 L/min/m2 e Pulmonary Capillary Wedge Pressure (PCWP) < 18 mmHg
-e. Nessuna delle precedenti
-
+    a. Cardiac index > 2 L/min/m2 e Pulmonary Capillary Wedge Pressure (PCWP) > 18 mmHg
+    b. Cardiac index > 2 L/min/m2 e Pulmonary Capillary Wedge Pressure (PCWP) < 18 mmHg
+    c. Cardiac index < 2 L/min/m2 e Pulmonary Capillary Wedge Pressure (PCWP) > 18 mmHg
+    d. Cardiac index < 2 L/min/m2 e Pulmonary Capillary Wedge Pressure (PCWP) < 18 mmHg
+    e. Nessuna delle precedenti
 Domanda 12
 Quale delle seguenti affermazioni sulla Legge di Laplace è FALSA?
 Scegli un'alternativa:
-a. Contribuisce a spiegare perché nello scompenso cardiaco si ha riduzione di efficienza
+    a. Contribuisce a spiegare perché nello scompenso cardiaco si ha riduzione di efficienza
 contrattile
-b. L'efficienza contrattile diminuisce al diminuire dello stress di parete
-c. Prevede che lo stress di parete sia uguale a: (pressione x diametro) / (2 x spessore)
-d. La dilatazione ventricolare determina a lungo andare una alterazione dell'efficienza
+    b. L'efficienza contrattile diminuisce al diminuire dello stress di parete
+    c. Prevede che lo stress di parete sia uguale a: (pressione x diametro) / (2 x spessore)
+    d. La dilatazione ventricolare determina a lungo andare una alterazione dell'efficienza
 contrattile
-e. L'ipertrofia riduce lo stress di parete e migliora l'efficienza contrattile
-
+    e. L'ipertrofia riduce lo stress di parete e migliora l'efficienza contrattile
 Domanda 13
 Quale delle seguenti forme di Flutter atriale NON è corretta:
 Scegli un'alternativa:
-a. Flutter atriale destro istmo-dipendente di tipo antiorario (non comune)
-b. Flutter atriale destro non istmo-dipendente cicatriziale
-c. Flutter atriale sinistro dell’annulus mitralico
-d. Flutter atriale destro non istmo-dipendente con circuito superiore
-e. Flutter atriale sinistro delle vene polmonari
-
+    a. Flutter atriale destro istmo-dipendente di tipo antiorario (non comune)
+    b. Flutter atriale destro non istmo-dipendente cicatriziale
+    c. Flutter atriale sinistro dell’annulus mitralico
+    d. Flutter atriale destro non istmo-dipendente con circuito superiore
+    e. Flutter atriale sinistro delle vene polmonari
 Domanda 14
 Quale delle seguenti affermazioni sullo scompenso cardiaco è FALSA?
 Scegli un'alternativa:
-a. Può dipendere da cause extracardiache
-b. Può dipendere dalla incapacità del ventricolo sinistro di espellere una quota di sangue
+    a. Può dipendere da cause extracardiache
+    b. Può dipendere dalla incapacità del ventricolo sinistro di espellere una quota di sangue
 adeguata alle esigenze
-c. Può dipendere da una diminuzione della portata cardiaca
-d. Può essere definito sinistro o destro in base ai segni e sintomi
-e. Può prevedere frazione di eiezione ventricolare sinistra conservata con basse pressioni di
+    c. Può dipendere da una diminuzione della portata cardiaca
+    d. Può essere definito sinistro o destro in base ai segni e sintomi
+    e. Può prevedere frazione di eiezione ventricolare sinistra conservata con basse pressioni di
 riempimento ventricolare
-
 Domanda 15
 Quale tra i seguenti segni/sintomi generalmente NON si riscontra nel paziente con
 insufficienza aortica severa:
 Scegli un'alternativa:
-a. Angina pectoris
-b. Dispnea
-c. Sincope
-d. Aumento della pressione differenziale
-e. Edemi declivi
-
+    a. Angina pectoris
+    b. Dispnea
+    c. Sincope
+    d. Aumento della pressione differenziale
+    e. Edemi declivi
 Domanda 16
 Quale delle seguenti affermazioni sul Test Ergometrico è FALSA:
 Scegli un'alternativa:
-a. L’incompetenza cronotropa è l’incapacità di raggiungere un adeguato aumento della
+    a. L’incompetenza cronotropa è l’incapacità di raggiungere un adeguato aumento della
 frequenza cardiaca
-b. Un test è considerato adeguato per valutare la riserva coronarica se il doppio prodotto è
+   b. Un test è considerato adeguato per valutare la riserva coronarica se il doppio prodotto è
 almeno 35.000 all’acme dello sforzo
-c.
+    c.
 In caso di mancato allenamento si può verificare un rapido aumento della frequenza cardiaca
-d.
-
+    d.
 Il prodotto di pressione arteriosa e frequenza cardiaca è noto come doppio prodotto
-e. In condizioni normali la pressione sistolica aumenta progressivamente con lo sforzo mentre
+     e. In condizioni normali la pressione sistolica aumenta progressivamente con lo sforzo mentre
 la diastolica resta invariata o si modifica leggermente
+
+
+
 
 Domanda 18
 Quali sono le caratteristiche del terzo tono (S3)?
 Scegli un'alternativa:
-a. È udibile nella fase precoce della diastole
-b. Occorre durante il riempimento ventricolare passivo
-c. È sempre patologico
-d. Si verifica solo in caso di non-compliance del ventricolo sinistro
-e. A + B
-
+    a. È udibile nella fase precoce della diastole
+    b. Occorre durante il riempimento ventricolare passivo
+    c. È sempre patologico
+    d. Si verifica solo in caso di non-compliance del ventricolo sinistro
+    e. A + B
 Domanda 19
 Quale dei seguenti sintomi/segni NON fa parte della sindrome da prolasso mitralico?
 Scegli un'alternativa:
-a. Gonfiore alle gambe
-b. Dolore toracico
-c. Astenia
-d. Palpitazioni
-e. Stato d'ansia
-
+    a. Gonfiore alle gambe
+    b. Dolore toracico
+    c. Astenia
+    d. Palpitazioni
+    e. Stato d'ansia
 Domanda 20
 Quali delle seguenti è un’indicazione al trattamento transcatetere della stenosi valvolare
 aortica?
 Scegli un'alternativa:
-a. Stenosi aortica moderata e sintomi
-b. Stenosi aortica moderata e riduzione della frazione di eiezione del ventricolo sinistro
-c. Stenosi aortica severa in pazienti con età inferiore ai 75 anni
-d. Stenosi aortica moderata in pazienti con malattia coronarica multivasale
-e. Nessuna delle precedenti
-
+    a. Stenosi aortica moderata e sintomi
+    b. Stenosi aortica moderata e riduzione della frazione di eiezione del ventricolo sinistro
+    c. Stenosi aortica severa in pazienti con età inferiore ai 75 anni
+    d. Stenosi aortica moderata in pazienti con malattia coronarica multivasale
+    e. Nessuna delle precedenti
 Domanda 22
 La cardiomiopatia dilatativa familiare può essere causata da geni codificanti per proteine
 della seguente struttura cellulare:
 Scegli un'alternativa:
-a. Membrana nucleare
-b. Sarcomero
-c. Citoscheletro
-d. Mitocondrio
-e. Tutte le precedenti
 
+    a. Membrana nucleare
+    b. Sarcomero
+    c. Citoscheletro
+    d. Mitocondrio
+    e. Tutte le precedenti
 Domanda 23
 Nella manovra di Rima-Trendelenburg:
 Scegli un'alternativa:
-a. Il laccio viene posto al di sotto del ginocchio
-b. Il paziente viene posto prima in clinostatismo e poi in ortostatismo
-c. Il paziente viene posto sempre e solo in ortognatismo
-d. Se il sangue refluisce vuol dire che c’è continenza del circolo venoso
-e. Nessuna delle precedenti
-
+    a. Il laccio viene posto al di sotto del ginocchio
+    b. Il paziente viene posto prima in clinostatismo e poi in ortostatismo
+    c. Il paziente viene posto sempre e solo in ortognatismo
+    d. Se il sangue refluisce vuol dire che c’è continenza del circolo venoso
+    e. Nessuna delle precedenti
 Domanda 24
 È indicato l’intervento chirurgico di TEA in un paziente con stenosi carotidea asintomatica ≥
 70%:
-
 Scegli un'alternativa:
-a. Solo in soggetti fumatori
-b. Solo in soggetti di età superiore a 80 anni
-c. Solo se il rischio dell’intervento è < 3%
-d. Solo nel sesso femminile
-e. Mai
+    a. Solo in soggetti fumatori
+    b. Solo in soggetti di età superiore a 80 anni
+    c. Solo se il rischio dell’intervento è < 3%
+    d. Solo nel sesso femminile
+    e. Mai
+
 
 Domanda 25
 La vena femorale comune decorre:
 Scegli un'alternativa:
-a. Posterolateralmente all'arteria carotide
-b. Posteriormente all'arteria carotide
-c. Medialmente all'arteria femorale comune
-d. Lateralmente all'arteria femorale comune
-e. La vena femorale comune non decorre in prossimità dell'arteria femorale comune
-
+    a. Posterolateralmente all'arteria carotide
+    b. Posteriormente all'arteria carotide
+    c. Medialmente all'arteria femorale comune
+    d. Lateralmente all'arteria femorale comune
+    e. La vena femorale comune non decorre in prossimità dell'arteria femorale comune
 Domanda 27
 Quale delle seguenti NON fa parte della cura del piede diabetico?
 Scegli un'alternativa:
-a. Applicazione di creme idratanti ed emollienti
-b. Rivascolarizzazione delle arterie degli arti inferiori
-c. Elastocompressione
-d. Utilizzo di calzature specifiche
-e. A + D
-
+    a. Applicazione di creme idratanti ed emollienti
+    b. Rivascolarizzazione delle arterie degli arti inferiori
+    c. Elastocompressione
+    d. Utilizzo di calzature specifiche
+    e. A + D
 Domanda 28
 Quale valore di ankle/brachial index (ABI) definisce un'arteriopatia severa?
 Scegli un'alternativa:
-a. ABI > 0,90
-b. ABI 0,90 - 0,70
-c. ABI 0,70 - 0,50
-d. ABI < 0,50
-e. Nessuna delle precedenti
+    a. ABI > 0,90
+    b. ABI 0,90 - 0,70
+    c. ABI 0,70 - 0,50
+    d. ABI < 0,50
+    e. Nessuna delle precedenti
+
+
+
 
 25 giugno 2020 alle ore 09:25 ·
-
 COMPITO 25/06/2020
 1 Durante l’esame obiettivo dell’apparato respiratorio il reperto focale di ottusita ̀ plessica + abolizione del
 FVT + MV indebolito o abolito è evocativo di:
@@ -844,7 +811,6 @@ d. Addensamento polmonare a bronco pervio
 e. Corpo estraneo inalato
 2 Quale di questi meccanismi è il piu ̀ importante nella genesi dell’ipertensione polmonare? a.
 Rimodellamento vascolare (giusta)
-
 b. Vasocostrizione arteriolare riflessa
 c. Occlusione trombotica dei piccoli vasi
 d. Amputazione anatomica del microcircolo per rottura dei setti e. Nessuno dei precedenti
@@ -875,7 +841,6 @@ c. VR/CPT (giusta)
 d. CFR/CPT e. VRE/CPT
 https://m.facebook.com/groups/275276286010685/permalink/1454755008062801/ 1/6
 24/2/2021 studenti Medicina Federico II : CARDIOLOGIA, PNEUMOLOGIA, CHIR VASCOLARE
-
 8 Il punto di equilibrio del sistema toraco-polmonare a quale capacità viene raggiunto: a. CV
 b. CPT
 c. CVF
@@ -916,7 +881,6 @@ d. B + C + D
 16 La protesi valvolare aortica Edwards-Sapien è:
 a. Una protesi meccanica
 b. Una protesi biologica costituita da tre lembi di pericardio autologo
-
 c. Una protesi biologica costituita da tre lembi di pericardio bovino contenuta all’interno di una protesi
 valvolare meccanica
 d. Una protesi biologica costituita da tre lembi di pericardio porcino contenuta all’interno di una rete di
@@ -963,6 +927,7 @@ e. Nessuna delle precedenti
 24 È indicato l’intervento chirurgico di TEA in un paziente con stenosi carotidea asintomatica ≥ 70%: a. Solo
 in soggetti fumatori
 b. Solo in soggetti di eta ̀ superiore a 80 anni
+
 c. Solo se il rischio dell’intervento è < 3% (giusta)
 d. Solo nel sesso femminile
 e. Mai
@@ -989,7 +954,6 @@ e. Vena cava inferiore
 sospetto di stenosi carotidea è: a. Angiografia
 b. EcocolorDoppler (giusta)
 c. Angio TC
-
 d. AngioRM
 e. Doppler CW
 28 Nella sindrome da furto della succlavia qual è
@@ -1015,6 +979,9 @@ c. Nel cateterismo venoso
 d. Nell’endoarterectomia carotidea e. Nelle
 ischemie acute (giusta)
 Mi piace
+
+
+
 
 1)non interviene in scompenso: parasimpatico
 2)FA :aumenta rischio ictus
@@ -1050,7 +1017,6 @@ aortica: nessuna delle precedenti
 22)traide di BECK: ipotensione, turgore, toni
 cardiaci attenuati (ipertensione venosa)
 23) tono S3: è udibile in diastole precoce +
-
 durante il riempimento ventricolare passivo?
 24)riduce mortalita ̀ scompenso:
 25) valvola SAPIEN: tre lembi pericardio bovino e
@@ -1063,13 +1029,17 @@ dolore
 29)ipertesnione: rimodellamento vascolare
 30) soffio olositsolico. stenosi aortica
 
+
+
+
 mercoledi ̀ 24 febbraio 2021
 
-Renato
 
+
+
+Renato
 Ricostruzione
 16:54:04
-
 1. Polso paradosso: tamponamento cardiaco
 2. Insufficienza aortica: segno di erb
 3. Blalock: intervento palliativo
@@ -1101,5 +1071,4 @@ Ricostruzione
 29. Localizzazione tumore fibroso pleura
 30. Impedimento flusso transmitralico:area
 1)non interviene in scompenso: parasimpatico 2)FA :aumenta rischio ictus
-
 
