@@ -1,0 +1,157 @@
+[
+  {
+    "id": "oral-cardio-medica",
+    "branch": "cardio-medica",
+    "discipline": "Cardiologia Medica",
+    "title": "Caso Clinico Orale 1: Dolore Toracico Acuto e SCA Anteriore",
+    "patient": "Uomo di 62 anni, fumatore di 30 pack-years, iperteso e dislipidemico. Giunge in Pronto Soccorso per dolore toracico oppressivo retrosternale insorto a riposo da circa 45 minuti, irradiato alla mandibola e al braccio sinistro, accompagnato da sudorazione algida profusa e nausea.",
+    "vitalSigns": "PA: 100/65 mmHg, FC: 96 bpm ritmica, SpO2: 95% in aria ambiente, FR: 20 atti/min.",
+    "physicalExam": "Paziente sofferente, agitato, pallido e sudato. Auscultazione cardiaca: toni parafonici, non soffi patologici apprezzabili. Auscultazione polmonare: murmure vescicolare conservato bilateralmente, fini rantoli crepitanti alle basi polmonari (Killip II). Polsi periferici presenti e simmetrici.",
+    "oralQuestions": [
+      {
+        "question": "1. Qual è il primissimo esame strumentale che richiede e con quale tempistica massima?",
+        "expectedAnswer": "ECG a 12 derivazioni da registrare e interpretare entro un massimo di 10 minuti dal primo contatto medico (FMC). Non bisogna attendere l'esito della troponina per definire la strategia di riperfusione se l'ECG è dirimente per STEMI.",
+        "fatalTrap": "Dire 'aspetto le troponine prima di chiamare l'emodinamica': errore gravissimo! Nello STEMI il tempo è muscolo, la riperfusione non attende i biomarcatori."
+      },
+      {
+        "question": "2. L'ECG mostra sopraslivellamento ST al punto J di 4 mm nelle derivazioni da V1 a V4 con onde T iperacute e sottoslivellamento speculare in DII, DIII, aVF. Qual è la diagnosi, la coronaria colpevole e la strategia terapeutica immediata?",
+        "expectedAnswer": "Diagnosi: STEMI della parete antero-settale. Coronaria colpevole: Arteria Discendente Anteriore (IVA). Strategia: Coronarografia con Angioplastica Primaria (PPCI) entro 120 minuti dal primo contatto medico.",
+        "fatalTrap": "Sbagliare la coronaria colpevole (dire coronaria destra invece di IVA per le derivazioni anteriori V1-V4)."
+      },
+      {
+        "question": "3. Quale terapia farmacologica acuta deve somministrare prima del trasferimento in sala di emodinamica?",
+        "expectedAnswer": "1) DAPT: Aspirina 150-300 mg masticabile EV o per os + Inibitore P2Y12 (Ticagrelor 180 mg o Prasugrel 60 mg); 2) Anticoagulante parenterale: Eparina non frazionata (UFH) bolo EV 70-100 UI/kg; 3) Ossigeno SOLO se SpO2 < 90%; 4) Monitoraggio continuo per prevenzione e trattamento della fibrillazione ventricolare primaria.",
+        "fatalTrap": "Somministrare ossigeno a pioggia se la saturazione è già normale (> 90%), perché l'iperossia induce vasocostrizione coronarica e genera radicali liberi."
+      },
+      {
+        "question": "4. Al 3° giorno post-infarto, il paziente sviluppa improvvisa dispnea ingravescente, edema polmonare acuto e compare un nuovo soffio olosistolico aspro all'apice con irradiazione all'ascella. Quale complicanza meccanica temibile sospetta e come la conferma?",
+        "expectedAnswer": "Rottura acuta del muscolo papillare (più frequentemente postero-mediale vascolarizzato unicamente dalla coronaria destra, o antero-laterale) con Insufficienza Mitralica acuta massiva. Si conferma d'urgenza con Ecocardiogramma transtoracico/transesofageo (color Doppler con jet da rigurgito eccentrico massivo). È un'emergenza cardiochirurgica assoluta.",
+        "fatalTrap": "Confondere la rottura di papillare con la rottura del setto interventricolare (DIV post-infartuale, che presenta soffio mesocardico con fremito parasternale sinistro)."
+      }
+    ]
+  },
+  {
+    "id": "oral-cardiochirurgia",
+    "discipline": "Cardiochirurgia",
+    "branch": "cardiochirurgia",
+    "title": "Caso Clinico Orale 2: Stenosi Aortica Severa & Scelta Protesica (SAVR vs TAVI)",
+    "patient": "Donna di 78 anni, ipertesa con IRC moderata (eGFR 48 mL/min), riferisce da 6 mesi dispnea da sforzo ingravescente (NYHA III) e recente episodio sincopale durante una camminata in salita.",
+    "vitalSigns": "PA: 115/85 mmHg, FC: 72 bpm ritmica, SpO2: 97%.",
+    "physicalExam": "Auscultazione cardiaca: soffio sistolico eiettivo aspro a diamante (crescendo-decrescendo) al focolaio aortico (II spazio intercostale destro) irradiato ai vasi del collo e all'apice (fenomeno di Gallavardin), S2 ipofonetico con sdoppiamento paradosso. Polso radiale piccolo e a lenta salita (parvus et tardus).",
+    "oralQuestions": [
+      {
+        "question": "1. Quali parametri all'Ecocardiogramma Doppler transtoracico definiscono la stenosi aortica come 'severa' ad alto gradiente?",
+        "expectedAnswer": "1) Area Valvolare Aortica (AVA) < 1.0 cm² (oppure indicizzata < 0.6 cm²/m² di superficie corporea); 2) Gradiente pressorio transvalvolare medio > 40 mmHg; 3) Velocità massima di picco (Vmax) > 4.0 m/s; 4) Rapporto adimensionale di velocità (DVI) < 0.25.",
+        "fatalTrap": "Confondere i cut-off: dire gradiente massimo > 40 invece di GRADIENTE MEDIO > 40 mmHg."
+      },
+      {
+        "question": "2. La paziente è sintomatica (sincope + dispnea). Qual è la prognosi in assenza di intervento cardiochirurgico?",
+        "expectedAnswer": "Infausta a breve termine: la sopravvivenza media dopo la comparsa dei sintomi senza correzione dell'ostruzione è di circa 2 anni dallo scompenso, 3 anni dalla sincope e 5 anni dall'angina. Il rischio di morte improvvisa supera il 50%.",
+        "fatalTrap": "Sostenere che in un paziente anziano si possa tentare una 'terapia medica conservativa' a lungo termine per la stenosi severa sintomatica: non esiste terapia medica per la stenosi aortica calcifica."
+      },
+      {
+        "question": "3. Come decide l'Heart Team tra SAVR (chirurgia tradizionale a cielo aperto) e TAVI (impianto transcatetere)?",
+        "expectedAnswer": "Si valutano: Età (> 75 anni favorisce TAVI, < 75 anni favorisce SAVR), Rischio chirurgico stimato (EuroSCORE II / STS-PROM > 8% alto rischio favorevole a TAVI), Fragilità clinica, e caratteristiche anatomiche/chirurgiche: aorta a porcellana, pregresso CABG con mammaria pervia, deformità toracica orientano decisamente per TAVI.",
+        "fatalTrap": "Dimenticare l'aorta a porcellana come controindicazione assoluta alla SAVR per impossibilità di clampaggio dell'aorta."
+      },
+      {
+        "question": "4. Quali sono le differenze tecniche e strutturali tra la valvola Edwards SAPIEN e la Medtronic Evolut?",
+        "expectedAnswer": "Edwards SAPIEN: bioprotesi a 3 lembi in pericardio BOVINO montata su scheletro metallico in cromo-cobalto, espandibile mediante palloncino (balloon-expandable). Medtronic CoreValve/Evolut: bioprotesi in pericardio PORCINO su stent autoespandibile in lega Nitinolo a memoria di forma.",
+        "fatalTrap": "Invertire i materiali: dire che la Sapien è porcina e la CoreValve è bovina (domanda trappola tipica d'esame scritto e orale)."
+      }
+    ]
+  },
+  {
+    "id": "oral-pneumo",
+    "discipline": "Pneumologia",
+    "branch": "pneumo",
+    "title": "Caso Clinico Orale 3: BPCO Riacutizzata vs CAP & Valutazione PFR",
+    "patient": "Uomo di 68 anni, forte fumatore (50 pack-years), diagnosi nota di BPCO, giunge in ospedale per incremento marcato della dispnea da 3 giorni, comparsa di espettorato abbondante, purulento e verdastro, e febbricola a 37.8°C.",
+    "vitalSigns": "PA: 135/80 mmHg, FC: 104 bpm tachicardico, FR: 28 atti/min, SpO2: 86% in aria ambiente.",
+    "physicalExam": "Torace a botte, respiro a labbra socchiuse, tirage sopraclaveare. Auscultazione polmonare: murmure vescicolare marcatamente ridotto su tutti i campi, espirazione prolungata con sibili e ronchi diffusi bilaterali, e presenza di fini rantoli crepitanti alla base destra.",
+    "oralQuestions": [
+      {
+        "question": "1. Come definisce la gravità della riacutizzazione secondo i criteri di Anthonisen?",
+        "expectedAnswer": "Criteri di Anthonisen: 1) Aumento della dispnea; 2) Aumento del volume dell'espettorato; 3) Comparsa di purulenza dell'espettorato. Poiché sono presenti tutti e 3 i sintomi cardinali, si tratta di una riacutizzazione di Tipo I (grave), che indica con certezza un'eziologia batterica e pone indicazione formale ad antibioticoterapia.",
+        "fatalTrap": "Non conoscere i criteri di Anthonisen, che determinano l'indicazione alla terapia antibiotica."
+      },
+      {
+        "question": "2. Quale accortezza fondamentale DEVE adottare nell'ossigenoterapia di questo paziente e perché?",
+        "expectedAnswer": "L'ossigenoterapia deve essere controllata e titolata (tramite maschera di Venturi al 24-28%) con target di SpO2 rigorosamente compreso tra 88% e 92%. In un paziente con BPCO e cronica ipercapnia, somministrare O2 ad alti flussi abolisce il 'drive' ipossico respiratorio carotideo e aggrava il mismatch ventilazione/perfusione, precipitando una narcosi da ipercapnia con coma respiratorio e acidosi respiratoria scompensata.",
+        "fatalTrap": "Dire 'metto ossigeno al 100% per portare la saturazione a 99-100%': errore gravissimo che può portare all'arresto respiratorio del paziente!"
+      },
+      {
+        "question": "3. All'EGA (emogasanalisi) riscontra: pH 7.28, PaCO2 68 mmHg, PaO2 54 mmHg, HCO3- 32 mmol/L. Come interpreta il quadro emogasanalitico e cosa imposta?",
+        "expectedAnswer": "Acidosi respiratoria acuta scompensata sovrapposta ad alcalosi metabolica di compenso cronico (ipercapnia cronica riacutizzata). Indicazione immediata a Ventilazione Meccanica Non Invasiva (NIV in modalità BiPAP con IPAP ed EPAP) per favorire il 'washout' della CO2 e ridurre il lavoro dei muscoli respiratori.",
+        "fatalTrap": "Non riconoscere l'indicazione alla NIV (BiPAP) di fronte a un'acidosi respiratoria ipercapnica con pH < 7.35."
+      },
+      {
+        "question": "4. Una volta stabilizzato, come conferma la diagnosi spirometrica e stadia la BPCO secondo le linee guida GOLD?",
+        "expectedAnswer": "Spirometria globale eseguita in fase stabile dopo somministrazione di broncodilatatore (400 mcg salbutamolo): il criterio diagnostico cardine è un Indice di Tiffeneau post-BD (FEV1/FVC) < 0.70 irreversibile. La gravità dell'ostruzione si basa su FEV1 % del predetto (GOLD 1 $\\ge$ 80%, GOLD 2 50-79%, GOLD 3 30-49%, GOLD 4 < 30%). La terapia di fondo si imposta secondo il raggruppamento A-B-E.",
+        "fatalTrap": "Dimenticare che il criterio di Tiffeneau < 0.70 deve essere verificato POST-broncodilatatore per escludere l'asma."
+      }
+    ]
+  },
+  {
+    "id": "oral-toracica",
+    "discipline": "Chirurgia Toracica",
+    "branch": "toracica",
+    "title": "Caso Clinico Orale 4: Nodulo Polmonare Solitario, Stadiazione & Criteri di Resecabilità",
+    "patient": "Uomo di 64 anni, ex fumatore (40 pack-years), esegue Rx torace per controllo pre-operatorio che evidenzia un'opacità nodulare nel lobo superiore destro.",
+    "vitalSigns": "PA: 125/75 mmHg, FC: 70 bpm, SpO2: 98%. Asintomatico.",
+    "physicalExam": "Esame obiettivo toracico negativo. Non linfoadenopatie palpabili in sede sopraclaveare o laterocervicale. Performance Status ECOG 0.",
+    "oralQuestions": [
+      {
+        "question": "1. Qual è il percorso diagnostico di 2° livello per caratterizzare la lesione?",
+        "expectedAnswer": "TC Torace-Addome con mezzo di contrasto ad alta risoluzione (per valutare dimensioni, margini spiculati/lobulati, calcificazioni e linfonodi ilari/mediastinici) + PET-TC con 18-FDG per quantificare l'attività metabolica (SUV max > 2.5 orienta fortemente per malignità) ed escludere metastasi a distanza.",
+        "fatalTrap": "Suggerire una 'broncoscopia con pinza bioptica alla cieca' prima di avere eseguito la TC con mdc."
+      },
+      {
+        "question": "2. La TC evidenzia una lesione di 2.8 cm a margini spiculati nel lobo superiore destro senza contatto pleurico. La PET è ipercaptante sul nodulo e negativa su mediastino e altri organi (stadio clinico cT1cN0M0). Qual è la biopsia indicata?",
+        "expectedAnswer": "Se il nodulo è periferico: agobiopsia percutanea transtoracica TC-guidata (TTNB) oppure resezione cuneiforme diagnostica intraoperatoria in VATS con esame istologico estemporaneo al congelatore. Se l'estemporanea conferma l'adenocarcinoma, si procede contestualmente alla lobectomia anatomica con linfoadenectomia.",
+        "fatalTrap": "Proporre solo un 'follow-up a 6 mesi' per un nodulo di quasi 3 cm ipercaptante alla PET in un forte fumatore."
+      },
+      {
+        "question": "3. Quali prove funzionali respiratorie deve obbligatoriamente richiedere per valutare l'operabilità toracica del paziente?",
+        "expectedAnswer": "Spirometria completa (FEV1 e FVC) e DLCO. Si calcolano i valori predetti post-operatori (ppoFEV1 e ppoDLCO) in base al numero di segmenti che verranno asportati. Se sia ppoFEV1 che ppoDLCO sono > 40%, il paziente è a basso rischio ed è idoneo alla lobectomia. Se < 40%, si esegue il test da sforzo cardiopolmonare (CPET) con misurazione del VO2 max (sicuro se > 15 mL/kg/min).",
+        "fatalTrap": "Non calcolare i valori post-operatori predetti (ppo) e basarsi solo sul FEV1 preoperatorio assoluto."
+      },
+      {
+        "question": "4. Qual è l'intervento chirurgico oncologico gold standard per questo stadio?",
+        "expectedAnswer": "Lobectomia polmonare destra (superiore) associata a Linfoadenectomia mediastinica radicale sistematica (stazioni ilari 10-11 e mediastiniche destre 2R, 4R, 7, 8, 9), eseguita preferenzialmente con approccio mini-invasivo VATS (Video-Assisted Thoracoscopic Surgery) o RATS (Robotica).",
+        "fatalTrap": "Rispondere 'pneumonectomia' (asportazione di tutto il polmone) per un T1 di 2.8 cm periferico: asportazione sproporzionata e mortale!"
+      }
+    ]
+  },
+  {
+    "id": "oral-vascolare",
+    "discipline": "Chirurgia Vascolare",
+    "branch": "vascolare",
+    "title": "Caso Clinico Orale 5: Aneurisma Aorta Addominale (AAA) & Ischemia Acuta d'Arto",
+    "patient": "Uomo di 72 anni, diabetico e fumatore, giunge per episodio improvviso di dolore violento e freddezza alla gamba e al piede destro da circa 3 ore. All'anamnesi emerge riscontro ecografico occasionale di dilatazione dell'aorta addominale non più controllata da anni.",
+    "vitalSigns": "PA: 140/85 mmHg, FC: 110 bpm ritmica (o aritmica da FA), SpO2: 97%.",
+    "physicalExam": "Arto inferiore destro freddo come il marmo al terzo inferiore della gamba e al piede, con pallore cereo cutaneo marcato. Polso femorale presente a destra, ma polsi popliteo, tibiale posteriore e pedidio assenti. Presenza di parestesie e lieve deficit di dorsiflessione dell'alluce. All'addome si palpa una massa pulsante espansibile periombelicale indolente.",
+    "oralQuestions": [
+      {
+        "question": "1. Qual è la diagnosi del quadro all'arto inferiore e quali sono le '6 P' da ricercare all'esame obiettivo?",
+        "expectedAnswer": "Ischemia Acuta dell'Arto Inferiore Destro (ALI), probabilmente da embolizzazione o trombosi a livello dell'arteria femorale comune/poplitea. Le 6 P sono: 1) Pain (dolore); 2) Pallor (pallore); 3) Pulselessness (assenza di polsi); 4) Paresthesia (parestesie); 5) Paralysis (deficit motorio); 6) Poikilothermia (ipotermia dell'arto).",
+        "fatalTrap": "Scambiare l'ischemia acuta per una lombosciatalgia o per una trombosi venosa profonda (la TVP ha l'arto caldo, edematoso e turgido, NON pallido e ghiacciato!)."
+      },
+      {
+        "question": "2. Qual è il trattamento medico e chirurgico d'urgenza immediato per salvare l'arto?",
+        "expectedAnswer": "1) Terapia medica immediata: bolo di Eparina sodica non frazionata EV (5000 UI) per impedire la propagazione distale del trombo e del microcircolo; 2) Trattamento chirurgico d'urgenza: tromboembolectomia con Catetere a palloncino di Fogarty via arteriotomia femorale destra in anestesia locale.",
+        "fatalTrap": "Attendere ore per eseguire esami di secondo livello senza iniziare immediatamente l'eparina sodica endovena."
+      },
+      {
+        "question": "3. Per la massa addominale pulsante: quale esame diagnostico richiede e quali sono i criteri di indicazione all'intervento per l'AAA?",
+        "expectedAnswer": "Ecocolordoppler per stima rapida e Angio-TC toraco-addomino-pelvica con mezzo di contrasto (gold standard pre-operatorio per valutare calibro, estensione e anatomia del colletto aortico). Criteri per riparazione: diametro trasverso $\\ge$ 5.5 cm nell'uomo ($\\ge$ 5.0 cm nella donna), crescita rapida > 1 cm/anno o > 5 mm in 6 mesi, o qualsiasi aneurisma sintomatico/fissurato.",
+        "fatalTrap": "Dimenticare che per le donne il cut-off è 5.0 cm invece di 5.5 cm."
+      },
+      {
+        "question": "4. Nel post-operatorio di una riparazione endovascolare EVAR, l'Angio-TC mostra una fuga di contrasto nella sacca aneurismatica alimentata da flusso retrogrado dall'arteria mesenterica inferiore. Che tipo di Endoleak è e come si gestisce?",
+        "expectedAnswer": "Endoleak di Tipo II (da rifornimento retrogrado di vasi collaterali come arteria mesenterica inferiore o arterie lombari). È il tipo più frequente (~80%). A differenza dei Tipi I e III, non richiede reintervento immediato d'urgenza: si monitora a 6-12 mesi; si interviene con embolizzazione transcatetere solo se la sacca aneurismatica mostra un incremento progressivo del diametro nel tempo.",
+        "fatalTrap": "Affermare che l'Endoleak di Tipo II richieda chirurgia aperta d'urgenza: è il Tipo I (al colletto) che richiede trattamento immediato, mentre il Tipo II è a bassa pressione."
+      }
+    ]
+  }
+]

@@ -13,10 +13,12 @@ import {
   ChevronRight,
   Terminal,
   Clock,
+  Stethoscope,
 } from 'lucide-react';
 import { Anatomy3DViewport } from './components/Anatomy3DViewport';
 import { TheoryViewer } from './components/TheoryViewer';
 import { ExamSimulator } from './components/ExamSimulator';
+import { OralExamSimulator } from './components/OralExamSimulator';
 import { DiagnosticScanner } from './components/DiagnosticScanner';
 import { ClinicalCalculators } from './components/ClinicalCalculators';
 import { AuscultationDock } from './components/AuscultationDock';
@@ -24,9 +26,10 @@ import { AuscultationDock } from './components/AuscultationDock';
 import theoryData from './data/theory.json';
 import questionsData from './data/questions.json';
 import scannerData from './data/scannerMatrix.json';
+import oralCasesData from './data/oralCases.json';
 
 export function App() {
-  const [activeTab, setActiveTab] = useState<'theory' | 'quiz' | 'scanner' | 'calculators' | 'auscultation'>('theory');
+  const [activeTab, setActiveTab] = useState<'theory' | 'quiz' | 'oral' | 'scanner' | 'calculators' | 'auscultation'>('theory');
   const [activeTopicId, setActiveTopicId] = useState<string>('cardio-valvulopatie');
   const [focus3DTarget, setFocus3DTarget] = useState<string>('aortic-valve');
   const [show3DDrawer, setShow3DDrawer] = useState<boolean>(true);
@@ -76,39 +79,73 @@ export function App() {
     ...questionsData
       .filter(q => q.question.toLowerCase().includes(searchQuery.toLowerCase()) || q.topic.toLowerCase().includes(searchQuery.toLowerCase()))
       .slice(0, 5)
-      .map(q => ({ type: 'Quiz Esame', title: q.question.slice(0, 65) + '...', subtitle: `${q.system.toUpperCase()} • ${q.topic}`, id: q.id, action: () => { setTargetQuestionId(q.id); setActiveTab('quiz'); setSearchModalOpen(false); } })),
+      .map(q => ({ type: 'Quiz Esame', title: q.question.slice(0, 65) + '...', subtitle: `${q.branch.toUpperCase()} • ${q.topic}`, id: q.id, action: () => { setTargetQuestionId(q.id); setActiveTab('quiz'); setSearchModalOpen(false); } })),
+    ...oralCasesData
+      .filter(c => c.title.toLowerCase().includes(searchQuery.toLowerCase()) || c.discipline.toLowerCase().includes(searchQuery.toLowerCase()) || c.patient.toLowerCase().includes(searchQuery.toLowerCase()))
+      .map(c => ({ type: 'Orale Clinico', title: c.title, subtitle: `${c.discipline} • ${c.patient.slice(0, 45)}...`, id: c.id, action: () => { setActiveTab('oral'); setSearchModalOpen(false); } })),
     ...scannerData
       .filter(s => s.diagnosis.toLowerCase().includes(searchQuery.toLowerCase()))
       .map(s => ({ type: 'Diagnostica', title: s.diagnosis, subtitle: s.imagingGoldStandard.slice(0, 50) + '...', id: s.id, action: () => { setActiveTab('scanner'); setSearchModalOpen(false); } }))
   ];
 
+  const handleSelectDiscipline = (moduleId: string, defaultTopicId: string) => {
+    setActiveTopicId(defaultTopicId);
+    setActiveTab('theory');
+  };
+
   return (
     <div className="min-h-screen bg-[#07090e] text-slate-100 flex flex-col font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
       {/* TOP COMMAND BAR (Bloomberg / Terminal HUD Style) */}
-      <header className="sticky top-0 z-40 bg-slate-950/95 backdrop-blur-md border-b border-slate-800 px-4 py-2.5 flex items-center justify-between">
+      <header className="sticky top-0 z-40 bg-slate-950/95 backdrop-blur-md border-b border-slate-800 px-3 md:px-4 py-2.5 flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <div className="flex items-center space-x-2 px-2.5 py-1 rounded bg-gradient-to-r from-cyan-950 to-blue-950 border border-cyan-800/60">
+          <div className="flex items-center space-x-2 px-2.5 py-1 rounded bg-gradient-to-r from-cyan-950 to-blue-950 border border-cyan-800/60 shadow-sm">
             <Terminal className="w-4 h-4 text-cyan-400" />
             <span className="font-mono text-xs font-bold tracking-widest text-cyan-300">
               MED-TERMINAL // v2.0 FAST
             </span>
           </div>
 
-          <div className="hidden lg:flex items-center space-x-2 text-xs font-mono text-slate-400 pl-2 border-l border-slate-800">
-            <span className="flex items-center space-x-1 text-slate-300 font-semibold">
-              <Heart className="w-3.5 h-3.5 text-rose-500" />
+          {/* 5 Disciplines Interactive Quick Jump in Top Bar */}
+          <div className="hidden xl:flex items-center space-x-1.5 text-xs font-mono text-slate-400 pl-2 border-l border-slate-800">
+            <button
+              onClick={() => handleSelectDiscipline('cardio', 'cardio-ischemia')}
+              className="px-2 py-0.5 rounded hover:bg-slate-800 text-slate-300 font-semibold flex items-center space-x-1 transition"
+            >
+              <Heart className="w-3 h-3 text-rose-500" />
               <span>CARDIO</span>
-            </span>
-            <span className="text-slate-600">/</span>
-            <span className="flex items-center space-x-1 text-slate-300 font-semibold">
-              <Wind className="w-3.5 h-3.5 text-cyan-400" />
+            </button>
+            <span className="text-slate-700">/</span>
+            <button
+              onClick={() => handleSelectDiscipline('cardiochirurgia', 'cardiochir-bicuspide')}
+              className="px-2 py-0.5 rounded hover:bg-slate-800 text-slate-300 font-semibold flex items-center space-x-1 transition"
+            >
+              <Activity className="w-3 h-3 text-red-400" />
+              <span>CARDIOCHIR</span>
+            </button>
+            <span className="text-slate-700">/</span>
+            <button
+              onClick={() => handleSelectDiscipline('pneumo', 'pneumo-bpco')}
+              className="px-2 py-0.5 rounded hover:bg-slate-800 text-slate-300 font-semibold flex items-center space-x-1 transition"
+            >
+              <Wind className="w-3 h-3 text-cyan-400" />
               <span>PNEUMO</span>
-            </span>
-            <span className="text-slate-600">/</span>
-            <span className="flex items-center space-x-1 text-slate-300 font-semibold">
-              <Activity className="w-3.5 h-3.5 text-amber-500" />
+            </button>
+            <span className="text-slate-700">/</span>
+            <button
+              onClick={() => handleSelectDiscipline('chirurgia_toracica', 'toracica-pnx')}
+              className="px-2 py-0.5 rounded hover:bg-slate-800 text-slate-300 font-semibold flex items-center space-x-1 transition"
+            >
+              <Zap className="w-3 h-3 text-emerald-400" />
+              <span>TORACICA</span>
+            </button>
+            <span className="text-slate-700">/</span>
+            <button
+              onClick={() => handleSelectDiscipline('vascolare', 'vascolare-aaa')}
+              className="px-2 py-0.5 rounded hover:bg-slate-800 text-slate-300 font-semibold flex items-center space-x-1 transition"
+            >
+              <Activity className="w-3 h-3 text-amber-500" />
               <span>VASCOLARE</span>
-            </span>
+            </button>
           </div>
         </div>
 
@@ -118,7 +155,7 @@ export function App() {
           className="flex items-center space-x-2 bg-slate-900/90 border border-slate-800 hover:border-slate-700 px-3 py-1.5 rounded-lg text-xs font-mono text-slate-400 hover:text-slate-200 transition"
         >
           <Search className="w-3.5 h-3.5 text-cyan-400" />
-          <span className="hidden sm:inline">Ricerca globale patologie, quiz, criteri...</span>
+          <span className="hidden sm:inline">Ricerca globale (5 discipline, quiz, orali)...</span>
           <kbd className="hidden sm:inline-block px-1.5 py-0.5 rounded bg-slate-800 text-[10px] text-slate-400 border border-slate-700">
             Ctrl+K
           </kbd>
@@ -145,14 +182,15 @@ export function App() {
         </div>
       </header>
 
-      {/* NAVIGATION TABS BAR */}
-      <nav className="bg-slate-950/80 border-b border-slate-800/80 px-4 py-2 flex items-center space-x-1.5 overflow-x-auto">
+      {/* NAVIGATION TABS BAR (Fully Responsive with subtle scroll) */}
+      <nav className="bg-slate-950/80 border-b border-slate-800/80 px-3 md:px-4 py-2 flex items-center space-x-1.5 overflow-x-auto scrollbar-thin scrollbar-thumb-slate-800 scrollbar-track-transparent">
         {[
-          { id: 'theory', label: 'Teoria 2FAST Loss-Free', icon: BookOpen, color: 'text-cyan-400' },
-          { id: 'quiz', label: 'Simulatore Scritti & Ricostruzioni', icon: Trophy, color: 'text-emerald-400' },
-          { id: 'scanner', label: 'Clinical Scanner & Differential Matrix', icon: Zap, color: 'text-amber-400' },
-          { id: 'calculators', label: 'Score & Calcolatori Diagnostici', icon: Calculator, color: 'text-blue-400' },
-          { id: 'auscultation', label: 'Auscultation Soundboard', icon: Volume2, color: 'text-rose-400' },
+          { id: 'theory', label: 'Teoria 2FAST (5 Discipline)', icon: BookOpen, color: 'text-cyan-400' },
+          { id: 'quiz', label: 'Database Scritti (Quiz & Ricostruzioni)', icon: Trophy, color: 'text-emerald-400' },
+          { id: 'oral', label: 'Simulatore Orali (5 Stazioni)', icon: Stethoscope, color: 'text-purple-400' },
+          { id: 'scanner', label: 'Diagnostic Scanner & Matrix', icon: Zap, color: 'text-amber-400' },
+          { id: 'calculators', label: 'Score & Calcolatori Clinici', icon: Calculator, color: 'text-blue-400' },
+          { id: 'auscultation', label: 'Auscultazione Cuore & Polmone', icon: Volume2, color: 'text-rose-400' },
         ].map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
@@ -177,7 +215,7 @@ export function App() {
       </nav>
 
       {/* MAIN CONTENT AREA */}
-      <main className="flex-1 p-4 md:p-6 max-w-[1700px] w-full mx-auto">
+      <main className="flex-1 p-3 md:p-6 max-w-[1700px] w-full mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Primary View (Changes with active tab) */}
           <div className={show3DDrawer ? 'lg:col-span-8 space-y-6' : 'lg:col-span-12 space-y-6'}>
@@ -203,6 +241,10 @@ export function App() {
 
             {activeTab === 'quiz' && (
               <ExamSimulator initialQuestionId={targetQuestionId} />
+            )}
+
+            {activeTab === 'oral' && (
+              <OralExamSimulator />
             )}
 
             {activeTab === 'scanner' && (

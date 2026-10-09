@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
-import { RotateCcw, Play, Pause } from 'lucide-react';
+import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
+import { RotateCcw, Play, Pause, Layers, RefreshCw } from 'lucide-react';
 
 interface Props {
   focusTarget?: string;
@@ -10,12 +11,30 @@ interface Props {
 export const Anatomy3DViewport: React.FC<Props> = ({ focusTarget = 'heart-valves', onSelectTarget }) => {
   const mountRef = useRef<HTMLDivElement>(null);
   const [autoRotate, setAutoRotate] = useState<boolean>(true);
+  const [manualModel, setManualModel] = useState<'heart' | 'aorta' | 'lungs' | null>(null);
+  const [lastTarget, setLastTarget] = useState<string>(focusTarget);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [wireframeMode, setWireframeMode] = useState<boolean>(false);
 
-  // Three.js instances ref
+  // If focusTarget changed from parent, reset manual override
+  if (lastTarget !== focusTarget) {
+    setLastTarget(focusTarget);
+    setManualModel(null);
+  }
+
+  const derivedModel = focusTarget.includes('aorta') || focusTarget.includes('aneurysm')
+    ? 'aorta'
+    : focusTarget.includes('lung') || focusTarget.includes('pneumo')
+    ? 'lungs'
+    : 'heart';
+
+  const activeModel = manualModel ?? derivedModel;
+
   const sceneRef = useRef<THREE.Scene | null>(null);
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
-  const modelsRef = useRef<{ [key: string]: THREE.Object3D }>({});
+  const currentMeshRef = useRef<THREE.Mesh | null>(null);
+  const rootGroupRef = useRef<THREE.Group | null>(null);
 
   useEffect(() => {
     const mount = mountRef.current;
@@ -24,194 +43,123 @@ export const Anatomy3DViewport: React.FC<Props> = ({ focusTarget = 'heart-valves
     // Scene
     const scene = new THREE.Scene();
     sceneRef.current = scene;
-    scene.background = new THREE.Color(0x07090e);
-    scene.fog = new THREE.FogExp2(0x07090e, 0.04);
+    scene.background = new THREE.Color(0x06080d);
+    scene.fog = new THREE.FogExp2(0x06080d, 0.035);
 
     // Camera
     const camera = new THREE.PerspectiveCamera(45, mount.clientWidth / mount.clientHeight, 0.1, 100);
-    camera.position.set(0, 1.5, 6.5);
+    camera.position.set(0, 1.2, 5.5);
     cameraRef.current = camera;
 
     // Renderer
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
     renderer.setSize(mount.clientWidth, mount.clientHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.shadowMap.enabled = true;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.2;
     rendererRef.current = renderer;
     mount.appendChild(renderer.domElement);
 
-    // Lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
+    // Medical Studio Lights
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.1);
     scene.add(ambientLight);
 
-    const dirLight1 = new THREE.DirectionalLight(0x00f2fe, 2.5);
-    dirLight1.position.set(5, 8, 5);
-    scene.add(dirLight1);
+    const keyLight = new THREE.DirectionalLight(0x38bdf8, 2.8);
+    keyLight.position.set(5, 8, 5);
+    scene.add(keyLight);
 
-    const dirLight2 = new THREE.DirectionalLight(0xf43f5e, 1.8);
-    dirLight2.position.set(-5, -4, -4);
-    scene.add(dirLight2);
+    const rimLight = new THREE.DirectionalLight(0xf43f5e, 2.2);
+    rimLight.position.set(-6, -4, -4);
+    scene.add(rimLight);
 
-    // Anatomical Root Group
+    const topLight = new THREE.PointLight(0x10b981, 1.8, 10);
+    topLight.position.set(0, 4, 2);
+    scene.add(topLight);
+
     const rootGroup = new THREE.Group();
+    rootGroupRef.current = rootGroup;
     scene.add(rootGroup);
 
-    // 1. HEART MODEL
-    const heartGroup = new THREE.Group();
-    heartGroup.position.set(0, 0.2, 0);
+    // Loader for STL files
+    const loader = new STLLoader();
+    setIsLoading(true);
 
-    // Left Ventricle (muscular cone)
-    const lvGeo = new THREE.ConeGeometry(0.75, 1.4, 24);
-    const lvMat = new THREE.MeshStandardMaterial({
-      color: 0x991b1b,
-      roughness: 0.3,
-      metalness: 0.2,
-      wireframe: false,
-    });
-    const lvMesh = new THREE.Mesh(lvGeo, lvMat);
-    lvMesh.rotation.z = Math.PI + 0.25;
-    lvMesh.position.set(-0.2, -0.4, 0);
-    heartGroup.add(lvMesh);
+    const loadModel = (modelType: 'heart' | 'aorta' | 'lungs') => {
+      // Clear previous meshes from group
+      while (rootGroup.children.length > 0) {
+        rootGroup.remove(rootGroup.children[0]);
+      }
 
-    // Right Ventricle
-    const rvGeo = new THREE.ConeGeometry(0.65, 1.2, 24);
-    const rvMat = new THREE.MeshStandardMaterial({ color: 0x7f1d1d, roughness: 0.4 });
-    const rvMesh = new THREE.Mesh(rvGeo, rvMat);
-    rvMesh.rotation.z = Math.PI - 0.2;
-    rvMesh.position.set(0.3, -0.3, 0.2);
-    heartGroup.add(rvMesh);
+      const stlPath = modelType === 'heart' ? '/models/heart.stl' : modelType === 'aorta' ? '/models/aorta_dilatation.stl' : null;
 
-    // Atria
-    const atriaGeo = new THREE.SphereGeometry(0.6, 24, 24);
-    const atriaMat = new THREE.MeshStandardMaterial({ color: 0xb91c1c, roughness: 0.4 });
-    const atriaMesh = new THREE.Mesh(atriaGeo, atriaMat);
-    atriaMesh.position.set(0, 0.4, -0.1);
-    heartGroup.add(atriaMesh);
+      if (stlPath) {
+        loader.load(
+          stlPath,
+          (geometry) => {
+            geometry.center();
+            geometry.computeVertexNormals();
 
-    // Aortic Root & Valve Ring (Glowing Target)
-    const valveGeo = new THREE.TorusGeometry(0.32, 0.08, 16, 32);
-    const valveMat = new THREE.MeshStandardMaterial({
-      color: 0x00f2fe,
-      emissive: 0x00b4d8,
-      emissiveIntensity: 0.6,
-      roughness: 0.1,
-    });
-    const valveMesh = new THREE.Mesh(valveGeo, valveMat);
-    valveMesh.rotation.x = Math.PI / 2;
-    valveMesh.position.set(-0.1, 0.55, 0.1);
-    heartGroup.add(valveMesh);
-    modelsRef.current['aortic-valve'] = valveMesh;
-    modelsRef.current['heart-valves'] = heartGroup;
+            const material = new THREE.MeshPhysicalMaterial({
+              color: modelType === 'heart' ? 0xbe123c : 0xd97706,
+              roughness: 0.25,
+              metalness: 0.15,
+              clearcoat: 0.6,
+              clearcoatRoughness: 0.1,
+              wireframe: wireframeMode,
+            });
 
-    // Coronary Arteries (Left and Right branches)
-    const coronaryGroup = new THREE.Group();
-    const lcaCurve = new THREE.CatmullRomCurve3([
-      new THREE.Vector3(-0.1, 0.45, 0.2),
-      new THREE.Vector3(-0.35, 0.1, 0.35),
-      new THREE.Vector3(-0.25, -0.5, 0.25),
-      new THREE.Vector3(-0.15, -0.9, 0.1),
-    ]);
-    const lcaGeo = new THREE.TubeGeometry(lcaCurve, 20, 0.04, 8, false);
-    const lcaMat = new THREE.MeshStandardMaterial({ color: 0xef4444, emissive: 0x991b1b, emissiveIntensity: 0.5 });
-    const lcaMesh = new THREE.Mesh(lcaGeo, lcaMat);
-    coronaryGroup.add(lcaMesh);
-    heartGroup.add(coronaryGroup);
-    modelsRef.current['coronary-arteries'] = coronaryGroup;
+            const mesh = new THREE.Mesh(geometry, material);
+            mesh.scale.set(0.025, 0.025, 0.025);
+            if (modelType === 'aorta') {
+              mesh.scale.set(0.018, 0.018, 0.018);
+              mesh.rotation.x = -Math.PI / 2;
+            } else {
+              mesh.rotation.x = -Math.PI / 2 + 0.2;
+            }
 
-    rootGroup.add(heartGroup);
+            rootGroup.add(mesh);
+            currentMeshRef.current = mesh;
+            setIsLoading(false);
+          },
+          undefined,
+          (err) => {
+            console.warn('Error loading STL model, falling back to procedural model:', err);
+            createProceduralFallback(modelType);
+            setIsLoading(false);
+          }
+        );
+      } else {
+        // Lungs procedural representation
+        createProceduralFallback('lungs');
+        setIsLoading(false);
+      }
+    };
 
-    // 2. VASCULAR TREE (Aorta, Carotids, Abdominal Aorta)
-    const vascularGroup = new THREE.Group();
+    const createProceduralFallback = (type: string) => {
+      if (type === 'lungs') {
+        const lungGroup = new THREE.Group();
+        const mat = new THREE.MeshPhysicalMaterial({
+          color: 0x06b6d4,
+          transparent: true,
+          opacity: 0.5,
+          roughness: 0.3,
+          wireframe: wireframeMode,
+        });
+        const rLung = new THREE.Mesh(new THREE.ConeGeometry(0.85, 2.2, 32), mat);
+        rLung.position.set(1.1, 0.2, 0);
+        rLung.rotation.z = -0.15;
+        const lLung = new THREE.Mesh(new THREE.ConeGeometry(0.8, 2.0, 32), mat);
+        lLung.position.set(-1.1, 0.2, 0);
+        lLung.rotation.z = 0.15;
+        lungGroup.add(rLung);
+        lungGroup.add(lLung);
+        rootGroup.add(lungGroup);
+      }
+    };
 
-    // Aorta Arch Curve
-    const aortaCurve = new THREE.CatmullRomCurve3([
-      new THREE.Vector3(-0.1, 0.6, 0.1), // root
-      new THREE.Vector3(-0.1, 1.2, 0.0), // ascending
-      new THREE.Vector3(0.0, 1.45, -0.2), // arch apex
-      new THREE.Vector3(0.35, 1.25, -0.3), // descending start
-      new THREE.Vector3(0.35, 0.0, -0.3), // thoracic
-      new THREE.Vector3(0.25, -1.2, -0.3), // abdominal suprarenal
-      new THREE.Vector3(0.2, -1.8, -0.25), // abdominal infrarenal
-    ]);
-    const aortaGeo = new THREE.TubeGeometry(aortaCurve, 40, 0.16, 16, false);
-    const aortaMat = new THREE.MeshStandardMaterial({
-      color: 0xe11d48,
-      roughness: 0.2,
-      metalness: 0.3,
-    });
-    const aortaMesh = new THREE.Mesh(aortaGeo, aortaMat);
-    vascularGroup.add(aortaMesh);
+    loadModel(activeModel);
 
-    // Abdominal Aorta Aneurysm site (glowing bulb)
-    const aaaGeo = new THREE.SphereGeometry(0.38, 20, 20);
-    const aaaMat = new THREE.MeshStandardMaterial({
-      color: 0xf59e0b,
-      emissive: 0xd97706,
-      emissiveIntensity: 0.4,
-      wireframe: false,
-    });
-    const aaaMesh = new THREE.Mesh(aaaGeo, aaaMat);
-    aaaMesh.scale.set(1.1, 1.6, 1.1);
-    aaaMesh.position.set(0.2, -1.8, -0.25);
-    vascularGroup.add(aaaMesh);
-    modelsRef.current['abdominal-aorta'] = aaaMesh;
-
-    // Carotid Arteries (Branching up from arch)
-    const carotidGroup = new THREE.Group();
-    const lccaCurve = new THREE.CatmullRomCurve3([
-      new THREE.Vector3(0.05, 1.45, -0.15),
-      new THREE.Vector3(0.2, 2.3, -0.1),
-    ]);
-    const rccaCurve = new THREE.CatmullRomCurve3([
-      new THREE.Vector3(-0.08, 1.4, -0.05),
-      new THREE.Vector3(-0.25, 2.3, -0.1),
-    ]);
-    const carotidGeoL = new THREE.TubeGeometry(lccaCurve, 16, 0.06, 8, false);
-    const carotidGeoR = new THREE.TubeGeometry(rccaCurve, 16, 0.06, 8, false);
-    const carotidMat = new THREE.MeshStandardMaterial({ color: 0xef4444, roughness: 0.3 });
-    carotidGroup.add(new THREE.Mesh(carotidGeoL, carotidMat));
-    carotidGroup.add(new THREE.Mesh(carotidGeoR, carotidMat));
-    vascularGroup.add(carotidGroup);
-    modelsRef.current['carotid-arteries'] = carotidGroup;
-
-    rootGroup.add(vascularGroup);
-    modelsRef.current['vascular-tree'] = vascularGroup;
-
-    // 3. LUNGS MODEL (Transparent Blue/Cyan)
-    const lungGroup = new THREE.Group();
-    const lungMat = new THREE.MeshStandardMaterial({
-      color: 0x06b6d4,
-      transparent: true,
-      opacity: 0.35,
-      roughness: 0.6,
-      wireframe: true,
-    });
-
-    // Right Lung (3 lobes)
-    const rLungGeo = new THREE.ConeGeometry(0.9, 2.2, 16);
-    const rLungMesh = new THREE.Mesh(rLungGeo, lungMat);
-    rLungMesh.position.set(1.2, 0.3, -0.1);
-    rLungMesh.rotation.z = -0.12;
-    lungGroup.add(rLungMesh);
-
-    // Left Lung (2 lobes with cardiac notch)
-    const lLungGeo = new THREE.ConeGeometry(0.85, 2.0, 16);
-    const lLungMesh = new THREE.Mesh(lLungGeo, lungMat);
-    lLungMesh.position.set(-1.25, 0.3, -0.1);
-    lLungMesh.rotation.z = 0.12;
-    lungGroup.add(lLungMesh);
-
-    // Trachea & Bronchi
-    const tracheaGeo = new THREE.CylinderGeometry(0.1, 0.1, 1.2, 12);
-    const tracheaMat = new THREE.MeshStandardMaterial({ color: 0x67e8f9, roughness: 0.4 });
-    const tracheaMesh = new THREE.Mesh(tracheaGeo, tracheaMat);
-    tracheaMesh.position.set(0, 1.6, -0.35);
-    lungGroup.add(tracheaMesh);
-
-    rootGroup.add(lungGroup);
-    modelsRef.current['lungs-airways'] = lungGroup;
-
-    // Mouse Interaction / Orbit Dragging
+    // Mouse drag interaction
     let isDragging = false;
     let prevMousePos = { x: 0, y: 0 };
 
@@ -224,8 +172,8 @@ export const Anatomy3DViewport: React.FC<Props> = ({ focusTarget = 'heart-valves
       if (!isDragging) return;
       const deltaX = e.clientX - prevMousePos.x;
       const deltaY = e.clientY - prevMousePos.y;
-      rootGroup.rotation.y += deltaX * 0.008;
-      rootGroup.rotation.x += deltaY * 0.008;
+      rootGroup.rotation.y += deltaX * 0.007;
+      rootGroup.rotation.x += deltaY * 0.007;
       prevMousePos = { x: e.clientX, y: e.clientY };
     };
 
@@ -247,13 +195,15 @@ export const Anatomy3DViewport: React.FC<Props> = ({ focusTarget = 'heart-valves
       const delta = clock.getDelta();
       const elapsed = clock.getElapsedTime();
 
-      // Pulsing heartbeat animation on ventricles
-      const scale = 1.0 + Math.sin(elapsed * 5.0) * 0.04;
-      heartGroup.scale.set(scale, scale, scale);
+      // Pulsing heartbeat animation if heart is loaded
+      if (activeModel === 'heart' && currentMeshRef.current) {
+        const pulse = 1.0 + Math.sin(elapsed * 4.5) * 0.025;
+        currentMeshRef.current.scale.set(0.025 * pulse, 0.025 * pulse, 0.025 * pulse);
+      }
 
-      // Auto-rotation if enabled and not dragging
+      // Auto rotation
       if (autoRotate && !isDragging) {
-        rootGroup.rotation.y += delta * 0.35;
+        rootGroup.rotation.y += delta * 0.3;
       }
 
       renderer.render(scene, camera);
@@ -261,7 +211,6 @@ export const Anatomy3DViewport: React.FC<Props> = ({ focusTarget = 'heart-valves
 
     animate();
 
-    // Handle Resize
     const handleResize = () => {
       if (!mount) return;
       camera.aspect = mount.clientWidth / mount.clientHeight;
@@ -281,47 +230,37 @@ export const Anatomy3DViewport: React.FC<Props> = ({ focusTarget = 'heart-valves
         mount.removeChild(dom);
       }
     };
-  }, [autoRotate]);
-
-  // Focus effect when target changes
-  useEffect(() => {
-    if (!cameraRef.current) return;
-    const cam = cameraRef.current;
-
-    switch (focusTarget) {
-      case 'aortic-valve':
-      case 'heart-valves':
-        cam.position.set(0, 0.8, 4.2);
-        break;
-      case 'coronary-arteries':
-        cam.position.set(-0.5, 0.2, 3.8);
-        break;
-      case 'lungs-airways':
-        cam.position.set(0, 0.4, 5.8);
-        break;
-      case 'abdominal-aorta':
-        cam.position.set(0.3, -1.6, 4.2);
-        break;
-      case 'carotid-arteries':
-        cam.position.set(0, 1.9, 4.0);
-        break;
-      default:
-        cam.position.set(0, 1.2, 6.2);
-    }
-  }, [focusTarget]);
+  }, [activeModel, autoRotate, wireframeMode]);
 
   return (
-    <div className="relative w-full h-full min-h-[380px] bg-slate-950/80 rounded-xl overflow-hidden border border-slate-800">
+    <div className="relative w-full h-full min-h-[420px] bg-slate-950/90 rounded-2xl overflow-hidden border border-slate-800 shadow-2xl">
       {/* 3D Canvas Mount */}
       <div ref={mountRef} className="w-full h-full cursor-grab active:cursor-grabbing" />
 
-      {/* Floating Viewport HUD Controls */}
-      <div className="absolute top-3 left-3 flex items-center space-x-2 bg-slate-900/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-700/60 text-xs">
+      {/* Loading Overlay */}
+      {isLoading && (
+        <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center space-x-2 text-cyan-400 font-mono text-xs">
+          <RefreshCw className="w-4 h-4 animate-spin" />
+          <span>Caricamento Mesh Clinica Segmentata...</span>
+        </div>
+      )}
+
+      {/* Floating HUD Controls */}
+      <div className="absolute top-3 left-3 flex items-center space-x-2 bg-slate-900/95 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-700/60 text-xs">
         <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-        <span className="font-mono text-cyan-300 font-semibold tracking-wider uppercase">WebGL 3D BioEngine</span>
+        <span className="font-mono text-cyan-300 font-bold tracking-wider uppercase">
+          Anatomical STL BioEngine
+        </span>
       </div>
 
-      <div className="absolute top-3 right-3 flex items-center space-x-1.5 bg-slate-900/90 backdrop-blur-md p-1 rounded-lg border border-slate-700/60">
+      <div className="absolute top-3 right-3 flex items-center space-x-1.5 bg-slate-900/95 backdrop-blur-md p-1 rounded-lg border border-slate-700/60">
+        <button
+          onClick={() => setWireframeMode(!wireframeMode)}
+          className={`p-1.5 rounded text-xs transition ${wireframeMode ? 'bg-cyan-500/20 text-cyan-300' : 'text-slate-400 hover:text-white'}`}
+          title="Toggle Wireframe / Shader pieno"
+        >
+          <Layers className="w-3.5 h-3.5" />
+        </button>
         <button
           onClick={() => setAutoRotate(!autoRotate)}
           className={`p-1.5 rounded text-xs transition ${autoRotate ? 'bg-cyan-500/20 text-cyan-300' : 'text-slate-400 hover:text-white'}`}
@@ -331,7 +270,10 @@ export const Anatomy3DViewport: React.FC<Props> = ({ focusTarget = 'heart-valves
         </button>
         <button
           onClick={() => {
-            if (cameraRef.current) cameraRef.current.position.set(0, 1.2, 6.2);
+            if (cameraRef.current) cameraRef.current.position.set(0, 1.2, 5.5);
+            if (rootGroupRef.current) {
+              rootGroupRef.current.rotation.set(0, 0, 0);
+            }
           }}
           className="p-1.5 rounded text-xs text-slate-400 hover:text-white transition"
           title="Reset visuale"
@@ -340,27 +282,53 @@ export const Anatomy3DViewport: React.FC<Props> = ({ focusTarget = 'heart-valves
         </button>
       </div>
 
-      {/* Hotspot Target Selector Pills */}
-      <div className="absolute bottom-3 left-3 right-3 flex flex-wrap gap-1.5 bg-slate-900/80 backdrop-blur-md p-2 rounded-lg border border-slate-800">
-        {[
-          { id: 'aortic-valve', label: 'Valvola Aortica (TAVI)' },
-          { id: 'coronary-arteries', label: 'Coronarie (STEMI)' },
-          { id: 'lungs-airways', label: 'Polmoni & Bronchi' },
-          { id: 'abdominal-aorta', label: 'Aorta Addominale (AAA)' },
-          { id: 'carotid-arteries', label: 'Carotidi (TSA)' },
-        ].map((item) => (
+      {/* Anatomical Model Switcher Pills */}
+      <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between bg-slate-900/90 backdrop-blur-md p-2 rounded-xl border border-slate-800">
+        <div className="flex space-x-1.5">
           <button
-            key={item.id}
-            onClick={() => onSelectTarget && onSelectTarget(item.id)}
-            className={`px-2.5 py-1 rounded text-[11px] font-mono transition border ${
-              focusTarget === item.id
-                ? 'bg-cyan-500/20 border-cyan-400 text-cyan-300 font-medium'
-                : 'bg-slate-800/60 border-slate-700/50 text-slate-400 hover:text-slate-200'
+            onClick={() => {
+              setManualModel('heart');
+              onSelectTarget?.('heart');
+            }}
+            className={`px-3 py-1.5 rounded-lg text-xs font-mono transition border ${
+              activeModel === 'heart'
+                ? 'bg-rose-500/20 border-rose-400 text-rose-300 font-bold'
+                : 'bg-slate-800/60 border-slate-700 text-slate-400 hover:text-slate-200'
             }`}
           >
-            {item.label}
+            Cuore Umano (STL)
           </button>
-        ))}
+          <button
+            onClick={() => {
+              setManualModel('aorta');
+              onSelectTarget?.('aorta');
+            }}
+            className={`px-3 py-1.5 rounded-lg text-xs font-mono transition border ${
+              activeModel === 'aorta'
+                ? 'bg-amber-500/20 border-amber-400 text-amber-300 font-bold'
+                : 'bg-slate-800/60 border-slate-700 text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            Dilatazione Aortica (NIH STL)
+          </button>
+          <button
+            onClick={() => {
+              setManualModel('lungs');
+              onSelectTarget?.('lungs');
+            }}
+            className={`px-3 py-1.5 rounded-lg text-xs font-mono transition border ${
+              activeModel === 'lungs'
+                ? 'bg-cyan-500/20 border-cyan-400 text-cyan-300 font-bold'
+                : 'bg-slate-800/60 border-slate-700 text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            Gabbia & Polmoni
+          </button>
+        </div>
+
+        <div className="hidden sm:block text-[11px] font-mono text-slate-400">
+          Segmentazione TAC/RMN reale
+        </div>
       </div>
     </div>
   );

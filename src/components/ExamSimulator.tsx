@@ -8,18 +8,18 @@ interface Props {
 }
 
 export const ExamSimulator: React.FC<Props> = ({ initialQuestionId }) => {
-  const [selectedSystem, setSelectedSystem] = useState<'all' | 'cardio' | 'pneumo' | 'vascolare'>('all');
+  const [selectedBranch, setSelectedBranch] = useState<'all' | 'cardio' | 'pneumo' | 'vascolare'>('all');
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [selectedAnswers, setSelectedAnswers] = useState<{ [key: string]: string }>({});
   const [showExplanation, setShowExplanation] = useState<{ [key: string]: boolean }>({});
   const [isExamCompleted, setIsExamCompleted] = useState<boolean>(false);
   const [wrongAnswers, setWrongAnswers] = useState<string[]>([]);
 
-  // Filter questions based on system
+  // Filter questions based on branch
   const filteredQuestions = questionsData.filter((q) => {
     if (initialQuestionId) return q.id === initialQuestionId;
-    if (selectedSystem === 'all') return true;
-    return q.system === selectedSystem;
+    if (selectedBranch === 'all') return true;
+    return q.branch === selectedBranch;
   });
 
   const currentQ = filteredQuestions[currentIndex] || filteredQuestions[0];
@@ -92,22 +92,22 @@ export const ExamSimulator: React.FC<Props> = ({ initialQuestionId }) => {
           </p>
         </div>
 
-        {/* Filter by system */}
+        {/* Filter by discipline */}
         <div className="flex items-center space-x-2">
-          {(['all', 'cardio', 'pneumo', 'vascolare'] as const).map((sys) => (
+          {(['all', 'cardio', 'pneumo', 'vascolare'] as const).map((branch) => (
             <button
-              key={sys}
+              key={branch}
               onClick={() => {
-                setSelectedSystem(sys);
+                setSelectedBranch(branch);
                 setCurrentIndex(0);
               }}
               className={`px-3 py-1 rounded-lg text-xs font-mono font-semibold transition border ${
-                selectedSystem === sys
+                selectedBranch === branch
                   ? 'bg-emerald-500/20 border-emerald-400 text-emerald-300'
                   : 'bg-slate-800/60 border-slate-700/60 text-slate-400 hover:text-white'
               }`}
             >
-              {sys === 'all' ? 'Tutte' : sys.toUpperCase()}
+              {branch === 'all' ? 'Tutte' : branch.toUpperCase()}
             </button>
           ))}
           <button
@@ -181,7 +181,7 @@ export const ExamSimulator: React.FC<Props> = ({ initialQuestionId }) => {
               <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 bg-cyan-950/40 px-2 py-0.5 rounded border border-cyan-800/40 font-semibold">
                 {currentQ.topic}
               </span>
-              <span className="text-[11px] font-mono text-slate-500">{currentQ.session}</span>
+              <span className="text-[11px] font-mono text-slate-500">{currentQ.examSession}</span>
             </div>
             <h3 className="text-base font-medium text-slate-100 leading-relaxed mt-2">{currentQ.question}</h3>
           </div>

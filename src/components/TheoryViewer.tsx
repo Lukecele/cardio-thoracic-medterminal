@@ -145,21 +145,48 @@ export const TheoryViewer: React.FC<Props> = ({
         </div>
       </div>
 
-      {/* Topic Switcher Pills */}
+      {/* Branch Tabs Selector */}
+      <div className="flex flex-wrap gap-2 mb-4 pb-3 border-b border-slate-800">
+        {theoryData.modules.map((m) => {
+          const isCurrentModule = currentTopic.moduleId === m.id;
+          return (
+            <button
+              key={m.id}
+              onClick={() => {
+                const firstTopicOfModule = m.topics[0];
+                if (firstTopicOfModule && onSelectTopic) {
+                  onSelectTopic(firstTopicOfModule.id);
+                }
+              }}
+              className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition border ${
+                isCurrentModule
+                  ? 'bg-cyan-500/20 border-cyan-400 text-cyan-300 shadow-sm'
+                  : 'bg-slate-950/70 border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
+              }`}
+            >
+              {m.name}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Subtopic Switcher Pills for current module */}
       <div className="flex flex-wrap gap-2 mb-6">
-        {allTopics.map((topic) => (
-          <button
-            key={topic.id}
-            onClick={() => onSelectTopic && onSelectTopic(topic.id)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-mono transition border ${
-              currentTopic.id === topic.id
-                ? 'bg-cyan-500/20 border-cyan-400 text-cyan-300 font-bold'
-                : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200'
-            }`}
-          >
-            {topic.title}
-          </button>
-        ))}
+        {theoryData.modules
+          .find((m) => m.id === currentTopic.moduleId)
+          ?.topics.map((topic) => (
+            <button
+              key={topic.id}
+              onClick={() => onSelectTopic && onSelectTopic(topic.id)}
+              className={`px-3 py-1.5 rounded-lg text-xs font-mono transition border ${
+                currentTopic.id === topic.id
+                  ? 'bg-cyan-500/30 border-cyan-400 text-cyan-200 font-bold'
+                  : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200'
+              }`}
+            >
+              {topic.title}
+            </button>
+          ))}
       </div>
 
       {/* Main Content Card */}
