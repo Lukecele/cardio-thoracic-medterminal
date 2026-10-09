@@ -448,7 +448,7 @@ export function App() {
         <div className="flex-1 overflow-y-auto custom-scrollbar flex flex-col">
           
           <div className="p-4 lg:p-8 flex-1">
-            <div className={`max-w-[1500px] mx-auto transition-all duration-300 ${show3DDrawer ? 'lg:pr-[420px] xl:pr-[460px]' : ''}`}>
+            <div className={`max-w-[1500px] mx-auto transition-all duration-300 ${show3DDrawer ? '2xl:pr-[470px]' : ''}`}>
               
               {/* VIEW ROUTER */}
               {activeTab === 'theory' && (
@@ -520,29 +520,36 @@ export function App() {
 
           {/* SLIDE-OUT 3D ATLAS DRAWER */}
           {show3DDrawer && (
-            <div className="hidden lg:block fixed right-0 top-0 bottom-0 w-[420px] xl:w-[460px] bg-slate-950 shadow-2xl border-l border-slate-800 z-30 animate-in slide-in-from-right duration-200">
-              <div className="h-full flex flex-col">
-                <div className="p-4 border-b border-slate-800 flex justify-between items-center bg-slate-950">
-                  <div className="flex items-center space-x-2 text-cyan-400 font-mono text-xs font-bold uppercase tracking-wider">
-                    <Layers className="w-4 h-4" />
-                    <span>Atlante WebGL 3D (Three.js STL)</span>
+            <>
+              {/* Backdrop on screens < 2xl */}
+              <div
+                onClick={() => setShow3DDrawer(false)}
+                className="2xl:hidden fixed inset-0 bg-black/60 backdrop-blur-xs z-30 transition-opacity"
+              />
+              <div className="fixed right-0 top-0 bottom-0 w-full sm:w-[460px] bg-slate-950 shadow-2xl border-l border-slate-800 z-40 animate-in slide-in-from-right duration-200">
+                <div className="h-full flex flex-col">
+                  <div className="p-4 border-b border-slate-800 flex justify-between items-center bg-slate-950">
+                    <div className="flex items-center space-x-2 text-cyan-400 font-mono text-xs font-bold uppercase tracking-wider">
+                      <Layers className="w-4 h-4" />
+                      <span>Atlante Anatomico 3D Interattivo</span>
+                    </div>
+                    <button
+                      onClick={() => setShow3DDrawer(false)}
+                      className="text-slate-400 hover:text-white bg-slate-900 border border-slate-800 p-1.5 rounded-lg transition"
+                      title="Chiudi"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
                   </div>
-                  <button
-                    onClick={() => setShow3DDrawer(false)}
-                    className="text-slate-400 hover:text-white bg-slate-900 border border-slate-800 p-1.5 rounded-lg transition"
-                    title="Chiudi"
-                  >
-                    <X className="w-4 h-4" />
-                  </button>
-                </div>
-                <div className="flex-1 relative overflow-hidden">
-                  <Anatomy3DViewport
-                    focusTarget={focus3DTarget}
-                    onSelectTarget={(target) => setFocus3DTarget(target)}
-                  />
+                  <div className="flex-1 relative overflow-hidden">
+                    <Anatomy3DViewport
+                      focusTarget={focus3DTarget}
+                      onSelectTarget={(target) => setFocus3DTarget(target)}
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
+            </>
           )}
 
           {/* FOOTER CLEANLY ANCHORED AT BOTTOM OF SCROLL CONTAINER */}

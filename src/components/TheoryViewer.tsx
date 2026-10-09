@@ -664,7 +664,7 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
                   <span className="w-4 h-4 rounded-full bg-cyan-500/20 text-cyan-400 font-mono text-[10px] flex items-center justify-center font-bold">
                     {sIdx + 1}
                   </span>
-                  <span className="truncate max-w-[280px]">{sec.title}</span>
+                  <span className="text-left font-medium leading-snug break-words">{sec.title}</span>
                 </button>
               ))}
             </div>
@@ -703,7 +703,7 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
                   </div>
 
                   {/* Section Paragraphs */}
-                  <div className="space-y-3 text-sm sm:text-[15px] leading-relaxed text-slate-300 font-sans">
+                  <div className="space-y-3 text-sm sm:text-[15px] leading-relaxed text-slate-200 font-sans">
                     {filteredSecParas.map((para: string, pIdx: number) => {
                       const isBullet = para.startsWith('•') || para.startsWith('◦') || para.startsWith('‣') || para.startsWith('-');
                       const isSubheading = !isBullet && para.length < 90 && (
@@ -741,7 +741,7 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
                       return (
                         <p
                           key={`p-${pIdx}`}
-                          className="text-justify leading-relaxed"
+                          className="text-left leading-relaxed text-slate-200"
                         >
                           {renderActiveRecallParagraph(para, sIdx * 1000 + pIdx)}
                         </p>
@@ -754,9 +754,9 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
           </div>
         ) : (
           /* Fallback for flat paragraphs if no sections */
-          <div className="space-y-4 text-sm sm:text-[15px] leading-relaxed text-slate-300 font-sans">
+          <div className="space-y-4 text-sm sm:text-[15px] leading-relaxed text-slate-200 font-sans">
             {filteredParagraphs.map((para: string, idx: number) => (
-              <p key={idx} className="text-justify">
+              <p key={idx} className="text-left leading-relaxed">
                 {renderActiveRecallParagraph(para, idx)}
               </p>
             ))}

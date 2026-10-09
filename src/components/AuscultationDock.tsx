@@ -18,87 +18,135 @@ export interface AuscultationTrack {
 export const AUDIO_TRACKS: AuscultationTrack[] = [
   {
     id: 's1-s2',
-    name: 'Toni Cardiaci Fisiologici (S1 - S2)',
+    name: 'Toni Fisiologici Normali (S1 - S2)',
     category: 'cardiaca',
-    file: '/audio/s1-s2.ogg',
+    file: '/audio/normal.mp3',
     focusArea: 'Focolaio Mitralico (V spazio emiclaveare sx) & Erb (III spazio sx)',
     stethoscopeHead: 'Membrana (Alte frequenze)',
-    timing: 'S1 (inizio sistole) - S2 (inizio diastole)',
-    clinicalSignificance: 'Ritmo sinusale normofrequente. S1 generato dalla chiusura delle valvole atrioventricolari (mitrale precede tricuspide). S2 generato dalla chiusura delle valvole semilunari (componente aortica A2 precede la polmonare P2 con sdoppiamento fisiologico in inspirazione).',
-    description: 'Toni cardiaci netti, ritmici, assenza di soffi da eiezione o rigurgito. Il tono S1 è più sordo e prolungato all\'apice; S2 è più secco e acuto alla base.',
+    timing: 'S1 (chiusura mitro-tricuspidale) - S2 (chiusura aorto-polmonare)',
+    clinicalSignificance: 'Ritmo sinusale normofrequente. S1 generato dalla chiusura delle valvole atrioventricolari. S2 generato dalla chiusura delle valvole semilunari con sdoppiamento fisiologico in inspirazione.',
+    description: 'Toni cardiaci netti, ritmici, assenza di soffi da eiezione o rigurgito. Il tono S1 è più cupo e prolungato all\'apice; S2 è più secco e acuto alla base.',
     differential: ['Ritmo sinusale normale', 'Assenza di vizi valvolari organici']
   },
   {
-    id: 'systolic-murmur',
+    id: 'aortic-stenosis',
     name: 'Stenosi Aortica (Soffio Meso-sistolico ad Eiezione)',
     category: 'cardiaca',
-    file: '/audio/systolic-murmur.ogg',
+    file: '/audio/lateas.mp3',
     focusArea: 'Focolaio Aortico (II spazio intercostale marginosternale dx) con irradiazione carotidea',
     stethoscopeHead: 'Membrana (Alte frequenze)',
     timing: 'Meso-sistolico in crescendo-decrescendo (a diamante) tra S1 e S2',
-    clinicalSignificance: 'Ostacolo anatomico all\'eiezione ventricolare sinistra attraverso l\'orifizio aortico calcifico o bicuspide. Intensità Levine 3/6-4/6 con polso parvus et tardus.',
-    description: 'Timbro aspro, raspante, a diamante. Si irradia bilateralmente lungo le arterie carotidi al collo. Tono S2 spesso attenuato o sdoppiato in modo paradosso (A2 ritardata).',
-    differential: ['Stenosi aortica degenerativa senile', 'Bicuspidia aortica congenita', 'Cardiopatia ipertrofica ostruttiva (HOCM)']
+    clinicalSignificance: 'Ostacolo anatomico all\'efflusso ventricolare sinistro attraverso l\'orifizio aortico calcifico. Picco tardivo correlato a stenosi severa con polso parvus et tardus.',
+    description: 'Timbro aspro, raspante, a diamante. Si irradia tipicamente bilateralmente lungo le arterie carotidi al collo. Tono S2 ridotto o sdoppiato in modo paradosso.',
+    differential: ['Stenosi aortica calcifica senile', 'Bicuspidia aortica congenita', 'Cardiopatia ipertrofica ostruttiva (HOCM)']
   },
   {
-    id: 'vsd-pansystolic',
-    name: 'Insufficienza Mitralica / VSD (Soffio Olo-sistolico)',
+    id: 'mitral-regurgitation',
+    name: 'Insufficienza Mitralica (Soffio Olo-sistolico)',
     category: 'cardiaca',
-    file: '/audio/vsd-pansystolic.wav',
-    focusArea: 'Itto della punta (V spazio emiclaveare) con irradiazione al cavo ascellare',
+    file: '/audio/mr.mp3',
+    focusArea: 'Itto della punta (V spazio emiclaveare sx) con irradiazione al cavo ascellare',
     stethoscopeHead: 'Membrana (Alte frequenze)',
     timing: 'Olosistolico continuo: copre interamente l\'intervallo tra S1 e S2',
-    clinicalSignificance: 'Rigurgito patologico ad alta velocità dal ventricolo sinistro verso l\'atrio sinistro a bassa pressione durante l\'intera contrazione sistolica. Tipico di prolasso lembi, dilatazione anulus, o rottura muscolo papillare post-STEMI.',
-    description: 'Soffio a getto di vapore, intensità uniforme dall\'inizio alla fine della sistole. Non si modifica con la respirazione (differenza rispetto all\'insufficienza tricuspidale che aumenta col segno di Rivero-Carvallo).',
+    clinicalSignificance: 'Rigurgito ematico dal ventricolo sinistro all\'atrio sinistro durante l\'intera sistole. Causato da prolasso dei lembi, rottura di corde o dilatazione dell\'anulus.',
+    description: 'Soffio soffiante a getto di vapore, intensità uniforme che non si modifica significativamente con gli atti del respiro (segno di Rivero-Carvallo negativo).',
     differential: ['Insufficienza mitralica severa', 'Difetto del setto interventricolare (CIV)', 'Insufficienza tricuspidale']
   },
   {
-    id: 'afib',
-    name: 'Fibrillazione Atriale (Aritmia Totale & Deficit di Polso)',
+    id: 'mitral-stenosis',
+    name: 'Stenosi Mitralica (Schiocco & Rullio Diastolico)',
     category: 'cardiaca',
-    file: '/audio/afib.ogg',
-    focusArea: 'Ascoltazione sistematica all\'apice e focolai della base con palpazione contemporanea del polso radiale',
-    stethoscopeHead: 'Membrana & Campana',
-    timing: 'Irregolarmente irregolare (assenza di scansione ritmica costante)',
-    clinicalSignificance: 'Attività atriale disorganizzata (350-600 bpm) con conduzione nodale AV caotica. Variabilità marcata dell\'intervallo diastolico R-R e conseguente variabilità del volume di eiezione sistolico (ampiezza di S1 fluttuante).',
-    description: 'Cadenza caotica, toni forti alternati a toni deboli. Presenza di deficit di polso (battiti uditi al torace che non generano un\'onda pulsatile periferica percepibile al polso radiale).',
-    differential: ['Fibrillazione Atriale', 'Flutter Atriale con conduzione variabile', 'Extrasistolia ventricolare polimorfa frequente']
+    file: '/audio/ms.mp3',
+    focusArea: 'Apice cardiaco in decubito laterale sinistro di Pachon',
+    stethoscopeHead: 'Campana (Basse frequenze)',
+    timing: 'Proto-diastolico (schiocco d\'apertura) seguito da rullio mesodiastolico e rinforzo presistolico',
+    clinicalSignificance: 'Ostacolo al riempimento ventricolare sinistro causato da fusione commissurale reumatica. Intervallo S2-OS inversamente proporzionale alla severità della stenosi.',
+    description: 'S1 accentuato, schiocco d\'apertura (opening snap) ad alta frequenza e tipico rullio cupo a basse frequenze.',
+    differential: ['Stenosi mitralica reumatica', 'Mixoma atriale sinistro', 'Flusso iperdinamico funzionale']
   },
   {
-    id: 'tachycardia',
-    name: 'Tachicardia Parossistica (FC > 150 bpm)',
+    id: 'aortic-regurgitation',
+    name: 'Insufficienza Aortica (Soffio Diastolico in Decrescendo)',
     category: 'cardiaca',
-    file: '/audio/tachycardia.ogg',
-    focusArea: 'Precordio / Apice cardiaco',
-    stethoscopeHead: 'Membrana (Alte frequenze)',
-    timing: 'Ritmo tachicardico regolare ad elevatissima cadenza, diastole quasi azzerata',
-    clinicalSignificance: 'Accorciamento critico del tempo di riempimento diastolico ventricolare con riduzione della portata cardiaca e aumentato consumo miocardico di ossigeno.',
-    description: 'Ritmo embrionale (tic-tac continuo in cui S1 e S2 assumono la medesima durata e intensità fonica).',
-    differential: ['Tachicardia Sinusale severa', 'Tachicardia Parossistica Sopraventricolare (AVNRT/AVRT)', 'Tachicardia Ventricolare monomorfa']
+    file: '/audio/ar.mp3',
+    focusArea: 'Punto di Erb (III spazio intercostale parasternale sx) con paziente seduto proteso in avanti',
+    stethoscopeHead: 'Membrana adesa',
+    timing: 'Proto-diastolico immediato dopo S2 in decrescendo continuo',
+    clinicalSignificance: 'Rigurgito di sangue dall\'aorta al ventricolo sinistro durante la diastole per incontinenza delle semilunari aortiche. Associato a polso scoccante di Corrigan e ampia pressione differenziale.',
+    description: 'Soffio dolce, aspirativo, in decrescendo immediato dopo la chiusura valvolare aortica.',
+    differential: ['Insufficienza aortica acuta o cronica', 'Insufficienza valvolare polmonare (soffio di Graham Steell)']
+  },
+  {
+    id: 's3',
+    name: 'Terzo Tono S3 (Galoppo Protodiastolico)',
+    category: 'cardiaca',
+    file: '/audio/s31.mp3',
+    focusArea: 'Apice cardiaco / Itto della punta in decubito laterale sinistro',
+    stethoscopeHead: 'Campana delicatamente appoggiata',
+    timing: 'Protodiastolico: 120-180 ms dopo S2 durante la fase di riempimento rapido ventricolare',
+    clinicalSignificance: 'Segno cardinale di sovraccarico di volume o disfunzione sistolica ventricolare sinistra nello scompenso cardiaco a ridotta frazione di eiezione (HFrEF).',
+    description: 'Tono cupo a bassissima frequenza generato dalla brusca decelerazione della colonna ematica contro pareti ventricolari dilatate e non complianti. Ritmo a tre tempi (Kentucky).',
+    differential: ['Scompenso cardiaco congestizio HFrEF', 'Galoppo fisiologico in bambini/giovani atleti', 'Insufficienza mitralica severa acuta']
+  },
+  {
+    id: 's4',
+    name: 'Quarto Tono S4 (Galoppo Presistolico)',
+    category: 'cardiaca',
+    file: '/audio/s41.mp3',
+    focusArea: 'Focolaio mitralico o parasternale sinistro inferiore',
+    stethoscopeHead: 'Campana (Basse frequenze)',
+    timing: 'Telediastolico / presistolico: immediatamente prima di S1, coincidente con la sistole atriale',
+    clinicalSignificance: 'Indice di ridotta distensibilità (compliance) della parete ventricolare per ipertrofia concentrica o ischemia acuta. Scomparsa in corso di fibrillazione atriale.',
+    description: 'Tono presistolico a bassa tonalità generato dall\'eiezione atriale forzata contro un ventricolo rigido (Tennessee).',
+    differential: ['Ipertrofia ventricolare da ipertensione arteriosa cronica', 'Cardiomiopatia ipertrofica', 'Ischemia miocardica acuta']
+  },
+  {
+    id: 'pericardial-rub',
+    name: 'Sfregamento Pericardico / Pleurico',
+    category: 'cardiaca',
+    file: '/audio/rub.mp3',
+    focusArea: 'Lungo il margine parasternale sinistro (III-IV spazio), a paziente seduto proteso in avanti',
+    stethoscopeHead: 'Membrana premuta con decisione',
+    timing: 'Trifasico (sistole ventricolare, diastole ventricolare, sistole atriale)',
+    clinicalSignificance: 'Segno patognomonico di pericardite acuta essudativo-fibrinosa o pleurite secca. Scompare se il versamento diventa massivo separando i foglietti sierosi.',
+    description: 'Rumore superficiale aspro, simile al cuoio nuovo spiegazzato o al camminare sulla neve fresca ghiacciata.',
+    differential: ['Pericardite acuta idiopatica o virale', 'Sindrome di Dressler post-infartuale', 'Sfregamento pleurico polmonare']
   },
   {
     id: 'crackles',
-    name: 'Rantoli Crepitanti Tele-inspiratori (Crackles)',
+    name: 'Rantoli Crepitanti Tele-inspiratori (Crackles / Velcro)',
     category: 'polmonare',
-    file: '/audio/crackles.ogg',
+    file: '/audio/crackles.mp3',
     focusArea: 'Campi polmonari postero-basali bilaterali',
     stethoscopeHead: 'Membrana adesa alla cute',
     timing: 'Tele-inspiratori (seconda metà dell\'inspirazione profonda)',
-    clinicalSignificance: 'Suono discontinua a scoppiettio generato dall\'apertura improvvisa a scatto delle vie aeree distali e degli alveoli collassati da trasudato liquido o fibrosi interstiziale (re-opening acustico).',
-    description: 'Rumore secco, simile allo sfregamento di ciocche di capelli tra le dita o al suono del velcro che si apre. Non si modificano con i colpi di tosse (a differenza dei rantoli grossolani bronchiali).',
-    differential: ['Edema Polmonare Acuto cardiogeno', 'Fibrosi Polmonare Idiopatica (Velcro crackles)', 'Polmonite lobare consolidativa']
+    clinicalSignificance: 'Disostruzione a scatto delle vie aeree distali e degli alveoli collassati per presenza di liquido trasudatizio (edema polmonare) o ispessimento fibroso interstiziale.',
+    description: 'Rumore secco a crepitio, simile allo strofinio di ciocche di capelli tra le dita o allo strappo del velcro. Non modificato dalla tosse.',
+    differential: ['Edema Polmonare Acuto cardiogeno', 'Fibrosi Polmonare Idiopatica (IPF pattern UIP)', 'Polmonite lobare consolidativa']
   },
   {
     id: 'wheezing',
-    name: 'Sibili Espiratori Musicali (Wheezing)',
+    name: 'Sibili & Fischi Espiratori (Wheezing)',
     category: 'polmonare',
-    file: '/audio/wheezing.ogg',
+    file: '/audio/wheeze.mp3',
     focusArea: 'Ampi campi polmonari anteriori e posteriori, cavi ascellari',
     stethoscopeHead: 'Membrana',
     timing: 'Prevalentemente espiratori, polifonici e prolungati',
-    clinicalSignificance: 'Flusso aereo ad alta turbolenza attraverso bronchi e bronchioli diffusamente stenotici per broncospasmo, edema mucoso ed ipersecrezione densa. Tempo espiratorio marcatamente prolungato.',
-    description: 'Rumori continui di tipo musicale, fischi acuti e gemiti che possono diventare udibili anche a distanza dall\'orecchio nudo senza fonendoscopio.',
-    differential: ['Crisi d\'Asma Bronchiale acuta', 'Riacutizzazione di BPCO', 'Scompenso cardiaco sinistro acuto ("Asma cardiale")']
+    clinicalSignificance: 'Flusso aereo ad alta turbolenza attraverso bronchi e bronchioli diffusamente ristretti per broncospasmo, edema mucoso ed ipersecrezione densa.',
+    description: 'Rumori continui di tipo musicale, fischi acuti e gemiti associati a prolungamento marcato della fase espiratoria.',
+    differential: ['Crisi d\'Asma Bronchiale acuta', 'Riacutizzazione di BPCO', 'Edema polmonare con asma cardiale']
+  },
+  {
+    id: 'bronchial-breath',
+    name: 'Soffio Tubarico / Bronchiale Patologico',
+    category: 'polmonare',
+    file: '/audio/b_breath.mp3',
+    focusArea: 'Zona di addensamento polmonare (frequente al lobo medio o base destra)',
+    stethoscopeHead: 'Membrana',
+    timing: 'Inspiratorio ed espiratorio, con pausa tra le due fasi',
+    clinicalSignificance: 'Trasmissione diretta dei suoni tracheali attraverso un parenchima polmonare reso privo d\'aria e solidificato da essudato infiammatorio o atelettasia compressiva con bronco pervio.',
+    description: 'Suono aspro, tubare, a canna d\'organo, ad alta frequenza, udibile in periferia dove fisiologicamente si dovrebbe udire solo il murmur vescicolare.',
+    differential: ['Polmonite lobare consolidativa franca', 'Addensamento neoplastico solido pervio', 'Sindrome consolidativa polmonare']
   }
 ];
 
@@ -264,8 +312,8 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="font-semibold text-sm truncate text-slate-100">{track.name}</span>
-                    <span className={`text-[10px] font-mono uppercase px-1.5 py-0.5 rounded ${
+                    <span className="font-semibold text-sm text-slate-100">{track.name}</span>
+                    <span className={`text-[10px] font-mono uppercase px-1.5 py-0.5 rounded shrink-0 ${
                       track.category === 'cardiaca'
                         ? 'bg-rose-500/10 text-rose-400 border border-rose-500/20'
                         : 'bg-sky-500/10 text-sky-400 border border-sky-500/20'
@@ -273,8 +321,8 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
                       {track.category}
                     </span>
                   </div>
-                  <p className="text-xs text-slate-400 mt-1 line-clamp-1">{track.timing}</p>
-                  <p className="text-[11px] text-slate-500 mt-0.5 line-clamp-1 font-mono">📍 {track.focusArea}</p>
+                  <p className="text-xs text-slate-400 mt-1 leading-relaxed">{track.timing}</p>
+                  <p className="text-[11px] text-slate-500 mt-0.5 font-mono">📍 {track.focusArea}</p>
                 </div>
               </button>
             );

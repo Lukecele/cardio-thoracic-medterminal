@@ -3,7 +3,7 @@
     "id": "scan-as",
     "diagnosis": "Stenosi Aortica Severa",
     "system": "cardio",
-    "topicId": "cardio-valvulopatie",
+    "topicId": "cch-stenosi-aortica",
     "symptoms": [
       "Dispnea da sforzo",
       "Angina",
@@ -29,7 +29,7 @@
     "id": "scan-stemi-inf",
     "diagnosis": "STEMI Parete Inferiore",
     "system": "cardio",
-    "topicId": "cardio-ischemia-sca",
+    "topicId": "crd-ischemica-acuta",
     "symptoms": [
       "Dolore toracico oppressivo retrosternale > 20 min",
       "Irradiazione epigastrica / braccio sx",
@@ -55,7 +55,7 @@
     "id": "scan-tamponade",
     "diagnosis": "Tamponamento Cardiaco",
     "system": "cardio",
-    "topicId": "cardio-semeiotica",
+    "topicId": "crd-aritmie",
     "symptoms": [
       "Dispnea ingravescente",
       "Astenia marcata",
@@ -80,7 +80,7 @@
     "id": "scan-dissection-a",
     "diagnosis": "Dissezione Aortica (Stanford Tipo A)",
     "system": "vascolare",
-    "topicId": "vasc-dissezione",
+    "topicId": "cch-cabg-aorta",
     "symptoms": [
       "Dolore lacerante acuto retrosternale con irradiazione interscapolare/dorsale migrante",
       "Sincope"
@@ -103,7 +103,7 @@
     "id": "scan-aaa-rupture",
     "diagnosis": "Rottura Aneurisma Aorta Addominale (AAA)",
     "system": "vascolare",
-    "topicId": "vasc-aneurismi-evar",
+    "topicId": "vsc-aaa",
     "symptoms": [
       "Dolore addominale o lombare violento e improvviso",
       "Sensazione di lipotimia / svenimento"
@@ -126,7 +126,7 @@
     "id": "scan-acute-limb",
     "diagnosis": "Ischemia Acuta d'Arto",
     "system": "vascolare",
-    "topicId": "vasc-aocp-ischemia",
+    "topicId": "vsc-aocp-ischemia",
     "symptoms": [
       "Dolore violento acuto all'arto inferiore o superiore",
       "Impotenza funzionale improvvisa"
@@ -148,7 +148,7 @@
     "id": "scan-asthma-attack",
     "diagnosis": "Attacco Asmatico Acuto",
     "system": "pneumo",
-    "topicId": "pneumo-asma-polmoniti",
+    "topicId": "pnm-asma-bpco",
     "symptoms": [
       "Dispnea accessionale espiratoria",
       "Tosse secca stizzosa",
@@ -172,7 +172,7 @@
     "id": "scan-pneumonia-cap",
     "diagnosis": "Polmonite Acquisita in Comunità (CAP Tipica)",
     "system": "pneumo",
-    "topicId": "pneumo-asma-polmoniti",
+    "topicId": "pnm-asma-bpco",
     "symptoms": [
       "Febbre elevata con brivido scuotente",
       "Tosse con espettorato rugginoso",
@@ -197,7 +197,7 @@
     "id": "scan-sarcoidosis",
     "diagnosis": "Sarcoidosi (Stadio 0 / I)",
     "system": "pneumo",
-    "topicId": "pneumo-sarcoidosi-tbc",
+    "topicId": "pnm-tbc-sarcoidosi",
     "symptoms": [
       "Spesso asintomatica riscontrata per caso",
       "Eritema nodoso tibiale",

@@ -26,12 +26,24 @@ export const ExamSimulator: React.FC<Props> = ({ initialQuestionId }) => {
   const [isExamCompleted, setIsExamCompleted] = useState<boolean>(false);
   const [wrongAnswers, setWrongAnswers] = useState<string[]>([]);
 
+  // When initialQuestionId changes, jump to that question seamlessly
+  React.useEffect(() => {
+    if (initialQuestionId) {
+      const targetQ = questionsData.find((q) => q.id === initialQuestionId);
+      if (targetQ) {
+        setSelectedBranch(targetQ.branch as BranchTabId);
+        const branchList = questionsData.filter((q) => q.branch === targetQ.branch);
+        const targetIdx = branchList.findIndex((q) => q.id === initialQuestionId);
+        setCurrentIndex(targetIdx >= 0 ? targetIdx : 0);
+      }
+    }
+  }, [initialQuestionId]);
+
   // Filter questions based on branch
-  const filteredQuestions = questionsData.filter((q) => {
-    if (initialQuestionId) return q.id === initialQuestionId;
-    if (selectedBranch === 'all') return true;
-    return q.branch === selectedBranch;
-  });
+  const filteredQuestions = React.useMemo(() => {
+    if (selectedBranch === 'all') return questionsData;
+    return questionsData.filter((q) => q.branch === selectedBranch);
+  }, [selectedBranch]);
 
   const currentQ = filteredQuestions[currentIndex] || filteredQuestions[0];
 

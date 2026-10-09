@@ -1,519 +1,220 @@
-import React, { useEffect, useRef, useState } from 'react';
-import * as THREE from 'three';
-import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { Layers, RotateCcw, Play, Pause, Eye, Info, Box } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Layers, Eye, Info, CheckCircle2, RefreshCw, ExternalLink, Sparkles } from 'lucide-react';
 
-interface Anatomy3DViewportProps {
+export interface Anatomy3DViewportProps {
   focusTarget?: string | null;
   onSelectTarget?: (target: string) => void;
 }
 
-type ModelType = 'heart' | 'aorta' | 'lungs';
+export type Model3DKey = 'heart' | 'beating' | 'lungs' | 'aorta' | 'coronary';
 
-interface AnatomicalPin {
-  name: string;
-  pos: [number, number, number];
-  note: string;
-}
-
-const MODEL_CONFIGS: Record<ModelType, {
+interface ModelConfig {
+  id: Model3DKey;
   name: string;
   badge: string;
   color: string;
+  embedUrl: string;
   description: string;
-  pins: AnatomicalPin[];
-}> = {
+  landmarks: string[];
+  clinicalExamYield: string;
+}
+
+const MODEL_CONFIGS: Record<Model3DKey, ModelConfig> = {
   heart: {
-    name: 'Cuore Umano & Camere Valvolari',
+    id: 'heart',
+    name: 'Cuore Interno & Apparato Valvolare',
     badge: 'CARDIO-3D',
     color: 'rose',
-    description: 'Modello volumetrico STL del miocardio: atri, ventricoli, solco interventricolare e radice dei grandi vasi.',
-    pins: [
-      { name: 'Ventricolo Sinistro (LV)', pos: [12, -15, 10], note: 'Parete ad alto spessore (8-11 mm). Camera ad alta pressione sistemica.' },
-      { name: 'Ventricolo Destro (RV)', pos: [-15, -10, 15], note: 'Camera a bassa impedenza volumetrica. Rischio dilatazione in TEP massiva.' },
-      { name: 'Bulbo & Radice Aortica', pos: [2, 22, -4], note: 'Sede dei seni di Valsalva e dell\'emergenza delle arterie coronarie.' },
-      { name: 'Atrio Sinistro (LA)', pos: [10, 10, -18], note: 'Sede dei 4 sbocchi delle vene polmonari e dell\'auricola sinistra (trombogenesi in FA).' },
-    ]
+    embedUrl: 'https://sketchfab.com/models/9f48eaa481cc4a43baeb9e1f03882cff/embed',
+    description: 'Anatomia tridimensionale con dissezione delle 4 camere: atri, ventricoli, setto interventricolare, apparato sottovalvolare con corde tendinee e muscoli papillari.',
+    landmarks: [
+      'Ventricolo Sinistro: miocardio ad alto spessore (8-11 mm) per carico pressorio sistemico',
+      'Ventricolo Destro: camera a basse pressioni e alta distensibilità',
+      'Valvola Mitrale: lembo anteriore (aortico) e posteriore con corde tendinee',
+      'Radice Aortica: seni di Valsalva ed emergenza degli osti coronarici'
+    ],
+    clinicalExamYield: 'Fondamentale per comprendere la differenza tra stenosi mitralica (fusione commissurale), insufficienza mitralica (rottura di papillare post-STEMI) e stenosi aortica.'
   },
-  aorta: {
-    name: 'Aorta Toraco-Addominale & Dilatazione Aneurismatica',
-    badge: 'VASCULAR-3D',
-    color: 'emerald',
-    description: 'Modello STL dell\'aorta toracica con ectasia/dilatazione aneurismatica e rischio dissecativo (Stanford A/B).',
-    pins: [
-      { name: 'Arco Aortico & Tronchi Sovraortici', pos: [0, 30, 0], note: 'Origine del tronco anonimo brachiocefalico, carotide comune sx e succlavia sx.' },
-      { name: 'Ectasia Aneurismatica', pos: [-5, 5, 8], note: 'Zona a massima tensione parietale secondo la legge di Laplace (T = P x r / 2h).' },
-      { name: 'Aorta Discendente', pos: [6, -25, -10], note: 'Sede tipica per dissecazione Stanford Tipo B ed endoprotesi TEVAR.' },
-    ]
+  beating: {
+    id: 'beating',
+    name: 'Battito Cardiaco & Ciclo Dinamico',
+    badge: 'FISIOLOGIA-3D',
+    color: 'amber',
+    embedUrl: 'https://sketchfab.com/models/09ce20e146b24f71943b13dcdf099db9/embed',
+    description: 'Modello 3D dinamico in tempo reale della contrazione miocardica: sequenza temporale di sistole ventricolare, contrazione isovolumetrica ed eiezione.',
+    landmarks: [
+      'Sistole Ventricolare: ispessimento radiale delle pareti e accorciamento longitudinale',
+      'Diastole Ventricolare: rilasciamento attivo e riempimento rapido (genesi del terzo tono S3)',
+      'Sistole Atriale: "atrial kick" presistolico (genesi del quarto tono S4, perso in FA)'
+    ],
+    clinicalExamYield: 'Permette di visualizzare la frazione di eiezione (FE = SV / EDV x 100) e i meccanismi di compenso di Frank-Starling nello scompenso.'
   },
   lungs: {
-    name: 'Albero Bronchiale & Gabbia Toracica (3D Polmoni)',
-    badge: 'THORACIC-3D',
+    id: 'lungs',
+    name: 'Albero Respiratorio & Lobi Polmonari',
+    badge: 'PNEUMO-3D',
     color: 'sky',
-    description: 'Ricostruzione anatomica parametrica dell\'albero tracheobronchiale (trachea, carena, 5 bronchi lobari) e gabbia toracica.',
-    pins: [
-      { name: 'Carena Tracheale', pos: [0, 6, 0], note: 'Biforcazione a livello T4-T5. Angolo acuto interbronchiale (sperone carenale).' },
-      { name: 'Bronco Principale Destro', pos: [14, 0, 2], note: 'Più largo, più corto (2-3 cm) e più verticale del sinistro: frequente inalazione corpi estranei.' },
-      { name: 'Bronco Principale Sinistro', pos: [-16, -2, -2], note: 'Più lungo (5 cm), decorso orizzontalizzato sotto l\'arco aortico.' },
-      { name: 'Lobi Polmonari Destri (RUL, RML, RLL)', pos: [25, -10, 0], note: '3 lobi separati da scissura obliqua e orizzontale.' },
-      { name: 'Lobi Polmonari Sinistri (LUL, LLL)', pos: [-25, -10, 0], note: '2 lobi separati da scissura principale obliqua con lingula.' },
-    ]
+    embedUrl: 'https://sketchfab.com/models/250911151757489da1cf5501b791f363/embed',
+    description: 'Ricostruzione anatomica 3D della trachea, carena T4-T5, albero bronchiale con ramificazione lobare e segmentaria, e segmentazione polmonare.',
+    landmarks: [
+      'Trachea & Carena: anelli cartilaginei a C e biforcazione a livello T4-T5',
+      'Bronco Destro vs Sinistro: il destro è più corto (2-3 cm), più largo e verticale (frequente inalazione)',
+      'Polmone Destro: 3 lobi (superiore, medio, inferiore) divisi da scissura orizzontale e obliqua',
+      'Polmone Sinistro: 2 lobi con incisura cardiaca e lingula'
+    ],
+    clinicalExamYield: 'Essenziale per la stadiazione TNM del cancro del polmone (distanza dalla carena < 2 cm = T4) e per le indicazioni alla lobectomia/pneumonectomia.'
+  },
+  aorta: {
+    id: 'aorta',
+    name: 'Aorta Toracica & Aneurisma (TAA)',
+    badge: 'VASCOLARE-3D',
+    color: 'emerald',
+    embedUrl: 'https://sketchfab.com/models/bcf37e4072de48b0aabd2e62db815cbd/embed',
+    description: 'Modello 3D volumetrico dell\'aorta toracica: radice, aorta ascendente, arco con i 3 tronchi sovraortici e dilatazione aneurismatica.',
+    landmarks: [
+      'Tronchi Sovraortici: tronco anonimo brachiocefalico, carotide comune sx, succlavia sx',
+      'Istmo Aortico: punto fisso dopo l\'emergenza della succlavia (rischio rottura da decelerazione)',
+      'Dilatazione Aneurismatica: legge di Laplace (T = P x r / 2h) che spiega il rischio esponenziale di rottura per diametri > 5.5 cm'
+    ],
+    clinicalExamYield: 'Cruciale per la classificazione di Stanford (Tipo A coinvolge l\'ascendente = emergenza cardiochirurgica aperta; Tipo B trattabile con TEVAR).'
+  },
+  coronary: {
+    id: 'coronary',
+    name: 'Circolo Arterioso Coronarico',
+    badge: 'CORONARICO-3D',
+    color: 'blue',
+    embedUrl: 'https://sketchfab.com/models/00b5f4ec0b984325b453f8df07cd0cb5/embed',
+    description: 'Mappatura tridimensionale dell\'albero coronarico per coronarografia ed angioplastica primaria (PCI): Tronco Comune, IVA, LCx e Coronaria Destra.',
+    landmarks: [
+      'Arteria Interventricolare Anteriore (IVA / LAD): vascolarizza la parete anteriore e i 2/3 anteriori del setto',
+      'Arteria Circonflessa (LCx): decorre nel solco atrioventricolare sinistro e dà rami marginali ottusi',
+      'Arteria Coronaria Destra (CDX): vascolarizza ventricolo destro, parete inferiore e nodo AV/senoatriale'
+    ],
+    clinicalExamYield: 'Correlazione diretta tra sede di occlusione coronarica e sede di sopraslivellamento ST all\'ECG (IVA = V1-V4, CDX = DII, DIII, aVF, LCx = DI, aVL, V5-V6).'
   }
 };
 
 export const Anatomy3DViewport: React.FC<Anatomy3DViewportProps> = ({ focusTarget, onSelectTarget }) => {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const [activeModel, setActiveModel] = useState<ModelType>('heart');
-  const [wireframe, setWireframe] = useState(false);
-  const [autoRotate, setAutoRotate] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
-  const [selectedPin, setSelectedPin] = useState<AnatomicalPin | null>(null);
+  const [activeModelKey, setActiveModelKey] = useState<Model3DKey>('heart');
+  const [isIframeLoading, setIsIframeLoading] = useState(true);
 
   // Sync with prop
   useEffect(() => {
     if (!focusTarget) return;
     if (focusTarget === 'lungs' || focusTarget === 'thorax') {
-      setActiveModel('lungs');
-    } else if (focusTarget === 'aorta' || focusTarget === 'vessels' || focusTarget === 'carotid') {
-      setActiveModel('aorta');
+      setActiveModelKey('lungs');
+    } else if (focusTarget === 'aorta' || focusTarget === 'vessels') {
+      setActiveModelKey('aorta');
+    } else if (focusTarget === 'coronary') {
+      setActiveModelKey('coronary');
+    } else if (focusTarget === 'beating') {
+      setActiveModelKey('beating');
     } else if (focusTarget === 'heart') {
-      setActiveModel('heart');
+      setActiveModelKey('heart');
     }
   }, [focusTarget]);
 
-  // Three.js Scene Setup
-  const sceneRef = useRef<THREE.Scene | null>(null);
-  const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
-  const controlsRef = useRef<OrbitControls | null>(null);
-  const meshGroupRef = useRef<THREE.Group | null>(null);
-  const animFrameIdRef = useRef<number | null>(null);
+  const activeConfig = MODEL_CONFIGS[activeModelKey] || MODEL_CONFIGS.heart;
 
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    // 1. Scene
-    const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x07090e);
-    sceneRef.current = scene;
-
-    // 2. Camera
-    const width = container.clientWidth || 600;
-    const height = container.clientHeight || 450;
-    const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-    camera.position.set(0, 10, 85);
-
-    // 3. Renderer
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
-    renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.2;
-    rendererRef.current = renderer;
-
-    // Clear previous children
-    while (container.firstChild) {
-      container.removeChild(container.firstChild);
-    }
-    container.appendChild(renderer.domElement);
-
-    // 4. Orbit Controls
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.05;
-    controls.rotateSpeed = 0.7;
-    controls.zoomSpeed = 1.0;
-    controls.minDistance = 20;
-    controls.maxDistance = 180;
-    controls.autoRotate = autoRotate;
-    controls.autoRotateSpeed = 1.2;
-    controlsRef.current = controls;
-
-    // 5. Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
-    scene.add(ambientLight);
-
-    const dirLight1 = new THREE.DirectionalLight(0x38bdf8, 1.8); // Cool blue key
-    dirLight1.position.set(40, 50, 60);
-    scene.add(dirLight1);
-
-    const dirLight2 = new THREE.DirectionalLight(0xf43f5e, 1.4); // Warm red rim
-    dirLight2.position.set(-40, -30, -50);
-    scene.add(dirLight2);
-
-    const hemiLight = new THREE.HemisphereLight(0x1e293b, 0x0f172a, 0.8);
-    scene.add(hemiLight);
-
-    // Group for Model & Pins
-    const meshGroup = new THREE.Group();
-    scene.add(meshGroup);
-    meshGroupRef.current = meshGroup;
-
-    // Resize Handler
-    const handleResize = () => {
-      if (!container || !renderer || !camera) return;
-      const w = container.clientWidth;
-      const h = container.clientHeight;
-      camera.aspect = w / h;
-      camera.updateProjectionMatrix();
-      renderer.setSize(w, h);
-    };
-    window.addEventListener('resize', handleResize);
-
-    // Render loop
-    const animate = () => {
-      animFrameIdRef.current = requestAnimationFrame(animate);
-      if (controlsRef.current) {
-        controlsRef.current.update();
-      }
-      renderer.render(scene, camera);
-    };
-    animate();
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      if (animFrameIdRef.current) cancelAnimationFrame(animFrameIdRef.current);
-      renderer.dispose();
-    };
-  }, []);
-
-  // Update autoRotate when state changes
-  useEffect(() => {
-    if (controlsRef.current) {
-      controlsRef.current.autoRotate = autoRotate;
-    }
-  }, [autoRotate]);
-
-  // Load Model Geometry whenever activeModel or wireframe changes
-  useEffect(() => {
-    const meshGroup = meshGroupRef.current;
-    if (!meshGroup) return;
-
-    // Clear previous model objects
-    while (meshGroup.children.length > 0) {
-      const child = meshGroup.children[0] as any;
-      if (child.geometry) child.geometry.dispose();
-      if (child.material) {
-        if (Array.isArray(child.material)) child.material.forEach((m: any) => m.dispose());
-        else child.material.dispose();
-      }
-      meshGroup.remove(child);
-    }
-    setSelectedPin(null);
-    setIsLoading(true);
-
-    if (activeModel === 'heart' || activeModel === 'aorta') {
-      const stlPath = activeModel === 'heart' ? '/models/heart.stl' : '/models/aorta_dilatation.stl';
-      const loader = new STLLoader();
-
-      loader.load(
-        stlPath,
-        (geometry) => {
-          geometry.computeVertexNormals();
-          geometry.center();
-          geometry.computeBoundingSphere();
-          
-          const origRadius = geometry.boundingSphere?.radius || 100;
-          const targetRadius = 22; // normalize model radius
-          const scale = targetRadius / origRadius;
-          geometry.scale(scale, scale, scale);
-
-          const color = activeModel === 'heart' ? 0xe11d48 : 0x059669;
-          const material = new THREE.MeshStandardMaterial({
-            color: color,
-            roughness: 0.35,
-            metalness: 0.15,
-            wireframe: wireframe,
-            flatShading: false,
-          });
-
-          const mesh = new THREE.Mesh(geometry, material);
-          meshGroup.add(mesh);
-          setIsLoading(false);
-        },
-        undefined,
-        (err) => {
-          console.error("Error loading STL:", err);
-          setIsLoading(false);
-        }
-      );
-    } else if (activeModel === 'lungs') {
-      // High-Fidelity Procedural Anatomical Bronchial Tree & Bilateral Pulmonary Lobes
-      const lungGroup = new THREE.Group();
-
-      // 1. Trachea with Anatomical Cartilaginous C-Rings
-      const tracheaMat = new THREE.MeshStandardMaterial({
-        color: 0xe2e8f0,
-        roughness: 0.3,
-        metalness: 0.2,
-        wireframe: wireframe,
-      });
-      const tracheaGeo = new THREE.CylinderGeometry(1.8, 1.8, 20, 32);
-      const trachea = new THREE.Mesh(tracheaGeo, tracheaMat);
-      trachea.position.set(0, 14, 0);
-      lungGroup.add(trachea);
-
-      // Cartilage C-Rings (Anterior cartilaginous arches)
-      for (let y = 5; y <= 22; y += 2.2) {
-        const ringGeo = new THREE.TorusGeometry(1.95, 0.22, 12, 32, Math.PI * 1.5);
-        const ringMat = new THREE.MeshStandardMaterial({
-          color: 0x94a3b8,
-          roughness: 0.4,
-          wireframe: wireframe,
-        });
-        const ring = new THREE.Mesh(ringGeo, ringMat);
-        ring.position.set(0, y, 0);
-        ring.rotation.x = Math.PI / 2;
-        ring.rotation.z = Math.PI * 0.25;
-        lungGroup.add(ring);
-      }
-
-      // 2. Carina & Primary Bronchi
-      const bronchusMat = new THREE.MeshStandardMaterial({
-        color: 0x38bdf8,
-        roughness: 0.35,
-        wireframe: wireframe,
-      });
-
-      // Right Main Bronchus (shorter, wider, steeper ~25°)
-      const rightBronchus = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.2, 11, 20), bronchusMat);
-      rightBronchus.position.set(4.5, 0.5, 0);
-      rightBronchus.rotation.z = -Math.PI / 7;
-      lungGroup.add(rightBronchus);
-
-      // Left Main Bronchus (longer, narrower, more horizontal ~45°)
-      const leftBronchus = new THREE.Mesh(new THREE.CylinderGeometry(1.3, 1.0, 15, 20), bronchusMat);
-      leftBronchus.position.set(-6.5, -0.5, 0);
-      leftBronchus.rotation.z = Math.PI / 4.2;
-      lungGroup.add(leftBronchus);
-
-      // 3. Lobar Bronchi (Right: Superior, Middle, Inferior)
-      const rLobarMat = new THREE.MeshStandardMaterial({ color: 0x0284c7, roughness: 0.4, wireframe: wireframe });
-      const rSupLobar = new THREE.Mesh(new THREE.CylinderGeometry(0.9, 0.6, 8, 16), rLobarMat);
-      rSupLobar.position.set(9, 4, 1);
-      rSupLobar.rotation.z = -Math.PI / 3;
-      lungGroup.add(rSupLobar);
-
-      const rMidLobar = new THREE.Mesh(new THREE.CylinderGeometry(0.8, 0.5, 8, 16), rLobarMat);
-      rMidLobar.position.set(10.5, -1, 1.5);
-      rMidLobar.rotation.z = -Math.PI / 5;
-      lungGroup.add(rMidLobar);
-
-      const rInfLobar = new THREE.Mesh(new THREE.CylinderGeometry(1.0, 0.6, 12, 16), rLobarMat);
-      rInfLobar.position.set(9, -7, 0);
-      rInfLobar.rotation.z = -Math.PI / 12;
-      lungGroup.add(rInfLobar);
-
-      // Lobar Bronchi (Left: Superior, Inferior)
-      const lSupLobar = new THREE.Mesh(new THREE.CylinderGeometry(0.9, 0.6, 10, 16), rLobarMat);
-      lSupLobar.position.set(-13, 3.5, 1);
-      lSupLobar.rotation.z = Math.PI / 3.2;
-      lungGroup.add(lSupLobar);
-
-      const lInfLobar = new THREE.Mesh(new THREE.CylinderGeometry(1.0, 0.6, 12, 16), rLobarMat);
-      lInfLobar.position.set(-13, -8, 0);
-      lInfLobar.rotation.z = Math.PI / 9;
-      lungGroup.add(lInfLobar);
-
-      // 4. Pulmonary Vessels at the Hilum
-      const paMat = new THREE.MeshStandardMaterial({ color: 0x1d4ed8, roughness: 0.3 }); // Arteria polmonare (deossigenata)
-      const pvMat = new THREE.MeshStandardMaterial({ color: 0xdc2626, roughness: 0.3 }); // Vene polmonari (ossigenate)
-
-      const paTrunk = new THREE.Mesh(new THREE.CylinderGeometry(1.6, 1.4, 9, 16), paMat);
-      paTrunk.position.set(-1.5, -1, 2);
-      paTrunk.rotation.z = Math.PI / 6;
-      lungGroup.add(paTrunk);
-
-      const pvL = new THREE.Mesh(new THREE.CylinderGeometry(1.0, 0.8, 7, 16), pvMat);
-      pvL.position.set(-7, -4, 2);
-      pvL.rotation.z = Math.PI / 4;
-      lungGroup.add(pvL);
-
-      const pvR = new THREE.Mesh(new THREE.CylinderGeometry(1.0, 0.8, 7, 16), pvMat);
-      pvR.position.set(6, -4, 2);
-      pvR.rotation.z = -Math.PI / 4;
-      lungGroup.add(pvR);
-
-      // 5. Anatomical Bilateral Pulmonary Parenchyma (Translucent clinical shading)
-      const parenchMat = new THREE.MeshPhysicalMaterial({
-        color: 0x0ea5e9,
-        transparent: true,
-        opacity: wireframe ? 0.25 : 0.28,
-        roughness: 0.2,
-        transmission: 0.6,
-        thickness: 2.0,
-        wireframe: wireframe,
-      });
-
-      // Right Lung (3 lobes volume with costal and diaphragmatic surface)
-      const rLungGeo = new THREE.SphereGeometry(13.5, 32, 32);
-      rLungGeo.scale(0.85, 1.5, 0.7);
-      const rLung = new THREE.Mesh(rLungGeo, parenchMat);
-      rLung.position.set(14.5, -3.5, 0);
-      lungGroup.add(rLung);
-
-      // Left Lung (Cardiac notch on antero-medial aspect)
-      const lLungGeo = new THREE.SphereGeometry(12.5, 32, 32);
-      lLungGeo.scale(0.75, 1.45, 0.7);
-      const lLung = new THREE.Mesh(lLungGeo, parenchMat);
-      lLung.position.set(-15, -3.5, 0);
-      lungGroup.add(lLung);
-
-      meshGroup.add(lungGroup);
-      setIsLoading(false);
-    }
-  }, [activeModel, wireframe]);
-
-  const resetView = () => {
-    if (controlsRef.current) {
-      controlsRef.current.reset();
-    }
+  const handleSelect = (key: Model3DKey) => {
+    setActiveModelKey(key);
+    setIsIframeLoading(true);
+    onSelectTarget?.(key);
   };
-
-  const handleSelectModel = (model: ModelType) => {
-    setActiveModel(model);
-    onSelectTarget?.(model);
-  };
-
-  const config = MODEL_CONFIGS[activeModel];
 
   return (
-    <div className="relative w-full h-full min-h-[480px] bg-[#07090e] rounded-2xl overflow-hidden border border-slate-800 shadow-2xl flex flex-col">
+    <div className="flex flex-col h-full bg-[#07090e] text-slate-100 overflow-hidden">
       
-      {/* Top HUD Header */}
-      <div className="absolute top-0 inset-x-0 bg-slate-950/80 backdrop-blur-md border-b border-slate-800 px-4 py-3 flex items-center justify-between z-10">
-        <div className="flex items-center space-x-3">
-          <div className="p-1.5 rounded-lg bg-blue-500/10 text-blue-400 border border-blue-500/20">
-            <Layers className="w-4 h-4" />
+      {/* 1. TOP SELECTOR BAR */}
+      <div className="p-3 border-b border-slate-800 bg-slate-950/90 shrink-0">
+        <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center space-x-1.5 text-xs font-mono font-bold uppercase tracking-wider text-cyan-400">
+            <Layers className="w-3.5 h-3.5" />
+            <span>Atlante Anatomico 3D Ufficiale</span>
           </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold text-white tracking-wide">{config.name}</span>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-500/10 text-blue-300 border border-blue-500/20">
-                {config.badge}
-              </span>
-            </div>
-            <p className="text-[11px] text-slate-400 line-clamp-1">{config.description}</p>
-          </div>
+          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+            360° INTERATTIVO
+          </span>
         </div>
 
-        {/* Action icons */}
-        <div className="flex items-center space-x-1.5">
-          <button
-            onClick={() => setAutoRotate(!autoRotate)}
-            className={`p-1.5 rounded-lg text-xs font-medium transition border ${
-              autoRotate
-                ? 'bg-blue-600/20 border-blue-500/30 text-blue-300'
-                : 'bg-slate-800/80 border-slate-700 text-slate-400 hover:text-white'
-            }`}
-            title="Rotazione Automatica"
-          >
-            {autoRotate ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
-          </button>
-
-          <button
-            onClick={() => setWireframe(!wireframe)}
-            className={`p-1.5 rounded-lg text-xs font-medium transition border ${
-              wireframe
-                ? 'bg-purple-600/20 border-purple-500/30 text-purple-300'
-                : 'bg-slate-800/80 border-slate-700 text-slate-400 hover:text-white'
-            }`}
-            title="Modalità Wireframe Mesh"
-          >
-            <Box className="w-4 h-4" />
-          </button>
-
-          <button
-            onClick={resetView}
-            className="p-1.5 rounded-lg bg-slate-800/80 border border-slate-700 text-slate-400 hover:text-white transition"
-            title="Reimposta Angolazione"
-          >
-            <RotateCcw className="w-4 h-4" />
-          </button>
+        {/* Horizontal Model Switcher Buttons */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-1.5">
+          {Object.values(MODEL_CONFIGS).map((cfg) => {
+            const isSelected = cfg.id === activeModelKey;
+            return (
+              <button
+                key={cfg.id}
+                onClick={() => handleSelect(cfg.id)}
+                className={`px-2.5 py-1.5 rounded-lg border text-left transition-all ${
+                  isSelected
+                    ? 'bg-cyan-500/20 border-cyan-400 text-cyan-300 shadow-sm ring-1 ring-cyan-500/30'
+                    : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-850'
+                }`}
+              >
+                <div className="text-[9px] font-mono uppercase font-bold text-cyan-400">
+                  {cfg.badge}
+                </div>
+                <div className="text-xs font-semibold truncate mt-0.5">
+                  {cfg.name.split(' & ')[0]}
+                </div>
+              </button>
+            );
+          })}
         </div>
       </div>
 
-      {/* WebGL Canvas Container */}
-      <div ref={containerRef} className="flex-1 w-full h-full relative cursor-grab active:cursor-grabbing">
-        {isLoading && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-950/70 backdrop-blur-sm z-20">
-            <div className="w-10 h-10 border-2 border-blue-500 border-t-transparent rounded-full animate-spin mb-3"></div>
-            <span className="text-xs font-mono text-blue-400 tracking-wider">RENDERING GEOMETRIA WEBGL...</span>
+      {/* 2. 3D IFRAME VIEWPORT CONTAINER */}
+      <div className="relative flex-1 min-h-[380px] bg-black">
+        {isIframeLoading && (
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-slate-950/90 backdrop-blur-sm space-y-3">
+            <RefreshCw className="w-6 h-6 text-cyan-400 animate-spin" />
+            <p className="text-xs font-mono text-slate-300">Caricamento Modello 3D Interattivo...</p>
           </div>
         )}
+
+        <iframe
+          key={activeConfig.embedUrl}
+          src={activeConfig.embedUrl}
+          title={activeConfig.name}
+          onLoad={() => setIsIframeLoading(false)}
+          className="w-full h-full border-0"
+          allow="autoplay; fullscreen; xr-spatial-tracking"
+        />
       </div>
 
-      {/* Selected Landmark Pin Note Box */}
-      {selectedPin && (
-        <div className="absolute top-16 left-4 right-4 sm:right-auto sm:max-w-md bg-slate-950/90 backdrop-blur-md border border-blue-500/30 rounded-xl p-3.5 shadow-2xl z-20 animate-in fade-in slide-in-from-top-2">
-          <div className="flex items-center justify-between gap-2 mb-1">
-            <span className="text-xs font-bold text-blue-400 flex items-center gap-1.5">
-              <Eye className="w-3.5 h-3.5" />
-              {selectedPin.name}
-            </span>
-            <button
-              onClick={() => setSelectedPin(null)}
-              className="text-slate-400 hover:text-white text-xs px-1.5 py-0.5 rounded bg-slate-800"
-            >
-              ✕
-            </button>
+      {/* 3. CLINICAL KEY & LANDMARKS DRAWER FOOTER */}
+      <div className="p-4 bg-slate-950 border-t border-slate-800 overflow-y-auto max-h-[220px] custom-scrollbar shrink-0 space-y-3">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <Sparkles className="w-4 h-4 text-cyan-400" />
+            <h4 className="text-xs font-bold font-mono uppercase tracking-wider text-slate-200">
+              Reperi Anatomici Chiave & Razionale Clinico
+            </h4>
           </div>
-          <p className="text-xs text-slate-300 leading-relaxed">{selectedPin.note}</p>
+          <span className="text-[10px] text-slate-500 font-mono">
+            Usa mouse/touch per ruotare e zoomare a 360°
+          </span>
         </div>
-      )}
 
-      {/* Anatomical Landmark Buttons (HUD Overlay) */}
-      <div className="absolute bottom-16 inset-x-4 flex gap-1.5 overflow-x-auto custom-scrollbar pb-1 z-10 pointer-events-auto">
-        {config.pins.map((pin, i) => (
-          <button
-            key={i}
-            onClick={() => setSelectedPin(pin)}
-            className={`whitespace-nowrap px-2.5 py-1 rounded-lg text-[11px] font-medium border transition ${
-              selectedPin?.name === pin.name
-                ? 'bg-blue-600 border-blue-400 text-white shadow-lg'
-                : 'bg-slate-900/80 backdrop-blur-md border-slate-700/80 text-slate-300 hover:bg-slate-800 hover:text-white'
-            }`}
-          >
-            📍 {pin.name}
-          </button>
-        ))}
-      </div>
+        <p className="text-xs text-slate-300 leading-relaxed">
+          {activeConfig.description}
+        </p>
 
-      {/* Bottom Model Switcher Dock */}
-      <div className="bg-slate-950/90 backdrop-blur-md border-t border-slate-800 p-2.5 flex items-center justify-center gap-2 z-10">
-        <button
-          onClick={() => handleSelectModel('heart')}
-          className={`px-4 py-1.5 rounded-xl text-xs font-semibold transition border ${
-            activeModel === 'heart'
-              ? 'bg-rose-500/20 border-rose-500/40 text-rose-300 shadow-sm'
-              : 'border-transparent text-slate-400 hover:text-slate-200 hover:bg-slate-900'
-          }`}
-        >
-          ❤️ Cuore & Vasi (STL)
-        </button>
+        {/* Landmarks Bullet List */}
+        <div className="space-y-1.5 pt-1">
+          {activeConfig.landmarks.map((landmark, idx) => (
+            <div key={idx} className="flex items-start space-x-2 text-xs text-slate-200">
+              <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 mt-0.5 shrink-0" />
+              <span>{landmark}</span>
+            </div>
+          ))}
+        </div>
 
-        <button
-          onClick={() => handleSelectModel('aorta')}
-          className={`px-4 py-1.5 rounded-xl text-xs font-semibold transition border ${
-            activeModel === 'aorta'
-              ? 'bg-emerald-500/20 border-emerald-500/40 text-emerald-300 shadow-sm'
-              : 'border-transparent text-slate-400 hover:text-slate-200 hover:bg-slate-900'
-          }`}
-        >
-          🩸 Aorta & Dissecazione (STL)
-        </button>
-
-        <button
-          onClick={() => handleSelectModel('lungs')}
-          className={`px-4 py-1.5 rounded-xl text-xs font-semibold transition border ${
-            activeModel === 'lungs'
-              ? 'bg-sky-500/20 border-sky-500/40 text-sky-300 shadow-sm'
-              : 'border-transparent text-slate-400 hover:text-slate-200 hover:bg-slate-900'
-          }`}
-        >
-          🫁 Albero Bronchiale & Gabbia Toracica
-        </button>
+        {/* Exam High-Yield Box */}
+        <div className="p-2.5 rounded-lg bg-blue-950/30 border border-blue-500/20 text-xs text-blue-200 leading-relaxed">
+          <span className="font-bold text-blue-300 font-mono block mb-0.5">💡 RENDIMENTO D'ESAME:</span>
+          {activeConfig.clinicalExamYield}
+        </div>
       </div>
 
     </div>

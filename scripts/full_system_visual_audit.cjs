@@ -8,10 +8,10 @@ if (!fs.existsSync(outDir)) {
 }
 
 async function audit() {
-  console.log("Launching Chrome...");
+  console.log("Launching Chrome with WebGL...");
   const browser = await puppeteer.launch({
     executablePath: '/usr/bin/google-chrome',
-    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-gpu']
+    args: ['--no-sandbox', '--disable-setuid-sandbox', '--enable-webgl', '--use-gl=swiftshader']
   });
 
   const page = await browser.newPage();
@@ -82,6 +82,17 @@ async function audit() {
   await scrollMainTo(1200);
   await page.screenshot({ path: path.join(outDir, '05_theory_chapter2_text.png') });
 
+  // 2b. Test Cross-Link Theory -> Quiz
+  console.log("Testing direct cross-link: Theory -> Quiz Database Scritti...");
+  await scrollMainTo(0);
+  await page.evaluate(() => {
+    const btns = Array.from(document.querySelectorAll('button'));
+    const quizBtn = btns.find(b => b.textContent && b.textContent.includes('Quiz Database Scritti'));
+    if (quizBtn) quizBtn.click();
+  });
+  await new Promise(r => setTimeout(r, 1000));
+  await page.screenshot({ path: path.join(outDir, '05b_quiz_crosslink_success.png') });
+
   // 3. Quiz Simulator
   console.log("Navigating to Database Scritti (Quiz)...");
   await clickNavTab('Database Scritti');
@@ -151,7 +162,7 @@ async function audit() {
   // 14. 3D Anatomy Drawer
   console.log("Opening 3D Atlas drawer...");
   await clickNavTab('Apri Atlante WebGL 3D');
-  await new Promise(r => setTimeout(r, 1500));
+  await new Promise(r => setTimeout(r, 4500));
   await page.screenshot({ path: path.join(outDir, '17_anatomy_3d_heart.png') });
 
   // Switch 3D Model to Aorta
@@ -160,7 +171,7 @@ async function audit() {
     const btn = btns.find(b => b.textContent && b.textContent.includes('Aorta'));
     if (btn) btn.click();
   });
-  await new Promise(r => setTimeout(r, 1200));
+  await new Promise(r => setTimeout(r, 4000));
   await page.screenshot({ path: path.join(outDir, '18_anatomy_3d_aorta.png') });
 
   // Switch 3D Model to Bronchial Tree / Polmoni
@@ -169,7 +180,7 @@ async function audit() {
     const btn = btns.find(b => b.textContent && b.textContent.includes('Albero'));
     if (btn) btn.click();
   });
-  await new Promise(r => setTimeout(r, 1200));
+  await new Promise(r => setTimeout(r, 4000));
   await page.screenshot({ path: path.join(outDir, '19_anatomy_3d_lungs.png') });
 
   // Close 3D Modal

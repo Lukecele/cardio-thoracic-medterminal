@@ -28,7 +28,8 @@
         "expectedAnswer": "Rottura acuta del muscolo papillare (più frequentemente postero-mediale vascolarizzato unicamente dalla coronaria destra, o antero-laterale) con Insufficienza Mitralica acuta massiva. Si conferma d'urgenza con Ecocardiogramma transtoracico/transesofageo (color Doppler con jet da rigurgito eccentrico massivo). È un'emergenza cardiochirurgica assoluta.",
         "fatalTrap": "Confondere la rottura di papillare con la rottura del setto interventricolare (DIV post-infartuale, che presenta soffio mesocardico con fremito parasternale sinistro)."
       }
-    ]
+    ],
+    "relatedTopicId": "crd-ischemica-acuta"
   },
   {
     "id": "oral-cardiochirurgia",
@@ -59,7 +60,8 @@
         "expectedAnswer": "Edwards SAPIEN: bioprotesi a 3 lembi in pericardio BOVINO montata su scheletro metallico in cromo-cobalto, espandibile mediante palloncino (balloon-expandable). Medtronic CoreValve/Evolut: bioprotesi in pericardio PORCINO su stent autoespandibile in lega Nitinolo a memoria di forma.",
         "fatalTrap": "Invertire i materiali: dire che la Sapien è porcina e la CoreValve è bovina (domanda trappola tipica d'esame scritto e orale)."
       }
-    ]
+    ],
+    "relatedTopicId": "cch-stenosi-aortica"
   },
   {
     "id": "oral-pneumo",
@@ -90,7 +92,8 @@
         "expectedAnswer": "Spirometria globale eseguita in fase stabile dopo somministrazione di broncodilatatore (400 mcg salbutamolo): il criterio diagnostico cardine è un Indice di Tiffeneau post-BD (FEV1/FVC) < 0.70 irreversibile. La gravità dell'ostruzione si basa su FEV1 % del predetto (GOLD 1 $\\ge$ 80%, GOLD 2 50-79%, GOLD 3 30-49%, GOLD 4 < 30%). La terapia di fondo si imposta secondo il raggruppamento A-B-E.",
         "fatalTrap": "Dimenticare che il criterio di Tiffeneau < 0.70 deve essere verificato POST-broncodilatatore per escludere l'asma."
       }
-    ]
+    ],
+    "relatedTopicId": "pnm-asma-bpco"
   },
   {
     "id": "oral-toracica",
@@ -121,7 +124,8 @@
         "expectedAnswer": "Lobectomia polmonare destra (superiore) associata a Linfoadenectomia mediastinica radicale sistematica (stazioni ilari 10-11 e mediastiniche destre 2R, 4R, 7, 8, 9), eseguita preferenzialmente con approccio mini-invasivo VATS (Video-Assisted Thoracoscopic Surgery) o RATS (Robotica).",
         "fatalTrap": "Rispondere 'pneumonectomia' (asportazione di tutto il polmone) per un T1 di 2.8 cm periferico: asportazione sproporzionata e mortale!"
       }
-    ]
+    ],
+    "relatedTopicId": "cht-neoplasie-tnm"
   },
   {
     "id": "oral-vascolare",
@@ -152,6 +156,7 @@
         "expectedAnswer": "Endoleak di Tipo II (da rifornimento retrogrado di vasi collaterali come arteria mesenterica inferiore o arterie lombari). È il tipo più frequente (~80%). A differenza dei Tipi I e III, non richiede reintervento immediato d'urgenza: si monitora a 6-12 mesi; si interviene con embolizzazione transcatetere solo se la sacca aneurismatica mostra un incremento progressivo del diametro nel tempo.",
         "fatalTrap": "Affermare che l'Endoleak di Tipo II richieda chirurgia aperta d'urgenza: è il Tipo I (al colletto) che richiede trattamento immediato, mentre il Tipo II è a bassa pressione."
       }
-    ]
+    ],
+    "relatedTopicId": "vsc-aaa"
   }
 ]
