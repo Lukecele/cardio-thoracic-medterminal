@@ -1,24 +1,33 @@
-# 🩺 Cardio-Thoracic MedTerminal (v2.0 FAST)
+# 🩺 MedTerminal Cardio-Toracico (v2.0)
 
 [![Live Production](https://img.shields.io/badge/Vercel-Live%20Deployment-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://cardio-thoracic-medterminal.vercel.app)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Three.js](https://img.shields.io/badge/Three.js-3D%20STL%20Renderer-black?style=for-the-badge&logo=threedotjs&logoColor=white)](https://threejs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Medical Grade](https://img.shields.io/badge/Clinical-2FAST%20Integrale-rose?style=for-the-badge&logo=addthis&logoColor=white)](#)
+[![Three.js](https://img.shields.io/badge/Three.js-3D%20WebGL-black?style=for-the-badge&logo=threedotjs&logoColor=white)](https://threejs.org/)
+[![Open Source](https://img.shields.io/badge/Open%20Source-GitHub-cyan?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Lukecele/cardio-thoracic-medterminal)
 
-> **Cockpit multimodale ad alta densità per l'esame integrato di Medicina e Chirurgia**: *Cardiologia Medica*, *Cardiochirurgia*, *Pneumologia*, *Chirurgia Toracica* e *Chirurgia Vascolare*.  
-> Costruito sul compendio integrale di **Lorenzo Pessetti (2FAST)** e sul **Database Ufficiale delle prove scritte e orali**.
+> **Piattaforma didattica multimodale per gli studenti di medicina** concepita per la preparazione dell'esame universitario integrato di **Malattie dell'Apparato Cardiovascolare e Respiratorio** (*Cardiologia Medica*, *Pneumologia*, *Cardiochirurgia*, *Chirurgia Toracica* e *Chirurgia Vascolare*).
 
 ---
 
-## 🎯 Panoramica dell'Esame (5 Scritti & 5 Orali)
+## 👨‍💻 Sviluppo & Crediti
 
-L'esame integrato del sistema cardiovascolare e respiratorio è suddiviso in 5 branche specialistiche distinte. MedTerminal aggrega la totalità del materiale didattico, eliminando la dispersione e consentendo uno studio attivo senza perdita di informazioni critiche (cut-off, linee guida ESC/ERS, classificazioni chirurgiche):
+- **Ideazione, Architettura Software & Sviluppo Full-Stack**:  
+  **Luca Celebrano** — [GitHub: @Lukecele](https://github.com/Lukecele) • [Repository: Lukecele/cardio-thoracic-medterminal](https://github.com/Lukecele/cardio-thoracic-medterminal)
+- **Basi Teoriche & Materiale Didattico**:  
+  Si ringrazia **Lorenzo Pessetti** per aver condiviso il materiale PDF dei suoi appunti e dispense universitarie, consultati come base per la stesura e la rielaborazione della sezione teorica curriculare.  
+  *Tutti gli strumenti software interattivi, la fonoteca auscultatoria rimasterizzata, i modelli 3D WebGL, i monitor ECG, il simulatore quiz, il simulatore orale e i calcolatori sono stati sviluppati e integrati autonomamente da Luca Celebrano.*
+
+---
+
+## 🎯 Panoramica dell'Esame Integrato (5 Branche Specialistiche)
+
+L'esame universitario accorpa 5 discipline cliniche e chirurgiche. MedTerminal aggrega l'intero programma d'esame in un unico ambiente di studio ad alta resa, eliminando i muri di testo dispersivi:
 
 ```
                         ┌──────────────────────────────────────────────┐
-                        │      MED-TERMINAL CLINICAL AGGREGATOR        │
+                        │        MEDTERMINAL CARDIO-TORACICO           │
                         └──────────────────────┬───────────────────────┘
                                                │
          ┌───────────────┬─────────────────────┼─────────────────────┬─────────────────┐
@@ -33,67 +42,99 @@ L'esame integrato del sistema cardiovascolare e respiratorio è suddiviso in 5 b
 
 ---
 
-## ⚡ Caratteristiche Chiave
+## ⚡ Caratteristiche Principali della Piattaforma
 
-### 1. 📖 Compendio 2FAST Loss-Free & Active Recall
-- **100% Fedele alle Dispense**: Trattazione enciclopedica di tutte le patologie senza omissione di numeri, percentuali, score o criteri d'esame.
-- **Motore Cloze Blur (Active Recall)**: Modalità commutabile in tempo reale che sfoca selettivamente cut-off clinici, dosaggi farmacologici e parole chiave per stimolare il richiamo attivo prima dell'orale.
-- **Perle & Trabocchetti d'Esame**: Segnalazione visiva immediata delle nozioni bersagliate dai docenti agli appelli.
+### 1. 📖 Teoria Curriculare Completa (16 Capitoli)
+- **Trattazione Sistematica Approfondita**: Il pilastro cardine della piattaforma copre l'intero programma curriculare delle 5 branche senza omissioni di cut-off diagnostici, classificazioni e linee guida vigenti (ESC, AHA/ACC, ERS, ESTS, ESVS).
+- **Struttura Didattica a 4 Punti Cardine**:
+  1. *Definizione & Fisiopatologia Essenziale*
+  2. *Segni Clinici & Semeiotica*
+  3. *Iter Diagnostico, Cut-off & Gold Standard*
+  4. *Terapia Medica & Indicazioni Chirurgiche*
+- **Trabocchetti d'Esame dei Docenti**: Box dedicati che evidenziano i dettagli insidiosi e gli errori più frequenti agli appelli.
+- **Active Recall (Modalità Cloze Blur)**: Switch attivabile in tempo reale che maschera selettivamente cut-off numerici, dosaggi farmacologici e parole chiave per stimolare il richiamo attivo della memoria.
 
-### 2. 🏆 Simulatore Database Scritti (Question Bank Ufficiale)
-- **48+ Quesiti Ufficiali Verificati**: Ricostruzione fedele con 5 opzioni (`a`-`e`), cronologia delle sessioni d'esame e spiegazioni cliniche punto per punto.
-- **Filtro per Disciplina**: Possibilità di filtrare i quiz per singola branca (Cardio, Pneumo, Vascolare) o modalità mista globale.
-- **Feedback Istantaneo**: Calcolo automatico del punteggio, tracciamento degli errori e visualizzazione immediata della risposta corretta.
+### 2. 📝 Database Prove Scritte (48 MCQ Ufficiali Commentati)
+- **Quesiti d'Esame Verificati**: Ricostruzione fedele con 5 opzioni (`A`-`E`) e cronologia delle sessioni d'esame.
+- **Razionale Clinico Dettagliato**: Spiegazione approfondita del motivo per cui la risposta corretta è valida e analisi dell'errore di ciascun distrattore.
+- **Filtro Disciplinare**: Allenamento per singola branca (Cardiologia, Pneumologia, Cardiochirurgia, Chirurgia Toracica, Vascolare) o in modalità mista d'esame.
+- **Feedback & Statistiche**: Tracciamento istantaneo di accuratezza, cronologia tentativi e reset statistico.
 
-### 3. 🩺 Simulatore Orali a 5 Stazioni (Clinical Board Simulator)
-- **Casi Clinici Complessi**: Vignette dettagliate per ciascuna delle 5 commissioni d'esame (paziente, parametri vitali, obiettività stetoscopica e strumentale).
-- **Interrogazione a Step Sequenziali**: Domande progressive del docente (diagnosi differenziale, terapia di prima linea, indicazioni all'intervento chirurgico).
-- **Rivelazione Guidata & Alert Trabocchetto**: Risposta modello da 30 e lode con evidenziazione del *Fatal Trap* che costa la bocciatura all'orale.
-- **Autovalutazione dello Studente**: Sistema di rating a semaforo (`Ottima`, `Accettabile`, `Da Rivedere`).
+### 3. 🩺 Simulatore d'Esame Orale (5 Stazioni Specialistiche)
+- **Vignette Cliniche Complesse**: Casi caldi d'esame (STEMI acuto con complicanze meccaniche, Shock cardiogeno, Stenosi aortica severa, Riacutizzazione di BPCO, Embolia Polmonare ad alto rischio).
+- **Interrogazione a Step Sequenziali**: Domande a cascata che simulano il dialogo con la commissione d'esame.
+- **Fatal Traps & Risposte Modello**: Segnalazione dell'errore grave che compromette l'esame e formulazione della risposta attesa da 30 e lode.
+- **Autovalutazione a Semaforo**: Valutazione dello studente (`Ottima`, `Accettabile`, `Da Rivedere`).
 
-### 4. 🫀 Viewport Anatomico 3D Reale (STL Loader)
-- **Segmentazioni Cliniche TAC/RMN Reali**:
-  - `heart.stl` (Anatomia cardiaca tridimensionale ad alta risoluzione).
-  - `aorta_dilatation.stl` (Ectasia e dilatazione dell'aorta ascendente dal catalogo NIH 3D Print Exchange).
-- **Rendering PBR Avanzato**: Shader Three.js con ACESFilmic Tone Mapping, rotazione orbitale libera 360°, switch Wireframe/Shader e reset camera con un clic.
+### 4. 🎧 Fonoteca Auscultatoria HD (11 Reperti Audio Reali)
+- **Audio Autentici Registrati da Fonendoscopio** (nessuna sintesi artificiale):
+  1. *Toni Fisiologici Normali (S1 - S2)*
+  2. *Stenosi Aortica (Soffio Meso-sistolico ad Eiezione a diamante)*
+  3. *Insufficienza Mitralica (Soffio Olo-sistolico soffiante)*
+  4. *Stenosi Mitralica (Schiocco d'Apertura & Rullio Diastolico)*
+  5. *Insufficienza Aortica (Soffio Diastolico in Decrescendo)*
+  6. *Terzo Tono S3 (Galoppo Protodiastolico)*
+  7. *Quarto Tono S4 (Galoppo Presistolico)*
+  8. *Sfregamento Pericardico / Pleurico*
+  9. *Rantoli Crepitanti Tele-inspiratori (Crackles / Velcro)*
+  10. *Sibili & Fischi Espiratori (Wheezing)*
+  11. *Soffio Tubarico / Respiro Bronchiale Patologico*
+- **Filtri Acustici Simulati (Stile Littmann)**:
+  - *Standard*: Spettro lineare (20 - 20.000 Hz).
+  - *Membrana*: Filtro passa-alto (> 180 Hz) per isolare soffi da eiezione, rigurgiti e sfregamenti attenuando il rimbombo basso.
+  - *Campana*: Filtro passa-basso (< 220 Hz) per esaltare i galoppi S3/S4 e il rullio della stenosi mitralica.
+- **StethoBoost Digitale (+6 dB)**: Amplificazione calibrata per speaker integrati di smartphone e laptop.
+- **Visualizzatore del Ciclo**: Mappatura sincronizzata delle fasi sistole/diastole e inspirazione/espirazione.
+- **Mobile UX Ottimizzata**: Toggle rapido a due viste (*Elenco Reperti* vs *Scheda Clinica & Console*) con riproduzione sincrona istantanea a 1 tocco e mini-player sticky.
 
-### 5. 🔊 Soundboard Stetoscopica Reale (Stetofonografia 44.1kHz)
-- **Audio Autentico da Stetoscopio Medico** (Nessuna sintesi fittizia o oscillatori artificiali):
-  - **S1-S2 Fisiologico**: Toni cardiaci normali a 61 bpm.
-  - **Soffio Sistolico a Diamante**: Registrazione stetoscopica di stenosi valvolare aortica.
-  - **Soffio Olosistolico**: Difetto del setto ventricolare (VSD).
-  - **Fibrillazione Atriale**: Ritmo caotico irregolarmente irregolare.
-  - **Tachicardia Ventricolare/SVT**: Frequenza rapida a 150 bpm.
-  - **Sibili Espiratori**: Rantoli e wheezing nell'attacco asmatico acuto.
-  - **Crepitii Tele-inspiratori**: Crepitii velcro da essudato alveolare in polmonite lobare.
-- **Controlli Integrati**: Regolazione volume audio, riproduzione continua in loop e waveform visiva in tempo reale.
+### 5. 🫀 Atlante Anatomico 3D WebGL (Three.js) & Tavole HD
+- **Modelli Tridimensionali STL**:
+  - *Cuore 3D* (`heart.stl`) — Anatomia delle camere, setti e vasi della base.
+  - *Albero Tracheo-Bronchiale* (`lungs.stl`) — Segmentazione bronchiale e campi polmonari.
+  - *Ectasia / Dilatazione Aortica* (`aorta_dilatation.stl`) — Modello anatomico patologico (NIH 3D Print Exchange).
+- **Controlli Interattivi**: Rotazione orbitale libera 360°, zoom, pan, commutazione Wireframe/PBR shader e reset camera istantaneo.
+- **Tavole Anatomiche HD**: Consultazione illustrata rapida ottimizzata per dispositivi mobili.
 
-### 6. ⚡ Scanner Clinico & Matrice Differenziale
-- Matrice incrociata ad alta velocità: Quadro clinico ➔ Gold Standard Diagnostico ➔ Criteri di Ricovero d'Urgenza ➔ Terapia Immediata.
-
-### 7. 🧮 Calcolatori Clinici Integrati
-- **CHA₂DS₂-VASc**: Rischio cardioembolico in FA e indicazione a NAO/DOAC.
-- **HAS-BLED**: Rischio emorragico per stratificazione anticoagulante.
-- **Wells Score (EP)**: Probabilità pre-test di embolia polmonare e cut-off D-Dimero vs Angio-TC.
-- **CURB-65**: Indice di gravità per la polmonite acquisita in comunità (CAP).
+### 6. 🛠️ Suite di Strumenti Specialistici
+- **Monitor ECG Dinamico**: Tracciati elettrocardiografici dinamici su canvas (STEMI, Fibrillazione Atriale, Flutter atriale, BAV 3° grado, Tachicardia Ventricolare) con calcolo frequenza e quiz sul ritmo.
+- **Spirometria PFR & Flusso-Volume**: Curva Flusso-Volume interattiva, calcolo Tiffeneau (FEV1/FVC), diagnosi differenziale deficit ostruttivo vs restrittivo e test di reversibilità con broncodilatatore.
+- **EGA Arteriosa Interpreter**: Analisi automatica dell'equilibrio acido-base (pH, PaCO₂, HCO₃⁻, BE), Gap Anionico, compensi attesi e classificazione dell'insufficienza respiratoria (Tipo 1 vs Tipo 2, ARDS con PaO₂/FiO₂).
+- **Stadiazione TNM 8ª Edizione**: Calcolatore per NSCLC con stima di funzione post-operatoria (ppo-FEV1% e ppo-DLCO%) per l'indicazione a lobectomia o pneumonectomia.
+- **Algoritmi Decisionali & Flowchart**: Percorsi decisionali interattivi su STEMI (PCI primaria vs fibrinolisi), Scompenso Cardiaco HFrEF (i 4 pilastri terapeutici), Embolia Polmonare e ischemia acuta periferica con embolectomia di Fogarty.
+- **Prontuario Farmacologico & Antidoti**: DOAC e antidoti specifici (Idarucizumab per Dabigatran, Andexanet alfa per anti-Xa), emergenze ipertensive EV e regime antitubercolare RIPE.
+- **Atlante Imaging Toracico**: Iconografia e segni radiologici chiave su RX torace e Angio-TC (linee di Kerley B, pneumotorace, flap intimale di dissecazione aortica).
+- **Calcolatori Clinici Integrati**: CHA₂DS₂-VASc, HAS-BLED, Wells Score EP, CURB-65, TIMI Risk Score STEMI, EuroSCORE II, Reynolds Risk Score.
+- **Scanner Diagnostico (DDx)**: Matrice ad incrocio rapido sintomi/segni per identificare la diagnosi differenziale gold standard in emergenza-urgenza.
+- **Ricerca Globale Istantanea (<kbd>Ctrl</kbd> + <kbd>K</kbd>)**: Motore di ricerca rapido indicizzato su tutte le sezioni, patologie, farmaci, audio e 3D.
 
 ---
 
-## 🛠️ Stack Tecnologico
+## 🔒 Privacy, Cookie & GDPR
 
-- **Frontend Core**: React 19, TypeScript 5.8
-- **Bundler & Tooling**: Vite 8, Rolldown engine
-- **Grafica 3D**: Three.js (r186) + STLLoader
-- **Stile & Layout**: Tailwind CSS v4, Lucide Icons
-- **Audio Engine**: Native HTML5 Audio API con playback multitraccia non bloccante
-- **PWA & Mobile**: Offline-ready manifest, display standalone, navigazione adattiva touch-first
-- **Deploy**: Vercel Serverless Edge Platform
+- **Nessun Tracciamento Pubblicitario**: Il portale non fa uso di cookie di profilazione o strumenti di tracciamento di terze parti.
+- **Archiviazione Locale Riservata**: I progressi dello studio e le preferenze d'interfaccia risiedono esclusivamente nel `localStorage` del browser dell'utente.
 
 ---
 
-## 🚀 Avvio Locale
+## 💻 Stack Tecnologico
 
-Prerequisiti: [Node.js](https://nodejs.org/) (versione 18 o superiore)
+| Componente | Tecnologia |
+| :--- | :--- |
+| **Frontend Framework** | [React 19](https://react.dev/) + [TypeScript 5.8](https://www.typescriptlang.org/) |
+| **Build Tooling & Bundler** | [Vite 8](https://vite.dev/) (Rolldown engine) |
+| **Grafica 3D & WebGL** | [Three.js](https://threejs.org/) (r186) + STLLoader |
+| **Styling & Design System** | [Tailwind CSS v4](https://tailwindcss.com/) + [Lucide Icons](https://lucide.dev/) |
+| **Audio Processing** | Web Audio API (BiquadFilterNode highpass/lowpass, GainNode +6dB, MediaElementSource) |
+| **Testing E2E & Visual** | Puppeteer Core + Google Chrome Headless |
+| **Deploy & Hosting** | [Vercel Serverless Platform](https://vercel.com/) |
+
+---
+
+## 🚀 Installazione & Avvio Locale
+
+### Prerequisiti
+- [Node.js](https://nodejs.org/) versione 18.x o superiore
+- Gestore pacchetti `npm` (incluso con Node.js)
 
 ```bash
 # 1. Clona il repository
@@ -103,24 +144,28 @@ cd cardio-thoracic-medterminal
 # 2. Installa le dipendenze
 npm install
 
-# 3. Avvia il server di sviluppo
+# 3. Avvia l'ambiente di sviluppo locale
 npm run dev
 
-# 4. Compila per la produzione
+# 4. Compila per la produzione (TypeScript check + Vite build)
 npm run build
+
+# 5. Visualizza l'anteprima della build di produzione
+npm run preview
 ```
 
 ---
 
-## 📱 Supporto PWA & Mobile
+## 📱 Esperienza Mobile & PWA
 
-MedTerminal è ottimizzato come Progressive Web App:
-- Aggiungibile alla schermata home su **iOS (Safari -> Condividi -> Aggiungi alla schermata Home)** e **Android (Chrome -> Installa App)**.
-- Layout HUD responsive progettato per schermi smartphone, tablet e monitor ultrawide.
-- Scorciatoia globale di ricerca: <kbd>Ctrl</kbd> + <kbd>K</kbd> (o tocco sull'icona della lente da mobile).
+MedTerminal è progettato con approccio **mobile-first e touch-friendly**:
+- Supporto PWA installabile su **iOS** (*Safari ➔ Condividi ➔ Aggiungi alla schermata Home*) e **Android** (*Chrome ➔ Installa applicazione*).
+- Layout reattivo ottimizzato con controlli ergonomici verificati su schermi fino a 360px di larghezza.
+- Scorciatoia globale di ricerca: <kbd>Ctrl</kbd> + <kbd>K</kbd> su desktop, oppure tocco sull'icona della lente nella barra superiore su mobile.
 
 ---
 
-## 📄 Licenza
+## ⚖️ Finalità Didattica & Licenza
 
-Rilasciato con licenza MIT. Materiale clinico didattico basato sulle note di Lorenzo Pessetti e sui database storici delle sessioni d'esame.
+Progetto universitario open-source rilasciato con licenza [MIT](LICENSE).  
+**Esclusiva Finalità Didattica**: MedTerminal è concepito unicamente per la preparazione dell'esame universitario di Medicina e Chirurgia. Non costituisce dispositivo medico diagnostico né presidio per la gestione clinica di pazienti reali.
