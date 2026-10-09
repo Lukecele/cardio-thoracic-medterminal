@@ -1,0 +1,1232 @@
+VASCOLARE
+
+2FAST
+
+A cura di Lorenzo Pessetti
+
+ANEURISMA AORTICO
+Dilatazione permanente dell’aorta che raggiunge un diametro >50% del calibro normale.
+(Ectasia = dilatazione permanente ma inferiore al 50%). Possono essere numerosi e in più distretti (aneurismosi)
+
+Eziologia
+• congenite → Marfan
+• degenerative → aterosclerosi (la più comune), fibrodisplasia muscolare
+• vascolare → Takayasu, Behcet.
+• Infettive → sifilide (“luetica”), micotica ,virale.
+
+Classificazione
+◦aneurisma vero → dilatazione coinvolge tutte e tre le tonache
+◦aneurisma falso → ematoma pulsante che dilata solo la tonaca avventizia
+
+Morfologia
+‣ fusiforme → dilatazione longitudinale simmetrica a tutta circonferenza
+‣ sacciforme → dilatazione che coinvolge solo una parte della parete
+‣ dimensione → micro o macro aneurisma (cut- off 6 cm)
+
+Localizzazione → il 75% colpisce l’aorta addominale, soprattutto il tratto sottorenale.
+
+Aneurisma aortico addominale
+
+(AAA)
+
+L’aorta addominale si dice aneurismatica quando ha un diametro >3 cm (fisiologico 2 cm) o quando il rapporto tra il
+
+diametro sottorenale e soprarenale è >1,5.
+Nel 95% dei casi è asintomatico e viene diagnosticato incidentalmente.
+
+COMPLICANZE
+• ROTTURA ⚠ 🚑
+️
+
+◦ shock ipovolemico
+◦ massa pulsante che cresce rapidamente
+◦dolore addominale improvviso violento che si irradia verso inguine, gluteo gambe e non cambia col movimento.
+
+Mortalità globale del 70% , con intervento scende al 50%.
+
+Rischio di rottura💥 aumenta col diametro dell’aneurisma:
+◦diametro <4 cm → rischio di rottura annuo 0%
+
+◦ >6,5 cm → rischio 25%
+◦ >8 cm → rischio 50%
+
+• Embolizzazione periferica 🦶 🔵
+Si formano trombi nell’aneurisma da cui può staccarsi un embolo che occlude vasi distali
+
+→ sindrome dai piedi blu (Blue Toe Syndrome) → cianosi delle dita del piede e ischemia AI.
+Va trattata prima l’embolia e poi l’aneurisma.
+
+Trattamento embolia
+1. interruzione flusso vascolare a monte e a valle del distretto interessato
+2. inserimento catetere a palloncino di Fogatry spinto fino a superare l’ostruzione.
+3. Si gonfia e lo si retrae portando con sé e embolo e trombo.
+
+• Trombosi completa dell’aorta → emergenza chirurgica
+si presenta con ischemia dall’ombelico in giù. Il paziente non percepisce più le gambe.
+
+⚠ ️ rischio tossicità da rivascolarizzazione → IRA.
+
+• Formazione di fistole a causa del contatto prolungato tra aneurisma e struttura adiacenti
+‣ fistole duodenali → ematemesi e melena
+‣ fistole nella cava inferiore → insufficienza cardiaca destra grave e shock.
+
+Diagnosi
+• E.O. → massa pulsante in regione ombelicale
+
+• Imaging
+◦ecografia → individua aneurismi fino a 4,5 cm ma è meno affidabile per aneurismi sotto renali
+◦TC spirale e angio-RM → per pianificare la chirurgia o il trattamento endovascolare.
+◦Angiografia → utile durante il trattamento endovascolare prima dell’impianto di una protesi.
+
+◦RX utile solo se ci sono calcificazioni
+
+Screening → uomini >65 anni. Se familiarità >50 anni sia uomini che donne
+Monitoraggio🔎
+• Se < 5,5 cm + crescita <0,5 cm/anno → da monitorare nel tempo.
+
+• Se >5,5 cm e/o crescita >0,5 cm/anno → intervento chirurgico ‼ 🔎
+️
+
+Come scelgo il tipo di chirurgia?
+‣ Sede ed estensione dell’aneurisma
+‣ angolazione delle arterie iliache
+‣ emergenza delle arterie addominali
+‣ età del paziente
+‣ “addome ostile” (pregressi interventi chirurgici addominali ).
+
+es. Nell’anziano comorbido preferiamo l’endovascolare che è meno invasivo. Nel pz critico optiamo per l’intervento open.
+
+Chirurgia tradizionale OSR (Open Surgical Repair)
+Procedura
+
+QUANDO
+1. Incisione xifopubica e spostamento di anse intestinali e duodeno
+2. clampaggio sottorenale
+3. apertura dell’aneurisma con arteriotomia longitudinale
+
+PZ GIOVANI BASSORISCI
+
+ENDOLEAKPOSTEVAR
+
+TROMBI CALCIFICAZIONI
+
+4. rimozione del trombo
+5. impianto della protesi tubulare (biforcata se coinvolge le arterie iliache).
+
+Mortalità peri-operatoria → 1-8%
+
+Complicanze ischemiche → cardiaca, intestinale, IRA.
+Complicanze tardive → infezione o occlusione della protesi , fistola aorto-enterica.
+
+Chirurgia endovascolare EVAR (Endovascular Aneurysm Repair)
+Indicazioni
+‣
+
+età avanzata o comorbidità
+‣ assenza angolazioni eccessive >90º
+‣ assenza tortuosità o calcificazioni delle aa.iliache
+
+Procedura
+1.
+
+introduzione percutanea della protesi con accesso iliaco-femorale
+
+2.
+
+posizionamento fluoroscopico della endoprotesi
+
+3. espansione della protesi nell’aneurisma.
+
+Mortalità perioperatoria <0,5%, minore invasività.
+Monitoraggio con TC spirale a 1, 6,12 mesi.
+
+Complicanze → Endoleak
+https://youtu.be/EgMYmonFNOw?si=-4yuqFNW477Ixhn0
+Il sangue continua a fluire nella sacca aneurismatica nonostante la protesi, con ingrandimento dell’aneurisma e rischio rottura.
+Ne distinguiamo 5 tipologie‼ :️
+
+• Tipo 1 → il sangue entra nella sacca perche i margini della protesi hanno una perdita
+(1A = dalla giunz.superiore , 1B = inferiore).
+
+• Tipo 2 → Reflusso da aa. collaterali che non sono state chiuse completamente (mesent.inferiore e aa.lombari).
+• Tipo 3 🚑 → disconnessione della protesi (urgente).
+• Tipo 4 🟢 → il materiale della protesi ha dei microfori da cui esce sangue che si accumula nella sacca.
+Scompare spontaneamente con la coagulazione.
+
+• Tipo 5 → “endotensione” ( = aumento pressione nell’ aneurisma) . Necessita di monitoraggio.
+
+Materiali protesici
+• Prolene non riassorbibile
+• Dacron (poliestere)
+• PTFE (politetrafluoroetilene)
+
+Tipologie di protesi
+• diritte → sostituzioni aortiche semplici
+• biforcate → per ripristinare il flusso verso entrambe le aa.iliache
+• protesi aorto-uni-iliaca (endovascolare)
+• Fenestrate (aa.renali).
+
+Terapia medica
+◦BB → riducono spesso parietale e limitano espansione del vaso
+◦controllo di ipertensione e dislipidemia (statine).
+
+ANATOMIA ARTERIE ARTI INFERIORI
+L’aorta si divide nelle due iliache comuni a livello di L4-L5. Esse si dividono nelle:
+• aa.iliache interne (ipogastriche) → irrigano utero , ovaie e una parte del retto
+• aa. iliache esterne → raggiungono l’inguine decorrendo sullo psoas e, dopo aver superato il legamento inguinale, diventa
+arteria femorale comune.
+
+L’arteria femorale comune giace nel Triangolo di Scarpa, un punto cruciale per raccogliere i campioni, accedere
+chirurgicamente e posizionare cateteri.
+
+Limiti:
+◦superiormente → legamento inguinale di Poupart
+◦ lateralmente → sartorio
+
+◦medialmente → adduttori lungo
+La femorale comune si divide in 2 rami principali:
+• femorale profonda→ si distribuisce posteriormente e lateralmente, fornendo rami per la coscia.
+
+•
+
+femorale superficiale → decorre lungo la faccia interna della coscia sotto il sartorio, raggiungendo il canale degli adduttori (di
+Hunter). Qui diventa arteria poplitea.
+
+L’Arteria poplitea nella regione del ginocchio si divide in 3 tratti:
+◦sopra-articolare
+◦infra-articolare
+◦ sotto-articolare → punto di accesso per i bypass vascolari (poco interessato dalla aterosclerosi) si divide in 2 rami:
+‣ ‼ tronco
+tibio-peronieno → emette a.peroniera e a.tibiale posteriore (pianta del piede)
+️
+‣ a. tibiale anteriore → arteria pedidia
+(decorre sull’dorso del piede e permette di valutare la pulsazione nel 2º spazio metatarsale)
+
+Ogni arteria decorre lungo un binario costituito da due vene.
+
+Losanga poplitea
+Zona nella parte posteriore del ginocchio dove l’arteria poplitea si trova immersa con nervi tibiale e peroniero comune e vena
+poplitea.
+
+Limiti → superiormente = m.semimembranoso (medialmente) e m.femorale (lateralmente).
+
+Aneurisma popliteo
+Definizione
+Dilatazione anomala che aumenta il rischio di trombosi, embolia o rottura.
+È l’aneurisma periferico più frequente (84%), soprattutto negli uomini intorno ai 60 anni..
+
+Eziologia → aterosclerosi.
+Classificazione
+◦sacciformi → coinvolgono solo la poplitea
+◦fusiforme → interessano anche la A.femorale.
+
+Clinica
+asintomatici per lunghi periodi fino alla claudicatio , ischemia acuta degli AI , sintomi da compressione nervosa (parestesie o paresi) e
+edemi malleolari. Nel 3% dei casi avviene la rottura che è contenuta dai tessuti circostanti, limitando l’emorragia.
+
+Diagnosi → eco-color-doppler o angio-TC o angio-RM. Angiografia prima della rivascolarizzazione.
+Terapia
+• chirurgia OPEN → accesso nella regione posteriore del ginocchio costruendo un bypass con vena safena autologa.
+• Trattamento endovascolare → stent metallico per escludere l’aneurisma. Rischio elevato di trombosi.
+
+Arteriopatia obliterante degli arti inferiori
+
+(AOAI)
+
+Ostruzione parziale o completa a valle delle arterie renali, che causa ipoperfusione degli AI e rischio di ischemia acuta o cronica.
+
+Eziologia → aterosclerosi, raramente malattie autoimmuni (AR) .
+
+Clinica
+Decorso lento e asintomatico salvo trombosi o stenosi severa che causa uno sbalzo eccessivo del gradiente pressorio tra regione a
+monte e a valle dell’occlusione.
+
+La vasodilatazione e l’aumento del flusso che avvengono durante l’esercizio fisico per soddisfare le aumentate richieste metaboliche
+del muscolo, risultano limitate poiché il vaso è già dilatato di per sé per far fronte all’elevata resistenza del segmento stenotico.
+Ecco perché compare la claudicatio intermittens (dolore durante la deambulazione).
+I pz AOAI rispondono poco ai vasodilatatori come ACH, 5HT, trombina o bradichinina.
+
+Classificazione di Leriche Fontaine + Strandness
+Ischemia MODERATA
+• stadio 1 → asintomatico
+• stadio 2 → claudicatio intermittens:
+◦🟡 autonomia di marcia >500 m → leggera
+◦🟠 100-500m → media
+◦🔴
+
+<100m → grave.
+
+Ischemia SEVERA
+• stadio 3 → dolore ischemico a riposo
+• stadio 4 → ulcera e gangrena
+
+Classificazione di Rutherford (“categoria”)
+1. asintomatico
+2. claudicatio lieve
+3. claudicatio moderata
+4. claudicatio severa
+5. dolore ischemico a riposo
+6. lesioni trofiche
+7. gangrena
+
+Linee guida internazionali TASC II per classificazione e trattamento AOAI:
+◦tipo A (lesioni focali brevi) → angioplastica
+◦tipo B → trattamento endovascolare ( lesioni moderatamente complesse).
+◦tipo C (lesioni estese e complesse) → chirurgia OPEN
+◦tipo D (occlusioni lunghe e complesse) → bypass chirurgico
+
+Diagnosi
+• claudicatio intermittens (sintomo cardine)
+• lesioni trofiche e gangrena (stadio avanzato)
+
+Ulcera arteriosa → a livello dell’alluce, del quinto dito, del calcagno o in zone sotto pressione.
+Dolorosa con fondo pallido e bordi irregolari. Rischio amputazione
+
+• Dolore a riposo
+◦gluteo, anca o coscia (aorta o arterie iliache)
+◦Gluteo + assenza polso femorale + impotenza → biforcazione aortica (Sindrome di Leriche).
+
+◦ Polpaccio (SEDE PIÙ COMUNE) → a.femorale o a.poplitea.
+
+E.O.
+◦ pelle atrofica, perdita di peli, petecchie
+◦atrofia muscolare (mal perfusione)
+◦ulcera ischemiche o gangrena
+◦cianosi in ortostatismo e pallore in clinostatismo.
+
+◦Test di Beurger → il pz solleva l’arto a 45°, se dopo 1’ il pallore è marcato si parla di AOAI.
+
+Palpazione
+• polsi arteriosi ridotti o assenti
+◦femorale → tra terzo medio e terzo laterale del legamento inguinale
+◦ popliteo ( fossa poplitea)
+◦ pedidio → sul dorso del piede, sopra il metatarso.
+◦ tibiale posteriore → dietro il malleolo mediale
+
+• gradiente termico, valutato con il dorso della mano.
+
+• Auscultazione in questi punti per valutare segni di stenosi (soffi).
+
+Diagnostica strumentale NON INVASIVA
+• indice pressorio PAS caviglia/braccio‼ ️
+‣
+
+>1-1,4 🟢 → normale
+
+‣ 0,9-0,4 → AOAI lieve moderata (claudicatio intermittens)
+
+‣ <0,4 🔴 → AOAI severa ( =ischemia , rischio amputazione)
+‣ >1,40 🍬 🍰 → vasi non comprimibili (calcificazioni, tipiche del diabete)
+• 1ª scelta → Eco-color-doppler (gold standard)
+valuta sede stenosi, grado di ostruzione ed effetti emodinamici. È operatore dipendente.
+
+• 2ª scelta
+◦Angio-TC con mdc (morfologia vascolare)
+◦Angio-RM con gadolinio (ottimo nei pz IRA cosi evito mdc).
+
+Diagnostica strumentale INVASIVA
+Arteriografia → per pianificare procedure interventistiche (angioplastica, bypass).
+Prevede mdc in arteria femorale, radiale o brachiale, per poi acquisire immagini con fluoroscopia.
+
+TERAPIA AOAI
+
+• Conservativa (primo approccio)
+◦Esercizio fisico controllato per tre mesi con aumento progressivo dell’intensità
+◦riduzione rischio CV
+◦ pazienti sintomatici
+‣ ASA (70-150 mg/die) o Clopidogrel (75 mg/die)
+‣ statine (target LDL <100 mg/dL)
+‣ controllo ipertensione
+‣ gestione diabete
+Se i risultati sono favorevoli → monitoraggio il controllo del rischio CV, altrimenti valuto l’intervento endovascolare dopo
+approfondimenti diagnostici.
+
+In caso di fallimento o controindicazione all’intervento endovascolare, valuto intervento chirurgico.
+
+• Chirurgia
+🔸 Trattamento endovascolare → Procedura PTA (Angioplastica Transluminale Percutanea)
+Utilizzo catetere con palloncino che viene gonfiato per ripristinare la pervietà del vaso.
+Poi impianto di stent metallico in nitinolo (lesioni lunghe e complesse).
+Tratta l’80% delle patologie steno-ostruttive degli AI.
+
+Indicazioni
+◦ 1ª scelta in quanto minore mortalità e invasività .
+
+◦ claudicatio lieve-moderata.
+◦ fallimento terapia conservativa.
+◦ Lesioni aorto-iliache‼ ️
+
+🔸
+
+Intervento chirurgico
+• Trombo-endoarteriectomia
+
+Si rimuove il trombo e il tess. endoteliale incidendo:
+◦ lungo tutta l’occlusione (“open”)
+◦o solo a monte o a valle del trombo (“semi-open”).
+
+• bypass chirurgico
+• amputazione (necrosi estesa, gangrena o pazienti non deambulanti).
+
+Ischemia CRITICA dell’arto (CLI , Critical Limb Ischemia)
+Fase più avanzata della AOAI.
+Si manifesta con dolore a riposo e/o lesioni trofiche (ulcere o gangrena) di natura aterosclerotica,
+persistenti da >15gg.
+
+Diagnosi → pressione a livello della caviglia:
+◦ <50 mmHg senza lesioni ischemiche
+◦ <70 mmHg con lesioni ischemiche o gangrena.
+
+Terapia → prevenzione e trattamento infezioni con antibiotici mirati + controllo del dolore con morfina.
+Se non migliora con rivascolarizzazione endovascolare immediata, l’amputazione è probabile entro 6-12 mesi.
+
+Ischemia ACUTA dell’arto (ALI).
+Improvvisa compromissione della perfusione arteriosa a causa di trombi o emboli. È un’emergenza che minaccia la vitalità dell’arto.
+
+Eziologia
+• progressione aterosclerosi
+
+• embolie periferiche
+• embolie cardiache (FA , trombo VS , aneurisma ventricolare , protesi valvolari).
+• Ipercoagulabilità , cateterismo cardiaco , procedure endovascolari, assistenza extracorporea.
+Patologia l’ischemia fa produrre acido lattico con danno endoteliale e attivazione della coagulazione.
+
+Clinica → 6
+1.
+2.
+3.
+4.
+5.
+6.
+
+P di Pratt
+
+Pain
+Pallore
+Pulselessness
+Parestesia
+Paralisi
+Poichilotermia (ipotermia distale)
+
+Classificazione ALI
+secondo le linee guida europee
+Da Grado 1 → arto vitale senza deficit neurologico
+a Grado 3 → ischemia irreversibile con perdita di sensibilità e motilità.
+Necessità di amputazione.
+
+Diagnosi
+• eco-color-doppler
+• arteriografia → valuta estensione dell’occlusione.
+
+TERAPIA
+• UFH e antidolorifici
+• Rivascolarizzazione
+◦embolia
+→ tromboembolectomia con catetere Fogarty
+◦trombosi
+→ trombolisi farmacologica o rimozione meccanica
+(aspirazione o PTA con stent).
+
+◦chirurgia (bypass o endoarteriectomia)
+• Amputazione
+
+STENOSI ARTERIE RENALI
+Eziologia
+◦ aterosclerosi (80%) nel 1/3 prossimale dell’A. renale, dato l’angolo di emergenza a 90º dall’aorta addominale.
+
+◦Displasia fibro-muscolare congenita (20%) nelle donne giovani!!!
+
+→ comporta sostituzione della componente elastica della tonaca muscolare arteriosa con tessuto fibroso.
+◦ cause rare → arterite di Takayasu, dissecazione aortica, aneurisma arteria renale.
+
+Tipologie di stenosi renale
+• monolaterale (⬆ ️ renina , =normovolemia) → RAAS-i
+• bilaterale (renina normale) → RAAS-i + diuretico
+• monolaterale su rene unico (renina normale)
+
+Fasi patogenetiche della stenosi renale
+1. Fase renina-dipendente
+Ipoperfusione renale causata dalla stenosi 🟢 RAAS → renina.
+L’ ipertensione è attribuibile principalmente alla vasocostrizione da AT2.
+
+2. Fase renina-indipendente
+In caso di stenosi monolaterale, il rene controlaterale riduce la produzione di renina per equiparare il surplus proveniente dal rene
+stenotico a valle. In questa fase l’ipertensione è attribuibile all’espansione del VEC.
+
+Clinica dell’ipertensione da stenosi renale.
+Spesso decorre in modo asintomatico finche la riduzione del lume vascolare >50%.
+
+Quando la sospettiamo?
+◦Repentina ipertensione diastolica
+◦peggioramento repentino di ipertensione preesistente.
+◦ ipertensione grave sin dall’inizio + deterioramento progressivo funzionalità renale + refrattarietà ai farmaci.
+A volte edema polmonare o ipoK+.
+
+Diagnosi ipertensione nefrovascolare
+• E.O. → soffio vascolare sisto-diastolico (non sempre e non è indicativo di ipertensione nefrovascolare)
+• Laboratorio → esami ematochimici e urine tipici dell’ipertensione.
+
+• reninemia ( differenza >1,5 tra rene stenotico a valle rispetto al rene; poco usata).
+• aldosteronemia (se aumenta = ipoK+ e iper-HCO3-).
+
+IMAGING
+Eco-color-doppler (utile per occlusione >60%)
+◦asimmetria dimensionale tra i due reni (il rene stenotico a valle è più piccolo del controlaterale)
+◦accelerazione flussimetrica attraverso l’arteria stenotica
+
+Scintigrafia renale con Captopril 50mg
+Si somministra tracciante radioattivo ponendo due elettrodi sull’addome in corrispondenza dei reni.
+Nel rene normale il radiotracciante si accumula rapidamente e viene dismesso lentamente.
+Nel rene stenotico la curva ha una forma piatta: il tracciante resiste più a lungo perché il sangue entra più lentamente a causa della
+stenosi, che limita anche il wash-out.
+
+Poi si somministra il Captopril, osservando uno schiacciamento della curva, con peggioramento delle condizioni del pz.
+Ciò accade perché il RASS, inibito dal farmaco, manteneva le funzioni renali ,già alterate di partenza.
+
+3º livello → Angio-TC / Angio-RM
+Da effettuare previa positività o sospetto da eco-color-doppler e/o scintigrafia.
+La RM identifica:
+◦ tratti di restringimento.
+◦dilatazione a monte di una stenosi.
+◦ circoli collaterali grazie al mdc.
+
+🥇 Gold standard → Arteriografia interventistica
+Si sottopone il pz solo dopo aver raccolto dati a sufficienza con le indagini sovracitate.
+Permette di visualizzare direttamente la stenosi, valutandone entità e gravità, e di intervenire posizionando uno stent.
+
+TERAPIA
+Stile di vita → ridurre quantità di sodio <5 g/die + attività fisica 150’/sett + evitare alcol, fumo e cibi grassi .
+
+Trattamento farmacologico (ACE-i e/o ARB + CCB)
+• stenosi monolaterale → trattamento farmacologico.
+(salvo: ipertensione di breve durata prima della diagnosi di ipertensione nefrovascolare o intolleranza)
+• stenosi bilaterale (o monolaterale in pz con un solo rene funzionante) → trattamento farmacologico.
+(Salvo criteri sovracitati + IR da ipoperfusione renale)
+
+Approccio interventistico (esito migliore in caso di fibro-displasia)
+• resistenza a terapia medica → rivascolarizzazione percutanea (angioplastica)
+Raccomandata in caso di edemi polmonari ricorrenti, HF a funzione preservata o IRA.
+Nel 30% dei pz non porta miglioramenti significativi. In un altro 20% può addirittura causare peggioramenti.
+• anomalie anatomiche complesse → rivascolarizzazione chirurgica.
+Alto rischio di infezioni, emorragie e mortalità (5% a 30 giorni).
+
+Patologie arteriose INTESTINALI
+[ Anatomia
+Apporto sanguigno addominale: tripode celiaco, mesenterica superiore ( 70%) , mesenterica inferiore (10%).
+Anastomosi:
+◦Rio branco → tripode celiaco + mesenterica superiore
+◦Riolano → mesenterica superiore + inferiore
+◦arteria marginale del Drummond → tra mesenterica superiore, inferiore e ipogastrica. ]
+
+Insufficienza celiaco-mesenterica cronica (o Angina addominale)
+Sindrome doloroso peptica causata da un’insufficiente apporto di sangue all’apparato digerente.
+Il dolore può essere dovuto dalla necessità di sangue durante la digestione o a lesioni occlusive.
+Circoli collaterali provano a compensare questa richiesta.
+
+Eziologia → aterosclerosi, arterite, traumi, neoplasie.
+Clinica
+◦ lesioni trofiche della mucosa
+◦sindrome da malassorbimento
+◦ dolore post-prandiale (30’) crampiforme in epigastrio/mesogastrio.
+◦ meteorismo.
+A volte soffio periombelicale.
+
+Diagnosi
+• segni di malassorbimento (laboratorio)
+
+• eco-color-doppler
+• angio TC (escludo neoplasie o emorragie)
+• arteriografia (in casi dubbio prima di un intervento).
+
+Stadiazione
+1. asintomatica
+2. angina addominale
+3. necrosi ischemica, colite ischemica, ulcere gastriche recidivanti.
+
+Terapia
+• rimozione placca con trombo-endoarteriectomia
+• bypass
+• Angioplastica con o senza stent → utile per stenosi brevi e isolate (⚠ mai
+se l’ostruzione in continuità con una placca aortica).
+️
+
+Ischemia intestinale acuta
+Improvvisa riduzione del flusso ematico intestinale con rischio di infarto intestinale.
+Condizioni come valvulopatia, aterosclerosi aritmia predispongono la formazione di emboli o trombi.
+
+Eziologia
+OCCLUSIVA (60%)
+• ostruzione arteriosa da embolia o trombosi
+• ostruzione venosa (v.porta o mesenterica superiore) da:
+◦trombosi asettica (cirrosi, ipertensione portale)
+◦tromboflebite infettiva (peritonite settica)
+
+NON OCCLUSIVA (40%) da insufficienza cardiaca, intossicazione da digitale.
+Clinica
+1. Fase iniziale (1-6h) → dolore addominale spastico.
+2. intervallo di calma (7-12h) → dolore paralitico. Peristalsi assente.
+3. Fase terminale (12-24h) → ileo paralitico, vomito e dolore addominale irradiato in regione lombare.
+
+Esame obiettivo
+Inizialmente asintomatico, dopo poche ore compare distensione addominale e dolore alla palpazione.
+Nelle ostruzioni venose le anse si infarciscono di sangue il dolore epigastrico e atroce + vomito, diarrea e sangue nelle feci.
+Si può arrivare al collasso circolatorio, ipotermia e anemia acuta.
+
+Diagnosi → Doppler, RX addome, laboratorio (sangue occulto nelle feci, amilasi, LDH, leucocitosi, neutrofilia).
+Terapia
+• Embolia → embolectomia
+• trombosi → trombo-endoarteriectomia o bypass
+
+• resezione intestinale in caso di necrosi
+• trombosi v.mesenterica → resezione parte infarcita e del segmento intestinale necrotico.
+
+PIEDE DIABETICO
+Emergenza medica che colpisce una percentuale significativa dei diabetici, con aumento dell’incidenza all’aumentare del tempo che
+passa dalla diagnosi.
+
+Eziologia → 3 cause principali:
+
+1.
+
+NEUROPATIA
+
+• Sensitiva → diminuzione soglia del dolore (si rischia che calli e/o escoriazioni, non avvertiti, evolvano in ulcere)
+• Motoria
+◦dita “a griffe”
+◦ piede cavo
+◦ alterazione appoggio plantare che favorisce la formazione di ipercheratosi
+
+• Autonomica → perdita funzionalità delle fibre che regolano la secrezione ghiandolare della pelle
+→ secchezza cutanea (anidrosi) → fissurazioni .
+alterazioni microcircolo → edema.
+
+2. ISCHEMIA
+Sclerosi di Mockenberg (grave) → occlusioni arteriose da calcificazioni della tonaca media
+Favorita dallo stato procoagulativo + infiammazione persistente dell’endotelio (riduce l’effetto vasodilatante del NO)
+Colpisce spesso arterie di piccolo calibro sotto il ginocchio, rendendo gli interventi più complessi.
+Resta asintomatica, rendendo difficilmente riscontrabile una claudicatio, mascherata da parestesie e dolori neuropatici.
+
+3.
+
+INFEZIONI (S.Aureus , P.Aeruginosa , Enterococchi)
+
+La vasculopatia compromette il reclutamento di cellule infiammatorie.
+Le endotossine batteriche aggravano la necrosi cellulare e la trombosi vasale, portando a manifestazioni su più piani anatomici:
+
+• cellulite superficiale (derma)
+• cellulite suppurativa (cute e sottocute)
+• fascite necrotizzante → colliquazione e necrosi della fascia muscolare.
+• cellulite necrotizzante → estesa ai tendini (⚠ 🚨
+️ rischio osteomielite)
+
+Piede diabetico infetto e ischemico
+L’ischemia impedisce al tessuto infetto di avere l’ossigeno che gli serve per combattere i patogeni, rendendo più difficoltosa la
+guarigione.
+
+Classificazione di Texas
+• classificazione infezioni (0-3) → superficiale , profonda ,molto grave
+• classificazione ischemia (A-D)
+◦buona perfusione arteriosa
+◦ischemia moderata
+◦ ischemia grave
+◦ ischemia critica ,con rischio di perdita arto.
+
+Diagnosi
+
+1. ANAMNESI
+→ durata e controllo del diabete, familiarità o storia di neuropatia o arteriopatia periferica o disturbi vascolari .
+
+2. E.O.
+• colorazione della cute
+◦ pallore→ ischemia
+◦cianosi → insufficienza arteriosa
+◦eritema → infezione.
+
+• temperatura → fredda = arteriopatia , calda = piede di Charcot
+• ulcere
+◦ulcera neuropatica → pianta del piede (tallone) , profonda con bordi ispessiti e callosi.
+◦ulcera ischemica → estremità delle dita, dolorosa + tessuto necrotico e bordi netti.
+
+• unghie → onicomicosi o unghia incarnita sono fattori di rischio per ulcere e infezioni batteriche.
+
+Classificazione di Meggitt-Wagner per le ulcere
+Grado 1 → superficiale (sottocute).
+Grado 2 → profonda non infetta.
+Grado 3 → profonda e infetta.
+Grado 4 → ischemia con necrosi gangrena delle dita.
+Grado 5 → gangrena estesa del piede.
+
+3. Palpazione (valuta la vascolarizzazione)
+• Polsi periferici (tibiale posteriore dietro il malleolo mediale , arteria pedidia)
+Se sono deboli assenti valutiamo con eco-color-doppler e ABI.
+
+• Riempimento capillare
+→ premiamo un dito del piede e valutiamo il tempo di colorazione tre (>3” = insufficienza arteriosa).
+
+• Test di Buerger → se dopo aver sollevato la gamba a 45° per 1-2’ il piede diventa pallido = arteriopatia.
+
+4. Valutazione neurologica, classificata con il DNI (Diabetic Neuropathy Index):
+◦sensibilità vibratorie con diapason 128 Hz.
+◦test del monofilamento da 10g (sensibilità tattile).
+◦riflessi rotuleo e Achilleo.
+
+5. Valutazione vascolare
+‣ polsi periferici
+‣ indice caviglia/braccio (ABI , Ankle Brachial Index) >0,9
+‣ treadmill test
+‣ ossimmetria transcutanea
+‣ angiografia
+‣ eco-color-doppler arterioso
+
+6. Valutazione infettiva
+◦conta leucocitaria + VES e PCR.
+◦ RMN e RX per osteomielite.
+◦ colture da tampone superficiale o biopsia profonda.
+
+Terapia
+• Prevenzione
+◦ esame annuale dei piedi nei pz con DM
+◦educazione del paziente (igiene quotidiana, scelta accurata delle scarpe, controlli dal podologo).
+
+• Trattamento ulcera
+1. riposo a letto
+2. debridement
+3. fasciatura sterile
+4. antibiotici (metronidazolo , amoicillina , benzilpenicillina).
+5. rivascolarizzazione
+6. amputazione.
+
+Tipologia di amputazione → dito del piede (meno invasiva) , trans-metatarsale , sotto-rotulea, sopra-rotulea, alla caviglia.
+
+Piede di Charcot🔥
+Neuro-osteoartropatia degenerativa su base infiammatoria , che colpisce i pazienti con neuropatia e comporta un progressivo
+
+riassorbimento osseo delle articolazioni del piede.
+Nei casi gravi si verificano crolli strutturali e marcate deformità , tale da richiedere chirurgia o amputazione.
+
+Eziologia
+◦neuropatia diabetica (🥇 )
+◦neuropatia alcolica
+◦paralisi cerebrale
+◦lebbra ,sifilide.
+◦iniezioni intrarticolari di steroidi .
+
+Diagnosi
+‣ eritema, edema, sensazione di calore
+‣ dolore non sempre presente a causa della neuropatia diabetica
+‣ deformità articolari, lussazioni, fratture e erosione nelle fasi avanzate
+
+• ⚠🥇
+RMN → evidenzia osteolisi metatarsali distali (riassorbimento osseo) e fratture periarticolari e lussazioni
+️
+• RX
+
+Yee
+
+imitiL
+
+n
+
+vite
+
+Prevenzione → trattamento neuropatia per ridurre il rischio di microtraumi non avvertiti + uso di scarpe protettive.
+
+Terapia
+• conservativa → immobilizzazione per prevenire lesioni e fratture . Utilizzo cast o scarpa speciale fans scarpe protettive.
+
+• Chirurgia correttiva.
+• Amputazione (deformità irreparabili).
+
+PATOLOGIE VENOSE
+Sistema venoso arto inferiore
+• sistema Venoso profondo (iliaca, femorale, poplitea, tibiale) → decorso sottomuscolare.
+• Sistema venoso superficiale (grande e piccola safena) decorso soprafasciale.
+
+Sono collegati da:
+◦ vene comunicanti → collegano vene dello stesso piano, favorendone il ritorno venoso.
+◦Vene perforanti → collegano il sistema superficiale con quello profondo attraverso la fascia muscolare.
+Sono dotate di valvole. Se danneggiate causano ristagno e dilatazione delle vene superficiali (varici).
+
+Malattia varicosa
+
+o insufficienza venosa cronica degli arti inferiori.
+
+Le vene varicose sono vene sottocutanee perennemente dilatate con diametro maggiore di 3 mm in posizione eretta.
+
+Tipologie
+• varici teleangectasiche (venule post capillari rosso blu) → pluripare.
+• varici reticolari → evidenti in donne con pelle sottile e chiara
+• varici tronculari (safena).
+
+Classificazione delle varici → essenziali , gravidiche, da atleta. da fistola , angiodisplastiche , in corso di TVP.
+Eziologia → incontinenza valvolare e debolezza della parete venosa (poco collagene e elastina).
+Fattori di rischio → donne, età, gravidanza, pelle sottile, obesità, lavori che richiedono di stare in piedi per lunghi periodi.
+CLINICA → stanchezza e senso di pesantezza serale , Edema perimalleolare , crampi notturni.
+Fisiopatologia
+Quando si resta molto tempo all’impieghi durante uno sforzo fisico, in presenza di varici e insufficienza valvolare di safene e vene
+perforanti, il sangue spinto verso il cuore dalla pompa muscolare (muscoli surali), refluisce nel circolo superficiale, dilatando le vene
+superficiali causando varici.
+
+⚠ ️ Complicanze
+• Tromboflebiti superficiali
+Il sangue ristagno nelle vene dilatate, favorendo la formazione di trombi.
+Dolore intenso, arrossamento e febbre. Basso rischio di embolia.
+
+• Ulcere venose
+Derivano dall’ipertensione venosa periferica.
+
+Meccanismo → il reflusso venoso aumenta la pressione delle vene periferiche tale da far trasudare liquido nei tessuti circostanti,
+causando edema. Si scatena infiammazione cronica con prurito e fragilità cutanea, con aumento del rischio di sovrainfezione.
+
+Si formano lentamente nel tempo, con traumi anche anche minimi, e tendono alla recidiva.
+
+• Emorragia da rottura delle varici
+
+Diagnosi
+• anamnesi → familiarità fattori di rischio e sintomi principali.
+• Esame obiettivo →
+
+◦ varici >3mm visibili in ortostatismo
+
+◦ edema (stadio C3 CEAP)
+◦ iperpigmentazione cutanea / eczema.
+
+Test di Trendelenburg
+Si mette il paziente supino alzando una gamba per svuotare le vene.
+Applichiamo laccio a livello della coscia e gli chiediamo di mettersi in piedi:
+◦se le vene superficiali si riempiono lentamente dal basso all’alto → test negativo (non c’è insufficienza valvolare)
+◦Se all’ablazione del laccio le vene si riempiono bruscamente → insufficienza valvolare
+◦se le vene si riempiono rapidamente anche senza ab ablazione → insufficienza valvolare e delle perforanti
+◦Se levene si riempiono rapidamente ma l’ablazione non provoca modifiche → insufficienza solo dei rami perforanti.
+
+Test di Perthes
+Apponiamo laccio alla coscia del pz chiedendogli di camminare.
+Se le vene varicose si svuotano, le vene profonde sono pervie (tutto ok).
+
+IMAGING → eco-color-doppler.
+
+Classificazione C.E.A.P. ‼ ️
+• Clinica
+◦C1 → teleangectasie o varici reticolari
+◦C2 → varici tronculari
+◦C3 → edema
+◦C4 → alterazioni cutanee
+
+◦ C5 → segni cutanei + ulcera guarita
+◦ C6 → segni cutanei + ulcera attiva
+• Eziologia → congenita / primitiva / secondaria / non determinata.
+• Sede (“Anatomy”) → sistema superficiale / sistema delle perforanti / sistema profondo / non determinata.
+• Fisiopatologia → reflusso venoso , ostruzione, reflusso + ostruzione.
+
+TERAPIA
+◦Educazione del pz → attività fisica regolare, evitare stazione eretta prolungata, evitare estroprogestinici orali.
+◦medica
+
+→ non modifica la progressione. Calze elastiche graduate (compressione decrescente dalla caviglia alla coscia).
+
+Terapia CHIRURGICA → per le varici che coinvolgono grossi vasi (es.safena):
+• Safenectomia
+Si incide all’inguine e a livello popliteo, introducendo una sonda (stripper) che trascina via la safena.
+
+Rischi → ematomi da drenare, edema persistente o parestesie per danno al nervoso safeno.
+
+• Flebectomia ambulatoriale secondo Muller
+Dopo micro-incisioni cutanee in anestesia locale e senza punti di sutura, estraiamo le vene varicose con uno strumento detto
+
+crochet di Muller.
+
+Terapia MINI-INVASIVA (varici superficiali: venule post capillari, teleangectasie).
+Spesso per motivi estetici.
+
+• Scleroterapia → iniezione agente sclerosante che chiude il vaso ogni 7gg, seguita da indossare calze elastiche per 48h.
+• Fotocoagulazione laser (no cicatrici)
+• termoablazione endovascolare (laser o radiofrequenza con un catetere eco-guidato)
+
+Tecniche endovascolari avanzate
+◦ablazione termo-laser (catetere eco-guidato)
+◦ablazione meccanico-chimica (catetere Flebogrif® )️
+
+Trombosi venosa profonda
+
+(TVP)
+
+Trombi che possono includere parzialmente totalmente vasi venosi, colpendo principalmente gli arti inferiori.
+
+Fattori di rischio
+• ACQUISITI → età , immobilizzazione, chirurgia, traumi, neoplasie, gravidanza, contraccettivi orali.
+• GENETICI → deficit AT III, proteine C ed S, fattore V Leiden , mutazione protrombina.
+
+Fisiopatologia
+Attivazione anomala della cascata coagulativa nel sistema venoso, favorita da uno squilibrio della triade di Virchow (stasi venosa,
+danno endoteliale, ipercoagulabilità).
+La trombosi inizia a livello delle cuspidi valvolari, dove i vortici ematici favoriscono la formazione del trombo.
+
+CLINICA
+Esordio spesso subdolo, asintomatico nell’80% dei casi o sintomatologia monolaterale (Dolore o edema).
+Febbre, pesantezza e tachicardia ( TVP femoro-iliaca).
+
+Esame obiettivo:
+• dolore ed edema unilaterale
+• segno di Bauer (cianosi e/o turgore muscolatura (?) )
+• Segno di Pratt
+• segno di Hoffmann → dorsiflessione del piede evoca dolore.
+• segno di Liscker → dolore alla percussione della tibia
+
+Wells Score → stima la probabilità di TVP pre-esami strumentali.
+CRITERI
+‣ Paralisi , paresi o immobilizzazione recente di un arto inferiore
+‣ Allettamento recente >3 gg o intervento chirurgico nelle ultime 4 settimane
+‣ Dolore localizzato lungo il decorso del sistema venoso profondo
+‣ Gonfiore di tutto l’arto inferiore
+‣ Differenza circonferenza polpaccio superiore-controlaterale >3cm
+‣ Edema con fovea all’arto sintomatico
+‣ Vene superficiali collaterali non varicose
+‣ Diagnosi alternativa almeno altrettanto probabile quanto la TVP
+
+• Wells <2 → dosaggio D-dimero (se negativo tutto ok).
+• Wells >2 o D-dimero positivo → eco-color-doppler 🥇
+
+IMAGING
+🚨 ‼ ️ Prima degli esami strumentali, se non possiamo eseguire i test sovracitati, somministriamo LMWH preventiva.
+🚑 In emergenza → compressione ultrasonografica (CUS)
+valutiamo la capacità delle vene di collabire premendo con la sonda ecografica sul tratto venoso esaminato.
+Se una vena è comprimibile completamente non contiene trombi.
+
+Per i vasi non valutabili con CUS, uso angio-TC o angio-RM.
+
+TERAPIA
+• prevenzione
+→ movimenti durante i viaggi, evitare esposizione al sole nelle ore più calde, calze elastiche, attività fisica regolare , no fumo.
+• terapia anticoagulante → LMWH per 7 gg, poi NOAC (piu usati oggi) o warfarin.
+Se sono coinvolti distretti iliaco-cavali o in caso di EP → ricovero. Altrimenti domiciliare.
+• Terapie avanzate
+◦ trombolisi → con trombolitici o Fogarty nei giovani
+◦ filtro cavale → pz con controindicazioni agli anticoagulanti oppure EP recidivante.
+
+COMPLICANZE
+• EP
+• Sindrome post-trombotica (SPT)
+Si instaura dopo diversi episodi di TVP, sviluppando un reflusso permanente che trasmette sangue dalle vene profonde a quelle
+superficiali attraverso le vene perforanti incompetenti.
+
+Clinica → edema , varici , alterazioni cutanee (discheratosi e eczema), ulcere da stasi.
+Diagnosi → eco-color-doppler
+Evidenzia reflusso nelle vene profonde >0,5 secondi e calibro >4 mm (→ trattamento necessario).
+
+Scala di Villalta-Prandoni (0-33) → valuta gravità SPT.
+Ad ogni sintomo viene attribuito un punteggio da 0 (assenza) a 3 (molto severo).
+Tiene conto di:
+
+• 5 sintomi → dolore ,crampi, pesantezza ,parestesie, prurito.
+• 6 segni clinici
+1. edema pretibiale
+2. indurimento cutaneo
+3. iper pigmentazione
+4. rossore
+5. ectasia venosa
+6. dolore alla compressione del polpaccio
+
+• presenza / assenza di ulcera venosa.
+SPT definita per:
+
+punteggio >5 o presenza di ulcera venosa.
+🟢 SPT Lieve → 5-9
+🟡 SPT moderata → 10-14
+🔴 SPT grave → >15 o presenza di ulcera.
+
+Terapia
+•
+
+contenzione elastica durante la stazione eretta
+
+• medicazione giornaliera del ulcera
+• chirurgia (manca la risposta alla terapia medica)
+◦legatura rami perforanti incontinenti
+◦ bypass venoso autologo per ostruzioni croniche di vasi di grosso calibro.
+
+Anatomia vascolarizzazione encefalo
+Riceve il 20% della GC, grazie all’interconnessione di due sistemi:
+• circolo anteriore → origina dalle carotidi interne
+• circolo posteriore → origina dall’unione delle due arterie vertebrali a livello del solco bulbo-pontino.
+
+Arterie carotidi
+•
+
+comuni
+◦destra (dal tronco brachicefalico, insieme alla succlavia)
+◦sinistra (dall’arco aortico)
+
+decorrono lungo il margine anteriore dello SCM.
+Al margine superiore della cartilagine tiroidea (bulbo carotideo) si biforcano in:
+• carotide interna
+non emette collaterali nel collo, decorrendo medialmente rispetto al vago e penetrando nella rocca petrosa del temporale attraverso il
+foro carotideo.
+◦Collaterali intracranici → oftalmica
+◦rr. terminali → cerebrale anteriore , cerebrale media , corioidea anteriore , comunicante posteriore.
+• Carotide esterna
+◦collaterali → tiroidea superiore e rami al volto (“tira loffa”).
+◦rr. Terminali
+‣ mascellare interna → meningea media
+‣ temporale superficiale
+
+Arterie vertebrali
+Nascono dalla succlavia per unirsi a livello bulbo pontino, dando origine all’arteria basilare, i cui collaterali sono:
+‣ cerebellare inferiore anteriore, arterie pontine, cerebellare superiore.
+‣ Terminali → cerebrali posteriori
+
+STENOSI CAROTIDEA
+Restringimento del lume dell’arteria carotidea, causata solitamente da aterosclerosi.
+
+Composizione delle placche
+◦fibrosa
+◦ fibrocalcifica (poco incline a frammentar tarsi)
+◦emorragica o ulcerata → core lipidico instabile. Alto rischio ictus cerebrale da emboli.
+
+CLINICA
+• TIA → sintomi neurologici da ischemia cerebrale ,reversibili entro 24h, non ci sono alterazioni strutturali alla neuroimaging.
+• Ictus ischemicho → ischemia prolungata con deficit neurologico persistente >24h. Danno documentabile alla neuroimaging.
+Il grado di stenosi è proporzionale all’insufficienza cerebrovascolare (sintomi da ipoperfusione cerebrale).
+◦Occlusione Lieve <50%
+◦moderata 50-69%
+
+◦ severa >70%
+◦ completa 100%.
+
+Metodo NASCET → confronto diametro residuo del vaso con quello normale della carotide distalmente alla stenosi.
+
+Classificazione di Marsiglia (stadi clinici progressivi).
+• Stadio 0 → Soffio carotideo in paziente asintomatico.
+• stadio 1 (TIA)
+◦ 1A → breve durata con risoluzione rapida dei sintomi
+◦ 1B → prolungato fino a 24 ore. Evidenza di micro infarti alla tac o RM con mdc.
+• stadio 2 (TIA crescendo) → TIA ricorrenti sempre più ravvicinati, segno di evoluzione verso ictus.
+• stadio 3 → ictus ischemico in fase acuta
+‣ 3A → deficit neurologico lieve parzialmente recuperabile con riabilitazione.
+‣ 3B → ictus con deficit severo e permanente.
+
+Sintomi
+1. circolo anteriore (carotidi interne il loro rami)
+• deficit motori → emiparesi o emiplegia controlaterale
+• deficit sensitivi → ipoestesia o anestesia controlaterale.
+• disturbi linguaggio (emisfero sx)
+◦afasia Broca → difficoltà nell’espressione verbale ma comprensione conservata
+◦afasia di Wernicke → difficoltà nella comprensione con eloquio fluente ma privo di significato
+
+◦ cecità monoculare transitoria (amaurosi fugax).
+
+Carotide interna → TIA e stroke
+
+2. Circolo posteriore (aa.vertebrali e basilare)
+• deficit motori e sensitivi bilaterali o alternanti
+
+• sindrome cerebellare (atassia, dismetria, vertigini, instabilità posturale).
+• “Drop attack” → perdita improvvisa tono muscolare AI
+• disturbi deglutizione e disfonia
+• emianopsia laterale (aa. cerebrale posteriore)
+Sia stroke maior che stroke minor sono irreversibili, ma la gravità del danno e dei sintomi varia.
+
+Diagnosi → Eco-Color-Doppler TSA
+◦morfologia placca (ipoecogena) . Le più pericolose sono quelle posteriori.
+◦velocità sistolica di picco 130 cm/s → stenosi angiografica >50%
+◦velocità sistolica di picco 200 cm/s → stenosi angiografica >70%.
+Stenosi sintomatica → sintomi neurologici focali (TIA) nei 6 mesi precedenti alla diagnosi.
+
+TERAPIA
+valutiamo grado di stenosi con metodo NASCET
+‣ Occlusione Lieve <50% (basso rischio di ictus) → controllo fattori di rischio
+‣ moderata 50-69% → intervento se sintomatico
+‣ severa >70% → endoarteriectomia o stent se sintomatico
+‣ completa 100% (rischio molto alto) → solo terapia medica.
+
+Prevenzione primaria farmacologica
+◦ stenosi >50% asintomatica → ASA a basse dosi.
+◦stenosi sintomatica → Clopidogrel 75 mg.
+
+BMT (Best Medical Treatment) → correzione fattori di rischio (diabete, fumo , PA) + antiaggreganti.
+
+Rivascolarizzazione carotidea (TEA , tromboendoarteriectomia)
+Indicazioni
+• Stenosi sintomatica 70-99%
+
+◦aspettativa di vita >5 anni → TEA
+◦se controindicazioni, Tea precedente, RT al collo → stent.
+• Stenosi sintomatica 50-70% + aspettativa di vita >5 anni → TEA (nelle donne preferiamo la terapia medica)
+• stenosi sintomatica <50% → terapia medica
+• stenosi che ha dato TIA o stroke minor → TEA entro 2 settimane
+
+•
+
+🚑 Stenosi con placche instabili o in evoluzione clinica → TEA in urgenza.
+
+Procedura TEA
+Effettuate in chirurgia open asportando la placca e poi effettuando una pulizia.
+Necessitando di clampaggio carotideo, esistono alcune tecniche per studiarne la tolleranza del paziente:
+◦ potenziali somatosensoriali evocati (elettrodi lungo il rachide. Ok se 50-70 mmHg)
+◦ EEG continuo
+◦Doppler trans cranico
+◦ossimmetria giugulare continua (opto per lo shunt se pO2 < 50%
+
+Eseguibile con:
+• anestesia generale
+
+→ barbiturici che abbassano il metabolismo di O2 cerebrale, permettendo al pz di rimanere in ischemia per più tempo.
+• Anestesia locoregionale con blocco cervicale
+Il paziente rimane sveglio e nella mano controlaterale si pone un palloncino gommoso (pick toy).
+Gli si chiede di stringere la pallina dopo il clampaggio carotideo.
+Se l’arto si affloscia, bisogna togliere il clamp e inserire lo shunt temporaneo.
+
+Fasi dell’intervento (tecnica DeBakey)
+1. incisione cute
+
+2. dissezione platisma ‼ ️ per esporre SCM
+3. Dissezione SCM per esporre carotide comune
+4. clampaggio carotide comune prima della biforcazione
+5. clampaggio carotide interna più cranialmente possibile
+6. clampaggio carotide esterna
+7. Esecuzione test di tolleranza
+8. scollamento della placca dalla parete (mai inciderla dall’interno)
+9. sutura della tonaca intima e media incise.
+
+Drenaggio post operatorio rimosso nella prima giornata. Dimissione dopo 3 giorni. Rimozione punti dopo 7 giorni.
+
+Complicanze intraoperatorie
+‣ ictus
+‣ sindrome da rivascolarizzazione (cefalea, crisi epilettiche, deficit neurologici).
+
+Stenting carotideo CAS
+(
+
+)
+
+Procedura di rivascolarizzazione meno invasiva e con meno complicanze.
+
+Indicazioni
+◦comorbidità severe alto rischio chirurgico
+◦paralisi n.laringeo ricorrente controlaterale
+◦lesioni della carotide
+‣ molto distali
+‣ controlaterale
+‣ comune e biforcazione carotidea alta (sopra C2).
+
+Procedura
+Accesso da a.femorale (altrimenti iliache comuni, altrimenti brachiale), in anestesia locale.
+Si utilizzano dispositivi di protezione cerebrale per ridurre il rischio (del 70%) di eventi embolici:
+• sistemi di protezione PROSSIMALI (cateteri)
+Con dei cateteri a palloncino si ostruisce il flusso, trattenendo emboli, ma anche il sangue. Vengono aspirati a fine procedura
+• Sistemi di protezione DISTALI
+Si posizionano dei filtri dotati di scheletro metallico ricoperto con polietilene a valle della stenosi, in grado di trattenere gli emboli che
+potrebbero distaccarsi durante la procedura ma che permettono il passaggio del sangue (flusso anterogrado conservato).
+
+Complicanze
+• Se trattengono eventuali emboli si rischia che questi entrino in circolo quando si rimuove il dispositivo a fine procedura.
+• Difficoltà nell’attraversare i vasi molto stenotici o tortuosi
+
+Controindicazioni ⚠ ️
+• anomalie arco aortico o vasi epiaortici
+• tortuosità carotide prossimale
+• giovane età.
+
+Prevenzione secondaria
+DAPT entro 24h nei pz con TIA o ictus, da continuare per 1 mese.
+Si somministra dopo la CAS per 1 mese (previene trombi intra-stent).
+
+Anatomia arterie succlavia e ascellari
+La succlavia destra origina al tronco brachiocefalico, la sinistra dall’arco aortico.
+È suddivisa in tre porzioni: pre, retro e post-scalenica.
+
+Prosegue come arteria ascellare che si divide in 3 porzioni in base al rapporto che contrae con il muscolo pettorale lungo il suo
+decorso.
+
+Prosegue poi come arteria brachiale, medialmente all’omero, medialmente al bicipite brachiale e anteriormente al tricipite. Decorre
+insieme alla vena cubitale e al tendine bicipitale nella fossa cubitale.
+
+Sindrome da furto della succlavia
+Stenosi con riduzione del flusso nel tratto prevertebrale della succlavia, con caduta della pressione a valle
+(succlavia e a. vertebrale).
+
+Eziologia → aterosclerosi , arterite di Takayasu, lesioni osteofitiche della clavicola o della prima costa.
+Fisiopatologia
+Se l’occlusione si manifesta nella succlavia sinistra, il sangue bypass l’occlusione utilizzando le arterie vertebrali, compensando la
+riduzione di flusso all’arto superiore.
+Durante uno sforzo fisico, il flusso viene sottratto al circolo cerebrale (furto), causando sintomi neurologici
+
+Clinica
+• neurologici → vertigini, cefalea, difficoltà visive, lipotimia (soprattutto durante sforzo fisico)
+• arto superiore → parestesie (formicolio o pelle d’oca), claudicatio, astenia.
+
+Diagnosi
+• polso iposfigmico o assente (ascellare, omerale, radiale o ulnare)
+• differenza PAS tra braccio dx e sx = 10-15 mmHg
+• differenze di temperatura tra i due arti
+• parestesie, pallore, dolore.
+
+Imaging → eco-color-doppler delle succlavie.
+Test dell’iperemia reattiva
+Valuta la presenza di un flusso retrogrado nell’arteria vertebrale dovuto a stenosi o occlusione prossimale della succlavia.
+Si esegue inducendo ischemia dell’arto superiore (di solito con un bracciale gonfiato sopra la PAS) e successiva rapida deflazione.
+L’aumento improvviso della richiesta di flusso nell’arto provoca, in caso di stenosi della succlavia significativa, una riduzione o
+inversione del flusso vertebrale omolaterale, documentabile con ecocolordoppler.
+
+Un test positivo indica che il circolo vertebro-basilare viene “sottratto” per perfondere l’arto, confermando un furto succlavio
+emodinamicamente rilevante.
+
+Terapia
+• Pz sintomatici (TIA + furto succlavia)
+
+→ rivascolarizzazione endovascolare con angioplastica a palloncino con o senza stent.
+• Stenosi bilaterali o comorbidità (dialisi o necessità di bypass coronarico):
+
+→ bypass extra-anatomico carotide-succlavia con graft protesico.
+
+Varicocele
+Dilatazione e tortuosità del plesso venoso pampiniforme con conseguente reflusso reno-spermatico o cavo-spermatico.
+È più frequente a SX perché:
+‣ la vena spermatica SX si getta ad angolo retto nella vena renale
+‣ Ha un minor numero di valvole
+‣ la vena renale SX viene compressa dall’arteria mesenterica.
+
+Fisiopatologia
+• ipertermia determinata dalla congestione venosa
+• reflusso di sostanze tossiche da rene e surrene
+• la stasi venosa genera alterazioni metaboliche.
+
+Diagnosi
+E.O. in clino e poi ortostatismo
+◦valutazione trofismo testicolare (dimensioni didimali con ecografia o TC)
+◦valutare presenza varicosità scrotali con palpazione durante atto della tosse, avvertendo un reflusso.
+◦Manovra di Valsalva.
+
+• classificazione clinica , lo suddivide in
+◦GRADO 1
+
+→ riscontrabile soltanto la palpazione del testicolo dopo l’esecuzione della manovra di Valsalva (si invita il soggetto a tossire per
+creare compressione addominale e sentire il reflusso del sangue a livello delle vene spermatiche) .
+◦GRADO 2 “palpabile” → non lo si vede a distanza ma si sente il rigonfiamento delle vene alla palpazione.
+◦GRADO 3 → visibile.
+
+• classificazione ECOGRAFICA (la migliore) , con Ecodoppler testicolare (🥇 ) :
+◦da grado 1 a grado 5 (dilatazione venosa evidente in clinostatismo che non si modifica in ortostatismo).
+Ecodoppler evidenzia anche ipotrofia didimaria e quantità e direzione dei flussi scrotali (aumentati e prolungati).
+
+• Spermiogramma
+
+Terapia
+• indicazioni per chirurgia varicocele SX:
+◦grado 4-5 ecografico
+◦danni a motilità e morfologia degli spermatozoi in >2 spermiogrammi a distanza di almeno 3 mesi.
+◦Sintomatologia e peggioramento qualita di vita.
+• Indicazioni per chirurgia varicocele DX
+‣ coesistenza di un varicocele sx
+
+‣ persistenza dopo trattamento a sx
+‣ varicocele monolaterale
+
+Tipologie di chirurgia
+• approccio preferito → inguinale secondo Ivanissevich (altrimenti sub-inguinale o retroperitoneale secondo Palomo).
+Rimozione o legatura delle vene dilatate. Bisogna fare attenzione all’arteria testicolare.
+
+• Scleroembolizzazione
+→ si inietta nella vena spermatica una sostanza trombizzante (platino o sost.sclerosanti) che chiuderà la vena, impedendo il reflusso.
+Un giovane con varicocele di grado 3 che vuole avere i figli non si opera, salvo alterazioni dello spermiogramma.
+
+
