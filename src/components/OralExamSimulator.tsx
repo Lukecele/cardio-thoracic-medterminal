@@ -195,6 +195,26 @@ export const OralExamSimulator: React.FC<OralExamSimulatorProps> = ({ initialSta
           );
         })}
       </div>
+
+      {/* EASTER EGG: IL BRIVIDO DELL'APPELLO D'ESAME */}
+      <div className="mt-8 p-4 rounded-2xl bg-slate-950/80 border border-slate-800/80 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+        <img
+          src="/easter-eggs/gollum_freddo.jpg"
+          alt="Gollum al freddo"
+          className="w-20 h-20 rounded-xl object-cover border border-slate-750 shadow-md shrink-0"
+        />
+        <div className="space-y-1">
+          <div className="text-[10px] font-mono text-cyan-400 font-bold uppercase tracking-wider">
+            🧊 Il Gelo dell'Appello Orale • Angolo Anti-Panico
+          </div>
+          <p className="text-xs font-serif italic text-slate-200">
+            « Fredda la mano le ossa e il cuore, freddo il corpo del viaggiatore »
+          </p>
+          <p className="text-[11px] text-slate-400 leading-relaxed font-sans">
+            La sensazione fisica esatta quando il professore di cardiologia ti fissa in silenzio, fa roteare la penna e ti chiede la complicanza acuta a sorpresa... niente panico: ragiona a step clinici come nel simulatore!
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

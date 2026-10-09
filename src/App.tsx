@@ -40,6 +40,7 @@ import { ClinicalCalculators } from './components/ClinicalCalculators';
 import AuscultationDock from './components/AuscultationDock';
 import Anatomy3DViewport from './components/Anatomy3DViewport';
 import Footer from './components/Footer';
+import CookieBanner from './components/CookieBanner';
 
 import theoryDataRaw from './data/theory.json';
 import questionsData from './data/questions.json';
@@ -81,6 +82,9 @@ export function App() {
   const [show3DDrawer, setShow3DDrawer] = useState(false);
   const [focus3DTarget, setFocus3DTarget] = useState<string | null>('heart');
   const [is3DMaximized, setIs3DMaximized] = useState(false);
+  
+  // Legal & Privacy modal trigger
+  const [externalLegalOpen, setExternalLegalOpen] = useState(false);
   
   // Mobile navigation
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -463,9 +467,12 @@ export function App() {
       
       {/* MOBILE TOPBAR */}
       <header className="lg:hidden fixed top-0 inset-x-0 bg-slate-950/90 backdrop-blur-md border-b border-slate-800 h-16 flex items-center justify-between px-4 z-40">
-        <div className="flex items-center space-x-2.5 text-cyan-400">
-          <Heart className="w-5 h-5 fill-cyan-400/20 text-cyan-400" />
-          <span className="font-mono font-bold tracking-tight text-white text-base">MedTerminal 2.0</span>
+        <div className="flex items-center space-x-2 text-cyan-400">
+          <Heart className="w-5 h-5 fill-cyan-400/20 text-cyan-400 shrink-0" />
+          <div className="flex flex-col">
+            <span className="font-mono font-bold tracking-tight text-white text-sm leading-tight">MedTerminal</span>
+            <span className="text-[10px] text-cyan-400 font-mono">Studio Esame Integrato</span>
+          </div>
         </div>
         <div className="flex items-center space-x-2">
           <button
@@ -589,11 +596,11 @@ export function App() {
             <div>
               <div className="font-bold text-sm tracking-tight text-white flex items-center gap-1.5">
                 <span>MedTerminal</span>
-                <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
-                  2.0
+                <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-semibold">
+                  Esame
                 </span>
               </div>
-              <div className="text-[10px] font-mono text-slate-500">5 DISCIPLINE INTEGRATE</div>
+              <div className="text-[10px] font-mono text-slate-400">Cardio-Toracico Integrato</div>
             </div>
           </div>
         </div>
@@ -691,8 +698,8 @@ export function App() {
 
         </div>
 
-        {/* 3D Atlas Drawer Launcher Footer */}
-        <div className="p-3 border-t border-slate-850 bg-slate-950">
+        {/* 3D Atlas Drawer Launcher & Creator Badge */}
+        <div className="p-3 border-t border-slate-850 bg-slate-950 space-y-2.5">
           <button
             onClick={() => setShow3DDrawer(!show3DDrawer)}
             className={`w-full flex items-center justify-center space-x-2 px-3 py-2.5 rounded-xl text-xs font-mono font-bold transition-all border ${
@@ -704,6 +711,22 @@ export function App() {
             <Layers className="w-4 h-4 text-cyan-400" />
             <span>{show3DDrawer ? 'Chiudi Atlante 3D' : 'Apri Atlante WebGL 3D'}</span>
           </button>
+
+          <div className="pt-1 flex items-center justify-between text-[11px] text-slate-500 px-1 font-sans">
+            <a
+              href="https://github.com/Lukecele"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-cyan-300 transition-colors flex items-center gap-1 group truncate"
+              title="GitHub Luca Celebrano"
+            >
+              <span>By <strong className="text-slate-300 group-hover:text-cyan-300 font-medium">Luca Celebrano</strong></span>
+              <ExternalLink className="w-2.5 h-2.5 opacity-60 group-hover:opacity-100 shrink-0" />
+            </a>
+            <span className="text-slate-500 truncate text-[10px]" title="Fonti teoriche curate da Lorenzo Pessetti">
+              Fonti: L. Pessetti
+            </span>
+          </div>
         </div>
 
       </aside>
@@ -848,7 +871,10 @@ export function App() {
           )}
 
           {/* FOOTER CLEANLY ANCHORED AT BOTTOM OF SCROLL CONTAINER */}
-          <Footer />
+          <Footer
+            externalLegalOpen={externalLegalOpen}
+            onCloseExternalLegal={() => setExternalLegalOpen(false)}
+          />
 
         </div>
       </main>
@@ -1015,6 +1041,9 @@ export function App() {
           </div>
         </div>
       )}
+
+      {/* PRIVACY & COOKIE BANNER */}
+      <CookieBanner onOpenLegalModal={() => setExternalLegalOpen(true)} />
 
     </div>
   );
