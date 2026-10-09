@@ -306,7 +306,7 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
             </h1>
             <p className="text-xs text-slate-400 mt-2 flex items-center gap-1.5">
               <BookOpen className="w-3.5 h-3.5 text-purple-400 shrink-0" />
-              <span>Fonti teoriche: dispense di <strong>Lorenzo Pessetti</strong> • Sviluppato da <strong>Luca Celebrano</strong></span>
+              <span>Basi teoriche tratte dai PDF di <strong>Lorenzo Pessetti</strong> • Sviluppato da <strong>Luca Celebrano</strong></span>
             </p>
           </div>
 

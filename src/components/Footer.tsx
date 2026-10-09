@@ -22,11 +22,12 @@ const GithubIcon: React.FC<{ className?: string }> = ({ className = "w-4 h-4" })
 );
 
 interface FooterProps {
+  isHome?: boolean;
   externalLegalOpen?: boolean;
   onCloseExternalLegal?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ externalLegalOpen, onCloseExternalLegal }) => {
+export const Footer: React.FC<FooterProps> = ({ isHome, externalLegalOpen, onCloseExternalLegal }) => {
   const [internalLegalOpen, setInternalLegalOpen] = useState(false);
   const [activeLegalTab, setActiveLegalTab] = useState<'disclaimer' | 'sources' | 'privacy'>('disclaimer');
 
@@ -42,10 +43,12 @@ export const Footer: React.FC<FooterProps> = ({ externalLegalOpen, onCloseExtern
 
   return (
     <>
-      <footer className="w-full border-t border-slate-800/80 bg-[#090d16] py-8 sm:py-10 px-3 sm:px-8 mt-auto text-slate-400">
+      <footer className={`w-full border-t border-slate-800/80 bg-[#090d16] ${isHome ? 'py-5' : 'py-8 sm:py-10'} px-3 sm:px-8 mt-auto text-slate-400`}>
         <div className="max-w-6xl mx-auto space-y-8">
           
-          {/* TOP SECTION: 3 MODERN CARDS */}
+          {!isHome && (
+            <>
+              {/* TOP SECTION: 3 MODERN CARDS */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             {/* CARD 1: CREATORE & GITHUB (PROMINENT!) */}
@@ -62,7 +65,7 @@ export const Footer: React.FC<FooterProps> = ({ externalLegalOpen, onCloseExtern
                   <span className="text-cyan-400">Luca Celebrano</span>
                 </h3>
                 <p className="text-xs text-slate-400 mt-1.5 leading-relaxed">
-                  Piattaforma ideata e sviluppata per trasformare la preparazione dell'esame universitario di Malattie dell'Apparato Cardiovascolare e Respiratorio in un'esperienza interattiva, visiva e priva di noia.
+                  Piattaforma ideata e sviluppata per gli studenti di medicina, combinando 16 capitoli completi di teoria e linee guida con strumenti interattivi e simulazioni cliniche d'esame.
                 </p>
               </div>
 
@@ -92,20 +95,20 @@ export const Footer: React.FC<FooterProps> = ({ externalLegalOpen, onCloseExtern
                 <div className="flex items-center space-x-2 text-purple-400 mb-2">
                   <Award className="w-4 h-4 text-purple-400" />
                   <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-purple-300">
-                    Fonti Didattiche & Teoria
+                    Fonti Teoria & Appunti
                   </span>
                 </div>
                 <h3 className="text-base font-bold text-white tracking-tight">
                   Ringraziamento a <span className="text-purple-300">Lorenzo Pessetti</span>
                 </h3>
                 <p className="text-xs text-slate-400 mt-1.5 leading-relaxed">
-                  Un ringraziamento speciale e sentito a <strong>Lorenzo Pessetti</strong>, dalle cui dispense e schemi didattici derivano le solide e complete basi teoriche utilizzate per la stesura dei 16 capitoli della piattaforma.
+                  Un ringraziamento a <strong>Lorenzo Pessetti</strong> per aver condiviso i suoi PDF di appunti universitari, utilizzati come base per la rielaborazione della parte teorica del portale.
                 </p>
               </div>
 
               <div className="flex items-center gap-2 pt-2 border-t border-slate-800 text-[11px] text-purple-300/80 font-mono">
                 <BookOpen className="w-3.5 h-3.5 shrink-0" />
-                <span>Linee Guida ESC / AHA / ACC / ERS & Note Accademiche</span>
+                <span>Appunti PDF & Linee Guida</span>
               </div>
             </div>
 
@@ -159,12 +162,14 @@ export const Footer: React.FC<FooterProps> = ({ externalLegalOpen, onCloseExtern
               Esame di Cardiologia 2026
             </span>
           </div>
+            </>
+          )}
 
           {/* BOTTOM COPYRIGHT BAR */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-850/80 text-xs text-slate-500">
             <div className="flex items-center space-x-2">
               <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500/30" />
-              <span>MedTerminal v2.0 • Realizzato da <strong>Luca Celebrano</strong> • Fonti teoriche: <strong>Lorenzo Pessetti</strong></span>
+              <span>MedTerminal v2.0 • Realizzato da <strong>Luca Celebrano</strong> • Basi teoriche: PDF <strong>Lorenzo Pessetti</strong></span>
             </div>
             <div className="flex items-center space-x-4 text-[11px] font-mono">
               <button onClick={() => handleOpen('disclaimer')} className="hover:text-cyan-400 transition">
@@ -279,10 +284,10 @@ export const Footer: React.FC<FooterProps> = ({ externalLegalOpen, onCloseExtern
                   <div className="bg-purple-950/20 p-4 rounded-xl border border-purple-500/30">
                     <h3 className="font-bold text-purple-200 mb-1.5 flex items-center text-sm">
                       <Award className="w-4 h-4 mr-2 text-purple-400" />
-                      Ringraziamento Speciale alle Fonti di Lorenzo Pessetti
+                      Ringraziamento a Lorenzo Pessetti (Note & Appunti PDF)
                     </h3>
                     <p className="text-slate-300 leading-relaxed">
-                      Si esprime la più profonda gratitudine a <strong>Lorenzo Pessetti</strong> per il meticoloso lavoro di sintesi, raccolta dispense e note universitarie da cui sono tratte le fonti fondamentali della sezione teorica e dei quadri clinici trattati in questo portale. Senza il suo contributo e la chiarezza dei suoi compendi, questa digitalizzazione non sarebbe stata possibile.
+                      Un sentito ringraziamento a <strong>Lorenzo Pessetti</strong> per aver condiviso i suoi PDF di appunti universitari, consultati per la stesura e la sintesi dei capitoli teorici del portale. Tutti gli altri strumenti interattivi e clinici (fonoteca con audio reali, modelli 3D WebGL, tracciati ECG, quiz con razionali, calcolatori e algoritmi decisionali) sono stati ricercati, integrati da linee guida internazionali e sviluppati autonomamente da <strong>Luca Celebrano</strong>.
                     </p>
                   </div>
 

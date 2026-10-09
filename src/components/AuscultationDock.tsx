@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import {
   Headphones, Play, Pause, RotateCcw, Volume2, VolumeX,
-  Info, MapPin, Activity, Repeat, Zap, Sliders, Gauge, Sparkles
+  Info, MapPin, Activity, Repeat, Zap, Sliders, Gauge, Sparkles,
+  ChevronLeft
 } from 'lucide-react';
 
 export interface AuscultationTrack {
@@ -175,6 +176,7 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [filterType, setFilterType] = useState<'all' | 'cardiaca' | 'polmonare'>('all');
+  const [mobileTab, setMobileTab] = useState<'list' | 'console'>('list');
   
   // Advanced Audio Controls State
   const [volume, setVolume] = useState<number>(0.9);
@@ -189,7 +191,6 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
   const sourceNodeRef = useRef<MediaElementAudioSourceNode | null>(null);
   const filterNodeRef = useRef<BiquadFilterNode | null>(null);
   const gainNodeRef = useRef<GainNode | null>(null);
-  const shouldAutoPlayRef = useRef<boolean>(false);
 
   // Initialize Web Audio API nodes lazily on first user interaction
   const initAudioGraph = () => {
@@ -265,35 +266,25 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
     }
   }, [playbackSpeed]);
 
+  // Sync external initialTrackId
   useEffect(() => {
     if (initialTrackId) {
       const match = AUDIO_TRACKS.find(t => 
         t.id === initialTrackId || 
         ((initialTrackId === 'pleural-rub' || initialTrackId === 'rub') && t.id === 'pericardial-rub')
       );
-      if (match) setSelectedTrack(match);
-    }
-  }, [initialTrackId]);
-
-  // When track changes: auto-play if clicked from list, otherwise reset
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.currentTime = 0;
-      setCurrentTime(0);
-      if (shouldAutoPlayRef.current) {
-        shouldAutoPlayRef.current = false;
-        initAudioGraph();
-        audioRef.current.play().then(() => {
-          setIsPlaying(true);
-        }).catch(err => {
-          console.warn("Audio autoplay error:", err);
-        });
-      } else {
-        audioRef.current.pause();
-        setIsPlaying(false);
+      if (match && match.id !== selectedTrack.id) {
+        setSelectedTrack(match);
+        if (audioRef.current) {
+          audioRef.current.src = match.file;
+          audioRef.current.currentTime = 0;
+          setCurrentTime(0);
+          setIsPlaying(false);
+        }
+        setMobileTab('console');
       }
     }
-  }, [selectedTrack]);
+  }, [initialTrackId]);
 
   const togglePlay = () => {
     if (!audioRef.current) return;
@@ -310,14 +301,40 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
     }
   };
 
-  // Immediate 1-tap playback from list
-  const handleTrackSelectAndPlay = (track: AuscultationTrack) => {
+  // Immediate 1-tap playback from user interaction (synchronous gesture unlocks audio on mobile)
+  const handleTrackSelectAndPlay = (track: AuscultationTrack, openConsole = false) => {
     initAudioGraph();
-    if (selectedTrack.id === track.id) {
-      togglePlay();
+    const isSameTrack = selectedTrack.id === track.id;
+
+    if (isSameTrack) {
+      if (isPlaying) {
+        if (audioRef.current) audioRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        if (audioRef.current) {
+          audioRef.current.play().then(() => {
+            setIsPlaying(true);
+          }).catch(err => {
+            console.warn("Direct audio play error:", err);
+          });
+        }
+      }
     } else {
-      shouldAutoPlayRef.current = true;
       setSelectedTrack(track);
+      if (audioRef.current) {
+        audioRef.current.src = track.file;
+        audioRef.current.currentTime = 0;
+        setCurrentTime(0);
+        audioRef.current.play().then(() => {
+          setIsPlaying(true);
+        }).catch(err => {
+          console.warn("Direct audio play error:", err);
+        });
+      }
+    }
+
+    if (openConsole) {
+      setMobileTab('console');
     }
   };
 
@@ -362,62 +379,97 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleTimeUpdate}
         onEnded={handleEnded}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
       />
 
       {/* Header bar */}
-      <div className="bg-slate-950/80 border-b border-slate-800 px-6 py-4 flex flex-wrap items-center justify-between gap-4">
-        <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400">
-            <Headphones className="w-5 h-5" />
+      <div className="bg-slate-950/80 border-b border-slate-800 px-4 sm:px-6 py-4 flex flex-col gap-3">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 shrink-0">
+              <Headphones className="w-5 h-5" />
+            </div>
+            <div>
+              <h2 className="text-base sm:text-lg font-bold text-slate-100 flex flex-wrap items-center gap-2">
+                <span>Libreria Auscultatoria Ufficiale</span>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                  REMASTER HD + BOOST
+                </span>
+              </h2>
+              <p className="text-xs text-slate-400">Reperti sonori fisiopatologici con simulazione fonendoscopica (Membrana / Campana)</p>
+            </div>
           </div>
-          <div>
-            <h2 className="text-lg font-bold text-slate-100 flex items-center gap-2">
-              Libreria Auscultatoria Ufficiale
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                REMASTER HD + GAIN BOOST
-              </span>
-            </h2>
-            <p className="text-xs text-slate-400">Reperti sonori fisiopatologici con simulazione fonendoscopica (Membrana / Campana)</p>
+
+          {/* Filter Buttons */}
+          <div className="flex items-center space-x-1.5 sm:space-x-2 bg-slate-900 p-1 rounded-xl border border-slate-800">
+            <button
+              onClick={() => setFilterType('all')}
+              className={`px-2.5 sm:px-3 py-1 rounded-lg text-xs font-semibold transition ${
+                filterType === 'all' ? 'bg-slate-800 text-white shadow-sm' : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              Tutti ({AUDIO_TRACKS.length})
+            </button>
+            <button
+              onClick={() => setFilterType('cardiaca')}
+              className={`px-2.5 sm:px-3 py-1 rounded-lg text-xs font-semibold transition ${
+                filterType === 'cardiaca' ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30' : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              Cuore
+            </button>
+            <button
+              onClick={() => setFilterType('polmonare')}
+              className={`px-2.5 sm:px-3 py-1 rounded-lg text-xs font-semibold transition ${
+                filterType === 'polmonare' ? 'bg-sky-500/20 text-sky-300 border border-sky-500/30' : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              Polmoni
+            </button>
           </div>
         </div>
 
-        {/* Filter Buttons */}
-        <div className="flex items-center space-x-2 bg-slate-900 p-1 rounded-xl border border-slate-800">
+        {/* Mobile View Switcher Segmented Control (Only on screens < lg) */}
+        <div className="flex lg:hidden w-full bg-slate-900/90 p-1 rounded-xl border border-slate-800 gap-1">
           <button
-            onClick={() => setFilterType('all')}
-            className={`px-3 py-1 rounded-lg text-xs font-semibold transition ${
-              filterType === 'all' ? 'bg-slate-800 text-white shadow-sm' : 'text-slate-400 hover:text-slate-200'
+            onClick={() => setMobileTab('list')}
+            className={`flex-1 py-2 px-3 rounded-lg text-xs font-semibold font-mono transition flex items-center justify-center gap-2 ${
+              mobileTab === 'list'
+                ? 'bg-rose-600 text-white shadow-md'
+                : 'text-slate-400 hover:text-slate-200'
             }`}
           >
-            Tutti ({AUDIO_TRACKS.length})
+            <Headphones className="w-3.5 h-3.5" />
+            <span>Elenco Reperti ({filteredTracks.length})</span>
           </button>
           <button
-            onClick={() => setFilterType('cardiaca')}
-            className={`px-3 py-1 rounded-lg text-xs font-semibold transition ${
-              filterType === 'cardiaca' ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30' : 'text-slate-400 hover:text-slate-200'
+            onClick={() => setMobileTab('console')}
+            className={`flex-1 py-2 px-3 rounded-lg text-xs font-semibold font-mono transition flex items-center justify-center gap-2 ${
+              mobileTab === 'console'
+                ? 'bg-rose-600 text-white shadow-md'
+                : 'text-slate-400 hover:text-slate-200'
             }`}
           >
-            Cuore
-          </button>
-          <button
-            onClick={() => setFilterType('polmonare')}
-            className={`px-3 py-1 rounded-lg text-xs font-semibold transition ${
-              filterType === 'polmonare' ? 'bg-sky-500/20 text-sky-300 border border-sky-500/30' : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            Polmoni
+            <Activity className="w-3.5 h-3.5" />
+            <span>Scheda Clinica & Console</span>
+            {isPlaying && (
+              <span className="w-2 h-2 rounded-full bg-amber-300 animate-ping" />
+            )}
           </button>
         </div>
       </div>
 
       <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 overflow-hidden">
         
-        {/* Track Selection Column */}
-        <div className="lg:col-span-5 border-r border-slate-800 flex flex-col bg-slate-950/40 overflow-y-auto custom-scrollbar p-3 space-y-2">
+        {/* Track Selection Column (Always visible on desktop, toggled on mobile) */}
+        <div className={`lg:col-span-5 border-r border-slate-800 flex flex-col bg-slate-950/40 overflow-y-auto custom-scrollbar p-3 space-y-2 ${
+          mobileTab === 'list' ? 'flex' : 'hidden lg:flex'
+        }`}>
           {filteredTracks.map(track => {
             const isCurrent = track.id === selectedTrack.id;
             return (
-              <button
+              <div
                 key={track.id}
                 onClick={() => handleTrackSelectAndPlay(track)}
                 className={`w-full text-left p-3.5 rounded-xl border transition-all flex items-start gap-3.5 group cursor-pointer ${
@@ -426,23 +478,31 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
                     : 'bg-slate-900/40 border-slate-800/80 hover:bg-slate-800/50 hover:border-slate-700 text-slate-300'
                 }`}
               >
-                <div className={`mt-0.5 w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition shadow-sm ${
-                  isCurrent
-                    ? isPlaying ? 'bg-amber-500 text-slate-950 ring-2 ring-amber-400/50 shadow-amber-500/30' : 'bg-rose-600 text-white'
-                    : 'bg-slate-800 text-slate-400 group-hover:bg-rose-600 group-hover:text-white'
-                }`}>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleTrackSelectAndPlay(track);
+                  }}
+                  className={`mt-0.5 w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition shadow-sm ${
+                    isCurrent
+                      ? isPlaying ? 'bg-amber-500 text-slate-950 ring-2 ring-amber-400/50 shadow-amber-500/30' : 'bg-rose-600 text-white'
+                      : 'bg-slate-800 text-slate-400 group-hover:bg-rose-600 group-hover:text-white'
+                  }`}
+                  title={isCurrent && isPlaying ? "Pausa" : "Ascolta subito"}
+                >
                   {isCurrent && isPlaying ? (
                     <Pause className="w-4 h-4 fill-current" />
                   ) : (
                     <Play className="w-4 h-4 ml-0.5 fill-current" />
                   )}
-                </div>
+                </button>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="font-semibold text-sm text-slate-100 flex items-center gap-1.5">
-                      {track.name}
+                    <span className="font-semibold text-sm text-slate-100 flex items-center gap-1.5 truncate">
+                      <span className="truncate">{track.name}</span>
                       {isCurrent && isPlaying && (
-                        <span className="flex items-center gap-0.5 ml-1">
+                        <span className="flex items-center gap-0.5 shrink-0">
                           <span className="w-1 h-3 bg-amber-400 animate-pulse rounded-full" />
                           <span className="w-1 h-4 bg-amber-400 animate-pulse delay-75 rounded-full" />
                           <span className="w-1 h-2 bg-amber-400 animate-pulse delay-150 rounded-full" />
@@ -458,27 +518,52 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
                     </span>
                   </div>
                   <p className="text-xs text-slate-400 mt-1 leading-relaxed">{track.timing}</p>
-                  <div className="flex items-center justify-between mt-2 pt-1 border-t border-slate-800/40">
-                    <span className="text-[11px] text-slate-500 font-mono">📍 {track.focusArea}</span>
-                    <span className={`text-[10px] font-mono px-2 py-0.5 rounded font-bold transition ${
-                      isCurrent && isPlaying
-                        ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
-                        : 'text-rose-400/80 group-hover:text-rose-300'
-                    }`}>
-                      {isCurrent && isPlaying ? '⏸ IN ASCOLTO' : '▶ ASCOLTA SUBITO'}
-                    </span>
+                  <div className="flex items-center justify-between mt-2 pt-1.5 border-t border-slate-800/40 text-[11px]">
+                    <span className="text-slate-400 font-mono truncate max-w-[170px] sm:max-w-[240px]">📍 {track.focusArea}</span>
+                    <div className="flex items-center gap-1.5 shrink-0">
+                      <span className={`text-[10px] font-mono px-2 py-0.5 rounded font-bold transition ${
+                        isCurrent && isPlaying
+                          ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
+                          : 'text-rose-400/80 group-hover:text-rose-300 bg-rose-500/5 border border-rose-500/20'
+                      }`}>
+                        {isCurrent && isPlaying ? '⏸ IN ASCOLTO' : '▶ ASCOLTA'}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleTrackSelectAndPlay(track, true);
+                        }}
+                        className="lg:hidden text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white border border-slate-700"
+                        title="Vedi scheda clinica e parametri"
+                      >
+                        Scheda ➔
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </button>
+              </div>
             );
           })}
         </div>
 
-        {/* Audio Console & Clinical Analysis Column */}
-        <div className="lg:col-span-7 flex flex-col bg-slate-900/60 p-6 overflow-y-auto custom-scrollbar space-y-6">
+        {/* Audio Console & Clinical Analysis Column (Always visible on desktop, toggled on mobile) */}
+        <div className={`lg:col-span-7 flex flex-col bg-slate-900/60 p-4 sm:p-6 overflow-y-auto custom-scrollbar space-y-6 ${
+          mobileTab === 'console' ? 'flex' : 'hidden lg:flex'
+        }`}>
+          {/* Quick Back to list on mobile */}
+          <div className="lg:hidden -mb-2">
+            <button
+              onClick={() => setMobileTab('list')}
+              className="flex items-center gap-1.5 text-xs font-mono text-rose-400 hover:text-rose-300 transition py-1"
+            >
+              <ChevronLeft className="w-4 h-4" />
+              <span>← Torna all'elenco reperti</span>
+            </button>
+          </div>
           
           {/* Active Track Banner & Master Controls */}
-          <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-5 shadow-xl relative overflow-hidden space-y-5">
+          <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl relative overflow-hidden space-y-5">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
                 <div className="flex items-center gap-2">
@@ -492,7 +577,7 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
                     </span>
                   )}
                 </div>
-                <h3 className="text-xl font-bold text-white mt-1.5">{selectedTrack.name}</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-white mt-1.5">{selectedTrack.name}</h3>
                 <p className="text-xs text-slate-400 mt-0.5">{selectedTrack.timing}</p>
               </div>
 
@@ -910,8 +995,8 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
       </div>
 
       {/* Mobile Floating Sticky Audio Player Dock (Only on screens < lg) */}
-      <div className="lg:hidden sticky bottom-0 z-30 bg-slate-950/95 border-t border-slate-800 px-4 py-3 shadow-2xl backdrop-blur-md flex items-center justify-between gap-3 shrink-0 animate-in slide-in-from-bottom duration-200">
-        <div className="flex items-center gap-3 min-w-0 flex-1">
+      <div className="lg:hidden sticky bottom-0 z-30 bg-slate-950/95 border-t border-slate-800 px-3.5 py-2.5 shadow-2xl backdrop-blur-md flex items-center justify-between gap-2.5 shrink-0 animate-in slide-in-from-bottom duration-200">
+        <div className="flex items-center gap-2.5 min-w-0 flex-1">
           <button
             onClick={togglePlay}
             className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition shadow-lg ${
@@ -922,29 +1007,29 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
             title={isPlaying ? "Metti in pausa" : "Ascolta"}
           >
             {isPlaying ? (
-              <Pause className="w-5 h-5 fill-current" />
+              <Pause className="w-4 h-4 fill-current" />
             ) : (
-              <Play className="w-5 h-5 fill-current ml-0.5" />
+              <Play className="w-4 h-4 fill-current ml-0.5" />
             )}
           </button>
           <div className="min-w-0">
             <div className="text-xs font-bold text-white truncate flex items-center gap-1.5">
-              <span>{selectedTrack.name}</span>
+              <span className="truncate">{selectedTrack.name}</span>
               {isPlaying && <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping shrink-0" />}
             </div>
-            <div className="text-[10px] text-slate-400 truncate mt-0.5">
-              {isPlaying ? 'In ascolto continuo • ' : 'In pausa • '}{selectedTrack.timing}
+            <div className="text-[10px] text-slate-400 truncate mt-0.5 font-mono">
+              {formatSec(currentTime)} • {selectedTrack.timing}
             </div>
           </div>
         </div>
 
-        <div className="flex items-center gap-2 shrink-0">
+        <div className="flex items-center gap-1.5 shrink-0">
           <button
             onClick={() => {
               initAudioGraph();
               setIsBoosted(!isBoosted);
             }}
-            className={`px-2 py-1 rounded-lg text-[10px] font-bold transition flex items-center gap-1 ${
+            className={`px-2 py-1 rounded-lg text-[10px] font-bold font-mono transition flex items-center gap-1 ${
               isBoosted
                 ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
                 : 'bg-slate-800 text-slate-400 border border-slate-700'
@@ -952,9 +1037,15 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
             title="StethoBoost +6dB"
           >
             <Zap className="w-3 h-3 text-amber-400" />
-            <span>{isBoosted ? '+6dB ON' : '+6dB'}</span>
+            <span>{isBoosted ? '+6dB' : 'Boost'}</span>
           </button>
-          <span className="text-[11px] font-mono text-slate-300 font-semibold">{formatSec(currentTime)}</span>
+
+          <button
+            onClick={() => setMobileTab(mobileTab === 'list' ? 'console' : 'list')}
+            className="px-2.5 py-1 rounded-lg text-[10px] font-mono font-bold bg-rose-600/30 hover:bg-rose-600/40 text-rose-300 border border-rose-500/40 transition"
+          >
+            {mobileTab === 'list' ? 'Scheda ➔' : 'Elenco ☰'}
+          </button>
         </div>
       </div>
 

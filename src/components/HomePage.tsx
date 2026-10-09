@@ -76,7 +76,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           </h1>
 
           <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
-            La piattaforma interattiva ideata per superare l'esame integrato di <strong className="text-white">Malattie dell'Apparato Cardiovascolare e Respiratorio</strong>. Niente muri di testo infiniti: solo quadri clinici ad alto rendimento, simulazioni orali, auscultazioni reali sincronizzate e modelli anatomici 3D.
+            La piattaforma didattica concepita per gli <strong className="text-white">studenti di medicina</strong> che preparano l'esame universitario integrato di <strong className="text-white">Malattie dell'Apparato Cardiovascolare e Respiratorio</strong>. Il pilastro fondamentale del portale è la <strong className="text-cyan-300">teoria completa e approfondita nei 16 capitoli curriculari</strong> (Cardiologia medica, Pneumologia, Cardiochirurgia, Chirurgia Toracica e Vascolare), strutturata in modo intelligente: niente muri di testo caotici, ma una trattazione rigorosa accompagnata da 4 punti cardine d'esame, trabocchetti dei docenti, simulazioni orali, fonoteca reale e modelli 3D.
           </p>
 
           <div className="pt-2 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3">
@@ -85,7 +85,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               className="px-5 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs sm:text-sm font-mono transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(6,182,212,0.25)] hover:scale-[1.02]"
             >
               <BookOpen className="w-4 h-4" />
-              <span>Inizia dai 16 Capitoli</span>
+              <span>Studia la Teoria (16 Capitoli)</span>
               <ChevronRight className="w-4 h-4" />
             </button>
 
@@ -141,7 +141,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   </span>
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed font-sans">
-                  Progettato e sviluppato per superare le noiose dispense universitarie e offrire a studenti e specializzandi un ambiente clinico fluido, visivo e interattivo: dalla fonoteca con audio reali alle simulazioni orali ad alto stress.
+                  Ideato e sviluppato per offrire agli studenti di medicina un ambiente di studio completo, rigoroso e interattivo: unisce 16 capitoli di teoria approfondita e linee guida a strumenti visivi, fonoteca con auscultazioni reali e simulazioni d'esame orale.
                 </p>
               </div>
             </div>
@@ -179,14 +179,14 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
           </div>
 
-          {/* CARD 2: LORENZO PESSETTI (TEORIA & DISPENSE) */}
+          {/* CARD 2: LORENZO PESSETTI (FONTI PDF) */}
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900/90 to-slate-950 border border-purple-500/30 p-5 sm:p-6 shadow-xl flex flex-col justify-between space-y-5 hover:border-purple-500/60 transition-all">
             <div className="space-y-3">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-purple-300 px-2 py-0.5 rounded bg-purple-500/10 border border-purple-500/20">
-                  Fonti Teoriche & Quadri Clinici
+                  Fonti Teoria & Appunti
                 </span>
-                <span className="hidden sm:inline text-[11px] font-mono text-purple-400/80">Dispense d'Ateneo</span>
+                <span className="hidden sm:inline text-[11px] font-mono text-purple-400/80">PDF d'Ateneo</span>
               </div>
 
               <div>
@@ -195,7 +195,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <span className="text-purple-300">Lorenzo Pessetti</span>
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed font-sans">
-                  Un ringraziamento fondamentale e doveroso a <strong>Lorenzo Pessetti</strong>: dalle sue eccellenti dispense universitarie, schemi di sintesi e appunti di reparto provengono le solide basi teoriche che strutturano l'intero impianto didattico dei 16 capitoli e dei casi clinici della piattaforma.
+                  Un ringraziamento a <strong>Lorenzo Pessetti</strong> per aver condiviso i suoi PDF di appunti universitari, utilizzati come base per la stesura e la sintesi della sezione teorica. Gli strumenti clinici, audio, modelli e quiz sono stati integrati da linee guida e risorse online.
                 </p>
               </div>
             </div>
@@ -203,9 +203,9 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="pt-3 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-purple-300/80">
               <div className="flex items-center gap-1.5 min-w-0">
                 <Award className="w-4 h-4 text-purple-400 shrink-0" />
-                <span className="text-[11px] truncate">Linee Guida ESC / AHA / ACC / ERS</span>
+                <span className="text-[11px] truncate">Appunti PDF & Linee Guida</span>
               </div>
-              <span className="hidden sm:inline text-[10px] text-slate-500">Corso Integrato</span>
+              <span className="hidden sm:inline text-[10px] text-slate-500">Basi Teoriche</span>
             </div>
           </div>
 
@@ -241,14 +241,14 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </span>
               </div>
               <h3 className="text-sm font-bold text-white group-hover:text-cyan-300 transition-colors">
-                1. Teoria & Linee Guida Integrali
+                1. Teoria Completa & Linee Guida (Core)
               </h3>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Cardiologia medica, cardiochirurgia, pneumologia, chirurgia toracica e vascolare. Con 4 punti cardine d'esame e trabocchetti docenti.
+                Il pilastro fondamentale dello studio: 16 capitoli approfonditi su Cardiologia medica, Pneumologia, Cardiochirurgia, Chirurgia Toracica e Vascolare. Con 4 punti cardine d'esame, cut-off diagnostici e trabocchetti docenti.
               </p>
             </div>
             <div className="flex items-center text-xs font-mono text-cyan-400 font-semibold group-hover:translate-x-1 transition-transform">
-              <span>Apri la Teoria</span>
+              <span>Esplora la Teoria Completa</span>
               <ChevronRight className="w-3.5 h-3.5 ml-1" />
             </div>
           </div>
@@ -497,7 +497,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="flex items-center gap-3 text-center sm:text-left">
           <Scale className="w-5 h-5 text-slate-400 shrink-0" />
           <p>
-            <strong>Finalità Esclusivamente Didattica:</strong> Piattaforma universitaria open-source concepita per lo studio curriculare e la simulazione d'esame. Non costituisce presidio medico diagnostico.
+            <strong>Finalità Esclusivamente Didattica:</strong> Piattaforma universitaria open-source concepita per lo studio curriculare e la preparazione d'esame degli studenti di medicina. Non costituisce presidio medico diagnostico.
           </p>
         </div>
         <button

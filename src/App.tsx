@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import {
   BookOpen,
   Trophy,
@@ -91,6 +91,13 @@ export function App() {
   
   // Mobile navigation
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const mainScrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (mainScrollRef.current) {
+      mainScrollRef.current.scrollTop = 0;
+    }
+  }, [activeTab]);
 
   useEffect(() => {
     if (isMobileMenuOpen) document.body.style.overflow = 'hidden';
@@ -126,7 +133,7 @@ export function App() {
     { id: 'pharma' as TabType, label: 'Prontuario Farmaci', badge: 'DRUGS', desc: 'DOACs, Emergenze, RIPE', icon: Pill, color: 'text-pink-400' },
     { id: 'imaging' as TabType, label: 'Atlante Imaging', badge: 'RAD', desc: 'Segni RX, TC & Angio-TC', icon: ImageIcon, color: 'text-indigo-400' },
     { id: 'calculators' as TabType, label: 'Score Clinici', badge: '7 SCORE', desc: 'CHA2DS2-VASc, EuroSCORE...', icon: Calculator, color: 'text-teal-400' },
-    { id: 'auscultation' as TabType, label: 'Fonoteca Auscultatoria', badge: 'AUDIO', desc: '7 Reperti Cardio-Polmonari', icon: Headphones, color: 'text-rose-400' },
+    { id: 'auscultation' as TabType, label: 'Fonoteca Auscultatoria', badge: '11 AUDIO', desc: '11 Reperti Cardio-Polmonari', icon: Headphones, color: 'text-rose-400' },
   ];
 
   // Helper to extract a relevant snippet around query
@@ -733,8 +740,8 @@ export function App() {
               <span>By <strong className="text-slate-300 group-hover:text-cyan-300 font-medium">Luca Celebrano</strong></span>
               <ExternalLink className="w-2.5 h-2.5 opacity-60 group-hover:opacity-100 shrink-0" />
             </a>
-            <span className="text-slate-500 truncate text-[10px]" title="Fonti teoriche curate da Lorenzo Pessetti">
-              Fonti: L. Pessetti
+            <span className="text-slate-500 truncate text-[10px]" title="Note PDF di Lorenzo Pessetti per la teoria">
+              Note: PDF L. Pessetti
             </span>
           </div>
         </div>
@@ -743,7 +750,7 @@ export function App() {
 
       {/* MAIN VIEWPORT CONTAINER */}
       <main className="flex-1 flex flex-col h-full bg-[#07090e] pt-16 lg:pt-0 overflow-hidden relative">
-        <div className="flex-1 overflow-y-auto custom-scrollbar flex flex-col">
+        <div ref={mainScrollRef} className="flex-1 overflow-y-auto custom-scrollbar flex flex-col">
           
           <div className="p-3 sm:p-4 lg:p-8 flex-1">
             <div className={`max-w-[1500px] mx-auto transition-all duration-300 ${show3DDrawer ? '2xl:pr-[470px]' : ''}`}>
@@ -899,6 +906,7 @@ export function App() {
 
           {/* FOOTER CLEANLY ANCHORED AT BOTTOM OF SCROLL CONTAINER */}
           <Footer
+            isHome={activeTab === 'home'}
             externalLegalOpen={externalLegalOpen}
             onCloseExternalLegal={() => setExternalLegalOpen(false)}
           />
