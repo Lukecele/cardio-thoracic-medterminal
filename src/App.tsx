@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import React, { useState, useEffect } from 'react';
 import {
   BookOpen,
@@ -233,6 +234,7 @@ function App() {
               </div>
             )}
           </div>
+          <Footer />
         </div>
       </main>
 
