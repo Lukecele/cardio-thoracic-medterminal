@@ -41,8 +41,10 @@ import Footer from './components/Footer';
 
 import theoryDataRaw from './data/theory.json';
 import questionsData from './data/questions.json';
+import oralCasesDataRaw from './data/oralCases.json';
 
 const theoryData = theoryDataRaw as any;
+const oralCasesData = oralCasesDataRaw as any[];
 
 type TabType =
   | 'theory'
@@ -63,6 +65,8 @@ export function App() {
   const [activeTab, setActiveTab] = useState<TabType>('theory');
   const [searchModalOpen, setSearchModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [activeSearchCategory, setActiveSearchCategory] = useState<'all' | 'theory' | 'quiz' | 'oral' | 'tool' | 'media'>('all');
+  const [selectedSearchIndex, setSelectedSearchIndex] = useState(0);
   
   // Cross-link state
   const [activeTopicId, setActiveTopicId] = useState<string | null>(null);
@@ -114,29 +118,90 @@ export function App() {
     { id: 'auscultation' as TabType, label: 'Fonoteca Auscultatoria', badge: 'AUDIO', desc: '7 Reperti Cardio-Polmonari', icon: Headphones, color: 'text-rose-400' },
   ];
 
-  // Global Search indexing
+  // Helper to extract a relevant snippet around query
+  const extractSnippet = (text: string, query: string, prefix = ''): string => {
+    if (!text) return '';
+    const clean = text.replace(/\s+/g, ' ').trim();
+    const lower = clean.toLowerCase();
+    const qLower = query.toLowerCase();
+    const idx = lower.indexOf(qLower);
+    if (idx === -1) {
+      const shortText = clean.length > 90 ? clean.slice(0, 90) + '...' : clean;
+      return prefix ? `${prefix}: ${shortText}` : shortText;
+    }
+    const start = Math.max(0, idx - 30);
+    const end = Math.min(clean.length, idx + query.length + 65);
+    let snip = clean.slice(start, end).trim();
+    if (start > 0) snip = '...' + snip;
+    if (end < clean.length) snip = snip + '...';
+    return prefix ? `${prefix}: ${snip}` : snip;
+  };
+
+  const renderHighlight = (text: string, query: string) => {
+    if (!text || !query || query.trim().length < 2) return text;
+    const qClean = query.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`(${qClean})`, 'gi');
+    const parts = text.split(regex);
+    return parts.map((part, i) =>
+      regex.test(part) ? (
+        <mark key={i} className="bg-cyan-500/35 text-cyan-200 px-0.5 rounded font-semibold not-italic">
+          {part}
+        </mark>
+      ) : (
+        part
+      )
+    );
+  };
+
+  type SearchCategoryType = 'theory' | 'quiz' | 'oral' | 'tool' | 'media';
+
+  interface SearchResultItem {
+    id: string;
+    category: SearchCategoryType;
+    badge: string;
+    badgeColor: string;
+    title: string;
+    subtitle: string;
+    snippet?: string;
+    action: () => void;
+  }
+
+  // Multi-Entity Deep Global Search Indexing
   const searchResults = useMemo(() => {
     if (!searchQuery.trim() || searchQuery.trim().length < 2) return [];
-    const q = searchQuery.toLowerCase();
-    const results: Array<{
-      type: 'theory' | 'quiz' | 'tool';
-      title: string;
-      subtitle: string;
-      action: () => void;
-    }> = [];
+    const q = searchQuery.toLowerCase().trim();
+    const results: SearchResultItem[] = [];
 
-    // Search theory
+    // 1. TEORIA CLINICA (Tutti i 16 capitoli, sezioni, cut-off, trabocchetti)
     for (const mod of theoryData.modules || []) {
       for (const t of mod.topics || []) {
-        if (
-          t.title.toLowerCase().includes(q) ||
-          t.category.toLowerCase().includes(q) ||
-          (t.highYieldSummary?.definizione && t.highYieldSummary.definizione.toLowerCase().includes(q))
-        ) {
+        const titleMatch = t.title?.toLowerCase().includes(q);
+        const catMatch = t.category?.toLowerCase().includes(q);
+        const defMatch = t.highYieldSummary?.definizione?.toLowerCase().includes(q);
+        const signsMatch = t.highYieldSummary?.segniCardine?.toLowerCase().includes(q);
+        const diagMatch = t.highYieldSummary?.diagnostica?.toLowerCase().includes(q);
+        const txMatch = t.highYieldSummary?.terapia?.toLowerCase().includes(q);
+        const trapMatch = t.examTraps && t.examTraps.find((trap: string) => trap.toLowerCase().includes(q));
+        const secMatch = t.sections && t.sections.find((sec: any) => sec.title?.toLowerCase().includes(q) || sec.content?.toLowerCase().includes(q));
+
+        if (titleMatch || catMatch || defMatch || signsMatch || diagMatch || txMatch || trapMatch || secMatch) {
+          let snippet = '';
+          if (diagMatch) snippet = extractSnippet(t.highYieldSummary.diagnostica, q, 'Diagnostica & Cut-off');
+          else if (signsMatch) snippet = extractSnippet(t.highYieldSummary.segniCardine, q, 'Segni Cardine');
+          else if (txMatch) snippet = extractSnippet(t.highYieldSummary.terapia, q, 'Terapia & Management');
+          else if (trapMatch) snippet = extractSnippet(trapMatch, q, "Trabocchetto d'Esame");
+          else if (secMatch) snippet = extractSnippet(secMatch.content, q, secMatch.title);
+          else if (defMatch) snippet = extractSnippet(t.highYieldSummary.definizione, q, 'Definizione');
+          else snippet = extractSnippet(t.highYieldSummary?.definizione || t.title, q, 'Capitolo');
+
           results.push({
-            type: 'theory',
+            id: `th-${t.id}`,
+            category: 'theory',
+            badge: 'TEORIA',
+            badgeColor: 'bg-cyan-500/15 text-cyan-300 border-cyan-500/30',
             title: t.title,
             subtitle: `${mod.name} • ${t.category}`,
+            snippet,
             action: () => {
               setActiveTopicId(t.id);
               setActiveTab('theory');
@@ -147,13 +212,67 @@ export function App() {
       }
     }
 
-    // Search quizzes
-    for (const quest of questionsData as any[]) {
-      if (quest.question.toLowerCase().includes(q) || quest.topic?.toLowerCase().includes(q)) {
+    // 2. CASI CLINICI ORALI (5 Stazioni d'esame orali, domande e risposte)
+    for (let i = 0; i < (oralCasesData || []).length; i++) {
+      const c = oralCasesData[i];
+      const titleMatch = c.title?.toLowerCase().includes(q);
+      const patientMatch = c.patient?.toLowerCase().includes(q);
+      const discMatch = c.discipline?.toLowerCase().includes(q);
+      const qMatch = c.oralQuestions && c.oralQuestions.find((oq: any) => 
+        oq.question?.toLowerCase().includes(q) || 
+        oq.expectedAnswer?.toLowerCase().includes(q) || 
+        oq.fatalTrap?.toLowerCase().includes(q)
+      );
+
+      if (titleMatch || patientMatch || discMatch || qMatch) {
+        let snippet = '';
+        if (qMatch) {
+          if (qMatch.question?.toLowerCase().includes(q)) snippet = extractSnippet(qMatch.question, q, 'Domanda Orale');
+          else if (qMatch.fatalTrap?.toLowerCase().includes(q)) snippet = extractSnippet(qMatch.fatalTrap, q, 'Errore Grave');
+          else snippet = extractSnippet(qMatch.expectedAnswer, q, 'Risposta Attesa');
+        } else if (patientMatch) {
+          snippet = extractSnippet(c.patient, q, 'Presentazione Clinica');
+        } else {
+          snippet = extractSnippet(c.patient || c.title, q, 'Caso Clinico');
+        }
+
         results.push({
-          type: 'quiz',
+          id: `oral-${c.id || i}`,
+          category: 'oral',
+          badge: 'ORALE',
+          badgeColor: 'bg-purple-500/15 text-purple-300 border-purple-500/30',
+          title: c.title,
+          subtitle: `${c.discipline} • Stazione Orale #${i + 1}`,
+          snippet,
+          action: () => {
+            setTargetOralStationId(i + 1);
+            setActiveTab('oral');
+            setSearchModalOpen(false);
+          }
+        });
+      }
+    }
+
+    // 3. DATABASE SCRITTI (48 MCQ Ufficiali con razionali completi)
+    for (const quest of questionsData as any[]) {
+      const topicMatch = quest.topic?.toLowerCase().includes(q);
+      const questMatch = quest.question?.toLowerCase().includes(q);
+      const explMatch = quest.explanation?.toLowerCase().includes(q);
+      const optMatch = quest.options && quest.options.some((o: any) => o.text?.toLowerCase().includes(q));
+
+      if (topicMatch || questMatch || explMatch || optMatch) {
+        let snippet = '';
+        if (explMatch) snippet = extractSnippet(quest.explanation, q, 'Razionale Ufficiale');
+        else snippet = extractSnippet(quest.question, q, 'Quesito');
+
+        results.push({
+          id: `quiz-${quest.id}`,
+          category: 'quiz',
+          badge: 'QUIZ',
+          badgeColor: 'bg-yellow-500/15 text-yellow-300 border-yellow-500/30',
           title: `Quiz: ${quest.topic || 'Quesito Ufficiale'}`,
-          subtitle: quest.question.substring(0, 85) + '...',
+          subtitle: quest.examSession || 'Database Scritti Moodle',
+          snippet,
           action: () => {
             setTargetQuestionId(quest.id);
             setActiveTab('quiz');
@@ -163,35 +282,178 @@ export function App() {
       }
     }
 
-    // Search tools
-    const toolKeywords: Array<{ id: TabType; name: string; desc: string; keywords: string[] }> = [
-      { id: 'ecg', name: 'Monitor ECG Vettoriale', desc: 'Tracciati STEMI, FA, BAV, Flutter', keywords: ['ecg', 'elettrocardiogramma', 'stemi', 'fibrillazione', 'blocco', 'flutter'] },
-      { id: 'pfr', name: 'Spirometria & PFR', desc: 'Curva Flusso-Volume, Tiffeneau, Broncodilatatore', keywords: ['pfr', 'spirometria', 'tiffeneau', 'fev1', 'fvc', 'broncodilatatore', 'asma', 'bpco'] },
-      { id: 'ega', name: 'EGA Arteriosa Interpreter', desc: 'Equilibrio acido-base, Tipo 1 vs Tipo 2, ARDS', keywords: ['ega', 'emogasanalisi', 'pao2', 'paco2', 'acidosi', 'alcalosi', 'ards'] },
-      { id: 'tnm', name: 'Stadiazione TNM & Operabilità', desc: 'NSCLC 8ª Edizione, ppo-FEV1, ppo-DLCO', keywords: ['tnm', 'stadiazione', 'lobectomia', 'pneumonectomia', 'operabilita', 'ppo'] },
-      { id: 'flowcharts', name: 'Percorsi Clinici Decisionali', desc: 'Flowchart STEMI, Scompenso 4 pilastri, Fogarty', keywords: ['flowchart', 'algoritmo', 'percorso', 'stemi pci', 'fogarty', 'scompenso 4'] },
-      { id: 'pharma', name: 'Prontuario Farmacologico', desc: 'DOACs & antidoti, Emergenze EV, Regime RIPE', keywords: ['farmaci', 'pharma', 'doac', 'idarucizumab', 'andexanet', 'labetalolo', 'tbc ripe'] },
-      { id: 'imaging', name: 'Atlante Imaging Toracico', desc: 'RX, TC Torace, Kerley B, PNX, Dissecazione', keywords: ['imaging', 'radiologia', 'rx', 'tc', 'dissecazione', 'kerley', 'pneumotorace'] },
-      { id: 'calculators', name: 'Score Clinici (CHA2DS2, EuroSCORE...)', desc: 'Calcolatori diagnostici e prognostici', keywords: ['score', 'calcolatori', 'cha2ds2', 'euroscore', 'wells', 'light', 'curb65'] },
-      { id: 'auscultation', name: 'Libreria Auscultatoria', desc: '7 registrazioni reali cardiopolmonari', keywords: ['audio', 'auscultazione', 'toni', 'soffi', 'rantoli', 'sibili', 'stenosi aortica'] },
+    // 4. SCORE CLINICI & CALCOLATORI PROGNOSTICI
+    const CALCULATOR_DATA = [
+      { id: 'wells-pe', name: 'Score di Wells (Embolia Polmonare)', desc: 'Stratificazione probabilistica pre-test per EP acuta (D-Dimero vs Angio-TC)', keywords: ['wells', 'ep', 'pe', 'embolia', 'polmonare', 'd-dimero', 'angio-tc', 'score', 'dispnea', 'tachicardia'] },
+      { id: 'wells-dvt', name: 'Score di Wells (TVP)', desc: 'Probabilità clinica pre-test per trombosi venosa profonda arti inferiori', keywords: ['wells', 'tvp', 'dvt', 'trombosi', 'edema', 'fovea', 'polpaccio', 'tromboembolismo'] },
+      { id: 'cha2ds2-vasc', name: 'CHA2DS2-VASc Score', desc: 'Rischio tromboembolico e ictus nella fibrillazione atriale (FA) & indicazione a DOAC/Warfarin', keywords: ['cha2ds2', 'vasc', 'chads', 'fa', 'fibrillazione', 'stroke', 'ictus', 'doac', 'warfarin', 'anticoagulante'] },
+      { id: 'has-bled', name: 'HAS-BLED Score', desc: 'Rischio di emorragia maggiore in pazienti in terapia anticoagulante orale', keywords: ['has-bled', 'hasbled', 'emorragia', 'sanguinamento', 'anticoagulante', 'inr', 'ipertensione'] },
+      { id: 'euroscore-2', name: 'EuroSCORE II', desc: 'Rischio di mortalità cardiochirurgica pre-operatoria per SAVR, TAVI, CABG e aorta', keywords: ['euroscore', 'euroscore 2', 'euroscore ii', 'cardiochirurgia', 'savr', 'tavi', 'cabg', 'mortalita', 'rischio chirurgico'] },
+      { id: 'curb65', name: 'CURB-65 Score', desc: 'Severità e setting di ricovero (domicilio vs reparto vs UTI) per polmonite comunitaria (CAP)', keywords: ['curb65', 'curb-65', 'curb', 'polmonite', 'cap', 'confusione', 'urea', 'tachipnea', 'ricovero', 'uti'] },
+      { id: 'light', name: 'Criteri di Light (Versamento Pleurico)', desc: 'Diagnosi differenziale tra essudato e trasudato su toracentesi (proteine e LDH)', keywords: ['light', 'criteri di light', 'versamento', 'pleura', 'essudato', 'trasudato', 'ldh', 'proteine', 'toracentesi'] },
+      { id: 'abi', name: 'Indice ABI (Ankle-Brachial Index)', desc: 'Indice pressorio caviglia-braccio per diagnosi e severità di AOCP e ischemia periferica', keywords: ['abi', 'ankle-brachial', 'indice', 'caviglia', 'braccio', 'aocp', 'ischemia', 'arteriopatia', 'claudicatio', 'doppler'] },
     ];
 
-    toolKeywords.forEach(tool => {
-      if (tool.name.toLowerCase().includes(q) || tool.keywords.some(k => k.includes(q) || q.includes(k))) {
+    for (const calc of CALCULATOR_DATA) {
+      if (calc.name.toLowerCase().includes(q) || calc.desc.toLowerCase().includes(q) || calc.keywords.some(k => k.includes(q) || q.includes(k))) {
         results.push({
-          type: 'tool',
+          id: `calc-${calc.id}`,
+          category: 'tool',
+          badge: 'SCORE',
+          badgeColor: 'bg-teal-500/15 text-teal-300 border-teal-500/30',
+          title: calc.name,
+          subtitle: 'Calcolatore Clinico & Valutazione Rischio',
+          snippet: extractSnippet(calc.desc, q, 'Indicazione'),
+          action: () => {
+            setTargetCalculatorId(calc.id);
+            setActiveTab('calculators');
+            setSearchModalOpen(false);
+          }
+        });
+      }
+    }
+
+    // 5. FONOTECA AUSCULTATORIA (Audio reali cardiopolmonari)
+    const AUDIO_DATA = [
+      { id: 's1-s2', name: 'Toni Fisiologici Normali (S1 - S2)', desc: 'Auscultazione cardiaca fisiologica, chiusura valvole AV e semilunari', keywords: ['toni', 'fisiologici', 's1', 's2', 'auscultazione normale', 'focolai'] },
+      { id: 'aortic-stenosis', name: 'Stenosi Aortica (Soffio Meso-sistolico ad Eiezione)', desc: 'Soffio aspro a diamante in crescendo-decrescendo al focolaio aortico con irradiazione carotidea', keywords: ['stenosi aortica', 'soffio sistolico', 'diamante', 'eiezione', 'carotidi', 'parvus et tardus', 'calcifica'] },
+      { id: 'mitral-regurgitation', name: 'Insufficienza Mitralica (Soffio Olo-sistolico)', desc: 'Soffio olosistolico soffiante all\'apice con irradiazione tipica al cavo ascellare', keywords: ['insufficienza mitralica', 'rigurgito', 'soffio olosistolico', 'ascella', 'apice', 'prolasso', 'papillare'] },
+      { id: 'mitral-stenosis', name: 'Stenosi Mitralica (Schiocco & Rullio Diastolico)', desc: 'S1 accentuato, schiocco d\'apertura e rullio diastolico con rinforzo presistolico', keywords: ['stenosi mitralica', 'rullio', 'diastolico', 'schiocco', 'opening snap', 'reumatica'] },
+      { id: 'aortic-regurgitation', name: 'Insufficienza Aortica (Soffio Diastolico in Decrescendo)', desc: 'Soffio diastolico dolce aspirativo al punto di Erb, polso scoccante di Corrigan', keywords: ['insufficienza aortica', 'soffio diastolico', 'decrescendo', 'erb', 'corrigan'] },
+      { id: 's3', name: 'Terzo Tono S3 (Galoppo Protodiastolico)', desc: 'Riempimento ventricolare rapido, indice di sovraccarico di volume e scompenso HFrEF', keywords: ['s3', 'terzo tono', 'galoppo', 'protodiastolico', 'scompenso', 'hfref', 'sovraccarico'] },
+      { id: 's4', name: 'Quarto Tono S4 (Galoppo Presistolico)', desc: 'Sistole atriale forzata contro ventricolo ipertrofico rigido, ipertensione e compliance ridotta', keywords: ['s4', 'quarto tono', 'galoppo presistolico', 'atrio', 'ipertrofia', 'compliance'] },
+      { id: 'pericardial-rub', name: 'Sfregamenti Pericardici & Pleurici', desc: 'Rumore superficiale aspro tipo cuoio spiegazzato, patognomonico di pericardite o pleurite', keywords: ['sfregamento', 'sfregamenti', 'pericardite', 'pleurite', 'pericardico', 'pleurico', 'rub', 'cuoio'] },
+      { id: 'crackles', name: 'Rantoli Crepitanti Tele-inspiratori (Crackles / Velcro)', desc: 'Disostruzione alveolare a scatto tipica di edema polmonare acuto (EPA) e fibrosi (IPF)', keywords: ['rantoli', 'crepitanti', 'crackles', 'velcro', 'edema polmonare', 'epa', 'fibrosi', 'polmonite'] },
+      { id: 'wheezing', name: 'Sibili & Fischi Espiratori (Wheezing)', desc: 'Broncospasmo diffuso e rimodellamento bronchiale in asma bronchiale e BPCO', keywords: ['sibili', 'wheezing', 'fischi', 'asma', 'bpco', 'broncospasmo', 'espirazione'] },
+      { id: 'bronchial-breath', name: 'Soffio Tubarico / Respiro Bronchiale Patologico', desc: 'Trasmissione diretta dei suoni tracheali su parenchima consolidato (polmonite lobare)', keywords: ['soffio tubarico', 'respiro bronchiale', 'addensamento', 'polmonite lobare', 'consolidamento'] },
+    ];
+
+    for (const track of AUDIO_DATA) {
+      if (track.name.toLowerCase().includes(q) || track.desc.toLowerCase().includes(q) || track.keywords.some(k => k.includes(q) || q.includes(k))) {
+        results.push({
+          id: `audio-${track.id}`,
+          category: 'media',
+          badge: 'FONOTECA',
+          badgeColor: 'bg-rose-500/15 text-rose-300 border-rose-500/30',
+          title: track.name,
+          subtitle: 'Fonoteca Auscultatoria Audio Reale',
+          snippet: extractSnippet(track.desc, q, 'Reperto'),
+          action: () => {
+            setTargetAudioTrackId(track.id);
+            setActiveTab('auscultation');
+            setSearchModalOpen(false);
+          }
+        });
+      }
+    }
+
+    // 6. ATLANTE ANATOMICO WEBGL 3D
+    const ATLAS_3D_DATA = [
+      { id: 'heart', name: 'Atlante 3D: Cuore Interno & Apparato Valvolare', desc: 'Dissezione 3D di atri, ventricoli, setti e apparato sottovalvolare mitro-aortico', keywords: ['3d', 'cuore', 'anatomia', 'valvole', 'mitrale', 'aorta', 'ventricolo', 'atrio'] },
+      { id: 'beating', name: 'Atlante 3D: Battito Cardiaco & Ciclo Dinamico', desc: 'Modello 3D dinamico in tempo reale della cinetica ventricolare e meccanica cardiaca', keywords: ['3d', 'cuore battente', 'dinamico', 'cinetica', 'sistole', 'diastole', 'fisiologia'] },
+      { id: 'lungs', name: 'Atlante 3D: Albero Respiratorio & Lobi Polmonari', desc: 'Ricostruzione 3D di trachea, carena T4-T5, albero bronchiale e lobi polmonari', keywords: ['3d', 'polmoni', 'albero respiratorio', 'trachea', 'bronchi', 'carena', 'lobi', 'pneumo'] },
+      { id: 'aorta', name: 'Atlante 3D: Aorta Toracica & Tronchi Sovra-Aortici', desc: 'Radice, aorta ascendente, arco aortico con tronchi sovra-aortici e aorta discendente', keywords: ['3d', 'aorta', 'arco aortico', 'dissecazione', 'tronco anonimo', 'carotide', 'taa'] },
+      { id: 'coronary', name: 'Atlante 3D: Albero Coronarico & Circolo Ischemico', desc: 'Tronco comune, IVA, circonflessa Cx e coronaria destra nel quadro ischemico', keywords: ['3d', 'coronarie', 'albero coronarico', 'iva', 'discendente anteriore', 'circonflessa', 'stemi'] },
+    ];
+
+    for (const m of ATLAS_3D_DATA) {
+      if (m.name.toLowerCase().includes(q) || m.desc.toLowerCase().includes(q) || m.keywords.some(k => k.includes(q) || q.includes(k))) {
+        results.push({
+          id: `3d-${m.id}`,
+          category: 'media',
+          badge: 'ATLANTE 3D',
+          badgeColor: 'bg-blue-500/15 text-blue-300 border-blue-500/30',
+          title: m.name,
+          subtitle: 'Atlante Anatomico WebGL Interattivo',
+          snippet: extractSnippet(m.desc, q, 'Struttura'),
+          action: () => {
+            setFocus3DTarget(m.id);
+            setShow3DDrawer(true);
+            setSearchModalOpen(false);
+          }
+        });
+      }
+    }
+
+    // 7. STRUMENTI SPECIALISTICI MEDTERMINAL
+    const TOOLS_DATA = [
+      { id: 'scanner' as TabType, name: 'Scanner Diagnostico Integrato (DDx)', badge: 'SCANNER', desc: 'Algoritmo diagnostico differenziale basato sulla selezione combinata di sintomi e segni clinici', keywords: ['scanner', 'ddx', 'diagnosi differenziale', 'sintomi', 'segni', 'matrice'] },
+      { id: 'ecg' as TabType, name: 'Monitor ECG Dinamico & Simulator', badge: 'ECG', desc: 'Tracciati elettrocardiografici interattivi: STEMI, Fibrillazione Atriale, Flutter, BAV 3° grado', keywords: ['ecg', 'elettrocardiogramma', 'telemetria', 'stemi', 'fibrillazione atriale', 'flutter', 'bav'] },
+      { id: 'pfr' as TabType, name: 'Spirometria PFR & Flusso-Volume', badge: 'PFR', desc: 'Curva Flusso-Volume, Indice di Tiffeneau (FEV1/FVC), deficit ostruttivo vs restrittivo, reversibilità con salbutamolo', keywords: ['pfr', 'spirometria', 'flusso-volume', 'tiffeneau', 'fev1', 'fvc', 'broncodilatatore', 'salbutamolo', 'asma', 'bpco'] },
+      { id: 'ega' as TabType, name: 'EGA Arteriosa Interpreter', badge: 'EGA', desc: 'Equilibrio acido-base (pH, PaCO2, HCO3-), Gap Anionico, insufficienza respiratoria Tipo 1 vs Tipo 2, ARDS', keywords: ['ega', 'emogasanalisi', 'pao2', 'paco2', 'hco3', 'ph', 'acidosi', 'alcalosi', 'ards'] },
+      { id: 'tnm' as TabType, name: 'Stadiazione TNM & Operabilità Polmonare', badge: 'TNM', desc: 'Stadiazione 8ª Edizione per NSCLC, calcolo ppo-FEV1 e ppo-DLCO e resecabilità chirurgica', keywords: ['tnm', 'stadiazione', 'nsclc', 'tumore polmone', 'lobectomia', 'pneumonectomia', 'operabilita', 'ppo-fev1'] },
+      { id: 'flowcharts' as TabType, name: 'Algoritmi Decisionali & Flowchart', badge: 'FLOWCHART', desc: 'Flowchart STEMI PCI vs trombolisi, Scompenso 4 pilastri, Embolia Polmonare, Embolectomia Fogarty', keywords: ['flowchart', 'algoritmi', 'percorsi', 'stemi', 'scompenso 4 pilastri', 'fogarty', 'ischemia acuta', 'linee guida'] },
+      { id: 'pharma' as TabType, name: 'Prontuario Farmacologico & Antidoti', badge: 'PHARMA', desc: 'DOACs & antidoti specifici (Idarucizumab, Andexanet), Emergenze Ipertensive EV, Regime antitubercolare RIPE', keywords: ['farmaci', 'pharma', 'prontuario', 'doac', 'dabigatran', 'idarucizumab', 'apixaban', 'rivaroxaban', 'andexanet', 'labetalolo', 'ripe', 'tbc'] },
+      { id: 'imaging' as TabType, name: 'Atlante Imaging Toracico & Radiologia', badge: 'IMAGING', desc: 'Radiografia del Torace e Angio-TC: linee di Kerley B, pneumotorace (PNX), flap intimale di dissecazione aortica', keywords: ['imaging', 'radiologia', 'rx torace', 'tc torace', 'angio-tc', 'kerley b', 'pneumotorace', 'dissecazione aortica'] },
+    ];
+
+    for (const tool of TOOLS_DATA) {
+      if (tool.name.toLowerCase().includes(q) || tool.desc.toLowerCase().includes(q) || tool.keywords.some(k => k.includes(q) || q.includes(k))) {
+        results.push({
+          id: `tool-${tool.id}`,
+          category: 'tool',
+          badge: tool.badge,
+          badgeColor: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30',
           title: tool.name,
-          subtitle: tool.desc,
+          subtitle: 'Strumento Specialistico MedTerminal',
+          snippet: extractSnippet(tool.desc, q, 'Funzionalità'),
           action: () => {
             setActiveTab(tool.id);
             setSearchModalOpen(false);
           }
         });
       }
-    });
+    }
 
-    return results.slice(0, 15);
+    return results;
   }, [searchQuery]);
+
+  // Category counts and filtered visible results
+  const categoryCounts = useMemo(() => {
+    const counts = {
+      all: searchResults.length,
+      theory: 0,
+      quiz: 0,
+      oral: 0,
+      tool: 0,
+      media: 0
+    };
+    for (const r of searchResults) {
+      if ((counts as any)[r.category] !== undefined) {
+        (counts as any)[r.category]++;
+      }
+    }
+    return counts;
+  }, [searchResults]);
+
+  const visibleResults = useMemo(() => {
+    if (activeSearchCategory === 'all') return searchResults.slice(0, 30);
+    return searchResults.filter(r => r.category === activeSearchCategory).slice(0, 30);
+  }, [searchResults, activeSearchCategory]);
+
+  useEffect(() => {
+    setSelectedSearchIndex(0);
+  }, [searchQuery, activeSearchCategory]);
+
+  useEffect(() => {
+    const el = document.getElementById(`search-res-${selectedSearchIndex}`);
+    if (el) el.scrollIntoView({ block: 'nearest' });
+  }, [selectedSearchIndex]);
+
+  const handleSearchKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setSelectedSearchIndex(prev => (prev < visibleResults.length - 1 ? prev + 1 : 0));
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setSelectedSearchIndex(prev => (prev > 0 ? prev - 1 : Math.max(0, visibleResults.length - 1)));
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (visibleResults[selectedSearchIndex]) {
+        visibleResults[selectedSearchIndex].action();
+      }
+    }
+  };
 
   return (
     <div className="flex h-screen bg-[#07090e] text-slate-100 font-sans overflow-hidden selection:bg-cyan-500/30 selection:text-white">
@@ -488,7 +750,13 @@ export function App() {
               )}
 
               {activeTab === 'oral' && (
-                <OralExamSimulator initialStationId={targetOralStationId} />
+                <OralExamSimulator
+                  initialStationId={targetOralStationId}
+                  onNavigateTopic={(topicId: string) => {
+                    setActiveTopicId(topicId);
+                    setActiveTab('theory');
+                  }}
+                />
               )}
 
               {activeTab === 'scanner' && (
@@ -560,62 +828,161 @@ export function App() {
 
       {/* CTRL+K SEARCH MODAL */}
       {searchModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-md flex justify-center items-start pt-[12vh] px-4 animate-in fade-in duration-200">
-          <div className="bg-slate-900 w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden border border-slate-700 animate-in zoom-in-95 duration-200 flex flex-col max-h-[75vh]">
+        <div
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setSearchModalOpen(false);
+          }}
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex justify-center items-start pt-[8vh] sm:pt-[10vh] px-4 animate-in fade-in duration-200"
+        >
+          <div className="bg-slate-900 w-full max-w-3xl rounded-2xl shadow-2xl overflow-hidden border border-slate-700/80 animate-in zoom-in-95 duration-200 flex flex-col max-h-[82vh]">
             
-            <div className="flex items-center px-4 py-3.5 border-b border-slate-800 bg-slate-950">
-              <Search className="w-5 h-5 text-cyan-400 mr-3 shrink-0" />
-              <input
-                type="text"
-                placeholder="Cerca argomenti, cut-off, ECG, quiz, farmaci, esami..."
-                className="flex-1 bg-transparent border-none outline-none text-slate-100 placeholder-slate-500 text-sm font-sans"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                autoFocus
-              />
-              <button
-                onClick={() => setSearchModalOpen(false)}
-                className="px-2 py-1 bg-slate-800 text-slate-400 rounded text-[11px] font-mono uppercase hover:bg-slate-700 hover:text-white"
-              >
-                Esc
-              </button>
-            </div>
+            {/* Input Header */}
+            <div className="p-3.5 sm:p-4 border-b border-slate-800 bg-slate-950 flex flex-col gap-3">
+              <div className="flex items-center space-x-3">
+                <Search className="w-5 h-5 text-cyan-400 shrink-0" />
+                <input
+                  type="text"
+                  placeholder="Cerca patologie, farmaci, esami, cut-off, ECG, quiz, audio, 3D..."
+                  className="flex-1 bg-transparent border-none outline-none text-slate-100 placeholder-slate-500 text-sm font-sans"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={handleSearchKeyDown}
+                  autoFocus
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery('')}
+                    className="p-1 text-slate-500 hover:text-slate-300 rounded cursor-pointer"
+                    title="Cancella ricerca"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                )}
+                <button
+                  onClick={() => setSearchModalOpen(false)}
+                  className="px-2.5 py-1 bg-slate-800 text-slate-400 rounded-lg text-[11px] font-mono uppercase hover:bg-slate-700 hover:text-white cursor-pointer"
+                >
+                  Esc
+                </button>
+              </div>
 
-            <div className="flex-1 overflow-y-auto p-2 custom-scrollbar">
-              {searchQuery.trim().length < 2 ? (
-                <div className="p-8 text-center text-slate-500 text-xs">
-                  Digita almeno 2 caratteri per effettuare una ricerca globale nei compendi e negli strumenti.
-                </div>
-              ) : searchResults.length === 0 ? (
-                <div className="p-8 text-center text-slate-500 text-xs">
-                  Nessun risultato corrispondente a "{searchQuery}".
-                </div>
-              ) : (
-                <div className="space-y-1">
-                  {searchResults.map((res, i) => (
+              {/* Category Pills (Filter chips) */}
+              {searchQuery.trim().length >= 2 && searchResults.length > 0 && (
+                <div className="flex items-center gap-1.5 overflow-x-auto pt-1 pb-0.5 custom-scrollbar text-xs font-mono">
+                  {[
+                    { id: 'all', label: 'Tutti', count: categoryCounts.all },
+                    { id: 'theory', label: 'Teoria', count: categoryCounts.theory },
+                    { id: 'quiz', label: 'Quiz', count: categoryCounts.quiz },
+                    { id: 'oral', label: 'Orali', count: categoryCounts.oral },
+                    { id: 'tool', label: 'Score & Tool', count: categoryCounts.tool },
+                    { id: 'media', label: 'Audio & 3D', count: categoryCounts.media },
+                  ].map((cat) => (
                     <button
-                      key={i}
-                      onClick={res.action}
-                      className="w-full text-left p-3 rounded-xl hover:bg-slate-800/80 transition flex items-center justify-between group border border-transparent hover:border-slate-700"
+                      key={cat.id}
+                      onClick={() => setActiveSearchCategory(cat.id as any)}
+                      className={`px-2.5 py-1 rounded-lg transition-all shrink-0 cursor-pointer flex items-center space-x-1.5 ${
+                        activeSearchCategory === cat.id
+                          ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-bold'
+                          : 'bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800 hover:border-slate-700'
+                      }`}
                     >
-                      <div className="min-w-0 pr-3">
-                        <div className="text-xs font-bold text-slate-200 group-hover:text-cyan-300">
-                          {res.title}
-                        </div>
-                        <div className="text-[11px] text-slate-400 truncate mt-0.5">
-                          {res.subtitle}
-                        </div>
-                      </div>
-                      <ChevronRight className="w-4 h-4 text-slate-600 group-hover:text-cyan-400 shrink-0" />
+                      <span>{cat.label}</span>
+                      <span className="text-[10px] opacity-75">({cat.count})</span>
                     </button>
                   ))}
                 </div>
               )}
             </div>
 
-            <div className="p-3 border-t border-slate-800 bg-slate-950/60 flex items-center justify-between text-[11px] font-mono text-slate-500 px-4">
-              <span>Naviga con il mouse o clicca per aprire direttamente</span>
-              <span>MedTerminal Search Engine</span>
+            {/* Results Body */}
+            <div className="flex-1 overflow-y-auto p-2.5 custom-scrollbar space-y-1.5">
+              {searchQuery.trim().length < 2 ? (
+                <div className="p-10 text-center space-y-2">
+                  <Search className="w-8 h-8 text-slate-600 mx-auto" />
+                  <p className="text-sm font-semibold text-slate-300">Ricerca Globale MedTerminal</p>
+                  <p className="text-xs text-slate-500 max-w-sm mx-auto">
+                    Digita almeno 2 caratteri per esplorare in tempo reale tutti i 16 capitoli teorici, 48 MCQ scritti, 5 stazioni orali, 7 calcolatori clinici, 11 audio e modelli 3D.
+                  </p>
+                  <div className="flex flex-wrap justify-center gap-1.5 pt-3">
+                    {['STEMI', 'Dispnea', 'Troponina', 'Wells', 'Warfarin', 'Aorta', 'Gallavardin', 'Kerley'].map(tag => (
+                      <button
+                        key={tag}
+                        onClick={() => setSearchQuery(tag)}
+                        className="px-2.5 py-1 rounded-lg bg-slate-850 hover:bg-slate-800 text-slate-400 hover:text-cyan-300 text-xs font-mono border border-slate-800 transition cursor-pointer"
+                      >
+                        {tag}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : visibleResults.length === 0 ? (
+                <div className="p-10 text-center space-y-2">
+                  <X className="w-8 h-8 text-slate-600 mx-auto" />
+                  <p className="text-sm font-semibold text-slate-300">
+                    Nessun risultato corrispondente a "{searchQuery}"
+                  </p>
+                  <p className="text-xs text-slate-500">
+                    Prova a verificare il termine di ricerca o seleziona la scheda "Tutti" se hai applicato un filtro di categoria.
+                  </p>
+                </div>
+              ) : (
+                visibleResults.map((res, i) => {
+                  const isSelected = i === selectedSearchIndex;
+                  return (
+                    <button
+                      key={res.id}
+                      id={`search-res-${i}`}
+                      onClick={res.action}
+                      onMouseEnter={() => setSelectedSearchIndex(i)}
+                      className={`w-full text-left p-3 rounded-xl transition flex items-start justify-between group border cursor-pointer ${
+                        isSelected
+                          ? 'bg-cyan-950/40 border-cyan-400 ring-2 ring-cyan-500/40 shadow-lg'
+                          : 'bg-slate-900/60 border-slate-800/70 hover:bg-slate-850 hover:border-slate-700'
+                      }`}
+                    >
+                      <div className="min-w-0 pr-3 flex-1 space-y-1">
+                        <div className="flex items-center space-x-2">
+                          <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold border tracking-wider shrink-0 ${res.badgeColor}`}>
+                            {res.badge}
+                          </span>
+                          <span className="text-xs font-bold text-white group-hover:text-cyan-300 truncate">
+                            {renderHighlight(res.title, searchQuery)}
+                          </span>
+                        </div>
+                        <div className="text-[11px] text-slate-400 truncate pl-0.5">
+                          {renderHighlight(res.subtitle, searchQuery)}
+                        </div>
+                        {res.snippet && (
+                          <div className="text-[11px] text-slate-300 bg-slate-950/70 border border-slate-800/80 rounded-lg p-2 font-mono leading-relaxed mt-1">
+                            {renderHighlight(res.snippet, searchQuery)}
+                          </div>
+                        )}
+                      </div>
+                      <ChevronRight className={`w-4 h-4 shrink-0 mt-1 transition ${
+                        isSelected ? 'text-cyan-400 translate-x-0.5' : 'text-slate-600 group-hover:text-slate-400'
+                      }`} />
+                    </button>
+                  );
+                })
+              )}
+            </div>
+
+            {/* Footer with Keyboard Hints */}
+            <div className="p-3 border-t border-slate-800 bg-slate-950/80 flex flex-wrap items-center justify-between text-[11px] font-mono text-slate-500 px-4 gap-2">
+              <div className="flex items-center space-x-3">
+                <span><kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">↑↓</kbd> Naviga</span>
+                <span><kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">↵</kbd> Apri</span>
+                <span><kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Esc</kbd> Chiudi</span>
+              </div>
+              <div>
+                {searchResults.length > 0 && searchQuery.trim().length >= 2 ? (
+                  <span className="text-cyan-400/90 font-bold">
+                    {visibleResults.length} di {searchResults.length} {searchResults.length === 1 ? 'risultato' : 'risultati'}
+                  </span>
+                ) : (
+                  <span>MedTerminal Clinical Search</span>
+                )}
+              </div>
             </div>
 
           </div>

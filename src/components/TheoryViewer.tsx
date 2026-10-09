@@ -19,7 +19,8 @@ import {
   ChevronRight,
   ShieldCheck,
   FileText,
-  Bookmark
+  Bookmark,
+  X
 } from 'lucide-react';
 import theoryDataRaw from '../data/theory.json';
 
@@ -104,6 +105,24 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
 
   const renderActiveRecallParagraph = (paragraph: string, pIdx: number) => {
     if (!activeRecallMode || clozeTokens.length === 0) {
+      if (filterSearch.trim().length >= 2) {
+        const qClean = filterSearch.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp(`(${qClean})`, 'gi');
+        const parts = paragraph.split(regex);
+        return (
+          <span>
+            {parts.map((part, i) =>
+              regex.test(part) ? (
+                <mark key={i} className="bg-cyan-500/30 text-cyan-200 px-0.5 rounded font-semibold">
+                  {part}
+                </mark>
+              ) : (
+                part
+              )
+            )}
+          </span>
+        );
+      }
       return <span>{paragraph}</span>;
     }
 
@@ -150,7 +169,24 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
               </button>
             );
           } else {
-            newFragments.push(part);
+            if (filterSearch.trim().length >= 2) {
+              const qClean = filterSearch.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+              const sRegex = new RegExp(`(${qClean})`, 'gi');
+              const sParts = part.split(sRegex);
+              sParts.forEach((sp, spIdx) => {
+                if (sRegex.test(sp)) {
+                  newFragments.push(
+                    <mark key={`m-${tokenIdx}-${i}-${spIdx}`} className="bg-cyan-500/30 text-cyan-200 px-0.5 rounded font-semibold">
+                      {sp}
+                    </mark>
+                  );
+                } else {
+                  newFragments.push(sp);
+                }
+              });
+            } else {
+              newFragments.push(part);
+            }
           }
         });
       });
@@ -175,6 +211,26 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
     const q = filterSearch.toLowerCase();
     return paragraphs.filter((p: string) => p.toLowerCase().includes(q));
   }, [paragraphs, filterSearch]);
+
+  // Count matches in current chapter
+  const totalFilteredMatches = useMemo(() => {
+    if (!filterSearch.trim()) return 0;
+    const q = filterSearch.toLowerCase().trim();
+    let count = 0;
+    if (currentTopic.sections && currentTopic.sections.length > 0) {
+      for (const sec of currentTopic.sections) {
+        const paras = (sec.content || '').split('\n').map((p: string) => p.trim()).filter((p: string) => p.length > 0);
+        for (const p of paras) {
+          if (p.toLowerCase().includes(q)) count++;
+        }
+      }
+    } else if (paragraphs) {
+      for (const p of paragraphs) {
+        if (p.toLowerCase().includes(q)) count++;
+      }
+    }
+    return count;
+  }, [filterSearch, currentTopic, paragraphs]);
 
   const lt = currentTopic.linkedTools || {};
 
@@ -626,15 +682,35 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
             </h3>
           </div>
 
-          <div className="relative min-w-[240px]">
-            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
-            <input
-              type="text"
-              placeholder="Filtra nel capitolo..."
-              value={filterSearch}
-              onChange={(e) => setFilterSearch(e.target.value)}
-              className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-3 py-1.5 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-500"
-            />
+          <div className="flex items-center gap-2">
+            <div className="relative min-w-[240px] sm:min-w-[280px]">
+              <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
+              <input
+                type="text"
+                placeholder="Filtra nel capitolo..."
+                value={filterSearch}
+                onChange={(e) => setFilterSearch(e.target.value)}
+                className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-8 py-1.5 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-500"
+              />
+              {filterSearch && (
+                <button
+                  onClick={() => setFilterSearch('')}
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 p-0.5 cursor-pointer"
+                  title="Azzera filtro capitolo"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              )}
+            </div>
+            {filterSearch.trim() && (
+              <span className={`text-[11px] font-mono px-2.5 py-1 rounded-lg border shrink-0 ${
+                totalFilteredMatches > 0
+                  ? 'bg-cyan-500/10 text-cyan-400 border-cyan-500/20'
+                  : 'bg-rose-500/10 text-rose-400 border-rose-500/20'
+              }`}>
+                {totalFilteredMatches} {totalFilteredMatches === 1 ? 'riscontro' : 'riscontri'}
+              </span>
+            )}
           </div>
         </div>
 
@@ -671,8 +747,24 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
           </div>
         )}
 
-        {/* Structured Sections Body */}
-        {currentTopic.sections && currentTopic.sections.length > 0 ? (
+        {/* Structured Sections Body or Empty State */}
+        {filterSearch.trim() && totalFilteredMatches === 0 ? (
+          <div className="p-8 text-center bg-slate-950/60 border border-slate-800/80 rounded-2xl space-y-3">
+            <Search className="w-8 h-8 text-slate-600 mx-auto" />
+            <p className="text-sm font-bold text-slate-200">
+              Nessuna corrispondenza per "{filterSearch}" in questo capitolo
+            </p>
+            <p className="text-xs text-slate-400 max-w-md mx-auto leading-relaxed">
+              Il termine non compare in questo capitolo. Puoi azzerare il filtro o usare la <span className="text-cyan-400 font-mono font-semibold">Ricerca Globale (Ctrl+K)</span> per trovarlo negli altri 15 capitoli, nei quiz o nei casi orali.
+            </p>
+            <button
+              onClick={() => setFilterSearch('')}
+              className="px-4 py-2 rounded-xl bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 text-xs font-mono font-bold hover:bg-cyan-500/30 transition cursor-pointer"
+            >
+              Azzera Filtro Capitolo
+            </button>
+          </div>
+        ) : currentTopic.sections && currentTopic.sections.length > 0 ? (
           <div className="space-y-10">
             {currentTopic.sections.map((sec: any, sIdx: number) => {
               const secParas = sec.content

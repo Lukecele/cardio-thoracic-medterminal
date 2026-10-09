@@ -55,7 +55,7 @@
     "id": "scan-tamponade",
     "diagnosis": "Tamponamento Cardiaco",
     "system": "cardio",
-    "topicId": "crd-aritmie",
+    "topicId": "crd-semeiotica",
     "symptoms": [
       "Dispnea ingravescente",
       "Astenia marcata",

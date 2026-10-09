@@ -157,7 +157,10 @@ interface AuscultationDockProps {
 export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrackId }) => {
   const [selectedTrack, setSelectedTrack] = useState<AuscultationTrack>(() => {
     if (initialTrackId) {
-      const match = AUDIO_TRACKS.find(t => t.id === initialTrackId);
+      const match = AUDIO_TRACKS.find(t => 
+        t.id === initialTrackId || 
+        ((initialTrackId === 'pleural-rub' || initialTrackId === 'rub') && t.id === 'pericardial-rub')
+      );
       if (match) return match;
     }
     return AUDIO_TRACKS[0];
@@ -172,7 +175,10 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
 
   useEffect(() => {
     if (initialTrackId) {
-      const match = AUDIO_TRACKS.find(t => t.id === initialTrackId);
+      const match = AUDIO_TRACKS.find(t => 
+        t.id === initialTrackId || 
+        ((initialTrackId === 'pleural-rub' || initialTrackId === 'rub') && t.id === 'pericardial-rub')
+      );
       if (match) setSelectedTrack(match);
     }
   }, [initialTrackId]);

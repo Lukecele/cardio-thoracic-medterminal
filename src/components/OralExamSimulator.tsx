@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { Stethoscope, User, AlertTriangle, ChevronRight, ChevronDown } from 'lucide-react';
+import { Stethoscope, User, AlertTriangle, ChevronRight, ChevronDown, BookOpen, ExternalLink } from 'lucide-react';
 import oralCasesData from '../data/oralCases.json';
 
 interface OralExamSimulatorProps {
   initialStationId?: number | null;
+  onNavigateTopic?: (topicId: string) => void;
 }
 
-export const OralExamSimulator: React.FC<OralExamSimulatorProps> = ({ initialStationId }) => {
+export const OralExamSimulator: React.FC<OralExamSimulatorProps> = ({ initialStationId, onNavigateTopic }) => {
   const [selectedCaseId, setSelectedCaseId] = useState<string>(() => {
     if (initialStationId && initialStationId >= 1 && initialStationId <= oralCasesData.length) {
       return oralCasesData[initialStationId - 1].id;
@@ -70,9 +71,21 @@ export const OralExamSimulator: React.FC<OralExamSimulatorProps> = ({ initialSta
 
       {/* Patient Presentation Card */}
       <div className="bg-slate-950 border border-slate-800 rounded-xl p-5 mb-6">
-        <div className="flex items-center space-x-2 text-purple-400 text-xs font-mono font-bold uppercase tracking-wider mb-2">
-          <User className="w-4 h-4" />
-          <span>Vignetta Clinica & Presentazione del Paziente</span>
+        <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center space-x-2 text-purple-400 text-xs font-mono font-bold uppercase tracking-wider">
+            <User className="w-4 h-4" />
+            <span>Vignetta Clinica & Presentazione del Paziente</span>
+          </div>
+          {(currentCase as any).relatedTopicId && onNavigateTopic && (
+            <button
+              onClick={() => onNavigateTopic((currentCase as any).relatedTopicId)}
+              className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 text-xs font-mono hover:bg-cyan-500/25 transition cursor-pointer"
+            >
+              <BookOpen className="w-3.5 h-3.5 text-cyan-400" />
+              <span>Consulta Trattazione Integrale</span>
+              <ExternalLink className="w-3 h-3 text-cyan-400" />
+            </button>
+          )}
         </div>
         <h3 className="text-base font-bold text-white mb-2">{currentCase.title}</h3>
         <p className="text-sm text-slate-300 leading-relaxed mb-4">{currentCase.patient}</p>
