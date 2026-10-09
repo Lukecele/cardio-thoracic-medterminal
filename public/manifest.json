@@ -1,7 +1,7 @@
 {
   "name": "MedTerminal // Cardio-Thoracic Cockpit",
   "short_name": "MedTerminal",
-  "description": "Terminale clinico avanzato e compendio 2FAST per l'esame integrato di Cardiologia, Cardiochirurgia, Pneumologia, Chirurgia Toracica e Vascolare.",
+  "description": "Piattaforma didattica per studenti di medicina: teoria completa, simulatore esame scritto e orale, fonoteca auscultatoria e modelli 3D.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#07090e",

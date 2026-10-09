@@ -20,7 +20,8 @@ import {
   FileText,
   Search,
   Scale,
-  Smile
+  Smile,
+  Terminal
 } from 'lucide-react';
 
 const GithubIcon: React.FC<{ className?: string }> = ({ className = "w-4 h-4" }) => (
@@ -60,12 +61,12 @@ export const HomePage: React.FC<HomePageProps> = ({
   return (
     <div className="w-full max-w-6xl mx-auto space-y-10 py-4 sm:py-6 px-1 sm:px-2">
       
-      {/* 1. HERO HEADER: INTRODUZIONE AL PORTALE D'ESAME */}
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-b from-slate-900 via-slate-950 to-[#07090e] border border-cyan-500/20 p-6 sm:p-10 shadow-2xl">
+      {/* 1. PRESENTAZIONE UNICA DEL PORTALE & SVILUPPATORE */}
+      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-b from-slate-900 via-slate-950 to-[#07090e] border border-cyan-500/20 p-6 sm:p-10 shadow-2xl space-y-7">
         <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-600/5 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="relative z-10 max-w-3xl space-y-4">
+        <div className="relative z-10 max-w-4xl space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-[11px] sm:text-xs font-mono font-medium">
             <Heart className="w-3.5 h-3.5 text-cyan-400 fill-cyan-400/20 shrink-0" />
             <span>PORTALE ACCADEMICO • STUDIO ESAME INTEGRATO</span>
@@ -76,9 +77,10 @@ export const HomePage: React.FC<HomePageProps> = ({
           </h1>
 
           <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
-            La piattaforma didattica concepita per gli <strong className="text-white">studenti di medicina</strong> che preparano l'esame universitario integrato di <strong className="text-white">Malattie dell'Apparato Cardiovascolare e Respiratorio</strong>. Il pilastro fondamentale del portale è la <strong className="text-cyan-300">teoria completa e approfondita nei 16 capitoli curriculari</strong> (Cardiologia medica, Pneumologia, Cardiochirurgia, Chirurgia Toracica e Vascolare), strutturata in modo intelligente: niente muri di testo caotici, ma una trattazione rigorosa accompagnata da 4 punti cardine d'esame, trabocchetti dei docenti, simulazioni orali, fonoteca reale e modelli 3D.
+            La piattaforma didattica concepita per gli <strong className="text-white">studenti di medicina</strong> per la preparazione dell'esame universitario integrato di <strong className="text-white">Malattie dell'Apparato Cardiovascolare e Respiratorio</strong>. Il pilastro fondamentale dello studio è la <strong className="text-cyan-300">teoria approfondita nei 16 capitoli curriculari</strong> (Cardiologia Medica, Pneumologia, Cardiochirurgia, Chirurgia Toracica e Vascolare), integrata con il <strong className="text-amber-300">simulatore per l'esame scritto</strong> (database di 48 quesiti MCQ ufficiali con razionali clinici commentati), il <strong className="text-purple-300">simulatore d'esame orale</strong> (5 stazioni cliniche complesse con domande a cascata e trabocchetti d'esame), la <strong className="text-rose-300">fonoteca auscultatoria reale</strong> (11 reperti sonori sincronizzati con filtri fonendoscopio Membrana/Campana e StethoBoost), l'atlante 3D WebGL e la suite di strumenti diagnostici (ECG, Spirometria PFR, EGA, TNM e calcolatori).
           </p>
 
+          {/* QUICK CTA JUMP BUTTONS */}
           <div className="pt-2 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3">
             <button
               onClick={() => onNavigate('theory')}
@@ -90,8 +92,16 @@ export const HomePage: React.FC<HomePageProps> = ({
             </button>
 
             <button
+              onClick={() => onNavigate('quiz')}
+              className="px-4 py-3 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/30 text-amber-200 text-xs sm:text-sm font-mono font-semibold transition flex items-center justify-center gap-2"
+            >
+              <CheckCircle2 className="w-4 h-4 text-amber-400" />
+              <span>Database Scritti (48 MCQ)</span>
+            </button>
+
+            <button
               onClick={() => onNavigate('oral')}
-              className="px-4 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-600 text-slate-200 text-xs sm:text-sm font-mono font-semibold transition flex items-center justify-center gap-2"
+              className="px-4 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-750 hover:border-slate-650 text-slate-200 text-xs sm:text-sm font-mono font-semibold transition flex items-center justify-center gap-2"
             >
               <Stethoscope className="w-4 h-4 text-purple-400" />
               <span>Simulatore Orale</span>
@@ -107,61 +117,30 @@ export const HomePage: React.FC<HomePageProps> = ({
             </button>
           </div>
         </div>
-      </section>
 
-      {/* 2. PROMINENT AUTORI & FONTI (LUCA CELEBRANO & LORENZO PESSETTI) */}
-      <section className="space-y-4">
-        <div className="flex items-center justify-between px-1">
-          <div className="flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-cyan-400" />
-            <h2 className="text-xs sm:text-sm font-mono font-bold uppercase tracking-wider text-slate-300">
-              Sviluppo del Progetto & Fonti Didattiche
-            </h2>
-          </div>
-          <span className="text-[11px] font-mono text-slate-500">Crediti Ufficiali</span>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {/* DEVELOPER & DISCRETE CREDITS STRIP */}
+        <div className="relative z-10 pt-6 border-t border-slate-800/80 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           
-          {/* CARD 1: LUCA CELEBRANO (PROMINENT GITHUB) */}
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900/90 to-slate-950 border border-cyan-500/40 p-5 sm:p-6 shadow-xl flex flex-col justify-between space-y-5 group hover:border-cyan-400 transition-all">
-            <div className="space-y-3">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-cyan-400 px-2 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/20">
-                  Ideatore & Sviluppatore
-                </span>
-                <span className="hidden sm:inline text-[11px] font-mono text-slate-500">Full-Stack Medical UI</span>
-              </div>
-
-              <div>
-                <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight flex items-center gap-2">
-                  <span>Realizzato da</span>
-                  <span className="text-cyan-400 underline decoration-cyan-500/40 underline-offset-4">
-                    Luca Celebrano
-                  </span>
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed font-sans">
-                  Ideato e sviluppato per offrire agli studenti di medicina un ambiente di studio completo, rigoroso e interattivo: unisce 16 capitoli di teoria approfondita e linee guida a strumenti visivi, fonoteca con auscultazioni reali e simulazioni d'esame orale.
-                </p>
-              </div>
+          {/* SVILUPPATORE: LUCA CELEBRANO + GITHUB */}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+            <div className="flex items-center space-x-2 text-xs sm:text-sm">
+              <Terminal className="w-4 h-4 text-cyan-400 shrink-0" />
+              <span className="text-slate-300">
+                Sviluppato da <strong className="text-white font-semibold">Luca Celebrano</strong>
+              </span>
             </div>
 
-            {/* GITHUB PROMINENT ACTIONS */}
-            <div className="pt-3 border-t border-slate-800/80 flex flex-col sm:flex-row gap-2">
+            <div className="flex items-center gap-2">
               <a
                 href="https://github.com/Lukecele/cardio-thoracic-medterminal"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-between p-3 rounded-xl bg-slate-950 hover:bg-cyan-950/50 border border-slate-750 hover:border-cyan-400 text-white transition-all shadow-md group/btn gap-2"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950 hover:bg-cyan-950/40 border border-slate-800 hover:border-cyan-400/60 text-slate-200 hover:text-white text-xs font-mono transition-all group/btn"
+                title="Repository GitHub MedTerminal"
               >
-                <div className="flex items-center space-x-2.5 min-w-0">
-                  <GithubIcon className="w-5 h-5 text-white shrink-0 group-hover/btn:scale-110 transition-transform" />
-                  <div className="min-w-0 text-left">
-                    <div className="text-xs font-bold font-mono text-white truncate">Lukecele / MedTerminal</div>
-                    <div className="text-[10px] text-slate-400 font-mono">Codice Open Source</div>
-                  </div>
-                </div>
-                <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shrink-0">
+                <GithubIcon className="w-3.5 h-3.5 text-white group-hover/btn:scale-110 transition-transform" />
+                <span className="font-bold">Lukecele / MedTerminal</span>
+                <span className="text-[10px] px-1.5 py-0.2 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
                   ★ Star
                 </span>
               </a>
@@ -170,49 +149,27 @@ export const HomePage: React.FC<HomePageProps> = ({
                 href="https://github.com/Lukecele"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-3.5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-850 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white transition flex items-center justify-center gap-1.5 text-xs font-mono shrink-0"
-                title="Profilo GitHub di Luca Celebrano"
+                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-850 border border-slate-800 hover:border-slate-700 text-slate-400 hover:text-slate-200 text-xs font-mono transition"
+                title="Profilo GitHub @Lukecele"
               >
-                <span>Profilo GitHub (@Lukecele)</span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                <span>@Lukecele</span>
+                <ExternalLink className="w-3 h-3 opacity-70" />
               </a>
             </div>
           </div>
 
-          {/* CARD 2: LORENZO PESSETTI (FONTI PDF) */}
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900/90 to-slate-950 border border-purple-500/30 p-5 sm:p-6 shadow-xl flex flex-col justify-between space-y-5 hover:border-purple-500/60 transition-all">
-            <div className="space-y-3">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-purple-300 px-2 py-0.5 rounded bg-purple-500/10 border border-purple-500/20">
-                  Fonti Teoria & Appunti
-                </span>
-                <span className="hidden sm:inline text-[11px] font-mono text-purple-400/80">PDF d'Ateneo</span>
-              </div>
-
-              <div>
-                <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight flex items-center gap-2">
-                  <span>Ringraziamento a</span>
-                  <span className="text-purple-300">Lorenzo Pessetti</span>
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed font-sans">
-                  Un ringraziamento a <strong>Lorenzo Pessetti</strong> per aver condiviso i suoi PDF di appunti universitari, utilizzati come base per la stesura e la sintesi della sezione teorica. Gli strumenti clinici, audio, modelli e quiz sono stati integrati da linee guida e risorse online.
-                </p>
-              </div>
-            </div>
-
-            <div className="pt-3 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-purple-300/80">
-              <div className="flex items-center gap-1.5 min-w-0">
-                <Award className="w-4 h-4 text-purple-400 shrink-0" />
-                <span className="text-[11px] truncate">Appunti PDF & Linee Guida</span>
-              </div>
-              <span className="hidden sm:inline text-[10px] text-slate-500">Basi Teoriche</span>
-            </div>
+          {/* DISCRETO RINGRAZIAMENTO LORENZO PESSETTI */}
+          <div className="flex items-center gap-2 text-xs text-slate-400 font-sans border-t lg:border-t-0 pt-2.5 lg:pt-0 border-slate-850">
+            <Award className="w-3.5 h-3.5 text-purple-400 shrink-0" />
+            <span className="text-slate-400">
+              Basi teoriche: si ringrazia <strong className="text-slate-300">Lorenzo Pessetti</strong> per la condivisione del materiale PDF di appunti universitari.
+            </span>
           </div>
 
         </div>
       </section>
 
-      {/* 3. GUIDA AL SITO & NAVIGAZIONE RAPIDA */}
+      {/* 2. GUIDA AL SITO & NAVIGAZIONE RAPIDA */}
       <section className="space-y-4">
         <div className="flex items-center justify-between px-1">
           <div className="flex items-center gap-2">
