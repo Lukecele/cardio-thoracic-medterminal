@@ -20,7 +20,9 @@ import {
   Heart,
   ChevronRight,
   ExternalLink,
-  Sparkles
+  Sparkles,
+  Maximize2,
+  Minimize2
 } from 'lucide-react';
 
 import TheoryViewer from './components/TheoryViewer';
@@ -78,6 +80,7 @@ export function App() {
   // 3D Atlas Drawer state
   const [show3DDrawer, setShow3DDrawer] = useState(false);
   const [focus3DTarget, setFocus3DTarget] = useState<string | null>('heart');
+  const [is3DMaximized, setIs3DMaximized] = useState(false);
   
   // Mobile navigation
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -786,33 +789,57 @@ export function App() {
             </div>
           </div>
 
-          {/* SLIDE-OUT 3D ATLAS DRAWER */}
+          {/* SLIDE-OUT 3D ATLAS DRAWER / MODAL WORKSTATION */}
           {show3DDrawer && (
             <>
-              {/* Backdrop on screens < 2xl */}
+              {/* Backdrop */}
               <div
                 onClick={() => setShow3DDrawer(false)}
-                className="2xl:hidden fixed inset-0 bg-black/60 backdrop-blur-xs z-30 transition-opacity"
+                className="fixed inset-0 bg-black/75 backdrop-blur-xs z-40 transition-opacity"
               />
-              <div className="fixed right-0 top-0 bottom-0 w-full sm:w-[460px] bg-slate-950 shadow-2xl border-l border-slate-800 z-40 animate-in slide-in-from-right duration-200">
+              <div
+                className={`fixed z-50 bg-slate-950 shadow-2xl transition-all duration-300 flex flex-col ${
+                  is3DMaximized
+                    ? 'inset-2 sm:inset-4 lg:inset-6 rounded-2xl border border-slate-700/80 overflow-hidden'
+                    : 'right-0 top-0 bottom-0 w-full sm:w-[600px] md:w-[740px] lg:w-[880px] xl:w-[1040px] border-l border-slate-800'
+                }`}
+              >
                 <div className="h-full flex flex-col">
-                  <div className="p-4 border-b border-slate-800 flex justify-between items-center bg-slate-950">
+                  {/* Top Bar Header */}
+                  <div className="p-3.5 sm:p-4 border-b border-slate-800 flex justify-between items-center bg-slate-950 shrink-0">
                     <div className="flex items-center space-x-2 text-cyan-400 font-mono text-xs font-bold uppercase tracking-wider">
                       <Layers className="w-4 h-4" />
-                      <span>Atlante Anatomico 3D Interattivo</span>
+                      <span>Atlante Anatomico 3D & Schemi Clinici</span>
+                      <span className="text-[10px] hidden sm:inline px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                        {is3DMaximized ? 'SCHERMO INTERO' : 'WORKSTATION'}
+                      </span>
                     </div>
-                    <button
-                      onClick={() => setShow3DDrawer(false)}
-                      className="text-slate-400 hover:text-white bg-slate-900 border border-slate-800 p-1.5 rounded-lg transition"
-                      title="Chiudi"
-                    >
-                      <X className="w-4 h-4" />
-                    </button>
+                    <div className="flex items-center space-x-2">
+                      <button
+                        onClick={() => setIs3DMaximized(!is3DMaximized)}
+                        className="text-slate-400 hover:text-white bg-slate-900 border border-slate-800 p-1.5 rounded-lg transition hidden sm:flex items-center"
+                        title={is3DMaximized ? "Riduci a pannello laterale" : "Ingrandisci a schermo intero"}
+                      >
+                        {is3DMaximized ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
+                      </button>
+                      <button
+                        onClick={() => setShow3DDrawer(false)}
+                        className="text-slate-400 hover:text-white bg-slate-900 border border-slate-800 p-1.5 rounded-lg transition"
+                        title="Chiudi"
+                      >
+                        <X className="w-4 h-4" />
+                      </button>
+                    </div>
                   </div>
+
+                  {/* Main Viewport Content */}
                   <div className="flex-1 relative overflow-hidden">
                     <Anatomy3DViewport
                       focusTarget={focus3DTarget}
                       onSelectTarget={(target) => setFocus3DTarget(target)}
+                      isMaximized={is3DMaximized}
+                      onToggleMaximize={() => setIs3DMaximized(!is3DMaximized)}
+                      onClose={() => setShow3DDrawer(false)}
                     />
                   </div>
                 </div>
