@@ -1,247 +1,92 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Play, Pause, Square, Activity, Volume2, VolumeX } from 'lucide-react';
+import React, { useState } from 'react';
+import { Volume2, Play, Square, Headphones, Info } from 'lucide-react';
 
-interface SoundItem {
-  id: string;
-  name: string;
-  category: string;
-  timing: string;
-  file: string;
-  clinicalSignificance: string;
-}
+const AUDIO_TRACKS = [
+  { id: 's1-s2', name: 'Toni Cardiaci Normali (S1-S2)', videoId: 'tZ1OevIibH8', desc: 'Ritmo sinusale normale. S1 (chiusura mitrale/tricuspide) e S2 (chiusura aortica/polmonare).' },
+  { id: 's3-gallop', name: 'Terzo Tono (S3) - Ritmo di Galoppo', videoId: 'e86j5W4iTz0', desc: 'Suono protodiastolico da riempimento ventricolare rapido (Scompenso cardiaco).' },
+  { id: 'aortic-stenosis', name: 'Stenosi Aortica (Soffio Sistolico)', videoId: 'p2dE3kZlRHY', desc: 'Soffio mesosistolico in crescendo-decrescendo irradiato alle carotidi.' },
+  { id: 'mitral-regurgitation', name: 'Insufficienza Mitralica', videoId: '8d2_9g0r1Y8', desc: 'Soffio olosistolico irradiato all\'ascella.' },
+  { id: 'crackles', name: 'Rantoli Crepitanti (Polmoni)', videoId: 'yVqH3eH_MKE', desc: 'Suono a strappo secco in inspirazione (Edema polmonare, Polmonite).' },
+  { id: 'wheezes', name: 'Sibili Espiratori (Polmoni)', videoId: 'TzFhN0bH2M0', desc: 'Suono continuo musicale in espirazione (Asma, BPCO).' }
+];
 
-export const AuscultationDock: React.FC = () => {
-  const [activeSoundId, setActiveSoundId] = useState<string | null>(null);
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const [volume, setVolume] = useState<number>(0.8);
-  const [currentTime, setCurrentTime] = useState<number>(0);
-  const [duration, setDuration] = useState<number>(0);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  const realClinicalSounds: SoundItem[] = [
-    {
-      id: 's1-s2',
-      name: 'Toni Fisiologici S1-S2 (61 bpm)',
-      category: 'Cardiologia / Fisiologia',
-      timing: 'Ritmo sinusale normale (Lub-Dub)',
-      file: '/audio/s1-s2.ogg',
-      clinicalSignificance: 'Chiusura fisiologica delle valvole AV (S1) e semilunari (S2). Registrazione stetoscopica reale.'
-    },
-    {
-      id: 'systolic-murmur',
-      name: 'Soffio Sistolico Reale',
-      category: 'Valvulopatia / Stenosi Aortica',
-      timing: 'Mesosistolico a diamante (crescendo-decrescendo)',
-      file: '/audio/systolic-murmur.ogg',
-      clinicalSignificance: 'Flusso turbolento attraverso valvola semilunare stenotica o rigurgito mitro-tricuspidale.'
-    },
-    {
-      id: 'vsd-pansystolic',
-      name: 'Soffio Olosistolico (VSD / Regurgito)',
-      category: 'Cardiopatie Congenite / DIV',
-      timing: 'Olosistolico a getto di vapore costante da S1 a S2',
-      file: '/audio/vsd-pansystolic.wav',
-      clinicalSignificance: 'Shunt sinistro-destro attraverso difetto del setto interventricolare o insufficienza mitralica severa.'
-    },
-    {
-      id: 'afib',
-      name: 'Fibrillazione Atriale (Ritmo Caotico)',
-      category: 'Aritmie / Elettrofisiologia',
-      timing: 'Completamente irregolare (irregolarmente irregolare)',
-      file: '/audio/afib.ogg',
-      clinicalSignificance: 'Mancanza di contrazione atriale coordinata, toni di intensità variabile da battito a battito.'
-    },
-    {
-      id: 'tachycardia',
-      name: 'Tachicardia Ventricolare/Sopraventricolare (150 bpm)',
-      category: 'Aritmie ad Alta Frequenza',
-      timing: 'Battiti rapidi ritmici > 140-150 bpm',
-      file: '/audio/tachycardia.ogg',
-      clinicalSignificance: 'Rientro nodale o tachicardia da sforzo; diastole marcatamente accorciata.'
-    },
-    {
-      id: 'wheezing',
-      name: 'Sibili Espiratori Asmatici',
-      category: 'Pneumologia / Asma & BPCO',
-      timing: 'Rumore secco musicale continuo in espirazione',
-      file: '/audio/wheezing.ogg',
-      clinicalSignificance: 'Vibrazione delle pareti bronchiali per severo restringimento del calibro da broncospasmo.'
-    },
-    {
-      id: 'crackles',
-      name: 'Rantoli Crepitanti di Polmonite',
-      category: 'Pneumologia / Infezioni & Alveoli',
-      timing: 'Rumori umidi discontinui tele-inspiratori',
-      file: '/audio/crackles.ogg',
-      clinicalSignificance: 'Apertura esplosiva degli alveoli e bronchioli collassati contenenti essudato infiammatorio.'
-    }
-  ];
-
-  const currentSound = realClinicalSounds.find(s => s.id === activeSoundId);
-
-  const handlePlayToggle = (sound: SoundItem) => {
-    if (activeSoundId === sound.id) {
-      if (isPlaying) {
-        audioRef.current?.pause();
-        setIsPlaying(false);
-      } else {
-        audioRef.current?.play();
-        setIsPlaying(true);
-      }
-    } else {
-      setActiveSoundId(sound.id);
-      setIsPlaying(true);
-      if (audioRef.current) {
-        audioRef.current.src = sound.file;
-        audioRef.current.currentTime = 0;
-        audioRef.current.volume = volume;
-        audioRef.current.play().catch(e => console.log('Audio playback error:', e));
-      }
-    }
-  };
-
-  const handleStop = () => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
-    }
-    setIsPlaying(false);
-  };
-
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    const onTimeUpdate = () => setCurrentTime(audio.currentTime);
-    const onLoadedMetadata = () => setDuration(audio.duration || 0);
-    const onEnded = () => {
-      // Loop seamlessly
-      audio.currentTime = 0;
-      audio.play().catch(() => {});
-    };
-
-    audio.addEventListener('timeupdate', onTimeUpdate);
-    audio.addEventListener('loadedmetadata', onLoadedMetadata);
-    audio.addEventListener('ended', onEnded);
-
-    return () => {
-      audio.removeEventListener('timeupdate', onTimeUpdate);
-      audio.removeEventListener('loadedmetadata', onLoadedMetadata);
-      audio.removeEventListener('ended', onEnded);
-    };
-  }, []);
+const AuscultationDock: React.FC = () => {
+  const [activeTrack, setActiveTrack] = useState<typeof AUDIO_TRACKS[0] | null>(null);
 
   return (
-    <div className="bg-slate-900/95 border border-slate-800 rounded-xl p-4 shadow-2xl">
-      {/* Hidden audio element */}
-      <audio ref={audioRef} preload="auto" loop />
-
-      {/* Header */}
-      <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
-        <div className="flex items-center space-x-2">
-          <Activity className="w-5 h-5 text-rose-500 animate-pulse" />
-          <div>
-            <h3 className="font-mono text-sm font-bold uppercase tracking-wider text-slate-100">
-              Registrazioni Stetoscopiche Reali (Stetofonografia)
-            </h3>
-            <p className="text-[11px] text-slate-400">Tracce audio cliniche reali da stetoscopio medico (nessuna sintesi fittizia).</p>
-          </div>
+    <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col h-full">
+      <div className="bg-slate-50 border-b border-slate-100 p-4 flex items-center space-x-3">
+        <div className="p-2 bg-rose-100 text-rose-600 rounded-lg">
+          <Headphones className="w-5 h-5" />
         </div>
-
-        {isPlaying && currentSound && (
-          <div className="flex items-center space-x-2">
-            <span className="hidden sm:inline text-xs font-mono text-rose-300 bg-rose-950/60 px-2 py-0.5 rounded border border-rose-800/60">
-              {currentSound.name}
-            </span>
-            <button
-              onClick={handleStop}
-              className="flex items-center space-x-1.5 px-3 py-1 rounded-lg bg-rose-500/20 text-rose-300 border border-rose-500/50 text-xs font-mono hover:bg-rose-500/30 transition"
-            >
-              <Square className="w-3.5 h-3.5 fill-current" />
-              <span>Stop Audio</span>
-            </button>
-          </div>
-        )}
+        <div>
+          <h2 className="font-semibold text-slate-800">Libreria Auscultatoria</h2>
+          <p className="text-xs text-slate-500">Reperti sonori ad alta fedeltà (USA Educational)</p>
+        </div>
       </div>
 
-      {/* Grid of Real Audio Tracks */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-        {realClinicalSounds.map((sound) => {
-          const isSelected = activeSoundId === sound.id;
-          const isCurrentlyActive = isSelected && isPlaying;
-
-          return (
-            <div
-              key={sound.id}
-              onClick={() => handlePlayToggle(sound)}
-              className={`p-3.5 rounded-xl border transition cursor-pointer flex flex-col justify-between ${
-                isCurrentlyActive
-                  ? 'bg-rose-950/30 border-rose-500/80 shadow-lg shadow-rose-950/40 ring-1 ring-rose-500/40'
-                  : 'bg-slate-950/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850'
+      <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
+        {/* Track List */}
+        <div className="w-full md:w-1/2 border-r border-slate-100 overflow-y-auto custom-scrollbar p-2">
+          {AUDIO_TRACKS.map((track) => (
+            <button
+              key={track.id}
+              onClick={() => setActiveTrack(track)}
+              className={`w-full text-left p-3 rounded-lg mb-1 transition-all flex items-start space-x-3 ${
+                activeTrack?.id === track.id 
+                  ? 'bg-rose-50 border border-rose-200 shadow-sm' 
+                  : 'hover:bg-slate-50 border border-transparent'
               }`}
             >
-              <div>
-                <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-semibold">
-                    {sound.category}
-                  </span>
-                  <div
-                    className={`w-7 h-7 rounded-full flex items-center justify-center transition ${
-                      isCurrentlyActive
-                        ? 'bg-rose-500 text-white animate-pulse'
-                        : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
-                    }`}
-                  >
-                    {isCurrentlyActive ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5 ml-0.5" />}
-                  </div>
-                </div>
-
-                <div className="font-bold text-slate-100 text-sm mb-1">{sound.name}</div>
-                <div className="text-xs text-slate-400 leading-snug">{sound.timing}</div>
-                <div className="text-[11px] text-slate-500 mt-2 font-sans italic">{sound.clinicalSignificance}</div>
+              <div className={`mt-0.5 rounded-full p-1.5 ${activeTrack?.id === track.id ? 'bg-rose-500 text-white' : 'bg-slate-100 text-slate-400'}`}>
+                {activeTrack?.id === track.id ? <Volume2 className="w-4 h-4 animate-pulse" /> : <Play className="w-4 h-4" />}
               </div>
-
-              {isCurrentlyActive && (
-                <div className="mt-3 pt-2.5 border-t border-rose-900/40 flex items-center justify-between">
-                  <div className="flex items-center space-x-1.5">
-                    <span className="h-2 w-1 bg-rose-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                    <span className="h-4 w-1 bg-rose-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                    <span className="h-6 w-1 bg-rose-300 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
-                    <span className="h-3 w-1 bg-rose-400 rounded-full animate-bounce" style={{ animationDelay: '100ms' }} />
-                    <span className="h-5 w-1 bg-rose-500 rounded-full animate-bounce" style={{ animationDelay: '250ms' }} />
-                    <span className="text-[11px] font-mono text-rose-400 ml-2">In riproduzione (Loop)</span>
-                  </div>
-                  <span className="text-[11px] font-mono text-slate-400">
-                    {currentTime.toFixed(1)}s {duration > 0 ? `/ ${duration.toFixed(1)}s` : ''}
-                  </span>
+              <div>
+                <div className={`text-sm font-semibold ${activeTrack?.id === track.id ? 'text-rose-700' : 'text-slate-700'}`}>
+                  {track.name}
                 </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
-
-      {/* Volume control slider */}
-      <div className="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400 font-mono">
-        <div className="flex items-center space-x-2">
-          {volume === 0 ? <VolumeX className="w-4 h-4 text-slate-500" /> : <Volume2 className="w-4 h-4 text-rose-400" />}
-          <span>Volume Stetoscopio:</span>
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.05"
-            value={volume}
-            onChange={(e) => {
-              const v = parseFloat(e.target.value);
-              setVolume(v);
-              if (audioRef.current) audioRef.current.volume = v;
-            }}
-            className="w-24 accent-rose-500 cursor-pointer"
-          />
+                <div className="text-xs text-slate-500 mt-1 line-clamp-2 leading-relaxed">
+                  {track.desc}
+                </div>
+              </div>
+            </button>
+          ))}
         </div>
-        <span className="text-[11px] text-slate-500">Formato originale stetoscopico OGG/WAV 44.1kHz</span>
+
+        {/* Player Window (YouTube Iframe) */}
+        <div className="w-full md:w-1/2 bg-slate-100 p-4 flex flex-col items-center justify-center relative">
+          {activeTrack ? (
+            <div className="w-full max-w-md w-full aspect-video bg-black rounded-xl overflow-hidden shadow-xl ring-4 ring-white">
+              <iframe
+                width="100%"
+                height="100%"
+                src={`https://www.youtube-nocookie.com/embed/${activeTrack.videoId}?autoplay=1&rel=0&modestbranding=1`}
+                title={activeTrack.name}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          ) : (
+            <div className="text-center p-6 flex flex-col items-center">
+              <div className="w-16 h-16 bg-slate-200 rounded-full flex items-center justify-center mb-4">
+                <Headphones className="w-8 h-8 text-slate-400" />
+              </div>
+              <h3 className="text-slate-600 font-medium">Seleziona un reperto</h3>
+              <p className="text-sm text-slate-400 mt-2 max-w-[200px]">Usa le cuffie per apprezzare le frequenze cardiache più basse.</p>
+            </div>
+          )}
+
+          {activeTrack && (
+            <div className="mt-6 w-full max-w-md bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex items-start space-x-3">
+              <Info className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
+              <p className="text-sm text-slate-700 leading-relaxed">{activeTrack.desc}</p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
 };
+
+export default AuscultationDock;
