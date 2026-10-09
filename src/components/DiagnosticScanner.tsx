@@ -122,7 +122,7 @@ export const DiagnosticScanner: React.FC<Props> = ({ onNavigateTopic }) => {
                   onClick={() => onNavigateTopic && onNavigateTopic(selectedItem.topicId)}
                   className="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-cyan-500/20 border border-cyan-400/40 text-cyan-300 text-xs font-mono hover:bg-cyan-500/30 transition"
                 >
-                  <span>Apri Teoria 2FAST</span>
+                  <span>Consulta Trattazione Integrale</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </button>
               </div>

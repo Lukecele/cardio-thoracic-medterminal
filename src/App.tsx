@@ -96,7 +96,7 @@ export function App() {
   }, []);
 
   const CORE_TABS = [
-    { id: 'theory' as TabType, label: 'Teoria Integrale', badge: '16 CAP', desc: 'Compendi Lorenzo Pessetti', icon: BookOpen, color: 'text-cyan-400' },
+    { id: 'theory' as TabType, label: 'Teoria Integrale', badge: '16 CAP', desc: '16 Capitoli & Linee Guida Ufficiali', icon: BookOpen, color: 'text-cyan-400' },
     { id: 'quiz' as TabType, label: 'Database Scritti', badge: '48 MCQ', desc: 'Quesiti & Razionali', icon: Trophy, color: 'text-yellow-400' },
     { id: 'oral' as TabType, label: 'Simulatore Orali', badge: '5 CASI', desc: '5 Stazioni Specialistiche', icon: Stethoscope, color: 'text-purple-400' },
     { id: 'scanner' as TabType, label: 'Scanner Diagnostico', badge: 'DDx', desc: 'Matrice Sintomi/Segni', icon: Zap, color: 'text-amber-400' },

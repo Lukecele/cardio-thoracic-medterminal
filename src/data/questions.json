@@ -412,7 +412,7 @@
     ],
     "correctAnswer": "a",
     "explanation": "I criteri di Light (sensibilità > 98%) definiscono essudato la presenza di almeno uno tra: 1) Proteine pleura/siero > 0.5; 2) LDH pleura/siero > 0.6; 3) LDH pleurico > a 2/3 del limite superiore della norma del laboratorio (generalmente > 200 U/L). Altrimenti è un trasudato.",
-    "examSession": "Dispense Pneumo-Toracica 2FAST",
+    "examSession": "Appello Ufficiale Pneumologia & Chirurgia Toracica",
     "oralLink": "All'orale: 'Qual è l'algoritmo di fronte a un versamento pleurico di natura non nota?'"
   },
   {
@@ -540,7 +540,7 @@
     ],
     "correctAnswer": "a",
     "explanation": "Il PNX iperteso è una diagnosi puramente CLINICA ed è un'emergenza vitale assoluta (shock ostruttivo da compressione cavale). È un grave errore perdere tempo per fare un'indagine radiologica! Si esegue subito la decompressione con ago (toracocentesi con ago al II spazio intercostale emiclaveare o V spazio ascellare), trasformandolo in PNX aperto, poi si mette il tubo di drenaggio.",
-    "examSession": "Dispense Pneumo-Toracica 2FAST",
+    "examSession": "Appello Ufficiale Pneumologia & Chirurgia Toracica",
     "oralLink": "All'orale: 'Perché è un errore gravissimo inviare a fare la Rx un paziente con PNX iperteso?'"
   },
   {
@@ -892,7 +892,7 @@
     ],
     "correctAnswer": "a",
     "explanation": "DII, DIII e aVF riflettono la parete inferiore (diaframmatica) del ventricolo sinistro, irrorata nella maggior parte dei soggetti (85-90%) dall'Arteria Coronaria Destra (RCA) tramite la discendente posteriore PDA.",
-    "examSession": "Dispense Cardio 2FAST",
+    "examSession": "Appello Ufficiale Cardiologia & Cardiochirurgia",
     "oralLink": "All'orale: 'Quale complicanza specifica deve sempre ricercare in uno STEMI inferiore e quali derivazioni registra?'"
   },
   {
@@ -1116,7 +1116,7 @@
     ],
     "correctAnswer": "a",
     "explanation": "La LIMA (Left Internal Mammary Artery) anastomizzata sull'IVA è il gold standard assoluto della cardiochirurgia coronarica: garantisce una pervietà superiore al 90-95% a 10-15 anni e un comprovato incremento della sopravvivenza a lungo termine.",
-    "examSession": "Dispense Cardio 2FAST",
+    "examSession": "Appello Ufficiale Cardiologia & Cardiochirurgia",
     "oralLink": "All'orale: 'Perché la LIMA ha una pervietà così superiore rispetto ai graft venosi?'"
   },
   {
@@ -1372,7 +1372,7 @@
     ],
     "correctAnswer": "b",
     "explanation": "L'Endoleak di Tipo II è in assoluto il più comune (fino all'80% di tutti gli endoleak) ed è causato dal rifornimento retrogrado della sacca aneurismatica da parte di rami collaterali pervieti (arterie lombari o arteria mesenterica inferiore IMA). Spesso viene monitorato e trattato solo se la sacca cresce.",
-    "examSession": "Dispense Vascolare 2FAST",
+    "examSession": "Appello Ufficiale Chirurgia Vascolare",
     "oralLink": "All'orale: 'Classificazione completa degli endoleak e quali richiedono reintervento immediato'."
   },
   {
@@ -1404,7 +1404,7 @@
     ],
     "correctAnswer": "a",
     "explanation": "Stanford Tipo A: coinvolge l'Aorta Ascendente (indipendentemente dall'estensione). È una letale emergenza cardiochirurgica (mortalità +1-2% per ora nelle prime 48h per tamponamento cardiaco, insufficienza aortica acuta o ischemia coronarica). Stanford Tipo B: origina distalmente alla succlavia sinistra e viene trattata inizialmente con terapia medica o TEVAR se complicata.",
-    "examSession": "Dispense Vascolare 2FAST",
+    "examSession": "Appello Ufficiale Chirurgia Vascolare",
     "oralLink": "All'orale: 'Perché la Stanford A è cardiochirurgica immediata e la Stanford B è medica/endovascolare?'"
   },
   {

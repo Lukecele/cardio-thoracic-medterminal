@@ -252,42 +252,100 @@ export const PfrSpirometryTool: React.FC = () => {
 
           {/* SVG Flow-Volume Curve Simulation */}
           <div className="space-y-2">
-            <span className="text-xs font-mono uppercase text-slate-400 font-bold block">
-              Curva Flusso-Volume Dinamica (Simulazione Grafica):
-            </span>
-            <svg className="w-full h-44 bg-[#030712] rounded-xl border border-cyan-950 p-2" viewBox="0 0 350 160">
-              {/* Axes */}
-              <line x1="40" y1="20" x2="40" y2="140" stroke="#334155" strokeWidth="1" />
-              <line x1="40" y1="80" x2="330" y2="80" stroke="#334155" strokeWidth="1" strokeDasharray="3,3" />
-              <text x="10" y="30" fill="#94a3b8" fontSize="8" fontFamily="monospace">Espiraz.</text>
-              <text x="10" y="135" fill="#94a3b8" fontSize="8" fontFamily="monospace">Inspiraz.</text>
-              <text x="300" y="92" fill="#94a3b8" fontSize="8" fontFamily="monospace">Volume</text>
+            <div className="flex items-center justify-between text-xs font-mono uppercase text-slate-400 font-bold">
+              <span>Curva Flusso-Volume Dinamica (Simulazione Spirometrica):</span>
+              <span className="text-[10px] text-cyan-400 font-mono">Loop Espirazione/Inspirazione</span>
+            </div>
+            
+            <svg className="w-full h-48 bg-[#02050e] rounded-xl border border-cyan-950 p-2" viewBox="0 0 380 180">
+              <defs>
+                <pattern id="spiroGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#0d1f33" strokeWidth="0.5" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#spiroGrid)" />
 
-              {/* Curve: changes based on obstruction or restriction */}
+              {/* Zero Flow Baseline (Horizontal Axis) */}
+              <line x1="50" y1="105" x2="360" y2="105" stroke="#334155" strokeWidth="1.5" />
+              {/* Zero Volume Vertical Axis */}
+              <line x1="50" y1="15" x2="50" y2="165" stroke="#334155" strokeWidth="1.5" />
+
+              {/* Axis Ticks & Labels */}
+              <text x="12" y="30" fill="#38bdf8" fontSize="8" fontFamily="monospace" fontWeight="bold">+8 L/s</text>
+              <text x="12" y="68" fill="#64748b" fontSize="8" fontFamily="monospace">+4 L/s</text>
+              <text x="24" y="108" fill="#94a3b8" fontSize="8" fontFamily="monospace">0 L/s</text>
+              <text x="12" y="145" fill="#f43f5e" fontSize="8" fontFamily="monospace">-4 L/s</text>
+              
+              <text x="4" y="18" fill="#38bdf8" fontSize="7" fontFamily="monospace" fontWeight="bold">FLUSSO</text>
+              <text x="330" y="100" fill="#94a3b8" fontSize="8" fontFamily="monospace" fontWeight="bold">VOLUME (L)</text>
+              <text x="50" y="118" fill="#64748b" fontSize="7" fontFamily="monospace">0</text>
+              <text x="120" y="118" fill="#64748b" fontSize="7" fontFamily="monospace">2L</text>
+              <text x="190" y="118" fill="#64748b" fontSize="7" fontFamily="monospace">4L</text>
+              <text x="260" y="118" fill="#64748b" fontSize="7" fontFamily="monospace">6L (FVC)</text>
+
+              {/* Curve rendering based on functional pattern */}
               {isObstructive ? (
-                // Obstructive curve with "scooping" concavity
-                <path
-                  d="M 60 80 Q 90 20 120 40 Q 180 75 280 80 Q 200 135 60 80"
-                  fill="rgba(245, 158, 11, 0.15)"
-                  stroke="#f59e0b"
-                  strokeWidth="2.5"
-                />
+                /* Obstructive curve with classic "scooping" (concavità) and reduced PEF */
+                <g>
+                  {/* Expiratory Limb: steep rise to PEF, then marked concavity */}
+                  <path
+                    d="M 50 105 Q 70 30 95 38 Q 130 95 240 105"
+                    fill="none"
+                    stroke="#f59e0b"
+                    strokeWidth="2.5"
+                  />
+                  {/* Inspiratory Limb: rounded semicircle underneath */}
+                  <path
+                    d="M 240 105 Q 145 155 50 105"
+                    fill="none"
+                    stroke="#f59e0b"
+                    strokeWidth="2"
+                    strokeDasharray="4 2"
+                  />
+                  {/* PEF Marker */}
+                  <circle cx="95" cy="38" r="3" fill="#f59e0b" />
+                  <text x="102" y="36" fill="#f59e0b" fontSize="7" fontFamily="monospace" fontWeight="bold">PEF</text>
+                  <text x="140" y="80" fill="#fbbf24" fontSize="7.5" fontFamily="monospace">Concavità ("Scooping")</text>
+                </g>
               ) : isRestrictive ? (
-                // Restrictive: miniature normal shape
-                <path
-                  d="M 60 80 Q 80 30 110 50 Q 140 70 170 80 Q 120 130 60 80"
-                  fill="rgba(59, 130, 246, 0.15)"
-                  stroke="#3b82f6"
-                  strokeWidth="2.5"
-                />
+                /* Restrictive curve: normal proportion, narrow volume */
+                <g>
+                  <path
+                    d="M 50 105 Q 75 25 90 28 Q 120 70 160 105"
+                    fill="none"
+                    stroke="#38bdf8"
+                    strokeWidth="2.5"
+                  />
+                  <path
+                    d="M 160 105 Q 105 145 50 105"
+                    fill="none"
+                    stroke="#38bdf8"
+                    strokeWidth="2"
+                    strokeDasharray="4 2"
+                  />
+                  <circle cx="90" cy="28" r="3" fill="#38bdf8" />
+                  <text x="96" y="26" fill="#38bdf8" fontSize="7" fontFamily="monospace" fontWeight="bold">PEF</text>
+                  <text x="140" y="70" fill="#38bdf8" fontSize="7" fontFamily="monospace">Volumi Ridotti</text>
+                </g>
               ) : (
-                // Normal curve
-                <path
-                  d="M 60 80 Q 90 15 130 35 Q 210 65 300 80 Q 180 140 60 80"
-                  fill="rgba(16, 185, 129, 0.15)"
-                  stroke="#10b981"
-                  strokeWidth="2.5"
-                />
+                /* Normal physiological curve */
+                <g>
+                  <path
+                    d="M 50 105 Q 85 18 110 20 L 280 105"
+                    fill="none"
+                    stroke="#10b981"
+                    strokeWidth="2.5"
+                  />
+                  <path
+                    d="M 280 105 Q 165 160 50 105"
+                    fill="none"
+                    stroke="#10b981"
+                    strokeWidth="2"
+                    strokeDasharray="4 2"
+                  />
+                  <circle cx="110" cy="20" r="3" fill="#10b981" />
+                  <text x="116" y="18" fill="#10b981" fontSize="7" fontFamily="monospace" fontWeight="bold">PEF Fisiologico</text>
+                </g>
               )}
             </svg>
           </div>

@@ -126,7 +126,7 @@ export const OralExamSimulator: React.FC<OralExamSimulatorProps> = ({ initialSta
                   {/* Expected Answer */}
                   <div className="p-3.5 rounded-lg bg-emerald-950/20 border border-emerald-500/30">
                     <span className="text-xs font-mono uppercase text-emerald-400 font-bold block mb-1">
-                      Risposta Modello Attesa dal Docente (Linee Guida & 2FAST):
+                      Risposta Modello Attesa dal Docente (Linee Guida Ufficiali ESC / ERS / AHA):
                     </span>
                     <p className="text-xs md:text-sm text-slate-200 leading-relaxed font-sans">{q.expectedAnswer}</p>
                   </div>

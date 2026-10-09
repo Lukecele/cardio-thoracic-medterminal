@@ -7,8 +7,19 @@ interface Props {
   initialQuestionId?: string | null;
 }
 
+const BRANCH_TABS = [
+  { id: 'all', label: 'Tutte' },
+  { id: 'cardio-medica', label: 'Cardio' },
+  { id: 'cardiochirurgia', label: 'Cardiochirurgia' },
+  { id: 'pneumo', label: 'Pneumo' },
+  { id: 'toracica', label: 'Chir. Toracica' },
+  { id: 'vascolare', label: 'Vascolare' },
+] as const;
+
+type BranchTabId = typeof BRANCH_TABS[number]['id'];
+
 export const ExamSimulator: React.FC<Props> = ({ initialQuestionId }) => {
-  const [selectedBranch, setSelectedBranch] = useState<'all' | 'cardio' | 'pneumo' | 'vascolare'>('all');
+  const [selectedBranch, setSelectedBranch] = useState<BranchTabId>('all');
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [selectedAnswers, setSelectedAnswers] = useState<{ [key: string]: string }>({});
   const [showExplanation, setShowExplanation] = useState<{ [key: string]: boolean }>({});
@@ -93,21 +104,21 @@ export const ExamSimulator: React.FC<Props> = ({ initialQuestionId }) => {
         </div>
 
         {/* Filter by discipline */}
-        <div className="flex items-center space-x-2">
-          {(['all', 'cardio', 'pneumo', 'vascolare'] as const).map((branch) => (
+        <div className="flex flex-wrap items-center gap-1.5">
+          {BRANCH_TABS.map((tab) => (
             <button
-              key={branch}
+              key={tab.id}
               onClick={() => {
-                setSelectedBranch(branch);
+                setSelectedBranch(tab.id);
                 setCurrentIndex(0);
               }}
-              className={`px-3 py-1 rounded-lg text-xs font-mono font-semibold transition border ${
-                selectedBranch === branch
+              className={`px-2.5 py-1 rounded-lg text-xs font-mono font-semibold transition border ${
+                selectedBranch === tab.id
                   ? 'bg-emerald-500/20 border-emerald-400 text-emerald-300'
                   : 'bg-slate-800/60 border-slate-700/60 text-slate-400 hover:text-white'
               }`}
             >
-              {branch === 'all' ? 'Tutte' : branch.toUpperCase()}
+              {tab.label}
             </button>
           ))}
           <button
@@ -133,7 +144,7 @@ export const ExamSimulator: React.FC<Props> = ({ initialQuestionId }) => {
           <p className="text-sm text-slate-400 max-w-md mx-auto">
             {score / filteredQuestions.length >= 0.6
               ? 'Esame Superato! Ottima padronanza dei criteri clinici e delle domande ricorrenti.'
-              : 'Ripassa gli argomenti critici con le dispense 2FAST prima del prossimo tentativo.'}
+              : 'Ripassa gli argomenti critici con i compendi ufficiali di teoria prima del prossimo tentativo.'}
           </p>
 
           <div className="pt-4 flex justify-center space-x-4">
@@ -235,7 +246,7 @@ export const ExamSimulator: React.FC<Props> = ({ initialQuestionId }) => {
               <div className="flex items-center space-x-2 text-cyan-400 mb-1.5">
                 <HelpCircle className="w-4 h-4" />
                 <span className="text-xs font-mono uppercase font-bold tracking-wider">
-                  Razionale Clinico & Linee Guida (2FAST)
+                  Razionale Clinico & Linee Guida Ufficiali
                 </span>
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">{currentQ.explanation}</p>

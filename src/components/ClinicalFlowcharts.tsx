@@ -4,6 +4,7 @@ import { GitBranch, ArrowRight, CheckCircle2, AlertTriangle, ShieldAlert, Zap } 
 interface FlowchartItem {
   id: string;
   title: string;
+  shortTitle: string;
   category: string;
   steps: {
     stage: string;
@@ -17,6 +18,7 @@ const FLOWCHARTS: FlowchartItem[] = [
   {
     id: 'stemi',
     title: 'Percorso Diagnostico-Terapeutico STEMI Acuto',
+    shortTitle: 'STEMI: Riperfusione & PCI',
     category: 'Cardiologia d\'Urgenza',
     steps: [
       {
@@ -45,6 +47,7 @@ const FLOWCHARTS: FlowchartItem[] = [
   {
     id: 'heart-failure',
     title: 'I 4 Pilastri Fondamentali dello Scompenso HFrEF (Linee Guida ESC)',
+    shortTitle: 'Scompenso: 4 Pilastri HFrEF',
     category: 'Cardiologia Clinica',
     steps: [
       {
@@ -71,7 +74,8 @@ const FLOWCHARTS: FlowchartItem[] = [
   },
   {
     id: 'fogarty',
-    title: 'Algoritmo Emergenza Ischemia Acuta d\'Arto (Le 6 P)',
+    title: 'Algoritmo Emergenza Ischemia Acuta d\'Arto (Le 6 P & Fogarty)',
+    shortTitle: 'Ischemia Acuta: 6 P & Fogarty',
     category: 'Chirurgia Vascolare d\'Urgenza',
     steps: [
       {
@@ -96,6 +100,30 @@ const FLOWCHARTS: FlowchartItem[] = [
         detail: 'Idratazione per prevenire insufficienza renale da mioglobina; fasciotomia decompressiva precoce se sindrome compartimentale.'
       }
     ]
+  },
+  {
+    id: 'pnx-emergency',
+    title: 'Algoritmo Emergenza Pneumotorace Iperteso & Decompressione',
+    shortTitle: 'Pneumotorace: Decompressione',
+    category: 'Chirurgia Toracica d\'Urgenza',
+    steps: [
+      {
+        stage: 'Fase 1: Riconoscimento Clinico dell\'Iperteso',
+        action: 'Ipotensione + Deviazione Tracheale + Iperdiafania e Silenzio Respiratorio',
+        detail: 'Sospetto clinico immediato: il meccanismo a valvola unidirezionale accumula aria in cavità pleurica, comprimendo la vena cava ed azzerando il ritorno venoso.',
+        alert: 'DIAGNOSI CLINICA! È vietato inviare il paziente a fare una radiografia o una TC che ne causerebbe l\'arresto cardiaco!'
+      },
+      {
+        stage: 'Fase 2: Decompressione Immediata con Ago',
+        action: 'Inserimento agocannula 14-16G al II Spazio Intercostale Emiclaveare',
+        detail: 'Oppure V spazio intercostale ascellare anteriore. L\'uscita di aria a sibilo sotto pressione trasforma il PNX iperteso in PNX aperto semplice, ripristinando la perfusione sistemica.'
+      },
+      {
+        stage: 'Fase 3: Posizionamento Tubo di Toracostomia Definitivo',
+        action: 'Drenaggio toracico con valvola di Heimlich o sistema a caduta/aspirazione ad acqua (Bülau)',
+        detail: 'Inserimento al V spazio intercostale linea ascellare media (triangolo di sicurezza) bordando il margine superiore della costa inferiore per proteggere il fascio vascolo-nervoso intercostale.'
+      }
+    ]
   }
 ];
 
@@ -117,18 +145,18 @@ export const ClinicalFlowcharts: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-1.5">
+        <div className="flex flex-wrap gap-2">
           {FLOWCHARTS.map((f) => (
             <button
               key={f.id}
               onClick={() => setSelectedFlowId(f.id)}
               className={`px-3 py-1.5 rounded-lg text-xs font-mono transition border ${
                 selectedFlowId === f.id
-                  ? 'bg-amber-500/20 border-amber-400 text-amber-300 font-bold'
-                  : 'bg-slate-800 border-slate-700 text-slate-400 hover:text-white'
+                  ? 'bg-amber-500/20 border-amber-400 text-amber-300 font-bold shadow-md shadow-amber-950/40'
+                  : 'bg-slate-800/80 border-slate-700 text-slate-400 hover:text-white hover:border-slate-600'
               }`}
             >
-              {f.title.split(' ')[0]} {f.title.split(' ')[1]}
+              {f.shortTitle}
             </button>
           ))}
         </div>

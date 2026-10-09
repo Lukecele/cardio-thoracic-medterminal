@@ -3,6 +3,7 @@ import { Droplet, Activity, CheckCircle2, AlertTriangle, RefreshCw, Layers } fro
 
 interface EgaPreset {
   name: string;
+  shortName: string;
   ph: number;
   pao2: number;
   paco2: number;
@@ -14,6 +15,7 @@ interface EgaPreset {
 const PRESETS: EgaPreset[] = [
   {
     name: 'EGA Fisiologico Normale',
+    shortName: 'Fisiologico',
     ph: 7.41,
     pao2: 95,
     paco2: 40,
@@ -23,6 +25,7 @@ const PRESETS: EgaPreset[] = [
   },
   {
     name: 'Insufficienza Respiratoria Tipo 1 (Ipossiemica da Polmonite/EPA)',
+    shortName: 'Tipo 1 (EPA/Ipossia)',
     ph: 7.47,
     pao2: 52,
     paco2: 31,
@@ -32,6 +35,7 @@ const PRESETS: EgaPreset[] = [
   },
   {
     name: 'Insufficienza Respiratoria Tipo 2 (Ipercapnica da Riacutizzazione BPCO)',
+    shortName: 'Tipo 2 (BPCO/Ipercapnia)',
     ph: 7.28,
     pao2: 50,
     paco2: 68,
@@ -41,6 +45,7 @@ const PRESETS: EgaPreset[] = [
   },
   {
     name: 'ARDS Grave (Sindrome Distress Respiratorio Acuto)',
+    shortName: 'ARDS Grave (Berlino)',
     ph: 7.22,
     pao2: 65,
     paco2: 55,
@@ -124,7 +129,7 @@ export const EgaInterpreter: React.FC = () => {
               onClick={() => applyPreset(p)}
               className="px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-800/80 border border-slate-700 text-slate-400 hover:text-white transition"
             >
-              Preset #{idx + 1}
+              {p.shortName}
             </button>
           ))}
         </div>

@@ -205,16 +205,8 @@ export const EcgSimulator: React.FC = () => {
         </defs>
         <rect width="100%" height="100%" fill="url(#grid)" />
         
-        {/* Lead Badge and Speed */}
-        <text x="15" y="22" fill="#00f2fe" fontSize="11" fontFamily="monospace" fontWeight="bold">
-          DERIVAZIONE: {activeCase.lead} • 25 mm/s • 10 mm/mV
-        </text>
-        <text x="440" y="22" fill="#10b981" fontSize="11" fontFamily="monospace" fontWeight="bold">
-          FC: {activeCase.heartRate} bpm
-        </text>
-
         {/* Dynamic Trace */}
-        <path d={pathD} fill="none" stroke="#00f2fe" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d={pathD} fill="none" stroke="#00f2fe" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     );
   };
@@ -279,16 +271,21 @@ export const EcgSimulator: React.FC = () => {
 
       {/* ECG Monitor Box */}
       <div className="bg-slate-950 p-6 rounded-2xl border border-cyan-900/40 shadow-2xl space-y-4">
-        <div className="flex items-center justify-between border-b border-slate-900 pb-3">
-          <div className="flex items-center space-x-2">
+        <div className="flex flex-wrap items-center justify-between border-b border-slate-900 pb-3 gap-2">
+          <div className="flex items-center space-x-3">
             <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping" />
             <span className="text-xs font-mono font-bold text-cyan-300 uppercase tracking-wider">
-              Monitoraggio Telemetrico Derivazione {activeCase.lead}
+              DERIVAZIONE {activeCase.lead} • 25 mm/s • 10 mm/mV
             </span>
           </div>
-          <span className="text-xs font-mono text-emerald-400 font-bold">
-            RITMO: {quizMode && !showAnswer ? '???' : activeCase.rhythm}
-          </span>
+          <div className="flex items-center space-x-4">
+            <span className="text-xs font-mono text-emerald-400 font-bold bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">
+              FC: {activeCase.heartRate} BPM
+            </span>
+            <span className="text-xs font-mono text-cyan-300 font-bold bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800">
+              RITMO: {quizMode && !showAnswer ? '???' : activeCase.rhythm}
+            </span>
+          </div>
         </div>
 
         {/* Dynamic Trace Canvas */}
@@ -373,7 +370,7 @@ export const EcgSimulator: React.FC = () => {
             </div>
 
             <div className="pt-3 border-t border-slate-800 text-[11px] font-mono text-slate-400">
-              Corrispondenza Teoria 2FAST: capitolo <span className="text-cyan-300 font-bold">Aritmologia Clinica & ECG</span>
+              Corrispondenza Teoria Clinica: capitolo <span className="text-cyan-300 font-bold">Aritmologia Clinica & ECG</span>
             </div>
           </div>
         </div>

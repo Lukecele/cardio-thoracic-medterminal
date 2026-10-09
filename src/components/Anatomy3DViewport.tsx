@@ -239,102 +239,126 @@ export const Anatomy3DViewport: React.FC<Anatomy3DViewportProps> = ({ focusTarge
         }
       );
     } else if (activeModel === 'lungs') {
-      // Procedural Anatomical Bronchial Tree & Thorax
+      // High-Fidelity Procedural Anatomical Bronchial Tree & Bilateral Pulmonary Lobes
       const lungGroup = new THREE.Group();
 
-      // 1. Trachea (Cylinder with rings)
-      const tracheaGeo = new THREE.CylinderGeometry(2.4, 2.4, 22, 24);
+      // 1. Trachea with Anatomical Cartilaginous C-Rings
       const tracheaMat = new THREE.MeshStandardMaterial({
-        color: 0x38bdf8,
-        roughness: 0.4,
-        metalness: 0.1,
+        color: 0xe2e8f0,
+        roughness: 0.3,
+        metalness: 0.2,
         wireframe: wireframe,
       });
+      const tracheaGeo = new THREE.CylinderGeometry(1.8, 1.8, 20, 32);
       const trachea = new THREE.Mesh(tracheaGeo, tracheaMat);
-      trachea.position.set(0, 16, 0);
+      trachea.position.set(0, 14, 0);
       lungGroup.add(trachea);
 
-      // Cartilage rings on Trachea
-      for (let y = 6; y <= 25; y += 3) {
-        const ringGeo = new THREE.TorusGeometry(2.6, 0.3, 8, 24);
-        const ringMat = new THREE.MeshStandardMaterial({ color: 0x0284c7, wireframe: wireframe });
+      // Cartilage C-Rings (Anterior cartilaginous arches)
+      for (let y = 5; y <= 22; y += 2.2) {
+        const ringGeo = new THREE.TorusGeometry(1.95, 0.22, 12, 32, Math.PI * 1.5);
+        const ringMat = new THREE.MeshStandardMaterial({
+          color: 0x94a3b8,
+          roughness: 0.4,
+          wireframe: wireframe,
+        });
         const ring = new THREE.Mesh(ringGeo, ringMat);
         ring.position.set(0, y, 0);
         ring.rotation.x = Math.PI / 2;
+        ring.rotation.z = Math.PI * 0.25;
         lungGroup.add(ring);
       }
 
-      // 2. Carina & Right Main Bronchus
-      const rightBronchusGeo = new THREE.CylinderGeometry(1.8, 1.4, 14, 16);
-      const rightBronchus = new THREE.Mesh(rightBronchusGeo, tracheaMat);
-      rightBronchus.position.set(6, 1, 0);
-      rightBronchus.rotation.z = -Math.PI / 6;
-      lungGroup.add(rightBronchus);
-
-      // 3. Left Main Bronchus (More horizontal & longer)
-      const leftBronchusGeo = new THREE.CylinderGeometry(1.6, 1.3, 18, 16);
-      const leftBronchus = new THREE.Mesh(leftBronchusGeo, tracheaMat);
-      leftBronchus.position.set(-8, 0, 0);
-      leftBronchus.rotation.z = Math.PI / 4;
-      lungGroup.add(leftBronchus);
-
-      // 4. Right Lobes: RUL, RML, RLL Bronchi
-      const rUpperBranch = new THREE.Mesh(new THREE.CylinderGeometry(1.0, 0.7, 10, 12), tracheaMat);
-      rUpperBranch.position.set(13, 7, 2);
-      rUpperBranch.rotation.z = -Math.PI / 3;
-      lungGroup.add(rUpperBranch);
-
-      const rLowerBranch = new THREE.Mesh(new THREE.CylinderGeometry(1.2, 0.8, 14, 12), tracheaMat);
-      rLowerBranch.position.set(12, -9, 0);
-      rLowerBranch.rotation.z = -Math.PI / 10;
-      lungGroup.add(rLowerBranch);
-
-      // 5. Left Lobes: LUL & LLL Bronchi
-      const lUpperBranch = new THREE.Mesh(new THREE.CylinderGeometry(1.1, 0.7, 12, 12), tracheaMat);
-      lUpperBranch.position.set(-16, 5, 2);
-      lUpperBranch.rotation.z = Math.PI / 3;
-      lungGroup.add(lUpperBranch);
-
-      const lLowerBranch = new THREE.Mesh(new THREE.CylinderGeometry(1.2, 0.8, 14, 12), tracheaMat);
-      lLowerBranch.position.set(-16, -10, 0);
-      lLowerBranch.rotation.z = Math.PI / 8;
-      lungGroup.add(lLowerBranch);
-
-      // 6. Translucent Lung Envelopes (Smooth anatomical silhouettes)
-      const lungLobeMat = new THREE.MeshStandardMaterial({
-        color: 0x0ea5e9,
-        transparent: true,
-        opacity: wireframe ? 0.3 : 0.45,
-        roughness: 0.6,
+      // 2. Carina & Primary Bronchi
+      const bronchusMat = new THREE.MeshStandardMaterial({
+        color: 0x38bdf8,
+        roughness: 0.35,
         wireframe: wireframe,
       });
 
-      // Right Lung Envelope (3 lobes merged volume)
-      const rLungGeo = new THREE.SphereGeometry(15, 24, 24);
-      rLungGeo.scale(0.85, 1.4, 0.75);
-      const rLung = new THREE.Mesh(rLungGeo, lungLobeMat);
-      rLung.position.set(18, -4, 0);
+      // Right Main Bronchus (shorter, wider, steeper ~25°)
+      const rightBronchus = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.2, 11, 20), bronchusMat);
+      rightBronchus.position.set(4.5, 0.5, 0);
+      rightBronchus.rotation.z = -Math.PI / 7;
+      lungGroup.add(rightBronchus);
+
+      // Left Main Bronchus (longer, narrower, more horizontal ~45°)
+      const leftBronchus = new THREE.Mesh(new THREE.CylinderGeometry(1.3, 1.0, 15, 20), bronchusMat);
+      leftBronchus.position.set(-6.5, -0.5, 0);
+      leftBronchus.rotation.z = Math.PI / 4.2;
+      lungGroup.add(leftBronchus);
+
+      // 3. Lobar Bronchi (Right: Superior, Middle, Inferior)
+      const rLobarMat = new THREE.MeshStandardMaterial({ color: 0x0284c7, roughness: 0.4, wireframe: wireframe });
+      const rSupLobar = new THREE.Mesh(new THREE.CylinderGeometry(0.9, 0.6, 8, 16), rLobarMat);
+      rSupLobar.position.set(9, 4, 1);
+      rSupLobar.rotation.z = -Math.PI / 3;
+      lungGroup.add(rSupLobar);
+
+      const rMidLobar = new THREE.Mesh(new THREE.CylinderGeometry(0.8, 0.5, 8, 16), rLobarMat);
+      rMidLobar.position.set(10.5, -1, 1.5);
+      rMidLobar.rotation.z = -Math.PI / 5;
+      lungGroup.add(rMidLobar);
+
+      const rInfLobar = new THREE.Mesh(new THREE.CylinderGeometry(1.0, 0.6, 12, 16), rLobarMat);
+      rInfLobar.position.set(9, -7, 0);
+      rInfLobar.rotation.z = -Math.PI / 12;
+      lungGroup.add(rInfLobar);
+
+      // Lobar Bronchi (Left: Superior, Inferior)
+      const lSupLobar = new THREE.Mesh(new THREE.CylinderGeometry(0.9, 0.6, 10, 16), rLobarMat);
+      lSupLobar.position.set(-13, 3.5, 1);
+      lSupLobar.rotation.z = Math.PI / 3.2;
+      lungGroup.add(lSupLobar);
+
+      const lInfLobar = new THREE.Mesh(new THREE.CylinderGeometry(1.0, 0.6, 12, 16), rLobarMat);
+      lInfLobar.position.set(-13, -8, 0);
+      lInfLobar.rotation.z = Math.PI / 9;
+      lungGroup.add(lInfLobar);
+
+      // 4. Pulmonary Vessels at the Hilum
+      const paMat = new THREE.MeshStandardMaterial({ color: 0x1d4ed8, roughness: 0.3 }); // Arteria polmonare (deossigenata)
+      const pvMat = new THREE.MeshStandardMaterial({ color: 0xdc2626, roughness: 0.3 }); // Vene polmonari (ossigenate)
+
+      const paTrunk = new THREE.Mesh(new THREE.CylinderGeometry(1.6, 1.4, 9, 16), paMat);
+      paTrunk.position.set(-1.5, -1, 2);
+      paTrunk.rotation.z = Math.PI / 6;
+      lungGroup.add(paTrunk);
+
+      const pvL = new THREE.Mesh(new THREE.CylinderGeometry(1.0, 0.8, 7, 16), pvMat);
+      pvL.position.set(-7, -4, 2);
+      pvL.rotation.z = Math.PI / 4;
+      lungGroup.add(pvL);
+
+      const pvR = new THREE.Mesh(new THREE.CylinderGeometry(1.0, 0.8, 7, 16), pvMat);
+      pvR.position.set(6, -4, 2);
+      pvR.rotation.z = -Math.PI / 4;
+      lungGroup.add(pvR);
+
+      // 5. Anatomical Bilateral Pulmonary Parenchyma (Translucent clinical shading)
+      const parenchMat = new THREE.MeshPhysicalMaterial({
+        color: 0x0ea5e9,
+        transparent: true,
+        opacity: wireframe ? 0.25 : 0.28,
+        roughness: 0.2,
+        transmission: 0.6,
+        thickness: 2.0,
+        wireframe: wireframe,
+      });
+
+      // Right Lung (3 lobes volume with costal and diaphragmatic surface)
+      const rLungGeo = new THREE.SphereGeometry(13.5, 32, 32);
+      rLungGeo.scale(0.85, 1.5, 0.7);
+      const rLung = new THREE.Mesh(rLungGeo, parenchMat);
+      rLung.position.set(14.5, -3.5, 0);
       lungGroup.add(rLung);
 
-      // Left Lung Envelope (2 lobes, cardiac notch accommodation)
-      const lLungGeo = new THREE.SphereGeometry(14, 24, 24);
-      lLungGeo.scale(0.75, 1.35, 0.75);
-      const lLung = new THREE.Mesh(lLungGeo, lungLobeMat);
-      lLung.position.set(-18, -4, 0);
+      // Left Lung (Cardiac notch on antero-medial aspect)
+      const lLungGeo = new THREE.SphereGeometry(12.5, 32, 32);
+      lLungGeo.scale(0.75, 1.45, 0.7);
+      const lLung = new THREE.Mesh(lLungGeo, parenchMat);
+      lLung.position.set(-15, -3.5, 0);
       lungGroup.add(lLung);
-
-      // 7. Rib cage contours (Parametric 6 thoracic rib arches)
-      for (let i = 0; i < 6; i++) {
-        const ribY = 14 - i * 6;
-        const ribRadius = 24 + i * 1.5;
-        const ribGeo = new THREE.TorusGeometry(ribRadius, 0.3, 6, 32, Math.PI * 1.4);
-        const ribMat = new THREE.MeshBasicMaterial({ color: 0x475569, wireframe: true, transparent: true, opacity: 0.4 });
-        const rib = new THREE.Mesh(ribGeo, ribMat);
-        rib.position.set(0, ribY, -2);
-        rib.rotation.x = Math.PI / 2.3;
-        rib.rotation.z = Math.PI * 0.8;
-        lungGroup.add(rib);
-      }
 
       meshGroup.add(lungGroup);
       setIsLoading(false);

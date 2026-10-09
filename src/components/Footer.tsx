@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
               <span className="font-bold text-slate-300">MedTerminal v2.0</span>
             </div>
             <span>•</span>
-            <span>Compendi Ufficiali Lorenzo Pessetti</span>
+            <span>Compendio Curriculare Integrato (5 Discipline)</span>
           </div>
 
           <div className="flex flex-wrap justify-center items-center gap-4 text-xs text-slate-400 font-mono">
@@ -81,7 +81,7 @@ export const Footer: React.FC = () => {
                   Fonti dei Dati & Proprietà Intellettuale
                 </h3>
                 <p className="text-slate-400">
-                  La teoria clinica integrale deriva dalle dispense universitarie compendiate a cura di <strong>Lorenzo Pessetti</strong>. I modelli 3D sono elaborazioni WebGL Three.js di modelli volumetrici STL anatomici reali. I tracciati audio derivano da registrazioni fonocardiografiche didattiche fisiologiche.
+                  La teoria clinica integrale deriva dalle linee guida internazionali vigenti e dai compendi accademici universitari (ESC, ERS, ACC/AHA, SICCH, SICVE). I modelli 3D sono elaborazioni WebGL Three.js con rendering volumetrico anatomico. I tracciati audio derivano da registrazioni fonocardiografiche didattiche fisiologiche.
                 </p>
               </div>
 

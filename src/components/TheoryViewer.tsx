@@ -18,7 +18,8 @@ import {
   CheckCircle2,
   ChevronRight,
   ShieldCheck,
-  FileText
+  FileText,
+  Bookmark
 } from 'lucide-react';
 import theoryDataRaw from '../data/theory.json';
 
@@ -187,7 +188,7 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
             DISCIPLINE CURRICULARI (5 MODULI INTEGRATI)
           </span>
           <span className="text-[11px] font-mono text-cyan-400">
-            DISPENSE INTEGRALI: LORENZO PESSETTI
+            COMPENDIO CLINICO INTEGRATO (LINEE GUIDA ESC / ERS / AHA)
           </span>
         </div>
 
@@ -621,7 +622,7 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
           <div className="flex items-center space-x-2">
             <FileText className="w-5 h-5 text-cyan-400" />
             <h3 className="text-sm font-bold uppercase tracking-wider text-slate-200 font-mono">
-              TRATTAZIONE COMPLETA DISPENSE (TESTO INTEGRALE LORENZO PESSETTI)
+              TRATTAZIONE CLINICA COMPLETA & COMPENDIO INTEGRATO
             </h3>
           </div>
 
@@ -637,42 +638,130 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
           </div>
         </div>
 
-        {/* Text Body */}
-        <div className="space-y-4 text-sm sm:text-[15px] leading-relaxed text-slate-300 font-sans">
-          {filteredParagraphs.map((para: string, idx: number) => {
-            const isHeading =
-              para.length < 80 &&
-              (para === para.toUpperCase() && para.replace(/[^A-Z]/g, '').length > 4 ||
-               para.startsWith('•') ||
-               para.endsWith(':') ||
-               para.includes('==') ||
-               para.includes('pag.'));
+        {/* Quick-Jump Table of Contents (Indice dei Paragrafi) */}
+        {currentTopic.sections && currentTopic.sections.length > 1 && (
+          <div className="bg-slate-950/70 border border-slate-800 rounded-xl p-4">
+            <div className="flex items-center justify-between mb-2.5">
+              <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
+                <Bookmark className="w-3.5 h-3.5" /> Indice dei Paragrafi del Capitolo
+              </span>
+              <span className="text-[10px] text-slate-500 font-mono">
+                {currentTopic.sections.length} sezioni strutturate
+              </span>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {currentTopic.sections.map((sec: any, sIdx: number) => (
+                <button
+                  key={sec.id}
+                  onClick={() => {
+                    const el = document.getElementById(sec.id);
+                    if (el) {
+                      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                  }}
+                  className="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-cyan-300 border border-slate-800 hover:border-cyan-500/40 text-xs font-medium transition flex items-center gap-2 group cursor-pointer"
+                >
+                  <span className="w-4 h-4 rounded-full bg-cyan-500/20 text-cyan-400 font-mono text-[10px] flex items-center justify-center font-bold">
+                    {sIdx + 1}
+                  </span>
+                  <span className="truncate max-w-[280px]">{sec.title}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
 
-            if (isHeading && !para.startsWith('•')) {
+        {/* Structured Sections Body */}
+        {currentTopic.sections && currentTopic.sections.length > 0 ? (
+          <div className="space-y-10">
+            {currentTopic.sections.map((sec: any, sIdx: number) => {
+              const secParas = sec.content
+                .split('\n')
+                .map((p: string) => p.trim())
+                .filter((p: string) => p.length > 0);
+
+              const filteredSecParas = filterSearch.trim()
+                ? secParas.filter((p: string) => p.toLowerCase().includes(filterSearch.toLowerCase()))
+                : secParas;
+
+              if (filterSearch.trim() && filteredSecParas.length === 0) return null;
+
               return (
                 <div
-                  key={idx}
-                  className="pt-4 pb-1 text-sm font-bold uppercase tracking-wider text-cyan-300 font-mono border-b border-slate-800/60"
+                  key={sec.id}
+                  id={sec.id}
+                  className="scroll-mt-24 space-y-4 pt-6 first:pt-2 border-t first:border-t-0 border-slate-800/80"
                 >
-                  {para}
+                  {/* Section Header */}
+                  <div className="flex flex-wrap items-center gap-2.5 pb-2 border-b border-slate-800/40">
+                    <span className="px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 font-mono text-[10px] font-bold tracking-wider">
+                      PARAGRAFO {sIdx + 1} DI {currentTopic.sections.length}
+                    </span>
+                    <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
+                      {sec.title}
+                    </h3>
+                  </div>
+
+                  {/* Section Paragraphs */}
+                  <div className="space-y-3 text-sm sm:text-[15px] leading-relaxed text-slate-300 font-sans">
+                    {filteredSecParas.map((para: string, pIdx: number) => {
+                      const isBullet = para.startsWith('•') || para.startsWith('◦') || para.startsWith('‣') || para.startsWith('-');
+                      const isSubheading = !isBullet && para.length < 90 && (
+                        (para === para.toUpperCase() && para.replace(/[^A-Z]/g, '').length > 4) ||
+                        para.endsWith(':') ||
+                        para.includes('==')
+                      );
+
+                      if (isSubheading) {
+                        return (
+                          <div
+                            key={`p-${pIdx}`}
+                            className="pt-4 pb-1 text-xs sm:text-sm font-bold uppercase tracking-wider text-cyan-300/95 font-mono border-b border-slate-800/50"
+                          >
+                            {para}
+                          </div>
+                        );
+                      }
+
+                      if (isBullet) {
+                        const bulletText = para.replace(/^[•◦‣-]\s*/, '');
+                        return (
+                          <div
+                            key={`p-${pIdx}`}
+                            className="flex items-start gap-2.5 pl-2 text-slate-200"
+                          >
+                            <span className="text-cyan-400 text-xs mt-1 shrink-0">✦</span>
+                            <div className="flex-1 leading-relaxed">
+                              {renderActiveRecallParagraph(bulletText, sIdx * 1000 + pIdx)}
+                            </div>
+                          </div>
+                        );
+                      }
+
+                      return (
+                        <p
+                          key={`p-${pIdx}`}
+                          className="text-justify leading-relaxed"
+                        >
+                          {renderActiveRecallParagraph(para, sIdx * 1000 + pIdx)}
+                        </p>
+                      );
+                    })}
+                  </div>
                 </div>
               );
-            }
-
-            return (
-              <p
-                key={idx}
-                className={`text-justify ${
-                  para.startsWith('•') || para.startsWith('◦') || para.startsWith('‣')
-                    ? 'pl-4 border-l-2 border-slate-800 text-slate-200'
-                    : ''
-                }`}
-              >
+            })}
+          </div>
+        ) : (
+          /* Fallback for flat paragraphs if no sections */
+          <div className="space-y-4 text-sm sm:text-[15px] leading-relaxed text-slate-300 font-sans">
+            {filteredParagraphs.map((para: string, idx: number) => (
+              <p key={idx} className="text-justify">
                 {renderActiveRecallParagraph(para, idx)}
               </p>
-            );
-          })}
-        </div>
+            ))}
+          </div>
+        )}
 
       </div>
 

@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
-import { Eye, Image, CheckCircle2, AlertCircle, ZoomIn } from 'lucide-react';
+import { Eye, Image, CheckCircle2, AlertCircle, ZoomIn, Layers, Crosshair } from 'lucide-react';
 
 interface ImagingCase {
   id: string;
   title: string;
+  shortLabel: string;
   modality: 'RX Torace' | 'Angio-TC' | 'Ecocardiografia' | 'EcoColorDoppler';
   indication: string;
   findings: string[];
   clinicalPearl: string;
-  schemaType: 'kerley-lines' | 'pneumothorax' | 'pe-angio' | 'aortic-dissection' | 'aortic-stenosis-echo';
+  schemaType: 'kerley-lines' | 'pneumothorax' | 'pe-angio' | 'aortic-dissection';
 }
 
 const IMAGING_CASES: ImagingCase[] = [
   {
     id: 'kerley',
     title: 'Edema Polmonare Acuto & Strie di Kerley B',
+    shortLabel: 'RX: Edema & Strie Kerley B',
     modality: 'RX Torace',
     indication: 'Scompenso cardiaco acuto con dispnea accessionale ed ortopnea',
     findings: [
@@ -29,6 +31,7 @@ const IMAGING_CASES: ImagingCase[] = [
   {
     id: 'pnx-imaging',
     title: 'Pneumotorace (PNX) Completo con Collabimento',
+    shortLabel: 'RX: Pneumotorace Iperteso',
     modality: 'RX Torace',
     indication: 'Dolore toracico trafittivo improvviso e dispnea in giovane longilineo',
     findings: [
@@ -43,6 +46,7 @@ const IMAGING_CASES: ImagingCase[] = [
   {
     id: 'dissection-imaging',
     title: 'Dissezione Aortica Acuta (Stanford A & B) alla TC',
+    shortLabel: 'TC: Dissezione Aortica (Stanford)',
     modality: 'Angio-TC',
     indication: 'Dolore toracico lacerante a pugnalata migrante al dorso ed asimmetria dei polsi',
     findings: [
@@ -56,6 +60,7 @@ const IMAGING_CASES: ImagingCase[] = [
   {
     id: 'pe-imaging',
     title: 'Embolia Polmonare (TEP) all\'Angio-TC Torace',
+    shortLabel: 'TC: Embolia a Sella (TEP)',
     modality: 'Angio-TC',
     indication: 'Dispnea improvvisa, tachicardia, dolore toracico pleuritico ed emottisi in pz con TVP',
     findings: [
@@ -86,18 +91,18 @@ export const ClinicalImagingAtlas: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-1.5">
+        <div className="flex flex-wrap gap-2">
           {IMAGING_CASES.map((c) => (
             <button
               key={c.id}
               onClick={() => setSelectedCaseId(c.id)}
               className={`px-3 py-1.5 rounded-lg text-xs font-mono transition border ${
                 selectedCaseId === c.id
-                  ? 'bg-cyan-500/20 border-cyan-400 text-cyan-300 font-bold'
-                  : 'bg-slate-800 border-slate-700 text-slate-400 hover:text-white'
+                  ? 'bg-cyan-500/20 border-cyan-400 text-cyan-300 font-bold shadow-md shadow-cyan-950/40'
+                  : 'bg-slate-800/80 border-slate-700 text-slate-400 hover:text-white hover:border-slate-600'
               }`}
             >
-              {c.modality}
+              {c.shortLabel}
             </button>
           ))}
         </div>
@@ -106,7 +111,7 @@ export const ClinicalImagingAtlas: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Left: Case Info & Reperti */}
         <div className="lg:col-span-7 bg-slate-900/90 p-6 rounded-2xl border border-slate-800 space-y-4">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between border-b border-slate-800 pb-3">
             <span className="text-xs font-mono uppercase px-2.5 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800 font-bold">
               {activeCase.modality}
             </span>
@@ -119,9 +124,9 @@ export const ClinicalImagingAtlas: React.FC = () => {
             <span className="text-xs font-mono uppercase text-cyan-400 font-bold tracking-wider block">
               Reperti Radiologici Essenziali (Cosa cercare all'esame):
             </span>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {activeCase.findings.map((f, i) => (
-                <li key={i} className="flex items-start space-x-2 text-xs text-slate-200 font-mono leading-relaxed">
+                <li key={i} className="flex items-start space-x-2.5 text-xs text-slate-200 font-mono leading-relaxed bg-slate-950/60 p-2.5 rounded-xl border border-slate-800/60">
                   <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
                   <span>{f}</span>
                 </li>
@@ -129,75 +134,154 @@ export const ClinicalImagingAtlas: React.FC = () => {
             </ul>
           </div>
 
-          <div className="p-3 bg-amber-950/20 border border-amber-500/40 rounded-xl text-xs font-mono text-amber-200 flex items-start space-x-2">
+          <div className="p-3.5 bg-amber-950/20 border border-amber-500/40 rounded-xl text-xs font-mono text-amber-200 flex items-start space-x-2.5">
             <AlertCircle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-            <span>{activeCase.clinicalPearl}</span>
+            <span className="leading-relaxed">{activeCase.clinicalPearl}</span>
           </div>
         </div>
 
-        {/* Right: Schematic Visual Simulator */}
-        <div className="lg:col-span-5 bg-slate-950 p-6 rounded-2xl border border-cyan-900/40 flex flex-col justify-center items-center text-center space-y-3">
-          <div className="w-full aspect-square bg-[#030712] rounded-xl border border-slate-800 relative flex items-center justify-center p-4 overflow-hidden">
-            {/* SVG Schematic Radiologic Representation */}
+        {/* Right: High-Fidelity Radiologic DICOM Viewer Simulator */}
+        <div className="lg:col-span-5 bg-slate-950 p-5 rounded-2xl border border-cyan-900/40 flex flex-col justify-between space-y-3">
+          
+          {/* DICOM Header Overlay */}
+          <div className="flex items-center justify-between text-[10px] font-mono text-cyan-400 border-b border-cyan-950 pb-2">
+            <div className="flex items-center space-x-1.5">
+              <Crosshair className="w-3.5 h-3.5" />
+              <span>DICOM VIEWER v2.0</span>
+            </div>
+            <div className="text-slate-500">
+              {activeCase.modality === 'RX Torace' ? 'W:1500 L:-500' : 'W:400 L:40 (CT)'}
+            </div>
+          </div>
+
+          <div className="w-full aspect-square bg-[#02050b] rounded-xl border border-cyan-950/80 relative flex items-center justify-center p-2 overflow-hidden shadow-inner">
+            
+            {/* Corner Annotations */}
+            <div className="absolute top-2 left-2 text-[9px] font-mono text-cyan-500/70 select-none">
+              R (DX)
+            </div>
+            <div className="absolute top-2 right-2 text-[9px] font-mono text-cyan-500/70 select-none">
+              L (SX)
+            </div>
+            <div className="absolute bottom-2 left-2 text-[9px] font-mono text-slate-600 select-none">
+              FOV: 350mm
+            </div>
+
+            {/* High-Fidelity SVG Visuals */}
             {activeCase.schemaType === 'kerley-lines' && (
-              <svg className="w-full h-full" viewBox="0 0 200 200">
-                {/* Ribcage contour */}
-                <ellipse cx="100" cy="100" rx="80" ry="90" fill="none" stroke="#1e293b" strokeWidth="2" />
-                {/* Cardiomegaly */}
-                <ellipse cx="110" cy="120" rx="55" ry="45" fill="rgba(255,255,255,0.15)" stroke="#64748b" strokeWidth="2" />
-                {/* Kerley B lines: short horizontal dense lines at lateral costophrenic bases */}
-                <line x1="25" y1="140" x2="45" y2="140" stroke="#00f2fe" strokeWidth="2.5" />
-                <line x1="28" y1="150" x2="48" y2="150" stroke="#00f2fe" strokeWidth="2.5" />
-                <line x1="30" y1="160" x2="52" y2="160" stroke="#00f2fe" strokeWidth="2.5" />
-                <line x1="155" y1="145" x2="175" y2="145" stroke="#00f2fe" strokeWidth="2.5" />
-                <line x1="152" y1="155" x2="172" y2="155" stroke="#00f2fe" strokeWidth="2.5" />
-                <text x="30" y="130" fill="#00f2fe" fontSize="8" fontFamily="monospace" fontWeight="bold">STRIE KERLEY B</text>
-                <text x="95" y="125" fill="#e2e8f0" fontSize="9" fontFamily="monospace">CARDIOMEGALIA</text>
+              <svg className="w-full h-full" viewBox="0 0 240 240">
+                {/* Background Grid */}
+                <circle cx="120" cy="120" r="100" fill="#030814" stroke="#0e2a3b" strokeWidth="1" strokeDasharray="3 3" />
+                
+                {/* Thoracic cage silhouette */}
+                <path d="M 60 40 Q 120 20 180 40 Q 210 120 185 200 Q 120 220 55 200 Q 30 120 60 40 Z" fill="#040b18" stroke="#1e3a5f" strokeWidth="2" />
+                
+                {/* Diaphragm domes */}
+                <path d="M 45 195 Q 85 165 120 190 Q 165 160 205 195" fill="none" stroke="#2563eb" strokeWidth="2.5" />
+                
+                {/* Enlarged Heart (Cardiomegaly ICT > 0.55) */}
+                <path d="M 105 100 Q 155 120 165 170 Q 120 195 90 175 Q 80 135 105 100 Z" fill="rgba(6, 182, 212, 0.15)" stroke="#06b6d4" strokeWidth="2" />
+                <text x="105" y="155" fill="#38bdf8" fontSize="8" fontFamily="monospace" fontWeight="bold">CARDIOMEGALIA</text>
+                <text x="110" y="165" fill="#94a3b8" fontSize="7" fontFamily="monospace">ICT &gt; 0.55</text>
+                
+                {/* Kerley B lines (lateral basal horizontal lines) */}
+                <g stroke="#00f2fe" strokeWidth="2.5">
+                  <line x1="38" y1="172" x2="62" y2="172" />
+                  <line x1="42" y1="180" x2="68" y2="180" />
+                  <line x1="48" y1="188" x2="72" y2="188" />
+                  <line x1="175" y1="175" x2="200" y2="175" />
+                  <line x1="170" y1="183" x2="195" y2="183" />
+                </g>
+                
+                {/* Pointers with clean guide lines */}
+                <line x1="50" y1="145" x2="50" y2="168" stroke="#f59e0b" strokeWidth="1" strokeDasharray="2 2" />
+                <circle cx="50" cy="172" r="2" fill="#f59e0b" />
+                <rect x="20" y="130" width="70" height="15" rx="3" fill="#020617" stroke="#f59e0b" strokeWidth="1" />
+                <text x="25" y="141" fill="#fbbf24" fontSize="7" fontFamily="monospace" fontWeight="bold">STRIE KERLEY B</text>
               </svg>
             )}
 
             {activeCase.schemaType === 'pneumothorax' && (
-              <svg className="w-full h-full" viewBox="0 0 200 200">
-                <ellipse cx="100" cy="100" rx="80" ry="90" fill="none" stroke="#1e293b" strokeWidth="2" />
-                {/* Normal right lung */}
-                <ellipse cx="65" cy="100" rx="30" ry="60" fill="rgba(30,41,59,0.5)" stroke="#475569" strokeWidth="1.5" />
-                {/* Collapsed left lung towards hilum */}
-                <ellipse cx="125" cy="95" rx="14" ry="25" fill="rgba(255,255,255,0.2)" stroke="#00f2fe" strokeWidth="2" />
-                {/* Visceral pleural line */}
-                <path d="M 140 70 Q 142 95 138 120" fill="none" stroke="#00f2fe" strokeWidth="2" strokeDasharray="3,2" />
-                <text x="142" y="95" fill="#00f2fe" fontSize="8" fontFamily="monospace">PLEURA VISCERALE</text>
-                <text x="110" y="150" fill="#ef4444" fontSize="8" fontFamily="monospace">IPERDIAFANIA (ARIA)</text>
+              <svg className="w-full h-full" viewBox="0 0 240 240">
+                {/* Thoracic cage silhouette */}
+                <path d="M 60 40 Q 120 20 180 40 Q 210 120 185 200 Q 120 220 55 200 Q 30 120 60 40 Z" fill="#040b18" stroke="#1e3a5f" strokeWidth="2" />
+                
+                {/* Normal Right Lung */}
+                <path d="M 65 55 Q 95 60 95 110 Q 95 170 60 180 Q 45 130 65 55 Z" fill="rgba(30, 58, 95, 0.4)" stroke="#38bdf8" strokeWidth="1.5" />
+                
+                {/* Collapsed Left Lung (Atelectatic stump at hilum) */}
+                <path d="M 125 90 Q 145 95 140 135 Q 125 140 120 115 Z" fill="rgba(244, 63, 94, 0.25)" stroke="#f43f5e" strokeWidth="2" />
+                
+                {/* Visceral Pleura Hairline */}
+                <path d="M 148 70 Q 155 110 145 160" fill="none" stroke="#f43f5e" strokeWidth="2" strokeDasharray="3 3" />
+                
+                {/* Mediastinal Shift Arrow */}
+                <path d="M 115 80 L 95 80 M 95 80 L 102 75 M 95 80 L 102 85" stroke="#fbbf24" strokeWidth="2" fill="none" />
+                <text x="75" y="72" fill="#fbbf24" fontSize="7" fontFamily="monospace" fontWeight="bold">DEVIAZIONE MEDIASTINO</text>
+                
+                {/* Pleural Air Area Annotation */}
+                <rect x="155" y="105" width="70" height="26" rx="3" fill="#020617" stroke="#f43f5e" strokeWidth="1" />
+                <text x="160" y="117" fill="#f43f5e" fontSize="7" fontFamily="monospace" fontWeight="bold">IPERDIAFANIA</text>
+                <text x="160" y="126" fill="#fda4af" fontSize="6.5" fontFamily="monospace">ASSENZA TRAMA</text>
               </svg>
             )}
 
             {activeCase.schemaType === 'aortic-dissection' && (
-              <svg className="w-full h-full" viewBox="0 0 200 200">
-                {/* Aorta axial cross section */}
-                <circle cx="100" cy="100" r="60" fill="rgba(15,23,42,0.8)" stroke="#64748b" strokeWidth="3" />
-                {/* Intimal flap dividing true and false lumen */}
-                <path d="M 50 85 Q 100 120 150 90" fill="none" stroke="#f43f5e" strokeWidth="3" />
-                <text x="75" y="70" fill="#38bdf8" fontSize="9" fontFamily="monospace" fontWeight="bold">VERO LUME</text>
-                <text x="75" y="130" fill="#fb7185" fontSize="9" fontFamily="monospace" fontWeight="bold">FALSO LUME</text>
-                <text x="60" y="105" fill="#f43f5e" fontSize="8" fontFamily="monospace">FLAP INTIMALE</text>
+              <svg className="w-full h-full" viewBox="0 0 240 240">
+                {/* Aorta Axial View Border */}
+                <circle cx="120" cy="120" r="75" fill="#050c1e" stroke="#334155" strokeWidth="3" />
+                
+                {/* True Lumen (hyperdense contrast, smaller, round) */}
+                <path d="M 75 100 Q 115 70 155 100 Q 125 130 75 100 Z" fill="rgba(56, 189, 248, 0.35)" stroke="#38bdf8" strokeWidth="2.5" />
+                
+                {/* False Lumen (hypodense, larger, crescent shape) */}
+                <path d="M 75 100 Q 125 130 155 100 Q 170 160 120 185 Q 70 160 75 100 Z" fill="rgba(244, 63, 94, 0.2)" stroke="#f43f5e" strokeWidth="2" />
+                
+                {/* Intimal Flap dividing line */}
+                <path d="M 75 100 Q 125 130 155 100" fill="none" stroke="#ffffff" strokeWidth="3" />
+                
+                {/* Labels */}
+                <rect x="90" y="78" width="60" height="15" rx="3" fill="#020617" stroke="#38bdf8" strokeWidth="1" />
+                <text x="96" y="89" fill="#38bdf8" fontSize="7" fontFamily="monospace" fontWeight="bold">VERO LUME</text>
+                
+                <rect x="90" y="150" width="60" height="15" rx="3" fill="#020617" stroke="#f43f5e" strokeWidth="1" />
+                <text x="94" y="161" fill="#f43f5e" fontSize="7" fontFamily="monospace" fontWeight="bold">FALSO LUME</text>
+                
+                <text x="110" y="125" fill="#f8fafc" fontSize="6.5" fontFamily="monospace" fontWeight="bold">FLAP INTIMALE</text>
               </svg>
             )}
 
             {activeCase.schemaType === 'pe-angio' && (
-              <svg className="w-full h-full" viewBox="0 0 200 200">
-                {/* Pulmonary trunk bifurcation */}
-                <path d="M 90 170 L 90 110 L 40 70 M 110 170 L 110 110 L 160 70" fill="none" stroke="#38bdf8" strokeWidth="18" />
-                {/* Thrombus saddle embolus */}
-                <circle cx="100" cy="105" r="14" fill="#ef4444" stroke="#991b1b" strokeWidth="2" />
-                <text x="50" y="35" fill="#ef4444" fontSize="9" fontFamily="monospace" fontWeight="bold">EMBOLO A CAVALIERA</text>
-                <text x="55" y="185" fill="#38bdf8" fontSize="8" fontFamily="monospace">TRONCO POLMONARE</text>
+              <svg className="w-full h-full" viewBox="0 0 240 240">
+                {/* Pulmonary Trunk Bifurcation */}
+                <path d="M 105 210 L 105 130 L 45 70 L 65 50 L 120 105 L 175 50 L 195 70 L 135 130 L 135 210 Z" fill="rgba(56, 189, 248, 0.2)" stroke="#38bdf8" strokeWidth="2" />
+                
+                {/* Saddle Embolus (Thrombus at carina of pulmonary bifurcation) */}
+                <ellipse cx="120" cy="115" rx="20" ry="14" fill="#ef4444" stroke="#991b1b" strokeWidth="2.5" />
+                
+                {/* Extension into left and right branches */}
+                <path d="M 105 115 L 75 85" stroke="#ef4444" strokeWidth="8" strokeLinecap="round" />
+                <path d="M 135 115 L 165 85" stroke="#ef4444" strokeWidth="8" strokeLinecap="round" />
+                
+                {/* Labels */}
+                <rect x="70" y="25" width="100" height="16" rx="3" fill="#020617" stroke="#ef4444" strokeWidth="1" />
+                <text x="76" y="36" fill="#f87171" fontSize="7" fontFamily="monospace" fontWeight="bold">EMBOLO A SELLA (SADDLE)</text>
+                
+                <text x="85" y="195" fill="#38bdf8" fontSize="7" fontFamily="monospace">TRONCO POLMONARE</text>
               </svg>
             )}
+
           </div>
-          <span className="text-[11px] font-mono text-slate-400">
-            Schema anatomico-radiologico didattico interattivo
-          </span>
+
+          <div className="flex items-center justify-between text-[10px] font-mono text-slate-500 pt-1 border-t border-slate-900">
+            <span>Risoluzione: 512x512 matrix</span>
+            <span className="text-cyan-400">Ricostruzione Vettoriale</span>
+          </div>
+
         </div>
       </div>
     </div>
   );
 };
+
+export default ClinicalImagingAtlas;
