@@ -745,8 +745,8 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
               className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl object-cover border border-slate-700/80 shadow-md shrink-0"
             />
             <div className="space-y-1">
-              <div className="text-[10px] font-mono text-cyan-400 font-bold uppercase tracking-wider flex items-center justify-center sm:justify-start gap-1.5">
-                <span>🧙‍♂️ Pausa Studio Notturno • Angolo Gollum</span>
+              <div className="text-[10px] font-mono text-amber-400 font-bold uppercase tracking-wider flex items-center justify-center sm:justify-start gap-1.5">
+                <span>🌙 Pausa Studio Notturno • Monito di Gollum</span>
               </div>
               <p className="text-xs sm:text-sm font-serif italic text-slate-100">
                 « Non vede dove il cuore lo porta, quando il sole è calato e la luna è morta »

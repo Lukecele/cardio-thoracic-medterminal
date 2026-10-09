@@ -22,9 +22,11 @@ import {
   ExternalLink,
   Sparkles,
   Maximize2,
-  Minimize2
+  Minimize2,
+  Home
 } from 'lucide-react';
 
+import { HomePage } from './components/HomePage';
 import TheoryViewer from './components/TheoryViewer';
 import { ExamSimulator } from './components/ExamSimulator';
 import { OralExamSimulator } from './components/OralExamSimulator';
@@ -50,6 +52,7 @@ const theoryData = theoryDataRaw as any;
 const oralCasesData = oralCasesDataRaw as any[];
 
 type TabType =
+  | 'home'
   | 'theory'
   | 'quiz'
   | 'oral'
@@ -65,7 +68,7 @@ type TabType =
   | 'auscultation';
 
 export function App() {
-  const [activeTab, setActiveTab] = useState<TabType>('theory');
+  const [activeTab, setActiveTab] = useState<TabType>('home');
   const [searchModalOpen, setSearchModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeSearchCategory, setActiveSearchCategory] = useState<'all' | 'theory' | 'quiz' | 'oral' | 'tool' | 'media'>('all');
@@ -107,6 +110,7 @@ export function App() {
   }, []);
 
   const CORE_TABS = [
+    { id: 'home' as TabType, label: 'Home • Hub Esame', badge: 'HUB', desc: 'Guida, Crediti & Easter Eggs', icon: Home, color: 'text-cyan-400' },
     { id: 'theory' as TabType, label: 'Teoria Integrale', badge: '16 CAP', desc: '16 Capitoli & Linee Guida Ufficiali', icon: BookOpen, color: 'text-cyan-400' },
     { id: 'quiz' as TabType, label: 'Database Scritti', badge: '48 MCQ', desc: 'Quesiti & Razionali', icon: Trophy, color: 'text-yellow-400' },
     { id: 'oral' as TabType, label: 'Simulatore Orali', badge: '5 CASI', desc: '5 Stazioni Specialistiche', icon: Stethoscope, color: 'text-purple-400' },
@@ -467,13 +471,16 @@ export function App() {
       
       {/* MOBILE TOPBAR */}
       <header className="lg:hidden fixed top-0 inset-x-0 bg-slate-950/90 backdrop-blur-md border-b border-slate-800 h-16 flex items-center justify-between px-4 z-40">
-        <div className="flex items-center space-x-2 text-cyan-400">
-          <Heart className="w-5 h-5 fill-cyan-400/20 text-cyan-400 shrink-0" />
+        <button
+          onClick={() => setActiveTab('home')}
+          className="flex items-center space-x-2 text-cyan-400 text-left focus:outline-none group"
+        >
+          <Heart className="w-5 h-5 fill-cyan-400/20 text-cyan-400 shrink-0 group-hover:scale-105 transition-transform" />
           <div className="flex flex-col">
             <span className="font-mono font-bold tracking-tight text-white text-sm leading-tight">MedTerminal</span>
             <span className="text-[10px] text-cyan-400 font-mono">Studio Esame Integrato</span>
           </div>
-        </div>
+        </button>
         <div className="flex items-center space-x-2">
           <button
             onClick={() => setSearchModalOpen(true)}
@@ -588,9 +595,12 @@ export function App() {
       <aside className="hidden lg:flex flex-col w-72 bg-slate-950 border-r border-slate-850 shrink-0 z-10 relative">
         
         {/* Brand Header */}
-        <div className="h-16 flex items-center justify-between px-5 border-b border-slate-850 bg-slate-950/60 backdrop-blur-md">
+        <button
+          onClick={() => setActiveTab('home')}
+          className="h-16 flex items-center justify-between px-5 border-b border-slate-850 bg-slate-950/60 backdrop-blur-md text-left w-full hover:bg-slate-900/50 transition-colors group"
+        >
           <div className="flex items-center space-x-3">
-            <div className="w-9 h-9 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.15)]">
+            <div className="w-9 h-9 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.15)] group-hover:scale-105 transition-transform">
               <Heart className="w-5 h-5 fill-cyan-400/20" />
             </div>
             <div>
@@ -603,7 +613,7 @@ export function App() {
               <div className="text-[10px] font-mono text-slate-400">Cardio-Toracico Integrato</div>
             </div>
           </div>
-        </div>
+        </button>
 
         {/* Global Search Button */}
         <div className="px-4 py-3">
@@ -735,10 +745,27 @@ export function App() {
       <main className="flex-1 flex flex-col h-full bg-[#07090e] pt-16 lg:pt-0 overflow-hidden relative">
         <div className="flex-1 overflow-y-auto custom-scrollbar flex flex-col">
           
-          <div className="p-4 lg:p-8 flex-1">
+          <div className="p-3 sm:p-4 lg:p-8 flex-1">
             <div className={`max-w-[1500px] mx-auto transition-all duration-300 ${show3DDrawer ? '2xl:pr-[470px]' : ''}`}>
               
               {/* VIEW ROUTER */}
+              {activeTab === 'home' && (
+                <HomePage
+                  onNavigate={(tab) => {
+                    setActiveTab(tab);
+                  }}
+                  onOpen3D={() => {
+                    setShow3DDrawer(true);
+                  }}
+                  onOpenSearch={() => {
+                    setSearchModalOpen(true);
+                  }}
+                  onOpenLegalModal={() => {
+                    setExternalLegalOpen(true);
+                  }}
+                />
+              )}
+
               {activeTab === 'theory' && (
                 <TheoryViewer
                   activeTopicId={activeTopicId}

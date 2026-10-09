@@ -42,7 +42,7 @@ export const Footer: React.FC<FooterProps> = ({ externalLegalOpen, onCloseExtern
 
   return (
     <>
-      <footer className="w-full border-t border-slate-800/80 bg-[#090d16] py-10 px-4 sm:px-8 mt-auto text-slate-400">
+      <footer className="w-full border-t border-slate-800/80 bg-[#090d16] py-8 sm:py-10 px-3 sm:px-8 mt-auto text-slate-400">
         <div className="max-w-6xl mx-auto space-y-8">
           
           {/* TOP SECTION: 3 MODERN CARDS */}
@@ -145,10 +145,10 @@ export const Footer: React.FC<FooterProps> = ({ externalLegalOpen, onCloseExtern
           </div>
 
           {/* GOLLUM EASTER EGG FOOTER BANNER */}
-          <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+          <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-850 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
             <div className="flex items-center space-x-3">
-              <span className="text-xl">🧙‍♂️</span>
-              <p className="text-xs text-slate-400 italic font-serif">
+              <span className="text-xl">🌙</span>
+              <p className="text-xs text-slate-300 italic font-serif">
                 « Non vede dove il cuore lo porta, quando il sole è calato e la luna è morta »
                 <span className="block not-italic text-[10px] text-slate-500 font-sans mt-0.5">
                   Dedicato a chi studia il diagramma di Wiggers alle 04:12 di notte prima dell'appello.
