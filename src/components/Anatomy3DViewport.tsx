@@ -105,7 +105,7 @@ const MODEL_CONFIGS: Record<Model3DKey, ModelConfig> = {
     badge: 'PNEUMO-3D',
     color: 'sky',
     category: 'Anatomia Pneumologica & Toracica',
-    embedUrl: 'https://sketchfab.com/models/06f8c4ea5f5e427d925d40cb97e5ea5b/embed?autostart=1&ui_theme=dark&ui_hint=0&ui_infos=0&ui_watermark=0&ui_help=0&ui_settings=0&ui_inspector=0&dnt=1',
+    embedUrl: 'https://sketchfab.com/models/250911151757489da1cf5501b791f363/embed?autostart=1&ui_theme=dark&ui_hint=0&ui_infos=0&ui_watermark=0&ui_help=0&ui_settings=0&ui_inspector=0&dnt=1',
     posterImage: '/anatomy/model_lungs.png',
     description: 'Mappatura tridimensionale dell\'albero tracheo-bronchiale e dell\'architettura lobare: trachea cervicale e toracica, sperone carenale di Louis (T4-T5) e ramificazione lobare/segmentaria.',
     landmarks: [
@@ -200,7 +200,12 @@ export const Anatomy3DViewport: React.FC<Anatomy3DViewportProps> = ({
   onToggleMaximize
 }) => {
   const [activeModelKey, setActiveModelKey] = useState<Model3DKey>('heart');
-  const [viewMode, setViewMode] = useState<'3d' | 'hd'>('3d');
+  const [viewMode, setViewMode] = useState<'3d' | 'hd'>(() => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      return 'hd';
+    }
+    return '3d';
+  });
   const [mobileTab, setMobileTab] = useState<'split' | '3d' | 'info'>('split');
   const [isIframeLoading, setIsIframeLoading] = useState(true);
   const [selectedLandmarkIdx, setSelectedLandmarkIdx] = useState<number | null>(null);
