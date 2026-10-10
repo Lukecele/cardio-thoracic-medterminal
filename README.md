@@ -7,6 +7,8 @@
 [![Three.js](https://img.shields.io/badge/Three.js-3D%20WebGL-black?style=for-the-badge&logo=threedotjs&logoColor=white)](https://threejs.org/)
 [![Open Source](https://img.shields.io/badge/Open%20Source-GitHub-cyan?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Lukecele/cardio-thoracic-medterminal)
 
+🌐 **Piattaforma Online**: [https://cardio-thoracic-medterminal.vercel.app](https://cardio-thoracic-medterminal.vercel.app)
+
 > **Piattaforma didattica multimodale per gli studenti di medicina** concepita per la preparazione dell'esame universitario integrato di **Malattie dell'Apparato Cardiovascolare e Respiratorio** (*Cardiologia Medica*, *Pneumologia*, *Cardiochirurgia*, *Chirurgia Toracica* e *Chirurgia Vascolare*).
 
 ---
