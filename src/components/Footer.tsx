@@ -171,11 +171,11 @@ export const Footer: React.FC<FooterProps> = ({ isHome, externalLegalOpen, onClo
             </>
           )}
 
-          {/* BOTTOM COPYRIGHT BAR */}
+          {/* BOTTOM OPEN SOURCE BAR */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-850/80 text-xs text-slate-500">
             <div className="flex items-center space-x-2">
               <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500/30 shrink-0" />
-              <span>MedTerminal v2.0 • Codice Open Source MIT (100% Libero & Gratuito) • No-Profit • Basi teoriche: PDF <strong>Lorenzo Pessetti</strong></span>
+              <span>MedTerminal v2.0 • Codice Open Source MIT (100% Libero & Senza Riserva di Copyright) • No-Profit • Basi teoriche: PDF <strong>Lorenzo Pessetti</strong></span>
             </div>
             <div className="flex items-center space-x-4 text-[11px] font-mono shrink-0">
               <button onClick={() => handleOpen('license')} className="text-cyan-400 hover:text-cyan-300 transition font-bold">
