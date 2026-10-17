@@ -29,14 +29,14 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ isHome, externalLegalOpen, onCloseExternalLegal }) => {
   const [internalLegalOpen, setInternalLegalOpen] = useState(false);
-  const [activeLegalTab, setActiveLegalTab] = useState<'disclaimer' | 'sources' | 'privacy'>('disclaimer');
+  const [activeLegalTab, setActiveLegalTab] = useState<'disclaimer' | 'sources' | 'privacy' | 'license'>('disclaimer');
 
   const isModalOpen = externalLegalOpen !== undefined ? externalLegalOpen : internalLegalOpen;
   const handleClose = () => {
     if (onCloseExternalLegal) onCloseExternalLegal();
     else setInternalLegalOpen(false);
   };
-  const handleOpen = (tab: 'disclaimer' | 'sources' | 'privacy' = 'disclaimer') => {
+  const handleOpen = (tab: 'disclaimer' | 'sources' | 'privacy' | 'license' = 'disclaimer') => {
     setActiveLegalTab(tab);
     setInternalLegalOpen(true);
   };
@@ -131,6 +131,12 @@ export const Footer: React.FC<FooterProps> = ({ isHome, externalLegalOpen, onClo
 
               <div className="flex flex-wrap gap-2 pt-2 border-t border-slate-800">
                 <button
+                  onClick={() => handleOpen('license')}
+                  className="px-2.5 py-1.5 rounded-lg bg-slate-950 hover:bg-slate-800 border border-cyan-500/30 text-[11px] font-mono text-cyan-300 hover:text-cyan-200 transition font-bold"
+                >
+                  Licenza Libera (MIT)
+                </button>
+                <button
                   onClick={() => handleOpen('disclaimer')}
                   className="px-2.5 py-1.5 rounded-lg bg-slate-950 hover:bg-slate-800 border border-slate-800 text-[11px] font-mono text-slate-300 hover:text-white transition"
                 >
@@ -168,10 +174,14 @@ export const Footer: React.FC<FooterProps> = ({ isHome, externalLegalOpen, onClo
           {/* BOTTOM COPYRIGHT BAR */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-850/80 text-xs text-slate-500">
             <div className="flex items-center space-x-2">
-              <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500/30" />
-              <span>MedTerminal v2.0 • Realizzato da <strong>Luca Celebrano</strong> • Basi teoriche: PDF <strong>Lorenzo Pessetti</strong></span>
+              <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500/30 shrink-0" />
+              <span>MedTerminal v2.0 • Codice Open Source MIT (100% Libero & Gratuito) • No-Profit • Basi teoriche: PDF <strong>Lorenzo Pessetti</strong></span>
             </div>
-            <div className="flex items-center space-x-4 text-[11px] font-mono">
+            <div className="flex items-center space-x-4 text-[11px] font-mono shrink-0">
+              <button onClick={() => handleOpen('license')} className="text-cyan-400 hover:text-cyan-300 transition font-bold">
+                Licenza MIT (Free)
+              </button>
+              <span>•</span>
               <button onClick={() => handleOpen('disclaimer')} className="hover:text-cyan-400 transition">
                 Disclaimer
               </button>
@@ -181,12 +191,12 @@ export const Footer: React.FC<FooterProps> = ({ isHome, externalLegalOpen, onClo
               </button>
               <span>•</span>
               <a
-                href="https://github.com/Lukecele"
+                href="https://github.com/Lukecele/cardio-thoracic-medterminal"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-cyan-400 transition"
               >
-                GitHub Profile
+                GitHub
               </a>
             </div>
           </div>
@@ -216,7 +226,17 @@ export const Footer: React.FC<FooterProps> = ({ isHome, externalLegalOpen, onClo
             </div>
 
             {/* Modal Tabs */}
-            <div className="flex border-b border-slate-800 bg-slate-950/60 px-6 pt-2 gap-2">
+            <div className="flex flex-wrap border-b border-slate-800 bg-slate-950/60 px-6 pt-2 gap-2">
+              <button
+                onClick={() => setActiveLegalTab('license')}
+                className={`pb-2.5 px-3 text-xs font-mono font-semibold transition border-b-2 ${
+                  activeLegalTab === 'license'
+                    ? 'border-cyan-400 text-cyan-300'
+                    : 'border-transparent text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                Licenza Libera (MIT) & No-Profit
+              </button>
               <button
                 onClick={() => setActiveLegalTab('disclaimer')}
                 className={`pb-2.5 px-3 text-xs font-mono font-semibold transition border-b-2 ${
@@ -252,6 +272,43 @@ export const Footer: React.FC<FooterProps> = ({ isHome, externalLegalOpen, onClo
             {/* Modal Body */}
             <div className="p-6 overflow-y-auto custom-scrollbar space-y-5 text-xs text-slate-300 leading-relaxed">
               
+              {activeLegalTab === 'license' && (
+                <div className="space-y-4">
+                  <div className="bg-cyan-950/20 p-4 rounded-xl border border-cyan-500/30">
+                    <h3 className="font-bold text-cyan-200 mb-1.5 flex items-center text-sm">
+                      <Terminal className="w-4 h-4 mr-2 text-cyan-400" />
+                      100% Codice Open Source & Gratuito (Licenza MIT)
+                    </h3>
+                    <p className="text-slate-300 leading-relaxed">
+                      L'intera architettura software di MedTerminal (React 19, TypeScript, Three.js WebGL, Tailwind CSS, algoritmi ECG/EGA, banche quiz e calcolatori clinici) è distribuita sotto <strong>Licenza Open Source MIT</strong>. È <strong>100% gratuita, libera e aperta</strong> per qualsiasi studente, docente o sviluppatore per essere copiata, studiata, modificata e riutilizzata senza alcuna restrizione o royalty.
+                    </p>
+                    <p className="text-slate-400 leading-relaxed mt-2">
+                      Repository su GitHub: <a href="https://github.com/Lukecele/cardio-thoracic-medterminal" target="_blank" rel="noopener noreferrer" className="text-cyan-300 underline font-mono">github.com/Lukecele/cardio-thoracic-medterminal</a>.
+                    </p>
+                  </div>
+
+                  <div className="bg-slate-950/70 p-4 rounded-xl border border-slate-800">
+                    <h3 className="font-bold text-slate-100 mb-1.5 flex items-center text-sm">
+                      <Scale className="w-4 h-4 mr-2 text-emerald-400" />
+                      Risorsa Educativa Aperta (OER) • Esclusione MDR (UE) 2017/745
+                    </h3>
+                    <p className="text-slate-400 leading-relaxed">
+                      MedTerminal è una <strong>Open Educational Resource (OER)</strong> accademica senza fini di lucro, concepita per la preparazione dell'esame universitario integrato di Malattie dell'Apparato Cardiovascolare e Respiratorio. <strong>NON costituisce un dispositivo medico</strong> (Software as a Medical Device - SaMD) ai sensi del Regolamento Europeo 2017/745 (MDR) e non è destinato ad uso diagnostico o terapeutico su pazienti reali.
+                    </p>
+                  </div>
+
+                  <div className="bg-slate-950/70 p-4 rounded-xl border border-slate-800">
+                    <h3 className="font-bold text-slate-100 mb-1.5 flex items-center text-sm">
+                      <BookOpen className="w-4 h-4 mr-2 text-purple-400" />
+                      Diritto di Citazione Scientifica (Art. 70 L. 633/1941)
+                    </h3>
+                    <p className="text-slate-400 leading-relaxed">
+                      Linee guida, cut-off e classificazioni diagnostiche (ESC, ACC/AHA, ERS, ESTS, ESVS, GOLD) sono riportate per esclusivo uso di studio, discussione e rassegna didattica ai sensi dell'art. 70 della Legge 22 aprile 1941 n. 633 sul diritto d'autore.
+                    </p>
+                  </div>
+                </div>
+              )}
+
               {activeLegalTab === 'disclaimer' && (
                 <div className="space-y-4">
                   <div className="bg-slate-950/70 p-4 rounded-xl border border-slate-800">
