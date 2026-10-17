@@ -19,3 +19,41 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+================================================================================
+CLAUSOLA DI UTILIZZO GRATUITO DEL CODICE & DISCLAIMER MEDICO-DIDATTICO (MDR / NO-PROFIT)
+================================================================================
+
+1. NATURA DEL SOFTWARE & LICENZA OPEN SOURCE (MIT):
+   L'architettura software, il codice sorgente (TypeScript, React 19, Three.js WebGL,
+   Tailwind CSS, algoritmi e calcolatori) e la documentazione associata sono concessi
+   a titolo interamente GRATUITO con licenza libera MIT. Chiunque è autorizzato a
+   studiare, copiare, biforcare (fork), modificare e ridistribuire il codice.
+
+2. ESCLUSIONE DISPOSITIVO MEDICO (REGOLAMENTO UE 2017/745 - MDR):
+   MedTerminal Cardio-Toracico è una risorsa educativa aperta (Open Educational
+   Resource - OER) concepita ad esclusivo scopo DIDATTICO, SCIENTIFICO e di STUDIO
+   per gli studenti del corso di laurea magistrale in Medicina e Chirurgia.
+   - NON costituisce un Dispositivo Medico (SaMD - Software as a Medical Device)
+     ai sensi del Regolamento (UE) 2017/745.
+   - NON è certificato né destinato all'uso clinico, alla diagnosi, al trattamento,
+     al monitoraggio o alla prescrizione terapeutica su esseri umani.
+   - I calcolatori clinici, i simulatori ECG/EGA, i reperti auscultatori e gli alberi
+     decisionali hanno scopo unicamente illustrativo dei concetti di fisiopatologia
+     e linee guida universitarie. Per decisioni cliniche reali è necessario fare
+     esclusivo riferimento al giudizio medico professionale e alla documentazione
+     ospedaliera autorizzata.
+
+3. LINEE GUIDA INTERNAZIONALI & DIRITTO DI CITAZIONE SCIENTIFICA (ART. 70 L. 633/1941):
+   Le classificazioni, i criteri diagnostici e i riferimenti alle linee guida delle
+   società scientifiche internazionali (ESC, AHA/ACC, ERS, ESTS, ESVS, GOLD) sono
+   riportati a titolo di sintesi, rassegna e studio universitario ai sensi dell'art. 70
+   della Legge 22 aprile 1941, n. 633 e delle convenzioni internazionali sul fair use
+   scientifico-didattico. Nessuna titolarità su tali marchi o linee guida ufficiali
+   è rivendicata.
+
+4. MODELLI ANATOMICI & REPERTI AUSCULTATORI:
+   I modelli anatomici 3D provengono da risorse scientifiche aperte di dominio pubblico
+   (NIH 3D Print Exchange) e mantengono la loro originaria destinazione di ricerca libera.
+   I reperti auscultatori sono campioni scientifico-didattici ad alta fedeltà finalizzati
+   all'apprendimento della semeiotica medica.

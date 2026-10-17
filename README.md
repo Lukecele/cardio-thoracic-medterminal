@@ -1,6 +1,9 @@
 # 🩺 MedTerminal Cardio-Toracico (v2.0)
 
 [![Live Production](https://img.shields.io/badge/Vercel-Live%20Deployment-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://cardio-thoracic-medterminal.vercel.app)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
+[![Status: 100% Free & No-Profit](https://img.shields.io/badge/Status-100%25%20Free%20%26%20No--Profit-gold?style=for-the-badge)](LICENSE)
+[![MDR 2017/745 Educational OER](https://img.shields.io/badge/MDR%202017%2F745-Educational%20OER-blue?style=for-the-badge)](LICENSE)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
@@ -167,7 +170,9 @@ MedTerminal è progettato con approccio **mobile-first e touch-friendly**:
 
 ---
 
-## ⚖️ Finalità Didattica & Licenza
+## ⚖️ Finalità Didattica, Licenza Libera (MIT) & No-Profit
 
-Progetto universitario open-source rilasciato con licenza [MIT](LICENSE).  
-**Esclusiva Finalità Didattica**: MedTerminal è concepito unicamente per la preparazione dell'esame universitario di Medicina e Chirurgia. Non costituisce dispositivo medico diagnostico né presidio per la gestione clinica di pazienti reali.
+- **Codice Open Source (Licenza MIT)**: L'intera architettura software (React, TypeScript, Three.js WebGL, algoritmi e simulatori) è distribuita gratuitamente sotto licenza [MIT](LICENSE), liberamente consultabile, clonabile, modificabile e riutilizzabile da studenti e sviluppatori.
+- **Esclusiva Risorsa Didattica (OER - Regolamento UE 2017/745)**: MedTerminal è una risorsa formativa aperta (OER) concepita unicamente per lo studio universitario e la preparazione dell'esame di laurea magistrale in Medicina e Chirurgia. **NON costituisce un dispositivo medico (Software as a Medical Device - SaMD)** ai sensi del Regolamento (UE) 2017/745 (MDR) e non deve essere impiegato per formulare diagnosi cliniche, prescrizioni o decisioni terapeutiche su pazienti reali.
+- **Diritto di Citazione Scientifica (Art. 70 L. 633/1941)**: Linee guida, cut-off e classificazioni (ESC, AHA, ERS, ESTS, ESVS, GOLD) sono citate a fini di rassegna critica e apprendimento accademico.
+- **100% Gratuito & No-Profit**: Zero pubblicità, zero raccolta dati di profilazione, zero costi di fruizione.
