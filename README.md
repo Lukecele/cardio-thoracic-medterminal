@@ -14,6 +14,10 @@
 
 > **Piattaforma didattica multimodale per gli studenti di medicina** concepita per la preparazione dell'esame universitario integrato di **Malattie dell'Apparato Cardiovascolare e Respiratorio** (*Cardiologia Medica*, *Pneumologia*, *Cardiochirurgia*, *Chirurgia Toracica* e *Chirurgia Vascolare*).
 
+> [!TIP]
+> **Ti è utile MedTerminal Cardio-Toracico per lo studio o la clinica?**  
+> Se questa piattaforma, i modelli 3D WebGL o i simulatori ti sono d'aiuto, **lascia una ⭐ Stella su GitHub** in alto a destra! Supporta il progetto open-source e ne favorisce l'adozione e la manutenzione didattica continua.
+
 ---
 
 ## 👨‍💻 Sviluppo & Crediti

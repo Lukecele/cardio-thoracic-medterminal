@@ -489,6 +489,16 @@ export function App() {
           </div>
         </button>
         <div className="flex items-center space-x-2">
+          <a
+            href="https://github.com/Lukecele/cardio-thoracic-medterminal"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 px-2.5 py-1.5 text-xs font-semibold text-amber-300 bg-amber-500/10 border border-amber-500/30 rounded-xl hover:bg-amber-500/20 transition-all"
+            title="Lascia una stella su GitHub"
+          >
+            <span>⭐</span>
+            <span className="hidden sm:inline">Stella</span>
+          </a>
           <button
             onClick={() => setSearchModalOpen(true)}
             className="p-2 text-slate-400 hover:text-white bg-slate-900 border border-slate-800 rounded-xl"
@@ -728,6 +738,16 @@ export function App() {
             <Layers className="w-4 h-4 text-cyan-400" />
             <span>{show3DDrawer ? 'Chiudi Atlante 3D' : 'Apri Atlante WebGL 3D'}</span>
           </button>
+
+          <a
+            href="https://github.com/Lukecele/cardio-thoracic-medterminal"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full flex items-center justify-center space-x-2 px-3 py-2 rounded-xl text-xs font-semibold text-amber-300 bg-amber-500/10 border border-amber-500/30 hover:bg-amber-500/20 hover:border-amber-400/50 transition-all shadow-sm"
+          >
+            <span>⭐</span>
+            <span>Stella su GitHub</span>
+          </a>
 
           <div className="pt-1 flex items-center justify-between text-[11px] text-slate-500 px-1 font-sans">
             <a

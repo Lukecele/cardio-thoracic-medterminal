@@ -4,7 +4,7 @@
   "version": "2.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "node -e \"console.log('\\x1b[35m\\n🫀 MedTerminal Cardio-Toracico | Piattaforma Didattica Multimodale\\x1b[0m\\x1b[33m\\n⭐ Supporta il progetto open-source con una stella su GitHub: https://github.com/Lukecele/cardio-thoracic-medterminal\\x1b[0m\\n')\" && vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview"
