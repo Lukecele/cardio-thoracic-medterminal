@@ -14,6 +14,16 @@
 
 > 💡 **La piattaforma didattica che demolisce lo studio mnemonico noioso:** concepita da studenti per studenti di medicina per preparare e superare brillantemente l'esame integrato di **Malattie dell'Apparato Cardiovascolare e Respiratorio** (*Cardiologia Medica*, *Pneumologia*, *Cardiochirurgia*, *Chirurgia Toracica* e *Chirurgia Vascolare*) attraverso **modelli anatomici 3D WebGL (Three.js), tracciati ECG dinamici, 11 reperti auscultatori Littmann reali, 48 MCQ ufficiali commentati e simulatore orale a stazioni cliniche.**
 
+<p align="center">
+  <a href="https://cardio-thoracic-medterminal.vercel.app">
+    <img src="public/medterminal-interactive-preview.gif" alt="MedTerminal Cardio-Toracico — 3D WebGL, Monitor ECG Dinamico, Fonoteca Littmann e Quiz d'Esame" width="100%" style="max-width: 900px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+  </a>
+</p>
+
+<p align="center">
+  <i><b>Live Platform Tour:</b> Modelli anatomici 3D interattivi, monitoraggio ECG continuo su canvas, fonoteca reale da fonendoscopio e quiz MCQ ufficiali con razionale d'esame.</i>
+</p>
+
 > [!TIP]
 > **Ti è utile MedTerminal Cardio-Toracico per lo studio o la clinica?**  
 > Se questa piattaforma, i modelli 3D WebGL o i simulatori ti sono d'aiuto, **lascia una ⭐ Stella su GitHub** in alto a destra! Supporta il progetto open-source e ne favorisce l'adozione e la manutenzione didattica continua.
