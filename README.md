@@ -12,7 +12,7 @@
 
 🌐 **Piattaforma Online**: [https://cardio-thoracic-medterminal.vercel.app](https://cardio-thoracic-medterminal.vercel.app)
 
-> **Piattaforma didattica multimodale per gli studenti di medicina** concepita per la preparazione dell'esame universitario integrato di **Malattie dell'Apparato Cardiovascolare e Respiratorio** (*Cardiologia Medica*, *Pneumologia*, *Cardiochirurgia*, *Chirurgia Toracica* e *Chirurgia Vascolare*).
+> 💡 **La piattaforma didattica che demolisce lo studio mnemonico noioso:** concepita da studenti per studenti di medicina per preparare e superare brillantemente l'esame integrato di **Malattie dell'Apparato Cardiovascolare e Respiratorio** (*Cardiologia Medica*, *Pneumologia*, *Cardiochirurgia*, *Chirurgia Toracica* e *Chirurgia Vascolare*) attraverso **modelli anatomici 3D WebGL (Three.js), tracciati ECG dinamici, 11 reperti auscultatori Littmann reali, 48 MCQ ufficiali commentati e simulatore orale a stazioni cliniche.**
 
 > [!TIP]
 > **Ti è utile MedTerminal Cardio-Toracico per lo studio o la clinica?**  
