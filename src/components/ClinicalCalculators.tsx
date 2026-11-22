@@ -6,12 +6,15 @@ interface ClinicalCalculatorsProps {
 }
 
 export const ClinicalCalculators: React.FC<ClinicalCalculatorsProps> = ({ initialCalculatorId }) => {
-  const [activeTab, setActiveTab] = useState<'cha2ds2-vasc' | 'euroscore-2' | 'curb65' | 'wells-pe' | 'wells-dvt' | 'light' | 'abi'>('cha2ds2-vasc');
+  const [activeTab, setActiveTab] = useState<'cha2ds2-vasc' | 'has-bled' | 'heart' | 'qtc' | 'euroscore-2' | 'curb65' | 'wells-pe' | 'wells-dvt' | 'light' | 'abi'>('cha2ds2-vasc');
 
   useEffect(() => {
     if (!initialCalculatorId) return;
     const lower = initialCalculatorId.toLowerCase();
     if (lower.includes('cha2ds2') || lower.includes('chads')) setActiveTab('cha2ds2-vasc');
+    else if (lower.includes('has-bled') || lower.includes('hasbled')) setActiveTab('has-bled');
+    else if (lower.includes('heart')) setActiveTab('heart');
+    else if (lower.includes('qtc') || lower.includes('bazett')) setActiveTab('qtc');
     else if (lower.includes('euroscore')) setActiveTab('euroscore-2');
     else if (lower.includes('curb')) setActiveTab('curb65');
     else if (lower.includes('light')) setActiveTab('light');
@@ -44,6 +47,44 @@ export const ClinicalCalculators: React.FC<ClinicalCalculatorsProps> = ({ initia
     if (chads.female) score += 1;
     return score;
   };
+
+  const getChadsVAScore = () => getChadsScore() - (chads.female ? 1 : 0);
+
+  // HAS-BLED state
+  const [hasbled, setHasbled] = useState({
+    hypertension: false,
+    renal: false,
+    liver: false,
+    stroke: false,
+    bleeding: false,
+    labileInr: false,
+    elderly: false,
+    drugs: false,
+    alcohol: false,
+  });
+
+  const getHasbledScore = () => Object.values(hasbled).filter(Boolean).length;
+
+  // HEART Score state (0-2 each)
+  const [heart, setHeart] = useState({
+    history: 1,
+    ecg: 0,
+    age: 1,
+    riskFactors: 1,
+    troponin: 0,
+  });
+
+  const getHeartScore = () =>
+    heart.history + heart.ecg + heart.age + heart.riskFactors + heart.troponin;
+
+  // QTc calculator (Bazett & Fridericia)
+  const [qtMs, setQtMs] = useState<number>(400);
+  const [hrBpm, setHrBpm] = useState<number>(75);
+
+  const safeHr = Math.max(25, Math.min(250, hrBpm || 60));
+  const rrSec = 60 / safeHr;
+  const qtcBazett = Math.round(qtMs / Math.sqrt(rrSec));
+  const qtcFridericia = Math.round(qtMs / Math.cbrt(rrSec));
 
   // EuroSCORE II
   const [euroscore, setEuroscore] = useState({
@@ -174,13 +215,16 @@ export const ClinicalCalculators: React.FC<ClinicalCalculatorsProps> = ({ initia
       {/* Selector Tabs */}
       <div className="flex flex-wrap gap-2">
         {[
-          { id: 'cha2ds2-vasc', label: 'CHA2DS2-VASc (FA & DOAC)' },
+          { id: 'cha2ds2-vasc', label: 'CHA2DS2-VASc / VA (FA)' },
+          { id: 'has-bled', label: 'HAS-BLED (Sanguinamento)' },
+          { id: 'heart', label: 'HEART Score (Dolore Toracico)' },
+          { id: 'qtc', label: 'QTc (Bazett & Fridericia)' },
           { id: 'euroscore-2', label: 'EuroSCORE II (Cardiochirurgia)' },
           { id: 'curb65', label: 'CURB-65 (Polmoniti CAP)' },
-          { id: 'wells-pe', label: 'Score di Wells (Embolia Polmonare)' },
-          { id: 'wells-dvt', label: 'Wells TVP (Trombosi Venosa)' },
-          { id: 'light', label: 'Criteri di Light (Liquido Pleurico)' },
-          { id: 'abi', label: 'Indice ABI (AOCP Arteriopatia)' },
+          { id: 'wells-pe', label: 'Score di Wells (EP)' },
+          { id: 'wells-dvt', label: 'Wells TVP' },
+          { id: 'light', label: 'Criteri di Light (Pleura)' },
+          { id: 'abi', label: 'Indice ABI (AOCP)' },
         ].map((tab) => (
           <button
             key={tab.id}
@@ -232,27 +276,274 @@ export const ClinicalCalculators: React.FC<ClinicalCalculatorsProps> = ({ initia
 
           <div className="p-4 rounded-xl bg-slate-950 border border-cyan-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <span className="text-xs font-mono uppercase text-slate-400">Punteggio Totale CHA2DS2-VASc:</span>
-              <div className="text-3xl font-mono font-bold text-cyan-300">{getChadsScore()} Punti</div>
+              <span className="text-xs font-mono uppercase text-slate-400">CHA2DS2-VASc / ESC 2024 CHA2DS2-VA:</span>
+              <div className="text-3xl font-mono font-bold text-cyan-300">
+                {getChadsScore()} pt
+                <span className="text-base text-slate-400 font-normal ml-2">
+                  (VA: <strong className="text-emerald-300">{getChadsVAScore()}</strong>)
+                </span>
+              </div>
             </div>
             <div className="text-left sm:text-right">
-              {getChadsScore() === 0 ? (
+              {getChadsVAScore() === 0 ? (
                 <div className="text-xs text-emerald-400 font-semibold flex items-center sm:justify-end space-x-1.5">
                   <CheckCircle2 className="w-4 h-4 shrink-0" />
-                  <span>Rischio basso: Nessuna terapia anticoagulante o antiaggregante raccomandata (Classe I)</span>
+                  <span>Rischio basso (VA = 0): Nessuna terapia anticoagulante o antiaggregante raccomandata (Classe I)</span>
                 </div>
-              ) : getChadsScore() === 1 && !chads.female ? (
+              ) : getChadsVAScore() === 1 ? (
                 <div className="text-xs text-amber-400 font-semibold flex items-center sm:justify-end space-x-1.5">
                   <AlertTriangle className="w-4 h-4 shrink-0" />
-                  <span>1 punto (maschio): Terapia anticoagulante orale con DOAC da considerare (Classe IIa)</span>
+                  <span>CHA2DS2-VA = 1: Terapia anticoagulante orale con DOAC da considerare (Classe IIa)</span>
                 </div>
               ) : (
                 <div className="text-xs text-rose-400 font-semibold flex items-center sm:justify-end space-x-1.5">
                   <ShieldAlert className="w-4 h-4 shrink-0" />
-                  <span>Score ≥ 2 (o ≥ 1 donna oltre al sesso): Terapia anticoagulante con DOAC RACCOMANDATA (Classe I)</span>
+                  <span>CHA2DS2-VA ≥ 2: Terapia anticoagulante con DOAC RACCOMANDATA (Classe I)</span>
                 </div>
               )}
             </div>
+          </div>
+          <div className="p-3 rounded-xl bg-indigo-950/30 border border-indigo-500/30 text-xs text-indigo-200 leading-relaxed">
+            <strong className="text-indigo-300 font-mono">Nota ESC 2024:</strong> Le linee guida ESC 2024 sulla FA hanno semplificato lo score nel <strong>CHA2DS2-VA</strong> rimuovendo il punto del sesso femminile (&quot;Sc&quot;): soglie identiche per uomini e donne (Classe I se ≥ 2, Classe IIa se = 1).
+          </div>
+        </div>
+      )}
+
+      {/* HAS-BLED */}
+      {activeTab === 'has-bled' && (
+        <div className="space-y-4">
+          <div className="text-xs text-slate-400 bg-slate-950/40 p-3 rounded-xl border border-slate-800/80">
+            Valutazione del rischio emorragico nei pazienti con Fibrillazione Atriale in terapia anticoagulante (serve a correggere i fattori modificabili).
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+            {[
+              { key: 'hypertension', label: 'H - Ipertensione arteriosa non controllata (PAS > 160 mmHg) (+1)' },
+              { key: 'renal', label: 'A - Funzione renale anomala (dialisi, trapianto, Cr > 2.26 mg/dL) (+1)' },
+              { key: 'liver', label: 'A - Funzione epatica anomala (cirrosi o bilirubina > 2x + AST/ALT > 3x) (+1)' },
+              { key: 'stroke', label: 'S - Pregresso Ictus cerebrale (+1)' },
+              { key: 'bleeding', label: 'B - Storia di sanguinamento maggiore o diatesi emorragica (+1)' },
+              { key: 'labileInr', label: 'L - INR labile (TTR < 60% se in terapia con Warfarin/AVK) (+1)' },
+              { key: 'elderly', label: 'E - Età avanzata > 65 anni (+1)' },
+              { key: 'drugs', label: 'D - Farmaci predisponenti (FANS o antiaggreganti concomitanti) (+1)' },
+              { key: 'alcohol', label: 'D - Abuso alcolico (≥ 8 drink/settimana) (+1)' },
+            ].map((item) => (
+              <label
+                key={item.key}
+                className="flex items-center space-x-3 p-3 rounded-xl bg-slate-950/60 border border-slate-800 cursor-pointer hover:border-slate-700 transition"
+              >
+                <input
+                  type="checkbox"
+                  checked={hasbled[item.key as keyof typeof hasbled]}
+                  onChange={(e) => setHasbled({ ...hasbled, [item.key]: e.target.checked })}
+                  className="rounded text-cyan-500 focus:ring-cyan-400 bg-slate-900 border-slate-700 w-4 h-4"
+                />
+                <span className="text-xs text-slate-200">{item.label}</span>
+              </label>
+            ))}
+          </div>
+
+          <div className="p-4 rounded-xl bg-slate-950 border border-cyan-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <span className="text-xs font-mono uppercase text-slate-400">Punteggio HAS-BLED:</span>
+              <div className="text-3xl font-mono font-bold text-cyan-300">{getHasbledScore()} / 9</div>
+            </div>
+            <div className="text-left sm:text-right max-w-md">
+              {getHasbledScore() < 3 ? (
+                <div className="text-xs text-emerald-400 font-semibold flex items-center sm:justify-end space-x-1.5">
+                  <CheckCircle2 className="w-4 h-4 shrink-0" />
+                  <span>Rischio emorragico basso-moderato (&lt; 3 pt): Procedere con anticoagulazione standard.</span>
+                </div>
+              ) : (
+                <div className="text-xs text-amber-300 font-semibold flex items-center sm:justify-end space-x-1.5">
+                  <AlertTriangle className="w-4 h-4 shrink-0" />
+                  <span>Alto rischio emorragico (≥ 3 pt): NON controindica i DOAC! Impone follow-up ravvicinato e correzione dei fattori modificabili (PA, FANS, alcol, gastroprotezione).</span>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* HEART SCORE */}
+      {activeTab === 'heart' && (
+        <div className="space-y-4">
+          <div className="text-xs text-slate-400 bg-slate-950/40 p-3 rounded-xl border border-slate-800/80">
+            Stratificazione rapida del rischio di eventi cardiovascolari maggiori (MACE a 6 settimane) nel dolore toracico acuto in Pronto Soccorso.
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {[
+              {
+                key: 'history',
+                title: 'H - Anamnesi (History)',
+                options: [
+                  { val: 0, text: '0 pt — Lievemente sospetta' },
+                  { val: 1, text: '1 pt — Moderatamente sospetta' },
+                  { val: 2, text: '2 pt — Altamente sospetta (dolore tipico)' },
+                ],
+              },
+              {
+                key: 'ecg',
+                title: 'E - Elettrocardiogramma (ECG)',
+                options: [
+                  { val: 0, text: '0 pt — Normale' },
+                  { val: 1, text: '1 pt — Alterazioni aspecifiche ripolarizzazione / BBS' },
+                  { val: 2, text: '2 pt — Sottoslivellamento/alterazioni ST significative' },
+                ],
+              },
+              {
+                key: 'age',
+                title: 'A - Età (Age)',
+                options: [
+                  { val: 0, text: '0 pt — < 45 anni' },
+                  { val: 1, text: '1 pt — 45 - 64 anni' },
+                  { val: 2, text: '2 pt — ≥ 65 anni' },
+                ],
+              },
+              {
+                key: 'riskFactors',
+                title: 'R - Fattori di Rischio CV',
+                options: [
+                  { val: 0, text: '0 pt — Nessun fattore noto' },
+                  { val: 1, text: '1 pt — 1 - 2 fattori di rischio' },
+                  { val: 2, text: '2 pt — ≥ 3 fattori o aterosclerosi nota (IMA/PCI/ictus)' },
+                ],
+              },
+              {
+                key: 'troponin',
+                title: 'T - Troponina iniziale',
+                options: [
+                  { val: 0, text: '0 pt — ≤ limite normale (URL)' },
+                  { val: 1, text: '1 pt — 1 - 3x limite normale' },
+                  { val: 2, text: '2 pt — > 3x limite normale' },
+                ],
+              },
+            ].map((section) => (
+              <div key={section.key} className="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800 space-y-2">
+                <div className="text-xs font-mono font-bold text-cyan-300">{section.title}</div>
+                <div className="space-y-1.5">
+                  {section.options.map((opt) => (
+                    <button
+                      key={opt.val}
+                      type="button"
+                      onClick={() => setHeart({ ...heart, [section.key]: opt.val })}
+                      className={`w-full text-left px-3 py-1.5 rounded-lg text-xs transition border ${
+                        heart[section.key as keyof typeof heart] === opt.val
+                          ? 'bg-cyan-500/20 border-cyan-400 text-white font-semibold'
+                          : 'bg-slate-900/70 border-slate-800 text-slate-400 hover:text-slate-200'
+                      }`}
+                    >
+                      {opt.text}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="p-4 rounded-xl bg-slate-950 border border-cyan-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <span className="text-xs font-mono uppercase text-slate-400">HEART Score Totale:</span>
+              <div className="text-3xl font-mono font-bold text-cyan-300">{getHeartScore()} / 10</div>
+            </div>
+            <div className="text-left sm:text-right max-w-md">
+              {getHeartScore() <= 3 ? (
+                <span className="text-xs text-emerald-400 font-semibold">
+                  Basso Rischio (0-3 pt, MACE ~0.9-1.7%): Candidabile a dimissione precoce dopo algoritmo troponina hs 0/1h.
+                </span>
+              ) : getHeartScore() <= 6 ? (
+                <span className="text-xs text-amber-400 font-semibold">
+                  Rischio Intermedio (4-6 pt, MACE ~12-17%): Osservazione breve / ricovero, troponine seriate e imaging non invasivo (Angio-TC / eco-stress).
+                </span>
+              ) : (
+                <span className="text-xs text-rose-400 font-semibold">
+                  Alto Rischio (7-10 pt, MACE ~50-65%): Ricovero in UTIC/Cardiologia e strategia invasiva precoce (coronarografia).
+                </span>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* QTc BAZETT & FRIDERICIA */}
+      {activeTab === 'qtc' && (
+        <div className="space-y-4">
+          <div className="text-xs text-slate-400 bg-slate-950/40 p-3 rounded-xl border border-slate-800/80">
+            Calcolo del QT corretto per frequenza cardiaca: <strong>Bazett</strong> (QT / √RR, standard per FC 60-100 bpm) e <strong>Fridericia</strong> (QT / ∛RR, più accurata in bradicardia/tachicardia).
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="text-xs font-mono text-slate-300 mb-1 block">
+                Intervallo QT misurato (ms): <span className="text-cyan-300 font-bold">{qtMs} ms</span>
+              </label>
+              <input
+                type="number"
+                min={200}
+                max={800}
+                step={5}
+                value={qtMs}
+                onChange={(e) => setQtMs(Number(e.target.value))}
+                className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-sm text-white font-mono focus:border-cyan-400 outline-none"
+              />
+            </div>
+            <div>
+              <label className="text-xs font-mono text-slate-300 mb-1 block">
+                Frequenza Cardiaca (bpm): <span className="text-cyan-300 font-bold">{hrBpm} bpm</span> (RR = {rrSec.toFixed(2)} s)
+              </label>
+              <input
+                type="number"
+                min={30}
+                max={220}
+                step={1}
+                value={hrBpm}
+                onChange={(e) => setHrBpm(Number(e.target.value))}
+                className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-sm text-white font-mono focus:border-cyan-400 outline-none"
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="p-4 rounded-xl bg-slate-950 border border-cyan-500/30">
+              <span className="text-xs font-mono uppercase text-slate-400">QTc Bazett (QT / √RR):</span>
+              <div className={`text-3xl font-mono font-bold mt-1 ${
+                qtcBazett >= 500 ? 'text-rose-400' : qtcBazett >= 450 ? 'text-amber-300' : 'text-emerald-400'
+              }`}>
+                {qtcBazett} ms
+              </div>
+              <div className="text-[11px] text-slate-400 mt-1">Formula d&apos;esame più usata (sovrastima se FC &gt; 100 bpm)</div>
+            </div>
+            <div className="p-4 rounded-xl bg-slate-950 border border-indigo-500/30">
+              <span className="text-xs font-mono uppercase text-slate-400">QTc Fridericia (QT / ∛RR):</span>
+              <div className={`text-3xl font-mono font-bold mt-1 ${
+                qtcFridericia >= 500 ? 'text-rose-400' : qtcFridericia >= 450 ? 'text-amber-300' : 'text-emerald-400'
+              }`}>
+                {qtcFridericia} ms
+              </div>
+              <div className="text-[11px] text-slate-400 mt-1">Più affidabile in bradicardia (&lt;60) o tachicardia (&gt;100)</div>
+            </div>
+          </div>
+
+          <div className={`p-4 rounded-xl border text-xs leading-relaxed ${
+            qtcBazett >= 500 || qtcFridericia >= 500
+              ? 'bg-rose-950/30 border-rose-500/40 text-rose-200'
+              : qtcBazett >= 450
+              ? 'bg-amber-950/30 border-amber-500/40 text-amber-200'
+              : 'bg-emerald-950/20 border-emerald-500/30 text-emerald-200'
+          }`}>
+            {qtcBazett >= 500 || qtcFridericia >= 500 ? (
+              <span>
+                <strong>ALLARME TORSIONE DI PUNTA (QTc ≥ 500 ms):</strong> Sospendere farmaci QT-prolunganti (macrolidi, fluorochinoloni, aloperidolo, sotalolo, ondansetron), correggere K+ (&gt; 4.5 mEq/L) e Mg2+ (&gt; 2.0 mg/dL); pronto MgSO4 2 g EV.
+              </span>
+            ) : qtcBazett >= 450 ? (
+              <span>
+                <strong>QTc Borderline / Prolungato (Cut-off: ≥ 450 ms Uomo, ≥ 460 ms Donna):</strong> Monitorare elettroliti ed evitare associazioni di farmaci che allungano la ripolarizzazione.
+              </span>
+            ) : (
+              <span>
+                <strong>QTc nei limiti di norma (&lt; 450 ms):</strong> Ripolarizzazione ventricolare regolare (verificare comunque se &lt; 340 ms per sospetto QT corto).
+              </span>
+            )}
           </div>
         </div>
       )}

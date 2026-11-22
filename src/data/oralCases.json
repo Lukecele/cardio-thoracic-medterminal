@@ -158,5 +158,133 @@
       }
     ],
     "relatedTopicId": "vsc-aaa"
+  },
+  {
+    "id": "oral-cardio-scompenso",
+    "branch": "cardio-medica",
+    "discipline": "Cardio: Scompenso",
+    "title": "Caso Clinico Orale 6: Edema Polmonare Acuto & Terapia HFrEF (4 Pilastri)",
+    "patient": "Uomo di 69 anni con cardiopatia ischemica cronica (pregresso IMA anteriore 3 anni fa, FE nota 32%) giunge in PS alle 3 di notte per ortopnea severa ingravescente, fame d'aria, tosse con espettorato schiumoso rosato e incremento ponderale di 4 kg nell'ultima settimana dopo sospensione arbitraria dei farmaci.",
+    "vitalSigns": "PA: 175/100 mmHg, FC: 112 bpm ritmica, FR: 32 atti/min, SpO2: 87% in aria ambiente, T: 36.5°C.",
+    "physicalExam": "Paziente seduto sul bordo del letto, sudato, agitato, con turgore giugulare a 45° ed edemi declivi improntabili agli arti inferiori. Auscultazione cardiaca: ritmo di galoppo protodiastolico (S3) all'apice. Auscultazione polmonare: rantoli crepitanti umidi diffusi fino ai campi medi bilateralmente ('marea montante'). Estremità calde.",
+    "oralQuestions": [
+      {
+        "question": "1. Come inquadri il profilo emodinamico secondo la classificazione di Stevenson e qual è il significato del galoppo S3?",
+        "expectedAnswer": "Profilo 'Caldo e Umido' (Warm & Wet: congestione severa con perfusione periferica conservata e ipertensione arteriosa; è il profilo più frequente nello scompenso acuto). Il terzo tono (S3) è un tono protodiastolico a bassa frequenza (campana all'apice) causato dal brusco riempimento di un ventricolo sinistro dilatato e sovraccarico di volume.",
+        "fatalTrap": "Confondere il profilo 'Caldo e Umido' con lo shock cardiogeno ('Freddo e Umido') e iniziare inotropi (dobutamina) in un paziente con PA 175/100 mmHg!"
+      },
+      {
+        "question": "2. Qual è la sequenza terapeutica d'emergenza immediata in Pronto Soccorso?",
+        "expectedAnswer": "1) Posizione seduta + Ossigenoterapia e Ventilazione Non Invasiva (CPAP/BiPAP) che riduce il ritorno venoso, migliora lo scambio alveolare e riduce il lavoro respiratorio; 2) Diuretico dell'ansa EV: Furosemide bolo EV (dose pari a 1-2x la dose domiciliare o 40 mg se naive); 3) Vasodilatatore EV: Nitroglicerina in infusione (dato PAS > 110 mmHg, riduce rapidamente precarico e postcarico).",
+        "fatalTrap": "Iniziare o aumentare il beta-bloccante durante l'edema polmonare acuto scompensato, oppure omettere la CPAP/vasodilatatori in un edema polmonare ipertensivo."
+      },
+      {
+        "question": "3. Risolta la fase acuta e ottenuta l'euvolemia, quali sono i 4 pilastri farmacologici in Classe I (ESC) da impostare prima della dimissione?",
+        "expectedAnswer": "1) ARNI (Sacubitril/Valsartan — con wash-out di 36h se proveniva da ACE-i); 2) Beta-bloccante evidence-based (Bisoprololo, Carvedilolo o Metoprololo succinato, titolato gradualmente); 3) MRA (Spironolattone o Eplerenone, controllando K+ e creatinina); 4) SGLT2-inibitore (Dapagliflozin o Empagliflozin 10 mg/die, anche senza diabete).",
+        "fatalTrap": "Elencare la Furosemide tra i farmaci che riducono la mortalità (è solo sintomatica/decongestiva) o dimenticare gli SGLT2-inibitori."
+      },
+      {
+        "question": "4. Al controllo a 3 mesi in terapia ottimizzata, la FE resta 30%, il paziente è in classe NYHA II, ritmo sinusale con Blocco di Branca Sinistra (QRS 160 ms). Quale dispositivo è indicato?",
+        "expectedAnswer": "Impianto di CRT-D (Terapia di Resincronizzazione Cardiaca biventricolare + Defibrillatore impiantabile ICD): ha indicazione di Classe I sia per la prevenzione primaria della morte improvvisa (FE ≤ 35% in OMT) sia per la resincronizzazione (ritmo sinusale, BBS, QRS ≥ 150 ms).",
+        "fatalTrap": "Proporre solo un pacemaker monocamerale (che peggiora la dissincronia ventricolare!) o dimenticare di verificare l'avvenuta ottimizzazione farmacologica di 3 mesi."
+      }
+    ],
+    "relatedTopicId": "crd-scompenso"
+  },
+  {
+    "id": "oral-cardio-fa",
+    "branch": "cardio-medica",
+    "discipline": "Cardio: FA & Aritmie",
+    "title": "Caso Clinico Orale 7: Fibrillazione Atriale di Nuova Insorgenza, Controllo Ritmo/Frequenza & DOAC",
+    "patient": "Donna di 71 anni, ipertesa e diabetica (eGFR 62 mL/min, peso 68 kg), si presenta per cardiopalmo aritmico e lieve astenia insorti da circa 4 giorni. Nega dolore toracico, dispnea a riposo o sincope.",
+    "vitalSigns": "PA: 135/80 mmHg, FC: 128 bpm totalmente aritmica, SpO2: 98%, FR: 16 atti/min.",
+    "physicalExam": "Paziente lucida, ben perfusa, eupnoica. Auscultazione cardiaca: toni aritmici per frequenza e intensità con deficit del polso radiale rispetto alla frequenza centrale. Polmoni puliti, non edemi periferici. ECG: assenza di onde P, linea isoelettrica finemente ondulata (onde f), intervalli R-R irregolarmente irregolari, QRS stretto.",
+    "oralQuestions": [
+      {
+        "question": "1. Puoi eseguire subito una cardioversione farmacologica o elettrica in questa paziente? Motiva la risposta.",
+        "expectedAnswer": "NO! La paziente è emodinamicamente STABILE e la FA dura da > 48 ore (4 giorni) senza pregressa anticoagulazione: il rischio di trombosi in auricola sinistra ed embolia cerebrale post-cardioversione è elevato. Occorre prima anticoagulare per almeno 3 settimane (o eseguire un Ecocardiogramma Transesofageo per escludere trombi in auricola) e proseguire l'anticoagulazione per almeno 4 settimane dopo la cardioversione.",
+        "fatalTrap": "Cardiovertire subito con flecainide o shock elettrico una FA stabile insorta da > 48 ore senza ETE né anticoagulazione: rischio gravissimo di ictus cardioembolico!"
+      },
+      {
+        "question": "2. Calcola il rischio tromboembolico (CHA2DS2-VASc / ESC 2024 CHA2DS2-VA) e imposta la terapia antitrombotica.",
+        "expectedAnswer": "Fattori presenti: Ipertensione (+1), Età 65-74 (+1), Diabete (+1) = CHA2DS2-VA pari a 3 (CHA2DS2-VASc = 4 includendo il sesso femminile). Essendo ≥ 2, vi è indicazione assoluta di Classe I ad anticoagulazione orale a lungo termine con DOAC a dose piena (es. Apixaban 5 mg bid, Rivaroxaban 20 mg/die, Edoxaban 60 mg/die o Dabigatran 150 mg bid), preferiti agli AVK (Warfarin) in assenza di protesi meccaniche o stenosi mitralica severa.",
+        "fatalTrap": "Prescrivere Aspirina o Clopidogrel al posto del DOAC (inefficaci nella profilassi dello stroke da FA), oppure dimezzare senza criteri la dose del DOAC."
+      },
+      {
+        "question": "3. Come gestisci oggi la frequenza cardiaca elevata (128 bpm) e quali esami richiedi per cercare cause reversibili?",
+        "expectedAnswer": "Rate control (target iniziale permissivo < 110 bpm a riposo) con Beta-bloccante (es. Metoprololo o Bisoprololo) oppure Calcio-antagonista non-diidropiridinico (Diltiazem/Verapamil, SOLO se FE conservata). Esami di inquadramento: TSH (escludere ipertiroidismo!), elettroliti (K+, Mg2+), emocromo, creatinina/eGFR, profilo epatico ed Ecocardiogramma transtoracico (dimensioni atrio sinistro, FE, valvulopatie).",
+        "fatalTrap": "Dimenticare di dosare il TSH nella FA di nuova insorgenza o prescrivere Verapamil senza sapere se la frazione di eiezione è ridotta."
+      },
+      {
+        "question": "4. Se in futuro optassi per il controllo del ritmo, quando puoi usare Flecainide/Propafenone (Classe IC) e quando invece devi scegliere Amiodarone?",
+        "expectedAnswer": "Flecainide e Propafenone (Classe IC) possono essere usati ESCLUSIVAMENTE in pazienti con cuore strutturalmente sano (assenza di cardiopatia ischemica, pregresso IMA, HFrEF o IVS severa) e associati a un bloccante del nodo AV. In presenza di cardiopatia strutturale o scompenso cardiaco, i farmaci di Classe IC sono controindicati (studio CAST) e l'antiaritmico di scelta è l'Amiodarone (o l'ablazione transcatetere delle vene polmonari).",
+        "fatalTrap": "Prescrivere Flecainide in un paziente con pregresso infarto miocardico o ridotta frazione di eiezione (rischio di aritmie ventricolari fatali)."
+      }
+    ],
+    "relatedTopicId": "crd-aritmie"
+  },
+  {
+    "id": "oral-cardio-pericardite",
+    "branch": "cardio-medica",
+    "discipline": "Cardio: Pericardite",
+    "title": "Caso Clinico Orale 8: Pericardite Acuta vs STEMI & Rischio di Tamponamento Cardiaco",
+    "patient": "Uomo di 34 anni, sano, riferisce da 2 giorni dolore toracico retrosternale acuto, trafittivo, esacerbato dall'inspirazione profonda, dalla tosse e dal decubito supino, che si attenua nettamente sedendosi e piegandosi in avanti. Circa 10 giorni prima ha avuto un episodio febbrile simil-influenzale.",
+    "vitalSigns": "PA: 125/75 mmHg, FC: 94 bpm ritmica, SpO2: 99%, T: 37.8°C.",
+    "physicalExam": "Auscultazione cardiaca lungo il margine sternale sinistro (paziente seduto e inclinato in avanti in espirazione): suono superficiale, aspro, grattante ('cuoio nuovo') trifasico (sfregamento pericardico). PCR 85 mg/L, Troponina hs nei limiti della norma.",
+    "oralQuestions": [
+      {
+        "question": "1. Quali sono i 4 criteri diagnostici ESC di Pericardite Acuta e come distingui il suo ECG da quello di uno STEMI?",
+        "expectedAnswer": "Servono almeno 2 su 4 criteri: 1) Dolore toracico pericarditico (pleuritico, migliora piegandosi in avanti); 2) Sfregamenti pericardici; 3) Alterazioni ECG tipiche; 4) Versamento pericardico nuovo o in peggioramento all'eco. All'ECG la pericardite mostra sopraslivellamento ST DIFFUSO (non limitato a un territorio coronarico), CONCAVO verso l'alto ('a sella'), assenza di sottoslivellamenti speculari (tranne aVR/V1) e DEPRESSIONE del tratto PR (speculare in aVR).",
+        "fatalTrap": "Confondere la pericardite con uno STEMI e avviare trombolisi o terapia anticoagulante piena: l'anticoagulazione nella pericardite può scatenare emopericardio e tamponamento fatale!"
+      },
+      {
+        "question": "2. Qual è la terapia medica di prima linea (ESC) e perché i corticosteroidi NON sono la prima scelta?",
+        "expectedAnswer": "Terapia di 1ª linea: FANS ad alte dosi (es. Ibuprofene 600 mg x 3/die o Aspirina 750-1000 mg x 3/die con gastroprotezione IPP, da scalare gradualmente dopo normalizzazione di PCR e sintomi) + Colchicina (0.5 mg bid, o 0.5 mg/die se peso < 70 kg) per 3 mesi + restrizione dell'attività fisica fino a risoluzione. I corticosteroidi in prima linea favoriscono la cronicizzazione e raddoppiano il tasso di recidive (riservati a forme autoimmuni, uremiche o refrattarie).",
+        "fatalTrap": "Prescrivere subito Prednisone in prima linea in una pericardite virale semplice, oppure dimenticare di associare la Colchicina (che dimezza le recidive)."
+      },
+      {
+        "question": "3. Quali 'red flags' impongono il ricovero ospedaliero del paziente invece della gestione domiciliare?",
+        "expectedAnswer": "Fattori prognostici negativi maggiori (ESC): febbre > 38°C, esordio subacuto, versamento pericardico ampio (> 20 mm in diastole) o segni di tamponamento, mancata risposta ai FANS dopo 7 giorni. Minori: miopericardite (troponina elevata), immunosoppressione, trauma toracico, terapia anticoagulante orale in atto.",
+        "fatalTrap": "Dimettere a domicilio un paziente con febbre alta, troponina elevata o versamento > 20 mm senza ecocardiogramma e osservazione."
+      },
+      {
+        "question": "4. Se durante il ricovero il paziente diventasse improvvisamente ipoteso (PA 75/50 mmHg) con turgore giugulare, toni lontani e caduta della PAS di 18 mmHg in inspirazione, qual è la diagnosi e il trattamento salvavita?",
+        "expectedAnswer": "Tamponamento Cardiaco acuto (Triade di Beck + Polso Paradosso > 10 mmHg). All'ecocardiogramma bed-side si osserva collasso diastolico dell'atrio e del ventricolo destro e vena cava inferiore dilatata non collassabile. Trattamento salvavita immediato: Pericardiocentesi evacuativa ecoguidata (evitando diuretici aggressivi che peggiorano il riempimento!).",
+        "fatalTrap": "Somministrare furosemide EV per il turgore giugulare nel tamponamento cardiaco: crolla il precarico e precipita l'arresto cardiaco in PEA!"
+      }
+    ],
+    "relatedTopicId": "crd-semeiotica"
+  },
+  {
+    "id": "oral-cardio-sincope",
+    "branch": "cardio-medica",
+    "discipline": "Cardio: Sincope & Valvole",
+    "title": "Caso Clinico Orale 9: Sincope da Sforzo (Diagnosi Differenziale Stenosi Aortica vs HCM vs BAV)",
+    "patient": "Uomo di 52 anni, senza precedenti cardiologici noti, giunge in Pronto Soccorso dopo perdita di coscienza improvvisa della durata di ~20 secondi occorsa MENTR'ERA IN CORSA al parco, senza prodromi di nausea o sudorazione e con pronto recupero spontaneo senza stato confusionale post-critico.",
+    "vitalSigns": "PA: 120/75 mmHg (identica in clino e ortostatismo), FC: 68 bpm ritmica, SpO2: 99%, Glicemia: 96 mg/dL.",
+    "physicalExam": "Auscultazione cardiaca: soffio mesosistolico eiettivo 3/6 lungo il margine sternale sinistro che AUMENTA nettamente d'intensità chiedendo al paziente di passare in piedi o di eseguire la manovra di Valsalva, mentre SI RIDUCE con lo squatting (accovacciamento). Polsi carotidei rapidi e bifidi (bisferiens). Esame neurologico negativo.",
+    "oralQuestions": [
+      {
+        "question": "1. Perché questa sincope è immediatamente classificata ad ALTO RISCHIO secondo le Linee Guida ESC e non va dimessa?",
+        "expectedAnswer": "Presenta due red flags maggiori di sincope cardiogena: insorgenza DURANTE lo sforzo fisico e assenza di prodromi neurovegetativi (sincope brusca). A differenza della sincope vasovagale (giovane, stazione eretta prolungata, prodromi con sudorazione/nausea), la sincope da sforzo impone di escludere cause strutturali ostruttive (Stenosi Aortica, Cardiomiopatia Ipertrofica Ostruttiva, anomalia coronarica) e aritmiche.",
+        "fatalTrap": "Etichettarla come 'calo di pressione da sforzo/sincope vasovagale' e dimettere il paziente senza ecocardiogramma e monitoraggio telemetrico."
+      },
+      {
+        "question": "2. Basandoti sulle manovre dinamiche (Valsalva aumenta il soffio, squatting lo riduce) e sul polso bisferiens, qual è la diagnosi clinica più probabile rispetto alla Stenosi Aortica?",
+        "expectedAnswer": "Cardiomiopatia Ipertrofica Ostruttiva (HCM)! Nella Stenosi Aortica il soffio si irradia alle carotidi, il polso è parvus et tardus, e la manovra di Valsalva RIDUCE il soffio (riducendo il flusso attraverso una valvola fissa). Nell'HCM invece ridurre il precarico (Valsalva/ortostatismo) avvicina il setto ipertrofico al lembo mitralico anteriore (SAM), AUMENTANDO il gradiente LVOT e l'intensità del soffio!",
+        "fatalTrap": "Dire Stenosi Aortica ignorando il comportamento opposto al Valsalva e il polso bisferiens (caratteristico di HCM e insufficienza aortica, non di stenosi aortica)."
+      },
+      {
+        "question": "3. Quali reperti cerchi all'ECG e all'Ecocardiogramma transtoracico per confermare la diagnosi?",
+        "expectedAnswer": "All'ECG: criteri di marcata ipertrofia ventricolare sinistra (Sokolow-Lyon/Cornell), onde T profondamente invertite giganti nelle precordiali, onde Q strette e profonde ('a pugnale') in sede infero-laterale (pseudo-necrosi da ipertrofia settale). All'Ecocardiogramma: spessore parietale LV ≥ 15 mm non spiegato da ipertensione/stenosi aortica, ipertrofia asimmetrica del setto, SAM del lembo mitralico e gradiente LVOT ≥ 30 mmHg a riposo o al Valsalva.",
+        "fatalTrap": "Interpretare erroneamente le onde Q strette infero-laterali come un vecchio infarto ignorando l'ipertrofia settale."
+      },
+      {
+        "question": "4. Quale terapia farmacologica imposti, quali farmaci devi EVITARE e come valuti l'indicazione a defibrillatore (ICD)?",
+        "expectedAnswer": "Prima linea per i sintomi ostruttivi: Beta-bloccanti non vasodilatatori (o Verapamil/Disopiramide/Mavacamten); stop sport agonistico. EVITARE vasodilatatori (nitrati, diidropiridine), diuretici aggressivi e digossina perché riducono il precarico o aumentano la contrattilità peggiorando l'ostruzione! L'indicazione a ICD si calcola con lo score ESC HCM Risk-SCD a 5 anni (sincope inspiegata è un fattore di rischio maggiore! Se rischio ≥ 6% Classe IIa forte, unito a spessore ≥ 30 mm, TVNS all'Holter, familiarità MCI, esteso LGE alla RMN cardiaca).",
+        "fatalTrap": "Prescrivere nitrati o digossina per la dispnea/angina nell'HCM ostruttiva: scatenano collasso emodinamico e sincope!"
+      }
+    ],
+    "relatedTopicId": "cch-stenosi-aortica"
   }
 ]

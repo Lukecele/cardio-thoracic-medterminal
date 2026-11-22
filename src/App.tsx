@@ -119,20 +119,20 @@ export function App() {
   const CORE_TABS = [
     { id: 'home' as TabType, label: 'Home • Hub Esame', badge: 'HUB', desc: 'Guida, Crediti & Easter Eggs', icon: Home, color: 'text-cyan-400' },
     { id: 'theory' as TabType, label: 'Teoria Integrale', badge: '16 CAP', desc: '16 Capitoli & Linee Guida Ufficiali', icon: BookOpen, color: 'text-cyan-400' },
-    { id: 'quiz' as TabType, label: 'Database Scritti', badge: '48 MCQ', desc: 'Quesiti & Razionali', icon: Trophy, color: 'text-yellow-400' },
-    { id: 'oral' as TabType, label: 'Simulatore Orali', badge: '5 CASI', desc: '5 Stazioni Specialistiche', icon: Stethoscope, color: 'text-purple-400' },
+    { id: 'quiz' as TabType, label: 'Database Scritti', badge: `${questionsData.length} MCQ`, desc: 'Quesiti & Razionali', icon: Trophy, color: 'text-yellow-400' },
+    { id: 'oral' as TabType, label: 'Simulatore Orali', badge: `${oralCasesData.length} CASI`, desc: `${oralCasesData.length} Stazioni Specialistiche`, icon: Stethoscope, color: 'text-purple-400' },
     { id: 'scanner' as TabType, label: 'Scanner Diagnostico', badge: 'DDx', desc: 'Matrice Sintomi/Segni', icon: Zap, color: 'text-amber-400' },
   ];
 
   const CLINICAL_TABS = [
-    { id: 'ecg' as TabType, label: 'Monitor ECG', badge: 'LIVE', desc: 'Telemetria & Quiz Ritmo', icon: Activity, color: 'text-emerald-400' },
+    { id: 'ecg' as TabType, label: 'Monitor ECG', badge: '12 ECG', desc: 'Telemetria & Quiz Cieco', icon: Activity, color: 'text-emerald-400' },
     { id: 'pfr' as TabType, label: 'Spirometria PFR', badge: 'CURVA', desc: 'Flusso-Volume & Tiffeneau', icon: Wind, color: 'text-sky-400' },
     { id: 'ega' as TabType, label: 'EGA Arteriosa', badge: 'GAS', desc: 'Equilibrio Acido-Base & ARDS', icon: Droplets, color: 'text-rose-400' },
     { id: 'tnm' as TabType, label: 'Stadiazione TNM', badge: '8ª ED', desc: 'NSCLC & Operabilità ppo', icon: ShieldCheck, color: 'text-amber-400' },
     { id: 'flowcharts' as TabType, label: 'Algoritmi Decisionali', badge: 'FLOW', desc: 'STEMI, Scompenso, Ischemia', icon: Network, color: 'text-blue-400' },
-    { id: 'pharma' as TabType, label: 'Prontuario Farmaci', badge: 'DRUGS', desc: 'DOACs, Emergenze, RIPE', icon: Pill, color: 'text-pink-400' },
+    { id: 'pharma' as TabType, label: 'Prontuario Farmaci', badge: '16 DRUGS', desc: '4 Pilastri, Aritmie, DAPT, DOAC', icon: Pill, color: 'text-pink-400' },
     { id: 'imaging' as TabType, label: 'Atlante Imaging', badge: 'RAD', desc: 'Segni RX, TC & Angio-TC', icon: ImageIcon, color: 'text-indigo-400' },
-    { id: 'calculators' as TabType, label: 'Score Clinici', badge: '7 SCORE', desc: 'CHA2DS2-VASc, EuroSCORE...', icon: Calculator, color: 'text-teal-400' },
+    { id: 'calculators' as TabType, label: 'Score Clinici', badge: '10 SCORE', desc: 'CHA2DS2-VA, HAS-BLED, HEART, QTc...', icon: Calculator, color: 'text-teal-400' },
     { id: 'auscultation' as TabType, label: 'Fonoteca Auscultatoria', badge: '11 AUDIO', desc: '11 Reperti Cardio-Polmonari', icon: Headphones, color: 'text-rose-400' },
   ];
 
@@ -396,12 +396,12 @@ export function App() {
     // 7. STRUMENTI SPECIALISTICI MEDTERMINAL
     const TOOLS_DATA = [
       { id: 'scanner' as TabType, name: 'Scanner Diagnostico Integrato (DDx)', badge: 'SCANNER', desc: 'Algoritmo diagnostico differenziale basato sulla selezione combinata di sintomi e segni clinici', keywords: ['scanner', 'ddx', 'diagnosi differenziale', 'sintomi', 'segni', 'matrice'] },
-      { id: 'ecg' as TabType, name: 'Monitor ECG Dinamico & Simulator', badge: 'ECG', desc: 'Tracciati elettrocardiografici interattivi: STEMI, Fibrillazione Atriale, Flutter, BAV 3° grado', keywords: ['ecg', 'elettrocardiogramma', 'telemetria', 'stemi', 'fibrillazione atriale', 'flutter', 'bav'] },
+      { id: 'ecg' as TabType, name: 'Monitor ECG Dinamico & Simulator (Esame Cieco)', badge: 'ECG', desc: '12 tracciati interattivi: STEMI, FA, Flutter, Pericardite, Mobitz 1, Iperkaliemia, Torsione di Punta, BAV 3°', keywords: ['ecg', 'elettrocardiogramma', 'telemetria', 'stemi', 'fibrillazione atriale', 'flutter', 'bav', 'pericardite', 'iperkaliemia', 'torsione', 'wenckebach'] },
       { id: 'pfr' as TabType, name: 'Spirometria PFR & Flusso-Volume', badge: 'PFR', desc: 'Curva Flusso-Volume, Indice di Tiffeneau (FEV1/FVC), deficit ostruttivo vs restrittivo, reversibilità con salbutamolo', keywords: ['pfr', 'spirometria', 'flusso-volume', 'tiffeneau', 'fev1', 'fvc', 'broncodilatatore', 'salbutamolo', 'asma', 'bpco'] },
       { id: 'ega' as TabType, name: 'EGA Arteriosa Interpreter', badge: 'EGA', desc: 'Equilibrio acido-base (pH, PaCO2, HCO3-), Gap Anionico, insufficienza respiratoria Tipo 1 vs Tipo 2, ARDS', keywords: ['ega', 'emogasanalisi', 'pao2', 'paco2', 'hco3', 'ph', 'acidosi', 'alcalosi', 'ards'] },
       { id: 'tnm' as TabType, name: 'Stadiazione TNM & Operabilità Polmonare', badge: 'TNM', desc: 'Stadiazione 8ª Edizione per NSCLC, calcolo ppo-FEV1 e ppo-DLCO e resecabilità chirurgica', keywords: ['tnm', 'stadiazione', 'nsclc', 'tumore polmone', 'lobectomia', 'pneumonectomia', 'operabilita', 'ppo-fev1'] },
       { id: 'flowcharts' as TabType, name: 'Algoritmi Decisionali & Flowchart', badge: 'FLOWCHART', desc: 'Flowchart STEMI PCI vs trombolisi, Scompenso 4 pilastri, Embolia Polmonare, Embolectomia Fogarty', keywords: ['flowchart', 'algoritmi', 'percorsi', 'stemi', 'scompenso 4 pilastri', 'fogarty', 'ischemia acuta', 'linee guida'] },
-      { id: 'pharma' as TabType, name: 'Prontuario Farmacologico & Antidoti', badge: 'PHARMA', desc: 'DOACs & antidoti specifici (Idarucizumab, Andexanet), Emergenze Ipertensive EV, Regime antitubercolare RIPE', keywords: ['farmaci', 'pharma', 'prontuario', 'doac', 'dabigatran', 'idarucizumab', 'apixaban', 'rivaroxaban', 'andexanet', 'labetalolo', 'ripe', 'tbc'] },
+      { id: 'pharma' as TabType, name: 'Prontuario Farmacologico & Antidoti (16 Schede)', badge: 'PHARMA', desc: '4 Pilastri HFrEF (ARNI, BB, MRA, SGLT2i), Antiaritmici (Amiodarone, Flecainide, Adenosina), DAPT, Statine, DOACs, Labetalolo, RIPE', keywords: ['farmaci', 'pharma', 'prontuario', 'doac', 'dabigatran', 'idarucizumab', 'apixaban', 'rivaroxaban', 'andexanet', 'labetalolo', 'ripe', 'tbc', 'arni', 'sacubitril', 'sglt2', 'amiodarone', 'flecainide', 'adenosina', 'dapt', 'furosemide', 'statine'] },
       { id: 'imaging' as TabType, name: 'Atlante Imaging Toracico & Radiologia', badge: 'IMAGING', desc: 'Radiografia del Torace e Angio-TC: linee di Kerley B, pneumotorace (PNX), flap intimale di dissecazione aortica', keywords: ['imaging', 'radiologia', 'rx torace', 'tc torace', 'angio-tc', 'kerley b', 'pneumotorace', 'dissecazione aortica'] },
     ];
 
@@ -1009,7 +1009,7 @@ export function App() {
                   <Search className="w-8 h-8 text-slate-600 mx-auto" />
                   <p className="text-sm font-semibold text-slate-300">Ricerca Globale MedTerminal</p>
                   <p className="text-xs text-slate-500 max-w-sm mx-auto">
-                    Digita almeno 2 caratteri per esplorare in tempo reale tutti i 16 capitoli teorici, 48 MCQ scritti, 5 stazioni orali, 7 calcolatori clinici, 11 audio e modelli 3D.
+                    Digita almeno 2 caratteri per esplorare in tempo reale tutti i 16 capitoli teorici, {questionsData.length} MCQ scritti, {oralCasesData.length} stazioni orali, 10 calcolatori clinici, 11 audio e modelli 3D.
                   </p>
                   <div className="flex flex-wrap justify-center gap-1.5 pt-3">
                     {['STEMI', 'Dispnea', 'Troponina', 'Wells', 'Warfarin', 'Aorta', 'Gallavardin', 'Kerley'].map(tag => (

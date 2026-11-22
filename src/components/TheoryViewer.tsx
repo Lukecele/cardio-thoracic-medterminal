@@ -8,22 +8,18 @@ import {
   Stethoscope,
   Calculator,
   Activity,
-  Wind,
-  Droplets,
   Network,
-  Pill,
-  ImageIcon,
   Sparkles,
   Search,
   CheckCircle2,
-  ChevronRight,
-  ShieldCheck,
   FileText,
   Bookmark,
   X,
   BookOpen,
-  Coffee,
-  Lightbulb
+  Lightbulb,
+  ChevronDown,
+  ChevronUp,
+  Type
 } from 'lucide-react';
 import theoryDataRaw from '../data/theory.json';
 
@@ -54,6 +50,8 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
   const [revealedClozes, setRevealedClozes] = useState<Set<number>>(new Set());
   const [filterSearch, setFilterSearch] = useState('');
   const [activeDigestTab, setActiveDigestTab] = useState<'points' | 'traps' | 'tools'>('points');
+  const [fontSize, setFontSize] = useState<'sm' | 'md' | 'lg'>('md');
+  const [collapsedSections, setCollapsedSections] = useState<Set<string>>(new Set());
 
   // Find current topic and module
   let currentTopic: any = null;
@@ -75,6 +73,53 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
     currentTopic = currentModule.topics[0];
   }
 
+  // Hooks MUST be called unconditionally before any early return (fixes react-hooks/rules-of-hooks)
+  const clozeTokens = useMemo(() => {
+    return currentTopic?.clozeTokens || [];
+  }, [currentTopic]);
+
+  const paragraphs = useMemo(() => {
+    if (!currentTopic?.fullText) return [];
+    return currentTopic.fullText
+      .split('\n')
+      .map((p: string) => p.trim())
+      .filter((p: string) => p.length > 0);
+  }, [currentTopic]);
+
+  const filteredParagraphs = useMemo(() => {
+    if (!filterSearch.trim()) return paragraphs;
+    const q = filterSearch.toLowerCase();
+    return paragraphs.filter((p: string) => p.toLowerCase().includes(q));
+  }, [paragraphs, filterSearch]);
+
+  const totalFilteredMatches = useMemo(() => {
+    if (!filterSearch.trim() || !currentTopic) return 0;
+    const q = filterSearch.toLowerCase().trim();
+    let count = 0;
+    if (currentTopic.sections && currentTopic.sections.length > 0) {
+      for (const sec of currentTopic.sections) {
+        const paras = (sec.content || '').split('\n').map((p: string) => p.trim()).filter((p: string) => p.length > 0);
+        for (const p of paras) {
+          if (p.toLowerCase().includes(q)) count++;
+        }
+      }
+    } else if (paragraphs) {
+      for (const p of paragraphs) {
+        if (p.toLowerCase().includes(q)) count++;
+      }
+    }
+    return count;
+  }, [filterSearch, currentTopic, paragraphs]);
+
+  const readingMinutes = useMemo(() => {
+    if (!currentTopic) return 1;
+    const rawText = currentTopic.sections?.length
+      ? currentTopic.sections.map((s: any) => s.content || '').join(' ')
+      : (currentTopic.fullText || '');
+    const words = rawText.trim().split(/\s+/).filter(Boolean).length;
+    return Math.max(1, Math.round(words / 180));
+  }, [currentTopic]);
+
   if (!currentTopic) {
     return (
       <div className="p-12 text-center text-slate-500">
@@ -83,10 +128,29 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
     );
   }
 
-  // Cloze tokens matching & Active Recall text renderer
-  const clozeTokens = useMemo(() => {
-    return currentTopic.clozeTokens || [];
-  }, [currentTopic]);
+  const toggleSection = (secId: string) => {
+    setCollapsedSections(prev => {
+      const next = new Set(prev);
+      if (next.has(secId)) next.delete(secId);
+      else next.add(secId);
+      return next;
+    });
+  };
+
+  const toggleAllSections = (collapse: boolean) => {
+    if (!collapse || !currentTopic.sections) {
+      setCollapsedSections(new Set());
+    } else {
+      setCollapsedSections(new Set(currentTopic.sections.map((s: any) => s.id)));
+    }
+  };
+
+  const textSizeClass =
+    fontSize === 'sm'
+      ? 'text-[14px] leading-[1.85]'
+      : fontSize === 'lg'
+        ? 'text-[17px] sm:text-[18px] leading-[1.95]'
+        : 'text-[15.5px] sm:text-[16px] leading-[1.9]';
 
   const toggleCloze = (idx: number) => {
     setRevealedClozes(prev => {
@@ -199,39 +263,6 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
 
     return <>{fragments}</>;
   };
-
-  const paragraphs = useMemo(() => {
-    if (!currentTopic.fullText) return [];
-    return currentTopic.fullText
-      .split('\n')
-      .map((p: string) => p.trim())
-      .filter((p: string) => p.length > 0);
-  }, [currentTopic.fullText]);
-
-  const filteredParagraphs = useMemo(() => {
-    if (!filterSearch.trim()) return paragraphs;
-    const q = filterSearch.toLowerCase();
-    return paragraphs.filter((p: string) => p.toLowerCase().includes(q));
-  }, [paragraphs, filterSearch]);
-
-  const totalFilteredMatches = useMemo(() => {
-    if (!filterSearch.trim()) return 0;
-    const q = filterSearch.toLowerCase().trim();
-    let count = 0;
-    if (currentTopic.sections && currentTopic.sections.length > 0) {
-      for (const sec of currentTopic.sections) {
-        const paras = (sec.content || '').split('\n').map((p: string) => p.trim()).filter((p: string) => p.length > 0);
-        for (const p of paras) {
-          if (p.toLowerCase().includes(q)) count++;
-        }
-      }
-    } else if (paragraphs) {
-      for (const p of paragraphs) {
-        if (p.toLowerCase().includes(q)) count++;
-      }
-    }
-    return count;
-  }, [filterSearch, currentTopic, paragraphs]);
 
   const lt = currentTopic.linkedTools || {};
   const hasLinkedTools = Boolean(
@@ -568,27 +599,57 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
         )}
       </div>
 
-      {/* 4. CHAPTER TEXT BODY (COMFORTABLE READING, NO EYE STRAIN) */}
-      <div className="bg-[#0b101c] border border-slate-800/80 rounded-2xl shadow-sm p-6 sm:p-8 space-y-6">
+      {/* 4. CHAPTER TEXT BODY (AIRY, RELAXED READING COLUMN) */}
+      <div className="bg-[#0b101c] border border-slate-800/80 rounded-2xl shadow-sm p-5 sm:p-9 space-y-7">
         
-        {/* Header with Search and Table of contents */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-800/70 gap-3">
-          <div className="flex items-center space-x-2">
+        {/* Header with Reading Controls, Font Size & Search */}
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between pb-4 border-b border-slate-800/70 gap-3">
+          <div className="flex flex-wrap items-center gap-2.5">
             <FileText className="w-4 h-4 text-cyan-400" />
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-300 font-mono">
-              Trattazione Completa del Capitolo
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-200 font-mono">
+              Trattazione Completa
             </h3>
+            <span className="text-[11px] font-mono px-2 py-0.5 rounded-md bg-slate-900 text-slate-400 border border-slate-800">
+              ~{readingMinutes} min lettura
+            </span>
           </div>
 
-          <div className="flex items-center gap-2">
-            <div className="relative min-w-[220px]">
+          <div className="flex flex-wrap items-center gap-2">
+            {/* Font Size Switcher for comfortable reading */}
+            <div className="flex items-center bg-slate-950 border border-slate-800 rounded-xl p-0.5" title="Dimensione testo">
+              <Type className="w-3.5 h-3.5 text-slate-500 mx-1.5" />
+              {(['sm', 'md', 'lg'] as const).map((sz, i) => (
+                <button
+                  key={sz}
+                  onClick={() => setFontSize(sz)}
+                  className={`px-2 py-1 rounded-lg text-[11px] font-mono font-bold transition ${
+                    fontSize === sz
+                      ? 'bg-cyan-500/20 text-cyan-300'
+                      : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  {i === 0 ? 'A-' : i === 1 ? 'A' : 'A+'}
+                </button>
+              ))}
+            </div>
+
+            {currentTopic.sections && currentTopic.sections.length > 1 && (
+              <button
+                onClick={() => toggleAllSections(collapsedSections.size === 0)}
+                className="px-2.5 py-1.5 rounded-xl bg-slate-950 hover:bg-slate-900 border border-slate-800 text-[11px] font-mono text-slate-300 hover:text-white transition"
+              >
+                {collapsedSections.size === 0 ? 'Comprimi §' : 'Espandi §'}
+              </button>
+            )}
+
+            <div className="relative min-w-[200px]">
               <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
               <input
                 type="text"
                 placeholder="Filtra nel testo..."
                 value={filterSearch}
                 onChange={(e) => setFilterSearch(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-8 pr-7 py-1 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-500"
+                className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-8 pr-7 py-1.5 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-500"
               />
               {filterSearch && (
                 <button
@@ -610,20 +671,23 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
 
         {/* Quick-Jump Table of Contents (Discrete chips) */}
         {currentTopic.sections && currentTopic.sections.length > 1 && (
-          <div className="bg-slate-950/50 border border-slate-800/60 rounded-xl p-3">
+          <div className="bg-slate-950/50 border border-slate-800/60 rounded-xl p-3.5">
             <div className="text-[10px] font-mono font-bold uppercase text-slate-400 mb-2 flex items-center gap-1.5">
               <Bookmark className="w-3 h-3 text-cyan-400" />
               <span>Indice Rapido Paragrafi</span>
             </div>
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex flex-wrap gap-2">
               {currentTopic.sections.map((sec: any, sIdx: number) => (
                 <button
                   key={sec.id}
                   onClick={() => {
-                    const el = document.getElementById(sec.id);
-                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    if (collapsedSections.has(sec.id)) toggleSection(sec.id);
+                    setTimeout(() => {
+                      const el = document.getElementById(sec.id);
+                      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 30);
                   }}
-                  className="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 text-[11px] transition flex items-center gap-1.5"
+                  className="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 text-xs transition flex items-center gap-1.5"
                 >
                   <span className="text-cyan-400 font-mono text-[10px]">{sIdx + 1}.</span>
                   <span>{sec.title}</span>
@@ -633,108 +697,122 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
           </div>
         )}
 
-        {/* Sections Content */}
-        {filterSearch.trim() && totalFilteredMatches === 0 ? (
-          <div className="p-8 text-center bg-slate-950/40 border border-slate-800/60 rounded-xl space-y-2">
-            <p className="text-xs font-semibold text-slate-300">
-              Nessun riscontro per "{filterSearch}"
-            </p>
-            <button
-              onClick={() => setFilterSearch('')}
-              className="text-xs text-cyan-400 hover:underline font-mono"
-            >
-              Azzera filtro
-            </button>
-          </div>
-        ) : currentTopic.sections && currentTopic.sections.length > 0 ? (
-          <div className="space-y-8">
-            {currentTopic.sections.map((sec: any, sIdx: number) => {
-              const secParas = sec.content
-                .split('\n')
-                .map((p: string) => p.trim())
-                .filter((p: string) => p.length > 0);
-
-              const filteredSecParas = filterSearch.trim()
-                ? secParas.filter((p: string) => p.toLowerCase().includes(filterSearch.toLowerCase()))
-                : secParas;
-
-              if (filterSearch.trim() && filteredSecParas.length === 0) return null;
-
-              return (
-                <div
-                  key={sec.id}
-                  id={sec.id}
-                  className="scroll-mt-24 space-y-3 pt-4 first:pt-0 border-t first:border-t-0 border-slate-800/60"
-                >
-                  {/* Section Title */}
-                  <div className="flex items-center gap-2 pb-1.5">
-                    <span className="text-[10px] font-mono font-bold text-cyan-400 px-1.5 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/20">
-                      § {sIdx + 1}
-                    </span>
-                    <h3 className="text-base font-bold text-white tracking-tight">
-                      {sec.title}
-                    </h3>
-                  </div>
-
-                  {/* Paragraphs with calm leading and soft contrast */}
-                  <div className="space-y-2.5 text-sm sm:text-[15px] leading-[1.8] text-slate-300 font-sans">
-                    {filteredSecParas.map((para: string, pIdx: number) => {
-                      const isBullet = para.startsWith('•') || para.startsWith('◦') || para.startsWith('‣') || para.startsWith('-');
-                      const isSubheading = !isBullet && para.length < 90 && (
-                        (para === para.toUpperCase() && para.replace(/[^A-Z]/g, '').length > 4) ||
-                        para.endsWith(':') ||
-                        para.includes('==')
-                      );
-
-                      if (isSubheading) {
-                        return (
-                          <div
-                            key={`p-${pIdx}`}
-                            className="pt-3 pb-1 text-xs font-bold uppercase tracking-wider text-cyan-300 font-mono"
-                          >
-                            {para}
-                          </div>
-                        );
-                      }
-
-                      if (isBullet) {
-                        const bulletText = para.replace(/^[•◦‣-]\s*/, '');
-                        return (
-                          <div
-                            key={`p-${pIdx}`}
-                            className="flex items-start gap-2.5 pl-2 text-slate-300"
-                          >
-                            <span className="text-cyan-400 text-xs mt-1 shrink-0">✦</span>
-                            <div className="flex-1 leading-[1.8]">
-                              {renderActiveRecallParagraph(bulletText, sIdx * 1000 + pIdx)}
-                            </div>
-                          </div>
-                        );
-                      }
-
-                      return (
-                        <p
-                          key={`p-${pIdx}`}
-                          className="text-left leading-[1.8] text-slate-300 mb-2"
-                        >
-                          {renderActiveRecallParagraph(para, sIdx * 1000 + pIdx)}
-                        </p>
-                      );
-                    })}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        ) : (
-          <div className="space-y-3 text-sm sm:text-[15px] leading-[1.8] text-slate-300 font-sans">
-            {filteredParagraphs.map((para: string, idx: number) => (
-              <p key={idx} className="text-left leading-[1.8] mb-2">
-                {renderActiveRecallParagraph(para, idx)}
+        {/* Sections Content — Comfortable centered reading column (max-w-3xl) */}
+        <div className="max-w-3xl mx-auto">
+          {filterSearch.trim() && totalFilteredMatches === 0 ? (
+            <div className="p-8 text-center bg-slate-950/40 border border-slate-800/60 rounded-xl space-y-2">
+              <p className="text-xs font-semibold text-slate-300">
+                Nessun riscontro per "{filterSearch}"
               </p>
-            ))}
-          </div>
-        )}
+              <button
+                onClick={() => setFilterSearch('')}
+                className="text-xs text-cyan-400 hover:underline font-mono"
+              >
+                Azzera filtro
+              </button>
+            </div>
+          ) : currentTopic.sections && currentTopic.sections.length > 0 ? (
+            <div className="space-y-6">
+              {currentTopic.sections.map((sec: any, sIdx: number) => {
+                const secParas = sec.content
+                  .split('\n')
+                  .map((p: string) => p.trim())
+                  .filter((p: string) => p.length > 0);
+
+                const filteredSecParas = filterSearch.trim()
+                  ? secParas.filter((p: string) => p.toLowerCase().includes(filterSearch.toLowerCase()))
+                  : secParas;
+
+                if (filterSearch.trim() && filteredSecParas.length === 0) return null;
+                const isCollapsed = !filterSearch.trim() && collapsedSections.has(sec.id);
+
+                return (
+                  <div
+                    key={sec.id}
+                    id={sec.id}
+                    className="scroll-mt-24 rounded-2xl bg-slate-950/45 border border-slate-800/70 p-5 sm:p-6 transition"
+                  >
+                    {/* Collapsible Section Header */}
+                    <button
+                      type="button"
+                      onClick={() => toggleSection(sec.id)}
+                      className="w-full flex items-center justify-between gap-3 text-left group"
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <span className="text-[11px] font-mono font-bold text-cyan-400 px-2 py-0.5 rounded-md bg-cyan-500/10 border border-cyan-500/20 shrink-0">
+                          § {sIdx + 1}
+                        </span>
+                        <h3 className="text-base sm:text-lg font-bold text-white tracking-tight group-hover:text-cyan-200 transition">
+                          {sec.title}
+                        </h3>
+                      </div>
+                      <span className="text-slate-500 group-hover:text-slate-300 transition shrink-0">
+                        {isCollapsed ? <ChevronDown className="w-4 h-4" /> : <ChevronUp className="w-4 h-4" />}
+                      </span>
+                    </button>
+
+                    {/* Airy Paragraphs */}
+                    {!isCollapsed && (
+                      <div className={`mt-5 pt-4 border-t border-slate-800/60 space-y-4 text-slate-200/95 font-sans ${textSizeClass}`}>
+                        {filteredSecParas.map((para: string, pIdx: number) => {
+                          const isBullet = para.startsWith('•') || para.startsWith('◦') || para.startsWith('‣') || para.startsWith('-');
+                          const isSubheading = !isBullet && para.length < 90 && (
+                            (para === para.toUpperCase() && para.replace(/[^A-Z]/g, '').length > 4) ||
+                            para.endsWith(':') ||
+                            para.includes('==')
+                          );
+
+                          if (isSubheading) {
+                            return (
+                              <div
+                                key={`p-${pIdx}`}
+                                className="pt-4 pb-1 text-xs sm:text-[13px] font-bold uppercase tracking-wider text-cyan-300 font-mono border-b border-cyan-500/15"
+                              >
+                                {para}
+                              </div>
+                            );
+                          }
+
+                          if (isBullet) {
+                            const bulletText = para.replace(/^[•◦‣-]\s*/, '');
+                            return (
+                              <div
+                                key={`p-${pIdx}`}
+                                className="flex items-start gap-3 pl-2 text-slate-200/95"
+                              >
+                                <span className="text-cyan-400/80 text-xs mt-1.5 shrink-0">•</span>
+                                <div className="flex-1">
+                                  {renderActiveRecallParagraph(bulletText, sIdx * 1000 + pIdx)}
+                                </div>
+                              </div>
+                            );
+                          }
+
+                          return (
+                            <p
+                              key={`p-${pIdx}`}
+                              className="text-left text-slate-200/95"
+                            >
+                              {renderActiveRecallParagraph(para, sIdx * 1000 + pIdx)}
+                            </p>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div className={`space-y-4 text-slate-200/95 font-sans ${textSizeClass}`}>
+              {filteredParagraphs.map((para: string, idx: number) => (
+                <p key={idx} className="text-left">
+                  {renderActiveRecallParagraph(para, idx)}
+                </p>
+              ))}
+            </div>
+          )}
+        </div>
 
         {/* 5. EASTER EGG: GOLLUM E IL CUORE (PAUSA NOTTURNA DELLO STUDENTE) */}
         <div className="mt-12 pt-6 border-t border-slate-800/80">

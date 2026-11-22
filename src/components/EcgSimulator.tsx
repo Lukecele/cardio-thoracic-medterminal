@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Activity, Zap, CheckCircle2, AlertTriangle, RefreshCw, Eye } from 'lucide-react';
+import { Activity, Zap, CheckCircle2, AlertTriangle, Shuffle, Eye } from 'lucide-react';
 
 interface EcgCase {
   id: string;
@@ -11,7 +11,19 @@ interface EcgCase {
   description: string;
   keyFeatures: string[];
   clinicalAction: string;
-  svgType: 'normal' | 'stemi-anterior' | 'stemi-inferior' | 'afib' | 'flutter' | 'vt' | 'bav3' | 'wpw';
+  svgType:
+    | 'normal'
+    | 'stemi-anterior'
+    | 'stemi-inferior'
+    | 'afib'
+    | 'flutter'
+    | 'vt'
+    | 'bav3'
+    | 'wpw'
+    | 'pericarditis'
+    | 'bav2-mobitz1'
+    | 'hyperk'
+    | 'tdp';
 }
 
 const ECG_CASES: EcgCase[] = [
@@ -133,6 +145,74 @@ const ECG_CASES: EcgCase[] = [
     ],
     clinicalAction: 'Studio elettrofisiologico endocavitario con ablazione transcatetere a radiofrequenza della via accessoria (Kent). CONTROINDICAZIONE ASSOLUTA a farmaci che bloccano il nodo AV (Verapamil, Diltiazem, Digitale) in caso di FA su WPW!',
     svgType: 'wpw'
+  },
+  {
+    id: 'pericarditis',
+    name: 'Pericardite Acuta (ST Diffuso a Sella & PR Depresso)',
+    category: 'Pericardiopatie',
+    rhythm: 'Sinusale tachicardico con ST concavo diffuso',
+    lead: 'D1, D2, V2 - V6 (speculare in aVR)',
+    heartRate: 104,
+    description: 'Sopraslivellamento del tratto ST diffuso (non confinato a un singolo territorio coronarico), con morfologia CONCAVA verso l\'alto ("a sella"), associato a caratteristico sottoslivellamento del segmento PR (e sopraslivellamento PR in aVR).',
+    keyFeatures: [
+      'Sopraslivellamento ST diffuso e concavo verso l\'alto in quasi tutte le derivazioni',
+      'Sottoslivellamento del segmento PR (segno precoce altamente specifico)',
+      'Assenza di onde Q patologiche e assenza di sottoslivellamenti speculari (eccetto aVR/V1)',
+      'Rapporto ampiezza ST / onda T in V6 > 0.25 (aiuta a distinguere dalla ripolarizzazione precoce)'
+    ],
+    clinicalAction: 'Terapia antinfiammatoria di prima linea (ESC): FANS ad alte dosi (Ibuprofene 600 mg x3/die o ASA) + Colchicina (0.5 mg x1-2/die per 3 mesi per prevenire recidive) + gastroprotezione + riposo fisico. Eseguire ecocardiogramma per escludere versamento/tamponamento!',
+    svgType: 'pericarditis'
+  },
+  {
+    id: 'bav2-mobitz1',
+    name: 'BAV II Grado Mobitz 1 (Periodismo di Luciani-Wenckebach)',
+    category: 'Bradiaritmie',
+    rhythm: 'Irregolarmente regolare a battiti raggruppati',
+    lead: 'D2 / V1',
+    heartRate: 58,
+    description: 'Progressivo allungamento dell\'intervallo PR di battito in battito fino a un\'onda P che non viene seguita dal complesso QRS (battito bloccato). Dopo la pausa, il ciclo riparte con un PR più corto. Sede tipicamente nodale AV (soprahissiana).',
+    keyFeatures: [
+      'Progressivo allungamento dell\'intervallo PR fino a un\'onda P bloccata',
+      'L\'incremento maggiore del PR avviene tra il 1° e il 2° battito (intervalli R-R si accorciano)',
+      'QRS tipicamente stretto (blocco nel nodo AV, benigno)',
+      'Differenza chiave con Mobitz 2: nel Mobitz 2 il PR è COSTANTE prima della P bloccata (rischio evoluzione a BAV III!)'
+    ],
+    clinicalAction: 'Se asintomatico (es. atleti o durante il sonno per ipertono vagale): nessuna terapia, solo follow-up. Se sintomatico o da farmaci bradicardizzanti (beta-bloccanti/calcio-antagonisti/digitale): sospendere il farmaco. Nel Mobitz 2 invece l\'indicazione a Pacemaker definitivo è tassativa (Classe I)!',
+    svgType: 'bav2-mobitz1'
+  },
+  {
+    id: 'hyperk',
+    name: 'Iperkaliemia Moderata-Severa (Onde T a Tenda)',
+    category: 'Squilibri Elettrolitici',
+    rhythm: 'Sinusale con T appuntite e QRS in slargamento',
+    lead: 'V2 - V5',
+    heartRate: 62,
+    description: 'Alterazione elettrolitica potenzialmente fatale. L\'iperkaliemia accorcia il potenziale d\'azione producendo onde T alte, strette e simmetriche ("a tenda"), seguite con l\'aumento del K+ da appiattimento delle onde P, allungamento del PR e progressivo slargamento del QRS fino al pattern sinusoidale.',
+    keyFeatures: [
+      'K+ 5.5–6.5 mEq/L: onde T alte, strette, appuntite e simmetriche ("a tenda")',
+      'K+ 6.5–7.5 mEq/L: allungamento PR e appiattimento/scomparsa delle onde P',
+      'K+ > 7.5–8.0 mEq/L: slargamento progressivo del QRS fino a onda sinusoidale e FV/asistolia',
+      'Frequente in IRC avanzata o associazione ACEi/ARNI + MRA + FANS'
+    ],
+    clinicalAction: 'EMERGENZA: 1) Stabilizzare subito la membrana miocardica con CALCIO GLUCONATO 10% EV (agisce in 1-3 min, non abbassa il K+ ma previene l\'arresto!); 2) Shift intracellulare con Insulina + Glucosio EV e Salbutamolo aerosol; 3) Eliminazione del K+ (Furosemide, resine leganti, dialisi se refrattaria).',
+    svgType: 'hyperk'
+  },
+  {
+    id: 'tdp',
+    name: 'Torsione di Punta (TdP) su QT Lungo',
+    category: 'Tachiaritmie Ventricolari',
+    rhythm: 'TV Polimorfa a fuso (200-250 bpm)',
+    lead: 'D2 / V2 - V5',
+    heartRate: 220,
+    description: 'Tachicardia ventricolare polimorfa caratterizzata da complessi QRS larghi la cui ampiezza e polarità ruotano ciclicamente attorno alla linea isoelettrica ("torsione" a fuso). Insorge tipicamente su QTc prolungato (> 500 ms) con fenomeno R-su-T.',
+    keyFeatures: [
+      'Complessi QRS larghi polimorfi con ampiezza crescente e decrescente (aspetto a fuso)',
+      'Asse elettrico che ruota periodicamente sopra e sotto la linea isoelettrica',
+      'Substrato obbligatorio: QTc prolungato (congenito o acquisito da farmaci/ipokaliemia/ipomagnesemia)',
+      'Può risolversi spontaneamente (sincope) o degenerare in Fibrillazione Ventricolare'
+    ],
+    clinicalAction: 'Se emodinamicamente instabile/senza polso -> Defibrillazione immediata! Se stabile o ricorrente -> SOLFATO DI MAGNESIO (MgSO4 2g EV in 1-2 min) prima scelta assoluta anche con Mg sierico normale + correzione K+ (> 4.5 mEq/L) + sospensione immediata di farmaci che allungano il QT (Amiodarone, macrolidi, fluorochinoloni).',
+    svgType: 'tdp'
   }
 ];
 
@@ -141,8 +221,18 @@ export const EcgSimulator: React.FC = () => {
   const [showAnswer, setShowAnswer] = useState<boolean>(true);
   const [quizMode, setQuizMode] = useState<boolean>(false);
   const [userGuess, setUserGuess] = useState<string | null>(null);
+  const [quizStats, setQuizStats] = useState<{ correct: number; total: number }>({ correct: 0, total: 0 });
 
   const activeCase = ECG_CASES.find(c => c.id === selectedCaseId) || ECG_CASES[0];
+
+  const pickRandomBlindCase = () => {
+    const others = ECG_CASES.filter(c => c.id !== selectedCaseId);
+    const next = others[Math.floor(Math.random() * others.length)] || ECG_CASES[0];
+    setQuizMode(true);
+    setSelectedCaseId(next.id);
+    setShowAnswer(false);
+    setUserGuess(null);
+  };
 
   const renderEcgWaveform = (type: string) => {
     // Interactive synthetic SVG path simulating ECG strip
@@ -189,6 +279,29 @@ export const EcgSimulator: React.FC = () => {
       pathD = "M 0 50 Q 20 42 35 50 L 45 50 L 58 35 L 68 8 L 78 58 L 85 50 Q 105 38 125 50 L 160 50 " +
               "M 160 50 Q 180 42 195 50 L 205 50 L 218 35 L 228 8 L 238 58 L 245 50 Q 265 38 285 50 L 320 50 " +
               "M 320 50 Q 340 42 355 50 L 365 50 L 378 35 L 388 8 L 398 58 L 405 50 Q 425 38 445 50 L 480 50";
+    } else if (type === 'pericarditis') {
+      // Depressed PR segment + concave saddle-shaped ST elevation
+      pathD = "M 0 50 Q 14 43 28 52 L 46 56 L 52 58 L 60 12 L 68 54 L 74 36 Q 100 44 122 28 Q 134 40 144 50 L 175 50 " +
+              "M 175 50 Q 189 43 203 52 L 221 56 L 227 58 L 235 12 L 243 54 L 249 36 Q 275 44 297 28 Q 309 40 319 50 L 350 50 " +
+              "M 350 50 Q 364 43 378 52 L 396 56 L 402 58 L 410 12 L 418 54 L 424 36 Q 450 44 472 28 Q 484 40 494 50 L 540 50";
+    } else if (type === 'bav2-mobitz1') {
+      // Wenckebach: progressively longer PR, then dropped QRS after 4th P wave
+      pathD = "M 0 50 Q 12 41 24 50 L 32 50 L 38 12 L 45 58 L 50 50 Q 68 38 85 50 L 105 50 " +
+              "Q 117 41 129 50 L 152 50 L 158 12 L 165 58 L 170 50 Q 188 38 205 50 L 222 50 " +
+              "Q 234 41 246 50 L 284 50 L 290 12 L 297 58 L 302 50 Q 320 38 337 50 L 355 50 " +
+              "Q 367 41 379 50 L 455 50 " +
+              "Q 467 41 479 50 L 487 50 L 493 12 L 500 58 L 505 50 Q 522 38 540 50";
+    } else if (type === 'hyperk') {
+      // Flattened P, wide QRS, tall peaked tented T waves
+      pathD = "M 0 50 Q 16 48 30 50 L 50 50 L 58 62 L 72 16 L 88 64 L 98 50 L 114 48 L 128 8 L 142 48 L 175 50 " +
+              "M 175 50 Q 191 48 205 50 L 225 50 L 233 62 L 247 16 L 263 64 L 273 50 L 289 48 L 303 8 L 317 48 L 350 50 " +
+              "M 350 50 Q 366 48 380 50 L 400 50 L 408 62 L 422 16 L 438 64 L 448 50 L 464 48 L 478 8 L 492 48 L 540 50";
+    } else if (type === 'tdp') {
+      // Polymorphic spindle-shaped twisting around baseline
+      pathD = "M 0 50 Q 10 22 20 50 Q 30 82 40 50 Q 50 12 60 50 Q 70 90 80 50 Q 90 18 100 50 Q 110 72 120 50 " +
+              "Q 130 38 140 50 Q 150 60 160 50 Q 170 42 180 50 Q 190 68 200 50 Q 210 18 220 50 Q 230 88 240 50 " +
+              "Q 250 10 260 50 Q 270 90 280 50 Q 290 25 300 50 Q 310 68 320 50 Q 330 42 340 50 Q 350 58 360 50 " +
+              "Q 370 32 380 50 Q 390 80 400 50 Q 410 14 420 50 Q 430 88 440 50 Q 450 20 460 50 Q 470 72 480 50 Q 495 36 510 50 Q 525 66 540 50";
     }
 
     return (
@@ -226,21 +339,35 @@ export const EcgSimulator: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex items-center space-x-3">
+        <div className="flex flex-wrap items-center gap-2">
+          {quizMode && quizStats.total > 0 && (
+            <span className="px-3 py-2 rounded-xl text-xs font-mono font-bold bg-emerald-500/15 border border-emerald-500/30 text-emerald-300">
+              Score: {quizStats.correct}/{quizStats.total}
+            </span>
+          )}
+          <button
+            onClick={pickRandomBlindCase}
+            className="px-3.5 py-2 rounded-xl text-xs font-mono font-bold transition flex items-center space-x-2 border bg-cyan-500/15 border-cyan-500/40 text-cyan-300 hover:bg-cyan-500/25"
+            title="Estrae un tracciato casuale a diagnosi nascosta per interrogarsi a coppia"
+          >
+            <Shuffle className="w-4 h-4" />
+            <span>Casuale (Esame a Coppia)</span>
+          </button>
           <button
             onClick={() => {
-              setQuizMode(!quizMode);
-              setShowAnswer(!quizMode ? false : true);
+              const nextQuiz = !quizMode;
+              setQuizMode(nextQuiz);
+              setShowAnswer(!nextQuiz);
               setUserGuess(null);
             }}
-            className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition flex items-center space-x-2 border ${
+            className={`px-3.5 py-2 rounded-xl text-xs font-mono font-bold transition flex items-center space-x-2 border ${
               quizMode
                 ? 'bg-amber-500/20 border-amber-400 text-amber-300'
                 : 'bg-slate-800 border-slate-700 text-slate-300 hover:text-white'
             }`}
           >
             <Zap className="w-4 h-4" />
-            <span>{quizMode ? 'Modalità Quiz Attiva' : 'Attiva Modalità Quiz'}</span>
+            <span>{quizMode ? 'Modalità Cieca ON' : 'Modalità Cieca'}</span>
           </button>
         </div>
       </div>
@@ -294,18 +421,31 @@ export const EcgSimulator: React.FC = () => {
         {/* Quiz Guessing Buttons if in Quiz Mode */}
         {quizMode && !showAnswer && (
           <div className="pt-4 border-t border-slate-900 space-y-3">
-            <div className="text-xs font-mono text-amber-400 font-semibold">
-              🎯 Qual è la diagnosi corretta di questo tracciato?
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div className="text-xs font-mono text-amber-400 font-semibold">
+                🎯 Qual è la diagnosi corretta di questo tracciato? (Scegli o rispondi a voce col collega)
+              </div>
+              <button
+                onClick={() => setShowAnswer(true)}
+                className="px-3 py-1.5 rounded-lg text-xs font-mono font-bold bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-200 flex items-center gap-1.5 transition"
+              >
+                <Eye className="w-3.5 h-3.5" />
+                <span>Rivela Diagnosi</span>
+              </button>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {ECG_CASES.map((opt) => (
                 <button
                   key={opt.id}
                   onClick={() => {
                     setUserGuess(opt.id);
                     setShowAnswer(true);
+                    setQuizStats(prev => ({
+                      correct: prev.correct + (opt.id === activeCase.id ? 1 : 0),
+                      total: prev.total + 1
+                    }));
                   }}
-                  className="p-3 bg-slate-900 border border-slate-800 hover:border-cyan-500/60 rounded-xl text-left text-xs text-slate-300 hover:text-white transition font-mono"
+                  className="p-2.5 bg-slate-900 border border-slate-800 hover:border-cyan-500/60 rounded-xl text-left text-xs text-slate-300 hover:text-white transition font-mono"
                 >
                   {opt.name}
                 </button>

@@ -77,7 +77,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           </h1>
 
           <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
-            La piattaforma didattica concepita per gli <strong className="text-white">studenti di medicina</strong> per la preparazione dell'esame universitario integrato di <strong className="text-white">Malattie dell'Apparato Cardiovascolare e Respiratorio</strong>. Il pilastro fondamentale dello studio è la <strong className="text-cyan-300">teoria approfondita nei 16 capitoli curriculari</strong> (Cardiologia Medica, Pneumologia, Cardiochirurgia, Chirurgia Toracica e Vascolare), integrata con il <strong className="text-amber-300">simulatore per l'esame scritto</strong> (database di 48 quesiti MCQ ufficiali con razionali clinici commentati), il <strong className="text-purple-300">simulatore d'esame orale</strong> (5 stazioni cliniche complesse con domande a cascata e trabocchetti d'esame), la <strong className="text-rose-300">fonoteca auscultatoria reale</strong> (11 reperti sonori sincronizzati con filtri fonendoscopio Membrana/Campana e StethoBoost), l'atlante 3D WebGL e la suite di strumenti diagnostici (ECG, Spirometria PFR, EGA, TNM e calcolatori).
+            La piattaforma didattica concepita per gli <strong className="text-white">studenti di medicina</strong> per la preparazione dell'esame universitario integrato di <strong className="text-white">Malattie dell'Apparato Cardiovascolare e Respiratorio</strong>. Il pilastro fondamentale dello studio è la <strong className="text-cyan-300">teoria approfondita nei 16 capitoli curriculari</strong> (Cardiologia Medica, Pneumologia, Cardiochirurgia, Chirurgia Toracica e Vascolare), integrata con il <strong className="text-amber-300">simulatore per l'esame scritto</strong> (database di 78 quesiti MCQ con razionali clinici commentati), il <strong className="text-purple-300">simulatore d'esame orale</strong> (9 stazioni cliniche complesse con domande a cascata e trabocchetti d'esame), la <strong className="text-rose-300">fonoteca auscultatoria reale</strong> (11 reperti sonori con filtri fonendoscopio Membrana/Campana, StethoBoost e Modalità Esame Cieco), l'atlante 3D WebGL e la suite di strumenti diagnostici (12 tracciati ECG, Spirometria PFR, EGA, TNM, 16 schede farmacologiche e 10 calcolatori clinici).
           </p>
 
           {/* QUICK CTA JUMP BUTTONS */}
@@ -96,7 +96,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               className="px-4 py-3 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/30 text-amber-200 text-xs sm:text-sm font-mono font-semibold transition flex items-center justify-center gap-2"
             >
               <CheckCircle2 className="w-4 h-4 text-amber-400" />
-              <span>Database Scritti (48 MCQ)</span>
+              <span>Database Scritti (78 MCQ)</span>
             </button>
 
             <button
@@ -248,7 +248,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <CheckCircle2 className="w-5 h-5" />
                 </div>
                 <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-amber-300 font-bold">
-                  48 MCQ ESAME
+                  78 MCQ ESAME
                 </span>
               </div>
               <h3 className="text-sm font-bold text-white group-hover:text-amber-300 transition-colors">

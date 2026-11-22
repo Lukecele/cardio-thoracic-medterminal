@@ -1534,5 +1534,965 @@
     "explanation": "L'aneurisma popliteo è il più frequente aneurisma periferico (70% dei periferici). È bilaterale nel 50% dei casi e associato ad AAA nel 40-50%. A differenza dell'aorta, raramente si rompe; la sua complicanza temibile è la trombosi della sacca o l'embolizzazione distale di microtrombi murari con ischemia acuta periferica ('dita blu').",
     "examSession": "Ricostruzione Febbraio 2021",
     "oralLink": "All'orale: 'Se diagnostico un aneurisma popliteo, quali altri distretti vascolari DEVO obbligatoriamente esaminare?'"
+  },
+  {
+    "id": "q-crd-49",
+    "branch": "cardio-medica",
+    "topic": "Valvulopatie & Manovre Dinamiche",
+    "question": "Durante la manovra di Valsalva (fase di sforzo, riduzione del ritorno venoso), quali due soffi cardiaci AUMENTANO paradossalmente d'intensità?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Stenosi aortica e insufficienza mitralica"
+      },
+      {
+        "label": "b",
+        "text": "Cardiomiopatia ipertrofica ostruttiva (HCM) e prolasso della valvola mitrale (PVM)"
+      },
+      {
+        "label": "c",
+        "text": "Stenosi mitralica e insufficienza aortica"
+      },
+      {
+        "label": "d",
+        "text": "Insufficienza tricuspidalica e difetto interatriale"
+      },
+      {
+        "label": "e",
+        "text": "Stenosi polmonare e pericardite costrittiva"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "La manovra di Valsalva riduce il ritorno venoso e il volume telediastolico del ventricolo sinistro: quasi tutti i soffi si riducono, TRANNE la Cardiomiopatia Ipertrofica Ostruttiva (il setto ipertrofico e il lembo mitralico anteriore si avvicinano aumentando l'ostruzione LVOT) e il Prolasso Mitralico (il click e il soffio diventano più precoci e lunghi).",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "Domanda classica: confronta gli effetti di Valsalva, squatting (accovacciamento) e handgrip isometrico sui soffi."
+  },
+  {
+    "id": "q-crd-50",
+    "branch": "cardio-medica",
+    "topic": "Semeiotica Valvolare (Insufficienza Aortica)",
+    "question": "Il soffio di Austin Flint è un reperto auscultatorio caratteristico di quale patologia e da cosa è generato?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Stenosi polmonare congenita, da dilatazione post-stenotica"
+      },
+      {
+        "label": "b",
+        "text": "Insufficienza aortica severa, da vibrazione del lembo anteriore mitralico colpito dal jet rigurgitante diastolico"
+      },
+      {
+        "label": "c",
+        "text": "Stenosi mitralica reumatica, da calcificazione delle commissure"
+      },
+      {
+        "label": "d",
+        "text": "Difetto interventricolare restrittivo di piccole dimensioni"
+      },
+      {
+        "label": "e",
+        "text": "Mixoma atriale sinistro che prolassa in diastole"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "Il soffio di Austin Flint è un rullio meso-telediastolico all'apice che mima la stenosi mitralica, ma si verifica nell'Insufficienza Aortica severa: il jet di rigurgito aortico colpisce il lembo anteriore mitralico impedendone la piena apertura. A differenza della stenosi mitralica vera, NON presenta schiocco d'apertura (opening snap) né S1 rinforzato.",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: elenca i segni periferici di iperpulsatilità dell'insufficienza aortica (polso di Corrigan, segni di Musset, Quincke, Traube, Duroziez)."
+  },
+  {
+    "id": "q-crd-51",
+    "branch": "cardio-medica",
+    "topic": "Semeiotica (Manovra di Handgrip)",
+    "question": "La manovra di stretta di mano isometrica (handgrip), aumentando bruscamente le resistenze vascolari periferiche (postcarico), aumenta l'intensità di quali soffi?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Stenosi aortica e cardiomiopatia ipertrofica ostruttiva"
+      },
+      {
+        "label": "b",
+        "text": "Insufficienza mitralica, insufficienza aortica e difetto interventricolare (DIV)"
+      },
+      {
+        "label": "c",
+        "text": "Prolasso mitralico e stenosi polmonare"
+      },
+      {
+        "label": "d",
+        "text": "Solo i soffi delle sezioni destre (segno di Rivero-Carvallo)"
+      },
+      {
+        "label": "e",
+        "text": "Riduce uniformemente tutti i soffi cardiaci"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "L'handgrip aumenta il postcarico (resistenze arteriose sistemiche), ostacolando lo svuotamento anterogrado del VS e incrementando i rigurgiti a sinistra (Insufficienza Mitralica, Insufficienza Aortica) e lo shunt sinistro-destro del DIV. Al contrario, riduce il gradiente e il soffio di Stenosi Aortica e HCM.",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: come distingui al letto del malato un soffio da stenosi aortica irradiato all'apice (fenomeno di Gallavardin) da una vera insufficienza mitralica?"
+  },
+  {
+    "id": "q-crd-52",
+    "branch": "cardio-medica",
+    "topic": "Scompenso Cardiaco (4 Pilastri HFrEF)",
+    "question": "Quali sono i 4 pilastri farmacologici in Classe I (Linee Guida ESC) che riducono la mortalità nello Scompenso Cardiaco a FE ridotta (HFrEF ≤ 40%)?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Furosemide, Digossina, Nitrati, Ivabradina"
+      },
+      {
+        "label": "b",
+        "text": "ARNI (o ACE-i), Beta-bloccante, MRA (antagonista mineralcorticoidi), SGLT2-inibitore"
+      },
+      {
+        "label": "c",
+        "text": "ACE-i, Calcio-antagonista diidropiridinico, Statina, Aspirina"
+      },
+      {
+        "label": "d",
+        "text": "ARNI, Amiodarone, Furosemide, Warfarin"
+      },
+      {
+        "label": "e",
+        "text": "Beta-bloccante, Verapamil, Idralazina, SGLT2-inibitore"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "Le Linee Guida ESC raccomandano l'avvio rapido e combinato dei 4 pilastri disease-modifying nell'HFrEF: 1) ARNI (Sacubitril/Valsartan) o ACE-i; 2) Beta-bloccante evidence-based; 3) MRA (Spironolattone/Eplerenone); 4) SGLT2-i (Dapagliflozin/Empagliflozin). Furosemide e digossina migliorano i sintomi ma non la mortalità.",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: quale classe tra queste è in Classe I anche nello scompenso a FE preservata (HFpEF ≥ 50%)? Gli SGLT2-inibitori!"
+  },
+  {
+    "id": "q-crd-53",
+    "branch": "cardio-medica",
+    "topic": "Scompenso Cardiaco (ARNI & Biomarcatori)",
+    "question": "In un paziente con HFrEF in terapia con Sacubitril/Valsartan (ARNI), perché è necessario dosare l'NT-proBNP invece del BNP per monitorare lo scompenso?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Perché il Sacubitril blocca la sintesi miocardica del BNP"
+      },
+      {
+        "label": "b",
+        "text": "Perché la neprilisina degrada il BNP ma non l'NT-proBNP: inibendola, il BNP sale falsamente per effetto del farmaco"
+      },
+      {
+        "label": "c",
+        "text": "Perché il Valsartan interferisce con il dosaggio immunoenzimatico del BNP"
+      },
+      {
+        "label": "d",
+        "text": "Perché l'NT-proBNP ha un'emivita molto più breve del BNP"
+      },
+      {
+        "label": "e",
+        "text": "Non c'è alcuna differenza: entrambi diminuiscono proporzionalmente"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "Il Sacubitril inibisce la neprilisina (endopeptidasi neutra) che degrada fisiologicamente il BNP attivo. Di conseguenza il BNP plasmatico aumenta per effetto farmacologico anche se il paziente migliora; l'NT-proBNP invece non è substrato della neprilisina e riflette fedelmente lo stress parietale ventricolare.",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "Domanda trappola: quante ore di wash-out servono nel passaggio da ACE-inibitore ad ARNI per evitare l'angioedema? 36 ore!"
+  },
+  {
+    "id": "q-crd-54",
+    "branch": "cardio-medica",
+    "topic": "Scompenso Cardiaco (CRT & ICD)",
+    "question": "Quale paziente con HFrEF (FE ≤ 35%) in terapia medica ottimizzata da almeno 3 mesi ha l'indicazione più forte (Classe I) a Terapia di Resincronizzazione Cardiaca (CRT)?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Paziente in ritmo sinusale con QRS stretto (95 ms)"
+      },
+      {
+        "label": "b",
+        "text": "Paziente in ritmo sinusale con Blocco di Branca Sinistra (BBS) e durata QRS ≥ 150 ms"
+      },
+      {
+        "label": "c",
+        "text": "Paziente asintomatico con blocco di branca destra incompleto e QRS 110 ms"
+      },
+      {
+        "label": "d",
+        "text": "Paziente con fibrillazione atriale ad alta frequenza e QRS 100 ms"
+      },
+      {
+        "label": "e",
+        "text": "Qualsiasi paziente con FE < 50% indipendentemente dalla durata del QRS"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "La CRT (pacing biventricolare) corregge la dissincronia meccanica ventricolare: l'indicazione di Classe I assoluta è paziente sintomatico con FE ≤ 35% in terapia ottimizzata, ritmo sinusale, morfologia a Blocco di Branca Sinistra (BBS) e QRS ≥ 150 ms. È controindicata (Classe III) con QRS < 130 ms!",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: differenza tra indicazione a ICD in prevenzione primaria (FE ≤ 35% dopo 3 mesi di OMT e attesa > 40 giorni post-IMA) e CRT."
+  },
+  {
+    "id": "q-crd-55",
+    "branch": "cardio-medica",
+    "topic": "Pericardite Acuta (ECG & Terapia)",
+    "question": "Quale quadro ECG e quale terapia di prima linea (ESC) caratterizzano la Pericardite Acuta idiopatica/virale non complicata?",
+    "options": [
+      {
+        "label": "a",
+        "text": "ST sopraslivellato convesso localizzato con onde Q; Trombolisi e Eparina"
+      },
+      {
+        "label": "b",
+        "text": "ST sopraslivellato diffuso CONCAVO verso l'alto ('a sella') con sottoslivellamento del tratto PR (e sopraslivellamento PR in aVR); FANS ad alte dosi + Colchicina"
+      },
+      {
+        "label": "c",
+        "text": "Sottoslivellamento ST diffuso con onde T giganti; Corticosteroidi ad alte dosi in monoterapia"
+      },
+      {
+        "label": "d",
+        "text": "Pattern S1Q3T3 con blocco di branca destra; DOAC per 3 mesi"
+      },
+      {
+        "label": "e",
+        "text": "Onde delta e PR corto; Amiodarone EV"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "La pericardite acuta presenta sopraslivellamento ST diffuso a concavità superiore (non rispetta un territorio coronarico) + depressione del tratto PR (speculare in aVR). La terapia di prima scelta è FANS (es. Ibuprofene o Aspirina) + Colchicina per 3 mesi (dimezza le recidive). Gli steroidi in prima linea aumentano il rischio di recidive!",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: elenca i 4 criteri diagnostici ESC di pericardite acuta (ne servono almeno 2 su 4)."
+  },
+  {
+    "id": "q-crd-56",
+    "branch": "cardio-medica",
+    "topic": "Tamponamento Cardiaco",
+    "question": "Quali sono i tre elementi della Triade di Beck del Tamponamento Cardiaco acuto e qual è il reperto ECG tipico del versamento massivo?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Ipertensione, bradicardia, respiro irregolare; onde J di Osborn"
+      },
+      {
+        "label": "b",
+        "text": "Ipotensione arteriosa, turgore delle vene giugulari e toni cardiaci ovattati/parafonici; bassi voltaggi QRS e alternanza elettrica"
+      },
+      {
+        "label": "c",
+        "text": "Febbre, soffio nuovo, splenomegalia; allungamento del PR"
+      },
+      {
+        "label": "d",
+        "text": "Dispnea, emottisi, dolore pleuritico; pattern S1Q3T3"
+      },
+      {
+        "label": "e",
+        "text": "Edema polmonare, ipertensione sistolica, S4; ipertrofia ventricolare sinistra"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "La Triade di Beck del tamponamento cardiaco comprende: 1) Ipotensione (shock ostruttivo), 2) Distensione delle vene giugulari (aumento PVC), 3) Toni cardiaci attutiti/lontani. All'ECG si osservano tachicardia sinusale, bassi voltaggi e 'alternanza elettrica' (il cuore oscilla nel liquido pericardico: swinging heart). Terapia salvavita: pericardiocentesi ecoguidata urgente.",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: differenza tra Tamponamento Cardiaco (polso paradosso, assenza di segno di Kussmaul) e Pericardite Costrittiva (segno di Kussmaul, knock pericardico, dip-and-plateau)."
+  },
+  {
+    "id": "q-crd-57",
+    "branch": "cardio-medica",
+    "topic": "Endocardite Infettiva (Microbiologia & Clinica)",
+    "question": "In un paziente anziano con endocardite infettiva da Streptococcus gallolyticus (ex S. bovis), quale esame strumentale è OBBLIGATORIO eseguire dopo la stabilizzazione?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Broncoscopia con lavaggio broncoalveolare"
+      },
+      {
+        "label": "b",
+        "text": "Colonscopia completa per escludere un carcinoma del colon-retto"
+      },
+      {
+        "label": "c",
+        "text": "Biopsia dell'arteria temporale"
+      },
+      {
+        "label": "d",
+        "text": "Scintigrafia ossea total-body"
+      },
+      {
+        "label": "e",
+        "text": "RMN encefalo con sequenze di perfusione"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "L'isolamento di Streptococcus gallolyticus (gruppo S. bovis) nelle emocolture di un'endocardite infettiva ha una fortissima associazione con neoplasie e polipi del colon-retto (porta d'ingresso batterica): la colonscopia è mandatoria (Classe I ESC).",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: elenca i criteri maggiori di Duke (ESC 2023) e le stigmate periferiche (noduli di Osler dolorosi, lesioni di Janeway indolori, macchie di Roth, emorragie a scheggia)."
+  },
+  {
+    "id": "q-crd-58",
+    "branch": "cardio-medica",
+    "topic": "Endocardite Infettiva (Profilassi)",
+    "question": "Secondo le Linee Guida ESC, quale categoria di pazienti richiede profilassi antibiotica (es. Amoxicillina 2 g os) prima di procedure odontoiatriche invasive?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Tutti i pazienti con prolasso mitralico lieve o soffio innocente"
+      },
+      {
+        "label": "b",
+        "text": "Solo i pazienti ad ALTO RISCHIO: protesi valvolari/TAVI, pregressa endocardite, cardiopatie congenite cianogene non corrette"
+      },
+      {
+        "label": "c",
+        "text": "Tutti i pazienti con ipertensione arteriosa o pacemaker permanente"
+      },
+      {
+        "label": "d",
+        "text": "Solo prima di gastroscopie e colonscopie di routine"
+      },
+      {
+        "label": "e",
+        "text": "La profilassi antibiotica è stata completamente abolita per tutte le categorie"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "La profilassi dell'endocardite è riservata esclusivamente ai pazienti ad ALTO RISCHIO (protesi valvolari meccaniche/biologiche/TAVI, pregressa endocardite infettiva, cardiopatie congenite cianogene non riparate o con shunt/condotti residui, LVAD) sottoposti a procedure odontoiatriche con manipolazione gengivale/periapicale.",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: quali sono gli agenti eziologici più comuni su valvola nativa (S. aureus > Streptococchi viridans), su protesi precoce <1 anno (S. epidermidis) e nei tossicodipendenti EV (S. aureus su tricuspide)?"
+  },
+  {
+    "id": "q-crd-59",
+    "branch": "cardio-medica",
+    "topic": "Cardiomiopatia Ipertrofica (HCM)",
+    "question": "Quale affermazione sulla Cardiomiopatia Ipertrofica (HCM) è CORRETTA?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Si trasmette quasi sempre con modalità autosomica recessiva"
+      },
+      {
+        "label": "b",
+        "text": "È la causa più frequente di morte cardiaca improvvisa nel giovane atleta; l'ostruzione LVOT si accompagna a movimento sistolico anteriore (SAM) del lembo mitralico"
+      },
+      {
+        "label": "c",
+        "text": "La terapia di prima linea per l'ostruzione LVOT prevede nitrati e digossina ad alte dosi"
+      },
+      {
+        "label": "d",
+        "text": "L'esercizio fisico competitivo intenso migliora il gradiente dinamico"
+      },
+      {
+        "label": "e",
+        "text": "Presenta sempre pareti ventricolari assottigliate e ipocinetiche all'esordio"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "L'HCM è una malattia autosomica dominante (mutazioni sarcomeriche MYH7, MYBPC3) caratterizzata da ipertrofia asimmetrica del setto (≥ 15 mm) e disarray miocardico. Il SAM del lembo mitralico crea ostruzione dinamica LVOT e rigurgito mitralico. Terapia di 1ª linea: Beta-bloccanti non vasodilatatori (o Verapamil/Disopiramide/Mavacamten); EVITARE nitrati, diuretici aggressivi e digossina perché peggiorano l'ostruzione!",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: quali sono i fattori di rischio per morte improvvisa che guidano l'impianto di ICD nell'HCM (spessore ≥ 30 mm, sincope inspiegata, TVNS, familiarità MCI, fibrosi LGE estesa alla RMN)?"
+  },
+  {
+    "id": "q-crd-60",
+    "branch": "cardio-medica",
+    "topic": "Cardiomiopatia Aritmogena (ARVC)",
+    "question": "Il riscontro all'ECG di un'onda 'epsilon' (piccola incisura alla fine del QRS in V1-V3) associata a onde T invertite in V1-V3 in un giovane con tachicardia ventricolare a morfologia BBS orienta verso:",
+    "options": [
+      {
+        "label": "a",
+        "text": "Sindrome di Wolff-Parkinson-White"
+      },
+      {
+        "label": "b",
+        "text": "Cardiomiopatia Aritmogena del Ventricolo Destro (ARVC)"
+      },
+      {
+        "label": "c",
+        "text": "Sindrome del QT corto congenito"
+      },
+      {
+        "label": "d",
+        "text": "Cardiomiopatia di Takotsubo"
+      },
+      {
+        "label": "e",
+        "text": "Miocardite fulminante da Coxsackie"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "L'ARVC è causata da mutazioni dei desmosomi (es. plakofilina-2, desmoplachina) con sostituzione fibro-adiposa del miocardio del ventricolo destro. L'onda epsilon (V1-V3) rappresenta la depolarizzazione ritardata delle isole miocardiche residue nel VD, e le TV originano dal VD mostrando quindi morfologia tipo BBS.",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: perché l'attività sportiva agonistica è strettamente controindicata nei pazienti con ARVC?"
+  },
+  {
+    "id": "q-crd-61",
+    "branch": "cardio-medica",
+    "topic": "Amiloidosi Cardiaca",
+    "question": "Quale discrepanza classico-didattica tra ECG ed Ecocardiogramma deve far sospettare immediatamente un'Amiloidosi Cardiaca (AL o ATTR)?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Alti voltaggi QRS all'ECG con pareti sottili all'ecocardiogramma"
+      },
+      {
+        "label": "b",
+        "text": "Bassi voltaggi QRS all'ECG (o pattern di pseudo-infarto) in contrasto con pareti ventricolari marcatamente ispessite ('pseudoipertrofia') e pattern 'apical sparing' allo strain"
+      },
+      {
+        "label": "c",
+        "text": "Allungamento isolato dell'intervallo QT con ventricolo sinistro dilatato"
+      },
+      {
+        "label": "d",
+        "text": "Onde P mitraliche giganti con valvola aortica bicuspide"
+      },
+      {
+        "label": "e",
+        "text": "Sopraslivellamento ST persistente con ipercinesia apicale"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "Nell'amiloidosi cardiaca l'ispessimento delle pareti non è vera ipertrofia dei cardiomiociti bensì infiltrazione extracellulare di fibrille amiloidi (elettricamente inerti): per questo l'ECG mostra bassi voltaggi nonostante lo spessore aumentato! Allo speckle-tracking eco emerge il tipico bull's eye 'cherry-on-top' (apical sparing). Per ATTR la scintigrafia ossea con difosfonati (DPD/HMDP) permette diagnosi non invasiva dopo aver escluso catene leggere (AL).",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: red flags extracardiache di amiloidosi ATTR (sindrome del tunnel carpale bilaterale, rottura spontanea del tendine del bicipite, stenosi del canale lombare)."
+  },
+  {
+    "id": "q-crd-62",
+    "branch": "cardio-medica",
+    "topic": "Cardiomiopatia di Takotsubo",
+    "question": "Una donna in post-menopausa giunge in PS dopo un grave lutto familiare con dolore toracico, ST sopraslivellato in V2-V5 e troponina lievemente mossa. La coronarografia mostra coronarie INDENNI e la ventricolografia evidenzia acinesia apicale con ipercinesia basale ('apical ballooning'). Diagnosi:",
+    "options": [
+      {
+        "label": "a",
+        "text": "Angina vasospastica di Prinzmetal"
+      },
+      {
+        "label": "b",
+        "text": "Cardiomiopatia da stress (Sindrome di Takotsubo)"
+      },
+      {
+        "label": "c",
+        "text": "Dissezione coronarica spontanea (SCAD) della circonflessa"
+      },
+      {
+        "label": "d",
+        "text": "Pericardite essudativa"
+      },
+      {
+        "label": "e",
+        "text": "Cardiomiopatia peripartum"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "La Sindrome di Takotsubo (cardiomiopatia da stress) colpisce nel ~90% donne in post-menopausa dopo stress emotivo o fisico intenso (scarica catecolaminergica). Mima perfettamente uno STEMI, ma le coronarie epicardiche non mostrano stenosi critiche e la disfunzione ventricolare (apical ballooning) si estende oltre il territorio di una singola coronaria ed è generalmente reversibile in settimane.",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: perché è comunque obbligatoria la coronarografia d'urgenza? Perché la diagnosi di Takotsubo è di esclusione rispetto allo STEMI!"
+  },
+  {
+    "id": "q-crd-63",
+    "branch": "cardio-medica",
+    "topic": "Aritmie & BAV (Mobitz 1 vs Mobitz 2)",
+    "question": "Qual è la differenza elettrocardiografica e prognostica fondamentale tra BAV di II grado Mobitz tipo 1 (Wenckebach) e Mobitz tipo 2?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Nel Mobitz 1 il PR è fisso e improvvisamente salta un QRS; nel Mobitz 2 il PR si allunga progressivamente"
+      },
+      {
+        "label": "b",
+        "text": "Nel Mobitz 1 il PR si allunga progressivamente fino a una P bloccata (sede nodale AV, benigno); nel Mobitz 2 il PR è COSTANTE prima della P bloccata (sede infra-hissiana, alto rischio di BAV completo -> indicazione a Pacemaker)"
+      },
+      {
+        "label": "c",
+        "text": "Entrambi richiedono sempre defibrillazione elettrica immediata"
+      },
+      {
+        "label": "d",
+        "text": "Il Mobitz 2 risponde sempre all'atropina meglio del Mobitz 1"
+      },
+      {
+        "label": "e",
+        "text": "Nel Mobitz 1 non vi sono onde P visibili"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "Nel BAV II grado Mobitz 1 (Luciani-Wenckebach) il blocco è nel nodo AV (spesso reversibile/vagale): il PR si allunga progressivamente finché una P non conduce. Nel Mobitz 2 il blocco è sotto il fascio di His (spesso con QRS largo): il PR è costante e improvvisamente una P è bloccata -> altissimo rischio di evoluzione improvvisa in BAV di III grado/asistolia: indicazione assoluta a Pacemaker definitivo anche se asintomatico!",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: perché l'atropina può paradossalmente PEGGIORARE un BAV Mobitz 2 infra-hissiano?"
+  },
+  {
+    "id": "q-crd-64",
+    "branch": "cardio-medica",
+    "topic": "Aritmie (Torsione di Punta & QT Lungo)",
+    "question": "Qual è il farmaco di prima scelta d'emergenza per stabilizzare la membrana miocardica e interrompere una Torsione di Punta (TdP) ricorrente su QT lungo?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Amiodarone 300 mg EV"
+      },
+      {
+        "label": "b",
+        "text": "Solfato di Magnesio (MgSO4) 2 g EV (anche con magnesiemia normale!)"
+      },
+      {
+        "label": "c",
+        "text": "Sotalolo EV"
+      },
+      {
+        "label": "d",
+        "text": "Adenosina 6 mg in bolo rapido"
+      },
+      {
+        "label": "e",
+        "text": "Verapamil 5 mg EV"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "Il Solfato di Magnesio EV (2 g in 1-2 minuti) è il trattamento di prima scelta della Torsione di Punta (soppressione delle post-depolarizzazioni precoci), ANCHE se la magnesiemia sierica è normale! In caso di instabilità emodinamica si esegue cardioversione/defibrillazione. Correggere sempre K+ (target > 4.5 mEq/L) e sospendere i farmaci che allungano il QT (macrolidi, fluorochinoloni, aloperidolo, sotalolo, ondansetron).",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: qual è la differenza tra Sotalolo/Amiodarone e MgSO4 nella TdP? Il Sotalolo allunga ulteriormente il QT e peggiora la TdP!"
+  },
+  {
+    "id": "q-crd-65",
+    "branch": "cardio-medica",
+    "topic": "Sindrome di Brugada",
+    "question": "Quale reperto ECG è diagnostico di Sindrome di Brugada Tipo 1 (spontaneo o indotto da ajmalina/flecainide) e quale fattore scatenante comune può smascherarlo e precipitare FV?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Onde T invertite in DII-DIII-aVF; scatenato da ipotermia"
+      },
+      {
+        "label": "b",
+        "text": "Sopraslivellamento ST ≥ 2 mm 'a tenda/coved' seguito da onda T negativa in V1-V2; scatenato da FEBBRE"
+      },
+      {
+        "label": "c",
+        "text": "PR corto con onda delta in V5-V6; scatenato da iperkaliemia"
+      },
+      {
+        "label": "d",
+        "text": "BAV completo con QRS stretto; scatenato da sforzo fisico"
+      },
+      {
+        "label": "e",
+        "text": "QTc > 520 ms; scatenato da rumori improvvisi"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "La Sindrome di Brugada (canalopatia del canale del Na+ SCN5A) è diagnosticata dal pattern Tipo 1 ('coved-type'): ST sopraslivellato ≥ 2 mm convesso verso l'alto che discende in una T negativa in V1-V2. La FEBBRE altera la cinetica del canale SCN5A e può scatenare tempesta aritmica/FV: trattare la febbre aggressivamente con paracetamolo!",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: differenza tra Brugada (eventi spesso a riposo/sonno e con febbre) e LQT1 (eventi con nuoto/sforzo) vs LQT2 (stimoli uditivi improvvisi)."
+  },
+  {
+    "id": "q-crd-66",
+    "branch": "cardio-medica",
+    "topic": "Elettroliti & ECG (Iperkaliemia)",
+    "question": "Un paziente nefropatico arriva con K+ = 7.4 mEq/L, onde T appuntite 'a tenda', scomparsa delle onde P e allargamento del QRS. Qual è il PRIMISSIMO farmaco da somministrare EV?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Furosemide 40 mg EV"
+      },
+      {
+        "label": "b",
+        "text": "Calcio Gluconato 10% (10 mL EV lento) per stabilizzare la membrana miocardica"
+      },
+      {
+        "label": "c",
+        "text": "Resine a scambio ionico per os"
+      },
+      {
+        "label": "d",
+        "text": "Bicarbonato di sodio in monoterapia"
+      },
+      {
+        "label": "e",
+        "text": "Atropina 1 mg EV"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "Quando l'iperkaliemia causa alterazioni ECG (specialmente QRS largo o assenza di P, anticamera dell'onda sinusoidale e FV/asistolia), il primo gesto salvavita è il Calcio Gluconato EV: NON abbassa il K+ sierico, ma antagonizza in 1-3 minuti l'eccitabilità di membrana proteggendo il cuore! Subito dopo si sposta il K+ nelle cellule (Insulina + Glucosata, Salbutamolo) e lo si elimina (diuretici/dialisi).",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: elenca la progressione classica delle alterazioni ECG nell'iperkaliemia (T a tenda -> PR lungo -> perdita P -> QRS largo -> onda sinusoidale -> FV/asistolia)."
+  },
+  {
+    "id": "q-crd-67",
+    "branch": "cardio-medica",
+    "topic": "Fibrillazione Atriale (Cardioversione & Anticoagulazione)",
+    "question": "Un paziente emodinamicamente STABILE presenta Fibrillazione Atriale insorta da 5 giorni e NON è mai stato anticoagulato. Prima di eseguire una cardioversione elettiva, qual è la condotta obbligatoria?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Cardioversione elettrica immediata seguita da Aspirina"
+      },
+      {
+        "label": "b",
+        "text": "Almeno 3 settimane di anticoagulazione efficace (DOAC/AVK) OPPURE Ecocardiogramma Transesofageo (ETE) per escludere trombi in auricola sinistra, seguito comunque da almeno 4 settimane di anticoagulazione post-cardioversione"
+      },
+      {
+        "label": "c",
+        "text": "Somministrare solo Amiodarone per os senza anticoagulante"
+      },
+      {
+        "label": "d",
+        "text": "Attendere che la FA diventi permanente"
+      },
+      {
+        "label": "e",
+        "text": "Eseguire un ecocardiogramma transtoracico (sufficiente per escludere trombi in auricola)"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "In FA di durata > 48 ore (o sconosciuta) in paziente stabile non anticoagulato, il rischio di embolizzazione di un trombo dall'auricola sinistra durante/dopo cardioversione (stunning atriale) è elevato. Servono 3 settimane di anticoagulazione prima (oppure ETE negativo + eparina/DOAC immediato) e SEMPRE almeno 4 settimane di anticoagulazione dopo (poi a vita in base a CHA2DS2-VA). L'eco transtoracico NON vede bene l'auricola!",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: cosa si fa invece se il paziente con FA è emodinamicamente INSTABILE (shock, edema polmonare, angina grave)? Cardioversione elettrica sincronizzata immediata!"
+  },
+  {
+    "id": "q-crd-68",
+    "branch": "cardio-medica",
+    "topic": "Fibrillazione Atriale (ESC 2024 CHA2DS2-VA)",
+    "question": "Quale novità chiave hanno introdotto le Linee Guida ESC 2024 sulla Fibrillazione Atriale riguardo allo score tromboembolico?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Hanno rimosso l'età dallo score"
+      },
+      {
+        "label": "b",
+        "text": "Hanno introdotto il CHA2DS2-VA, rimuovendo il criterio del sesso femminile ('Sc') per semplificare la decisione clinica (OAC Classe I se ≥ 2, Classe IIa se = 1)"
+      },
+      {
+        "label": "c",
+        "text": "Hanno reintrodotto l'Aspirina in alternativa ai DOAC"
+      },
+      {
+        "label": "d",
+        "text": "Hanno vietato i DOAC sopra gli 80 anni"
+      },
+      {
+        "label": "e",
+        "text": "Hanno sostituito lo score con il solo dosaggio del D-dimero"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "Le Linee Guida ESC 2024 sulla FA hanno semplificato il CHA2DS2-VASc nel CHA2DS2-VA, eliminando il punto del sesso femminile (che era solo un modificatore di rischio dipendente dall'età e non un fattore indipendente): così le soglie diventano identiche per uomini e donne (Classe I per anticoagulazione se ≥ 2; Classe IIa se = 1).",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: cita l'aggiornamento ESC 2024 (CHA2DS2-VA) insieme al classico CHA2DS2-VASc: fa un'ottima impressione davanti alla commissione!"
+  },
+  {
+    "id": "q-crd-69",
+    "branch": "cardio-medica",
+    "topic": "Sindrome di Wolff-Parkinson-White (WPW)",
+    "question": "In un paziente con Sindrome di WPW che sviluppa Fibrillazione Atriale pre-eccitata (tachicardia a QRS largo e irregolarmente irregolare), quali farmaci sono ASSOLUTAMENTE CONTROINDICATI?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Procainamide e Ibutilide"
+      },
+      {
+        "label": "b",
+        "text": "Farmaci che bloccano il nodo AV (Adenosina, Verapamil, Diltiazem, Digossina, Beta-bloccanti, Amiodarone EV), perché deviano tutti gli impulsi sulla via accessoria precipitando Fibrillazione Ventricolare"
+      },
+      {
+        "label": "c",
+        "text": "Cardioversione elettrica sincronizzata"
+      },
+      {
+        "label": "d",
+        "text": "Ossigeno se ipossiemico"
+      },
+      {
+        "label": "e",
+        "text": "Solfato di magnesio"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "Nella FA pre-eccitata (WPW), i bloccanti del nodo AV (ABCD: Adenosina, Beta-bloccanti, Calcio-antagonisti non-DHP, Digossina, oltre ad Amiodarone EV) lasciano campo libero alla conduzione 1:1 lungo la via accessoria di Kent (che non ha conduzione decrementale!), scatenando Fibrillazione Ventricolare! Trattamento: cardioversione elettrica (preferita) o Procainamide/Ibutilide/Flecainide in paziente stabile.",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: riconosci la triade ECG del WPW in ritmo sinusale (PR < 120 ms, onda delta, QRS > 120 ms) e il trattamento definitivo (ablazione transcatetere)."
+  },
+  {
+    "id": "q-crd-70",
+    "branch": "cardio-medica",
+    "topic": "ECG Ischemico (Sindrome di Wellens)",
+    "question": "In un paziente con dolore toracico recente ormai risolto (pain-free), l'ECG mostra onde T bifasiche (tipo A) o profondamente invertite e simmetriche (tipo B) in V2-V3 senza onde Q. Di cosa si tratta e cosa NON bisogna fare?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Ripolarizzazione precoce benigna; dimettere subito"
+      },
+      {
+        "label": "b",
+        "text": "Sindrome di Wellens: indica stenosi critica sub-occlusiva dell'arteria Discendente Anteriore (IVA) prossimale; NON eseguire mai un test da sforzo (rischio di STEMI anteriore massivo/morte improvvisa), ma coronarografia precoce"
+      },
+      {
+        "label": "c",
+        "text": "Pericardite cronica; iniziare steroidi"
+      },
+      {
+        "label": "d",
+        "text": "Ipertrofia ventricolare sinistra; eseguire solo ecocardiogramma"
+      },
+      {
+        "label": "e",
+        "text": "Embolia polmonare minore; dosare D-dimero"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "La Sindrome di Wellens (T bifasiche o profondamente invertite in V2-V3 dopo risoluzione del dolore) è un equivalente ad altissimo rischio di stenosi sub-occlusiva dell'IVA prossimale. Sottoporre il paziente a test ergometrico da sforzo può provocare occlusione completa dell'IVA, STEMI anteriore esteso e arresto cardiaco!",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: ricorda anche gli altri 'equivalenti STEMI' ad alto rischio (pattern di de Winter, ST depresso in V1-V3 da IMA posteriore, criteri di Sgarbossa nel BBS)."
+  },
+  {
+    "id": "q-crd-71",
+    "branch": "cardio-medica",
+    "topic": "SCA (Infarto del Ventricolo Destro)",
+    "question": "Un paziente con STEMI inferiore (DII, DIII, aVF) sviluppa ipotensione marcata (PA 80/50 mmHg), turgore giugulare e campi polmonari PULITI (assenza di rantoli). Quale complicanza sospetti e quale farmaco va EVITATO?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Edema polmonare acuto; evitare i liquidi EV"
+      },
+      {
+        "label": "b",
+        "text": "Infarto del Ventricolo Destro (confermare con derivazioni destre V3R-V4R); EVITARE assolutamente nitrati e diuretici perché il VD è precarico-dipendente (trattare con boli cauti di fluidi EV e PPCI)"
+      },
+      {
+        "label": "c",
+        "text": "Rottura del muscolo papillare; evitare eparina"
+      },
+      {
+        "label": "d",
+        "text": "Pericardite di Dressler; evitare aspirina"
+      },
+      {
+        "label": "e",
+        "text": "Aneurisma apicale; evitare beta-bloccanti"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "La triade ipotensione + turgore giugulare + polmoni puliti in uno STEMI inferiore (coronaria destra prossimale) è patognomonica di Infarto del Ventricolo Destro (sopraslivellamento ST in V4R). Il VD infartuato dipende strettamente dal precarico: nitroglicerina, morfina e furosemide crollano il precarico causando shock refrattario!",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: come distingui all'ECG un infarto inferiore da coronaria destra (ST DIII > DII, ST in V4R) da uno da arteria circonflessa (ST DII ≥ DIII)?"
+  },
+  {
+    "id": "q-crd-72",
+    "branch": "cardio-medica",
+    "topic": "SCA (Infarto Posteriore & Derivazioni V7-V9)",
+    "question": "Un paziente con dolore toracico tipico presenta all'ECG standard sottoslivellamento orizzontale ST ≥ 0.5 mm e onde R alte e larghe in V1-V3 con onde T positive. Quali derivazioni aggiuntive vanno subito registrate?",
+    "options": [
+      {
+        "label": "a",
+        "text": "V3R e V4R"
+      },
+      {
+        "label": "b",
+        "text": "Derivazioni posteriori V7, V8 e V9 per diagnosticare uno STEMI della parete posteriore (infero-basale)"
+      },
+      {
+        "label": "c",
+        "text": "Solo la derivazione aVR"
+      },
+      {
+        "label": "d",
+        "text": "Un ECG dinamico secondo Holter delle 24 ore"
+      },
+      {
+        "label": "e",
+        "text": "Nessuna: è un normale NSTEMI a basso rischio"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "Il sottoslivellamento ST con onde R prominenti in V1-V3 è l'immagine speculare ('a specchio') di uno STEMI posteriore (occlusione di circonflessa o rami posterolaterali della CDx). Registrando V7-V9 si documenta il sopraslivellamento ST ≥ 0.5 mm, ponendo indicazione immediata a PPCI!",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: il trucco didattico dello specchio — capovolgendo il tracciato V1-V3 si vede esattamente uno STEMI con onda Q patologica e sopraslivellamento ST!"
+  },
+  {
+    "id": "q-crd-73",
+    "branch": "cardio-medica",
+    "topic": "Ipertensione Secondaria (Iperaldosteronismo)",
+    "question": "Qual è il test di screening di prima linea per l'Iperaldosteronismo Primario (Sindrome di Conn) in un paziente con ipertensione resistente e ipokaliemia?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Cortisolo libero urinario delle 24 ore"
+      },
+      {
+        "label": "b",
+        "text": "Rapporto Aldosterone plasmatico / Attività Reninica Plasmatica (ARR): aldosterone alto con renina soppressa"
+      },
+      {
+        "label": "c",
+        "text": "Metanefrine plasmatiche frazionate"
+      },
+      {
+        "label": "d",
+        "text": "Angio-TC delle arterie renali come primo test"
+      },
+      {
+        "label": "e",
+        "text": "Biopsia surrenalica bilaterale"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "L'iperaldosteronismo primario è la causa più frequente di ipertensione secondaria endocrina (adenoma di Conn o iperplasia surrenalica bilaterale). Il test di screening è l'ARR (Aldosterone/Renin Ratio), che risulta elevato per ipersecrezione autonoma di aldosterone con soppressione a feedback della renina. Nota: la maggioranza dei pazienti è normokaliemica!",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: ricorda di sospendere/sostituire farmaci interferenti (es. Spironolattone) e che per distinguere adenoma unilaterale da iperplasia bilaterale serve spesso il cateterismo delle vene surrenaliche (AVS)."
+  },
+  {
+    "id": "q-crd-74",
+    "branch": "cardio-medica",
+    "topic": "Ipertensione Secondaria (Feocromocitoma)",
+    "question": "Nella preparazione farmacologica pre-operatoria di un Feocromocitoma (triade: cefalea, sudorazione profusa, palpitazioni con picchi ipertensivi), qual è la regola farmacologica INDEROGABILE?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Iniziare sempre prima con un beta-bloccante puro (es. Propranololo) ad alte dosi"
+      },
+      {
+        "label": "b",
+        "text": "Iniziare SEMPRE PRIMA un alfa-bloccante (es. Doxazosina o Fenossibenzamina) per 7-14 giorni e SOLO DOPO aggiungere un beta-bloccante (per evitare crisi ipertensiva fatale da stimolazione alfa-1 non opposta)"
+      },
+      {
+        "label": "c",
+        "text": "Somministrare solo diuretici tiazidici per ridurre la volemia"
+      },
+      {
+        "label": "d",
+        "text": "Non è necessaria alcuna preparazione medica prima della surrenectomia"
+      },
+      {
+        "label": "e",
+        "text": "Utilizzare esclusivamente ACE-inibitori"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "Se si bloccano prima i recettori beta-2 vasodilatatori, le catecolamine in eccesso agiscono incontrastate sui recettori alfa-1 vasocostrittori provocando una crisi ipertensiva esplosiva, edema polmonare e shock! Quindi prima alfa-blocco + espansione volemica, poi (se tachicardia) beta-blocco. Screening diagnostico: metanefrine libere plasmatiche o frazionate urinarie 24h.",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: ricorda la regola dell'alfa prima del beta — è una delle domande trabocchetto più amate sia in Cardiologia che in Endocrinologia!"
+  },
+  {
+    "id": "q-crd-75",
+    "branch": "cardio-medica",
+    "topic": "Ipertensione Secondaria (Stenosi Arteria Renale)",
+    "question": "In un paziente anziano aterosclerotico con ipertensione severa e ripetuti episodi di edema polmonare acuto improvviso ('flash pulmonary edema'), l'inizio di un ACE-inibitore provoca un crollo rapido dell'eGFR (> 30%). Qual è la diagnosi più probabile?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Coartazione aortica congenita"
+      },
+      {
+        "label": "b",
+        "text": "Stenosi bilaterale delle arterie renali (o stenosi in rene unico funzionante) — sindrome di Pickering"
+      },
+      {
+        "label": "c",
+        "text": "Sindrome nefrosica a lesioni minime"
+      },
+      {
+        "label": "d",
+        "text": "Iperaldosteronismo primario"
+      },
+      {
+        "label": "e",
+        "text": "Sindrome delle apnee ostruttive del sonno (OSAS)"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "Nella stenosi bilaterale delle arterie renali, la filtrazione glomerulare dipende dalla vasocostrizione dell'arteriola efferente mediata dall'angiotensina II. Somministrare un ACE-i/ARB vasodilata l'arteriola efferente facendo crollare la pressione di filtrazione glomerulare (AKI acuta)! Il 'flash pulmonary edema' ricorrente è un altro segno classico (sindrome di Pickering).",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: differenza eziologica della stenosi arteria renale — aterosclerosi ostiale nell'anziano vs displasia fibromuscolare ('collana di perle' all'arteriografia) nella donna giovane."
+  },
+  {
+    "id": "q-crd-76",
+    "branch": "cardio-medica",
+    "topic": "Ipertensione Polmonare (Classificazione ESC)",
+    "question": "Secondo le Linee Guida ESC/ERS 2022, qual è il cut-off emodinamico al cateterismo cardiaco destro che definisce l'Ipertensione Polmonare (e come si distingue la forma pre-capillare da quella post-capillare)?",
+    "options": [
+      {
+        "label": "a",
+        "text": "mPAP ≥ 35 mmHg; pre-capillare se PCWP > 20 mmHg"
+      },
+      {
+        "label": "b",
+        "text": "mPAP > 20 mmHg; pre-capillare (Gruppo 1, 3, 4) se PCWP ≤ 15 mmHg e PVR > 2 WU; post-capillare (Gruppo 2, cardiopatia sinistra) se PCWP > 15 mmHg"
+      },
+      {
+        "label": "c",
+        "text": "PAPs > 25 mmHg all'ecocardiogramma senza necessità di cateterismo"
+      },
+      {
+        "label": "d",
+        "text": "mPAP > 40 mmHg esclusivamente durante esercizio fisico"
+      },
+      {
+        "label": "e",
+        "text": "PCWP < 5 mmHg con portata cardiaca elevata"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "Le linee guida ESC/ERS 2022 hanno abbassato la soglia diagnostica di Ipertensione Polmonare a mPAP > 20 mmHg (prima era ≥ 25) e PVR > 2 WU. La pressione di incuneamento capillare polmonare (PCWP) distingue la forma pre-capillare (≤ 15 mmHg, es. PAH Gruppo 1 o CTEPH Gruppo 4) dalla più frequente forma post-capillare (> 15 mmHg, Gruppo 2 da scompenso/valvulopatia sinistra).",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: perché nell'IP di Gruppo 2 (post-capillare) i vasodilatatori polmonari specifici (es. bosentan, sildenafil) sono in genere controindicati? Possono scatenare edema polmonare!"
+  },
+  {
+    "id": "q-crd-77",
+    "branch": "cardio-medica",
+    "topic": "Sincope (Stratificazione del Rischio)",
+    "question": "Quale tra le seguenti caratteristiche cliniche di un episodio sincopale identifica un ALTO RISCHIO di origine cardiaca/aritmica e impone il ricovero/monitoraggio immediato?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Sincope in giovane sano dopo lunga stazione eretta in ambiente caldo con prodromi di nausea, sudorazione e offuscamento visivo"
+      },
+      {
+        "label": "b",
+        "text": "Sincope insorta DURANTE sforzo fisico o in posizione supina, senza prodromi, preceduta da palpitazioni o con familiarità per morte improvvisa giovanile"
+      },
+      {
+        "label": "c",
+        "text": "Sincope durante un prelievo venoso con pronto recupero"
+      },
+      {
+        "label": "d",
+        "text": "Sincope post-minzionale in anziano con ECG e cuore normali"
+      },
+      {
+        "label": "e",
+        "text": "Lipotimia al passaggio rapido da clinostatismo a ortostatismo dopo inizio di diuretico"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "Le red flags ESC di sincope ad alto rischio cardiaco sono: insorgenza durante lo sforzo (stenosi aortica, HCM, aritmie catecolaminergiche) o da supino/seduto, assenza di prodromi (sincope 'a colpo di fulmine' tipica di BAV parossistico/TV), palpitazioni immediate, cardiopatia strutturale nota, familiarità per morte improvvisa < 40 anni o ECG anomalo.",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: distingui le 3 grandi categorie di sincope (riflessa/neuromediata, da ipotensione ortostatica, cardiaca aritmica o strutturale)."
+  },
+  {
+    "id": "q-crd-78",
+    "branch": "cardio-medica",
+    "topic": "Sindrome Coronarica Cronica & Angina di Prinzmetal",
+    "question": "Un fumatore di 45 anni riferisce episodi ricorrenti di dolore toracico tipico a RIPOSO nelle prime ore del mattino con transitorio sopraslivellamento ST che regredisce completamente con nitroglicerina sublinguale; coronarografia senza stenosi fisse. Quale terapia è indicata e quale farmaco può PEGGIORARE il quadro?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Indicata terapia con Beta-bloccanti non selettivi; evitare i calcio-antagonisti"
+      },
+      {
+        "label": "b",
+        "text": "Angina vasospastica (di Prinzmetal): terapia con Calcio-antagonisti + Nitrati + stop fumo; EVITARE i Beta-bloccanti non selettivi (es. Propranololo) che possono aggravare il vasospasmo"
+      },
+      {
+        "label": "c",
+        "text": "Solo Aspirina ad alte dosi; evitare i nitrati"
+      },
+      {
+        "label": "d",
+        "text": "Anticoagulazione con Warfarin a vita"
+      },
+      {
+        "label": "e",
+        "text": "Bypass aorto-coronarico profilattico"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "L'Angina Vasospastica di Prinzmetal è causata da spasmo focale transitorio di una coronaria epicardica (tipicamente a riposo/notte, fortemente associata al fumo). Si tratta con cessazione del fumo + Calcio-antagonisti (diidropiridinici o non-DHP) + Nitrati a lunga durata. I beta-bloccanti non selettivi bloccano i recettori beta-2 coronarici favorendo la vasocostrizione alfa-mediata!",
+    "examSession": "Cardiologia - Alta Resa d'Esame",
+    "oralLink": "All'orale: come si provoca in sala di emodinamica la diagnosi certa di angina vasospastica? Test provocativo intracoronarico con Acetilcolina o Ergonovina."
   }
 ]

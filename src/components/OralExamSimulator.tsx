@@ -43,7 +43,7 @@ export const OralExamSimulator: React.FC<OralExamSimulatorProps> = ({ initialSta
           <div className="flex items-center space-x-2">
             <Stethoscope className="w-5 h-5 text-purple-400" />
             <h2 className="text-base font-mono font-bold uppercase tracking-wider text-slate-100">
-              Simulatore Interrogazioni Orali (I 5 Orali Clinici)
+              Simulatore Interrogazioni Orali ({oralCasesData.length} Casi Clinici)
             </h2>
           </div>
           <p className="text-xs text-slate-400 mt-1">
@@ -51,9 +51,9 @@ export const OralExamSimulator: React.FC<OralExamSimulatorProps> = ({ initialSta
           </p>
         </div>
 
-        {/* 5 Branches Pills */}
+        {/* Branch & Case Pills */}
         <div className="flex flex-wrap gap-1.5">
-          {oralCasesData.map((c) => (
+          {oralCasesData.map((c, idx) => (
             <button
               key={c.id}
               onClick={() => setSelectedCaseId(c.id)}
@@ -62,8 +62,9 @@ export const OralExamSimulator: React.FC<OralExamSimulatorProps> = ({ initialSta
                   ? 'bg-purple-500/20 border-purple-400 text-purple-300 shadow-md'
                   : 'bg-slate-800/60 border-slate-700/60 text-slate-400 hover:text-white'
               }`}
+              title={c.title}
             >
-              {c.discipline}
+              {idx + 1}. {c.discipline}
             </button>
           ))}
         </div>

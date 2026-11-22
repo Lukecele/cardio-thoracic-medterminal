@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import {
   Headphones, Play, Pause, RotateCcw, Volume2, VolumeX,
   Info, MapPin, Activity, Repeat, Zap, Sliders, Gauge, Sparkles,
-  ChevronLeft
+  ChevronLeft, Eye, EyeOff, Shuffle
 } from 'lucide-react';
 
 export interface AuscultationTrack {
@@ -177,6 +177,8 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
   const [duration, setDuration] = useState(0);
   const [filterType, setFilterType] = useState<'all' | 'cardiaca' | 'polmonare'>('all');
   const [mobileTab, setMobileTab] = useState<'list' | 'console'>('list');
+  const [blindMode, setBlindMode] = useState<boolean>(false);
+  const [blindRevealed, setBlindRevealed] = useState<boolean>(false);
   
   // Advanced Audio Controls State
   const [volume, setVolume] = useState<number>(0.9);
@@ -321,6 +323,7 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
       }
     } else {
       setSelectedTrack(track);
+      setBlindRevealed(false);
       if (audioRef.current) {
         audioRef.current.src = track.file;
         audioRef.current.currentTime = 0;
@@ -359,6 +362,18 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
   };
 
   const filteredTracks = AUDIO_TRACKS.filter(t => filterType === 'all' || t.category === filterType);
+
+  const pickRandomBlindTrack = () => {
+    const pool = filteredTracks.length > 1
+      ? filteredTracks.filter(t => t.id !== selectedTrack.id)
+      : filteredTracks;
+    const next = pool[Math.floor(Math.random() * pool.length)] || AUDIO_TRACKS[0];
+    setBlindMode(true);
+    setBlindRevealed(false);
+    handleTrackSelectAndPlay(next, true);
+  };
+
+  const hideDiagnosis = blindMode && !blindRevealed;
 
   const formatSec = (s: number) => {
     if (isNaN(s)) return '0:00';
@@ -401,32 +416,57 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
             </div>
           </div>
 
-          {/* Filter Buttons */}
-          <div className="flex items-center space-x-1.5 sm:space-x-2 bg-slate-900 p-1 rounded-xl border border-slate-800">
+          {/* Filter & Blind Exam Controls */}
+          <div className="flex flex-wrap items-center gap-2">
             <button
-              onClick={() => setFilterType('all')}
-              className={`px-2.5 sm:px-3 py-1 rounded-lg text-xs font-semibold transition ${
-                filterType === 'all' ? 'bg-slate-800 text-white shadow-sm' : 'text-slate-400 hover:text-slate-200'
-              }`}
+              onClick={pickRandomBlindTrack}
+              className="px-3 py-1.5 rounded-xl text-xs font-mono font-bold transition flex items-center gap-1.5 border bg-cyan-500/15 border-cyan-500/40 text-cyan-300 hover:bg-cyan-500/25"
+              title="Riproduce un reperto casuale nascondendo la diagnosi per interrogarsi a coppia"
             >
-              Tutti ({AUDIO_TRACKS.length})
+              <Shuffle className="w-3.5 h-3.5" />
+              <span>Casuale</span>
             </button>
             <button
-              onClick={() => setFilterType('cardiaca')}
-              className={`px-2.5 sm:px-3 py-1 rounded-lg text-xs font-semibold transition ${
-                filterType === 'cardiaca' ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30' : 'text-slate-400 hover:text-slate-200'
+              onClick={() => {
+                const next = !blindMode;
+                setBlindMode(next);
+                setBlindRevealed(!next);
+              }}
+              className={`px-3 py-1.5 rounded-xl text-xs font-mono font-bold transition flex items-center gap-1.5 border ${
+                blindMode
+                  ? 'bg-amber-500/20 border-amber-400 text-amber-300'
+                  : 'bg-slate-900 border-slate-700 text-slate-300 hover:text-white'
               }`}
             >
-              Cuore
+              {blindMode ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
+              <span>{blindMode ? 'Modalità Cieca ON' : 'Modalità Cieca'}</span>
             </button>
-            <button
-              onClick={() => setFilterType('polmonare')}
-              className={`px-2.5 sm:px-3 py-1 rounded-lg text-xs font-semibold transition ${
-                filterType === 'polmonare' ? 'bg-sky-500/20 text-sky-300 border border-sky-500/30' : 'text-slate-400 hover:text-slate-200'
-              }`}
-            >
-              Polmoni
-            </button>
+            <div className="flex items-center space-x-1.5 sm:space-x-2 bg-slate-900 p-1 rounded-xl border border-slate-800">
+              <button
+                onClick={() => setFilterType('all')}
+                className={`px-2.5 sm:px-3 py-1 rounded-lg text-xs font-semibold transition ${
+                  filterType === 'all' ? 'bg-slate-800 text-white shadow-sm' : 'text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                Tutti ({AUDIO_TRACKS.length})
+              </button>
+              <button
+                onClick={() => setFilterType('cardiaca')}
+                className={`px-2.5 sm:px-3 py-1 rounded-lg text-xs font-semibold transition ${
+                  filterType === 'cardiaca' ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30' : 'text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                Cuore
+              </button>
+              <button
+                onClick={() => setFilterType('polmonare')}
+                className={`px-2.5 sm:px-3 py-1 rounded-lg text-xs font-semibold transition ${
+                  filterType === 'polmonare' ? 'bg-sky-500/20 text-sky-300 border border-sky-500/30' : 'text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                Polmoni
+              </button>
+            </div>
           </div>
         </div>
 
@@ -466,7 +506,7 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
         <div className={`lg:col-span-5 border-r border-slate-800 flex flex-col bg-slate-950/40 overflow-y-auto custom-scrollbar p-3 space-y-2 ${
           mobileTab === 'list' ? 'flex' : 'hidden lg:flex'
         }`}>
-          {filteredTracks.map(track => {
+          {filteredTracks.map((track, trackIdx) => {
             const isCurrent = track.id === selectedTrack.id;
             return (
               <div
@@ -500,7 +540,9 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-2">
                     <span className="font-semibold text-sm text-slate-100 flex items-center gap-1.5 truncate">
-                      <span className="truncate">{track.name}</span>
+                      <span className="truncate">
+                        {hideDiagnosis ? `Reperto #${trackIdx + 1} (Esame Cieco)` : track.name}
+                      </span>
                       {isCurrent && isPlaying && (
                         <span className="flex items-center gap-0.5 shrink-0">
                           <span className="w-1 h-3 bg-amber-400 animate-pulse rounded-full" />
@@ -517,9 +559,13 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
                       {track.category}
                     </span>
                   </div>
-                  <p className="text-xs text-slate-400 mt-1 leading-relaxed">{track.timing}</p>
+                  <p className="text-xs text-slate-400 mt-1 leading-relaxed">
+                    {hideDiagnosis ? 'Diagnosi e timing nascosti — ascolta e indovina prima di rivelare' : track.timing}
+                  </p>
                   <div className="flex items-center justify-between mt-2 pt-1.5 border-t border-slate-800/40 text-[11px]">
-                    <span className="text-slate-400 font-mono truncate max-w-[170px] sm:max-w-[240px]">📍 {track.focusArea}</span>
+                    <span className="text-slate-400 font-mono truncate max-w-[170px] sm:max-w-[240px]">
+                      📍 {hideDiagnosis ? 'Focolaio nascosto' : track.focusArea}
+                    </span>
                     <div className="flex items-center gap-1.5 shrink-0">
                       <span className={`text-[10px] font-mono px-2 py-0.5 rounded font-bold transition ${
                         isCurrent && isPlaying
@@ -577,8 +623,14 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
                     </span>
                   )}
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-white mt-1.5">{selectedTrack.name}</h3>
-                <p className="text-xs text-slate-400 mt-0.5">{selectedTrack.timing}</p>
+                <h3 className="text-lg sm:text-xl font-bold text-white mt-1.5">
+                  {hideDiagnosis ? 'Reperto Nascosto (Modalità Esame Cieco)' : selectedTrack.name}
+                </h3>
+                <p className="text-xs text-slate-400 mt-0.5">
+                  {hideDiagnosis
+                    ? 'Ascolta il suono, riconosci focolaio e timing, poi clicca "Rivela Diagnosi".'
+                    : selectedTrack.timing}
+                </p>
               </div>
 
               {/* Play / Pause Main Button */}
@@ -832,6 +884,35 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
 
           </div>
 
+          {/* Blind Mode Reveal Gate OR Full Clinical Analysis */}
+          {hideDiagnosis ? (
+            <div className="bg-amber-950/20 border border-amber-500/35 rounded-2xl p-6 text-center space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/15 text-amber-300 text-xs font-mono font-bold">
+                <EyeOff className="w-3.5 h-3.5" />
+                <span>MODALITÀ ESAME A COPPIA ATTIVA</span>
+              </div>
+              <p className="text-sm text-slate-200 max-w-md mx-auto leading-relaxed">
+                Ascolta il reperto con <strong>Membrana</strong> o <strong>Campana</strong>, identifica il timing (sistolico vs diastolico) e il focolaio prima di verificare la risposta.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
+                <button
+                  onClick={() => setBlindRevealed(true)}
+                  className="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-mono text-xs font-bold flex items-center gap-2 transition shadow-lg"
+                >
+                  <Eye className="w-4 h-4" />
+                  <span>Rivela Diagnosi & Scheda Clinica</span>
+                </button>
+                <button
+                  onClick={pickRandomBlindTrack}
+                  className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-mono text-xs font-bold flex items-center gap-2 border border-slate-700 transition"
+                >
+                  <Shuffle className="w-4 h-4" />
+                  <span>Altro Suono Casuale</span>
+                </button>
+              </div>
+            </div>
+          ) : (
+            <>
           {/* Phonocardiogram / Cardiac & Pulmonary Cycle Visualizer */}
           <div className="bg-slate-950/60 border border-slate-800 rounded-xl p-4 space-y-3">
             <div className="flex items-center justify-between">
@@ -989,6 +1070,8 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
               ))}
             </div>
           </div>
+            </>
+          )}
 
         </div>
 
@@ -1014,11 +1097,11 @@ export const AuscultationDock: React.FC<AuscultationDockProps> = ({ initialTrack
           </button>
           <div className="min-w-0">
             <div className="text-xs font-bold text-white truncate flex items-center gap-1.5">
-              <span className="truncate">{selectedTrack.name}</span>
+              <span className="truncate">{hideDiagnosis ? 'Reperto Nascosto (Esame Cieco)' : selectedTrack.name}</span>
               {isPlaying && <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping shrink-0" />}
             </div>
             <div className="text-[10px] text-slate-400 truncate mt-0.5 font-mono">
-              {formatSec(currentTime)} • {selectedTrack.timing}
+              {formatSec(currentTime)} • {hideDiagnosis ? 'Apri scheda per rivelare' : selectedTrack.timing}
             </div>
           </div>
         </div>
