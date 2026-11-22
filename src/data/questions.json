@@ -2686,5 +2686,69 @@
     "explanation": "GINA 2025–2026 ribadisce lo stop definitivo al SABA in monoterapia in TUTTI gli step (anche Step 1): ogni sollievo sintomatico deve includere un corticosteroide inalatorio (ICS) antinfiammatorio. Il Track 1 preferito usa ICS-formoterolo a bassa dose al bisogno (strategia MART); il Track 2 alternativo allo Step 1 prevede ICS-SABA combinato. Allo Step 5 sono indicati triplice ICS-LABA-LAMA e biologici mirati (anti-IgE, anti-IL5/5R, anti-IL4R, anti-TSLP Tezepelumab) per azzerare gli steroidi orali (OCS stewardship).",
     "examSession": "Aggiornamento Report GINA 2025–2026",
     "oralLink": "All'orale: mai dire 'salbutamolo da solo allo Step 1 dell'asma'! Cita sempre Track 1 (ICS-formoterolo) e Track 2 (ICS-SABA) GINA 2025–2026."
+  },
+  {
+    "id": "q-crd-85",
+    "branch": "cardio-medica",
+    "topic": "Scompenso Cardiaco (Linee Guida ESC 2026)",
+    "question": "Quale svolta classificativa e terapeutica hanno introdotto le Linee Guida ESC 2026 sullo Scompenso Cardiaco?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Hanno introdotto una quarta categoria per FE 55-65% e rimosso gli SGLT2-inibitori"
+      },
+      {
+        "label": "b",
+        "text": "Hanno abolito la categoria intermedia HFmrEF semplificando in 2 fenotipi (HFrEF < 50% vs HFpEF ≥ 50%), introdotto Finerenone in Classe I nell'HFpEF accanto agli SGLT2-i, e raccomandato Semaglutide/Tirzepatide (Classe IIa) nei pazienti con FE ≥ 45% e obesità (BMI ≥ 30)"
+      },
+      {
+        "label": "c",
+        "text": "Hanno alzato la soglia di HFrEF al 65% eliminando i beta-bloccanti"
+      },
+      {
+        "label": "d",
+        "text": "Hanno limitato la terapia farmacologica al solo Stadio D avanzato"
+      },
+      {
+        "label": "e",
+        "text": "Hanno sostituito i 4 pilastri con furosemide e digossina"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "Le Linee Guida ESC 2026 sullo Scompenso Cardiaco (ESC Congress Monaco 2026) hanno rimosso la fascia intermedia HFmrEF (41-49%) accorpandola nell'HFrEF (< 50%) vs HFpEF (≥ 50%), formalizzato gli Stadi A-D e la gerarchia FMT/AMT/GDIT, promosso l'MRA non steroideo Finerenone in Classe I nell'HFpEF accanto agli SGLT2-i, e inserito per la prima volta gli agonisti incretinici Semaglutide e Tirzepatide (Classe IIa) nello scompenso sintomatico con FE ≥ 45% e obesità (BMI ≥ 30 kg/m²).",
+    "examSession": "Aggiornamento Linee Guida ESC 2026",
+    "oralLink": "All'orale: citare la rimozione di HFmrEF (soglia unica 50%), Finerenone Classe I in HFpEF e Semaglutide/Tirzepatide delle ESC 2026 lascia la commissione a bocca aperta!"
+  },
+  {
+    "id": "q-crd-86",
+    "branch": "cardio-medica",
+    "topic": "IMA UDMI 5 (2026) & Cardiorenale (ESC/ERA 2026)",
+    "question": "Quale novità diagnostica chiave introducono la 5ª Definizione Universale di Infarto Miocardico (UDMI 5, 2026) e le prime Linee Guida Congiunte ESC/ERA 2026 su Cardiopatia e Malattia Renale Cronica?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Un'unica soglia fissa di troponina valida per entrambi i sessi e la sospensione del dosaggio della creatinina"
+      },
+      {
+        "label": "b",
+        "text": "Soglie del 99° percentile di troponina obbligatoriamente sesso-specifiche (più basse nelle donne per eliminare la sottodiagnosi femminile di IMA) e screening renale basale sistematico con eGFR + UACR (albumina/creatinina urinaria) in tutti i cardiopatici"
+      },
+      {
+        "label": "c",
+        "text": "L'abbandono della troponina ad alta sensibilità a favore della sola mioglobina"
+      },
+      {
+        "label": "d",
+        "text": "L'obbligo di biopsia renale in ogni paziente con ipertensione lieve"
+      },
+      {
+        "label": "e",
+        "text": "La controindicazione assoluta agli SGLT2-inibitori nei pazienti con CKD"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "La UDMI 5 (ESC/ACC/AHA/WHF 2026) rende mandatori i cut-off sesso-specifici del 99° percentile della troponina (i livelli fisiologici femminili sono inferiori a quelli maschili, evitando sottodiagnosi di IMA nella donna) con integrazione dell'imaging avanzato (CMR). Le prime linee guida congiunte ESC/ERA 2026 (Cardiorenale) raccomandano lo screening basale con eGFR + UACR in tutti i pazienti con malattia cardiovascolare.",
+    "examSession": "Aggiornamento Linee Guida ESC 2026",
+    "oralLink": "All'orale: ricorda sempre che nella donna il 99° percentile della troponina hs è più basso che nell'uomo (UDMI 5) e che la funzione renale si valuta con eGFR + UACR (ESC/ERA 2026)!"
   }
 ]

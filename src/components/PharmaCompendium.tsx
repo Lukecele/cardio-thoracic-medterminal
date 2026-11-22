@@ -83,14 +83,24 @@ const DRUGS: DrugCard[] = [
     examPearl: 'Unici farmaci in Classe I per ridurre ospedalizzazioni e mortalità cardiovascolare sull\'INTERO spettro dello scompenso (incluso HFpEF ≥ 50%)!'
   },
   {
-    name: 'MRA (Spironolattone / Eplerenone)',
-    category: 'Scompenso Cardiaco & Iperaldosteronismo (3° Pilastro)',
+    name: 'MRA: Spironolattone / Eplerenone / Finerenone (ESC 2026)',
+    category: 'Scompenso Cardiaco & Cardiorenale (3° Pilastro)',
     group: 'Scompenso',
-    indications: 'HFrEF (Classe I ESC), ipertensione resistente, iperaldosteronismo primario, post-IMA con FE ≤ 40%',
-    dosage: 'Spironolattone 25 → 50 mg/die; Eplerenone 25 → 50 mg/die',
-    mechanism: 'Antagonisti competitivi del recettore dei mineralcorticoidi (aldosterone): effetto diuretico risparmiatore di K+ e antifibrotico miocardico',
-    antidoteOrSafety: 'Monitorare strettamente K+ (rischio iperkaliemia se > 5.0-5.5 mEq/L) e creatinina/eGFR (< 30 ml/min controindicato)',
-    examPearl: 'Lo Spironolattone causa ginecomastia dolorosa nell\'uomo (effetto antiandrogeno); in tal caso si sostituisce con Eplerenone, selettivo sul recettore MRA.'
+    indications: 'HFrEF < 50% (Spironolattone/Eplerenone Classe I), HFpEF ≥ 50% & protezione cardiorenale CKD (Finerenone Classe I ESC 2026), ipertensione resistente',
+    dosage: 'Spironolattone 25 → 50 mg/die; Eplerenone 25 → 50 mg/die; Finerenone (MRA non steroideo) 10 → 20-40 mg/die',
+    mechanism: 'Antagonisti del recettore dei mineralcorticoidi (aldosterone): effetto antifibrotico, antinfiammatorio e risparmiatore di K+ (Finerenone è non-steroideo e altamente selettivo)',
+    antidoteOrSafety: 'Monitorare strettamente K+ (rischio iperkaliemia se > 5.0-5.5 mEq/L) e funzione renale (eGFR + UACR secondo ESC/ERA 2026)',
+    examPearl: 'Lo Spironolattone causa ginecomastia (sostituire con Eplerenone). Novità ESC 2026: il Finerenone (non steroideo) è entrato in Classe I nell\'HFpEF accanto agli SGLT2-i!'
+  },
+  {
+    name: 'Semaglutide / Tirzepatide (Incretine GLP-1 / GIP — ESC 2026)',
+    category: 'Scompenso Obesità-Correlato & Prevenzione CV',
+    group: 'Scompenso',
+    indications: 'Scompenso cardiaco sintomatico con FE ≥ 45% (HFpEF) e obesità (BMI ≥ 30 kg/m²) — Classe IIa ESC 2026; riduzione rischio CV in diabete/obesità',
+    dosage: 'Somministrazione sottocutanea settimanale con titolazione graduale (es. Semaglutide 0.25 → 2.4 mg/sett; Tirzepatide 2.5 → 15 mg/sett)',
+    mechanism: 'Agonisti del recettore GLP-1 (Semaglutide) o dual GLP-1/GIP (Tirzepatide): calo ponderale marcato, riduzione infiammazione sistemica, miglioramento emodinamica diastolica e protezione cardiorenale',
+    antidoteOrSafety: 'Effetti GI transitori (nausea/vomito); lieve calo iniziale transitorio di eGFR ma protezione renale a lungo termine; cautela in storia di pancreatite/carcinoma midollare tiroideo',
+    examPearl: 'Novità storica delle Linee Guida ESC 2026: per la prima volta gli agonisti incretinici entrano ufficialmente nella terapia dello scompenso cardiaco obesità-correlato!'
   },
   {
     name: 'Furosemide (Lasix)',

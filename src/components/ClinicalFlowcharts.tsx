@@ -24,9 +24,9 @@ const FLOWCHARTS: FlowchartItem[] = [
     badge: 'ESC 2023/2025',
     steps: [
       {
-        stage: 'Fase 0: Primo Contatto Medico (FMC)',
-        action: 'Esecuzione e refertazione ECG a 12 derivazioni entro 10 minuti',
-        detail: 'Riconoscimento sopraslivellamento ST al punto J in derivazioni contigue (o equivalenti STEMI: BBS nuovo, IMA posteriore V7-V9, Wellens). Monitoraggio defibrillatore continuo.'
+        stage: 'Fase 0: Primo Contatto Medico (FMC) & Diagnosi (UDMI 5 — 2026)',
+        action: 'ECG a 12 derivazioni entro 10 minuti + Troponina hs con soglie SESSO-SPECIFICHE',
+        detail: 'Riconoscimento sopraslivellamento ST al punto J in derivazioni contigue (o equivalenti STEMI: BBS nuovo, IMA posteriore V7-V9, Wellens). Nelle NSTE-SCA applicare i cut-off del 99° percentile sesso-specifici (UDMI 5, 2026: più bassi nella donna) e screening renale basale eGFR + UACR (ESC/ERA 2026).'
       },
       {
         stage: 'Fase 1: Bivio del Timing di Riperfusione',
@@ -48,31 +48,31 @@ const FLOWCHARTS: FlowchartItem[] = [
   },
   {
     id: 'heart-failure',
-    title: 'I 4 Pilastri dello Scompenso Cardiaco (HFrEF & HFpEF)',
-    shortTitle: 'Scompenso: 4 Pilastri',
+    title: 'Scompenso Cardiaco (HFrEF < 50% & HFpEF ≥ 50% — ESC 2026)',
+    shortTitle: 'Scompenso (ESC 2026)',
     category: 'Cardiologia Clinica',
-    badge: 'ESC 2023/2024',
+    badge: 'ESC 2026',
     steps: [
       {
-        stage: 'Pilastro 1: Inibitore RAAS / Neprilisina',
-        action: 'ARNI (Sacubitril/Valsartan) o ACE-Inibitore',
-        detail: 'Titolazione al target massimo tollerato (Sacubitril/Valsartan 97/103 mg bid). Obbligatorio wash-out di 36 ore nel passaggio da ACE-i ad ARNI (rischio angioedema). Monitorare NT-proBNP (non BNP!).'
+        stage: 'Fase 0: Nuova Classificazione ESC 2026 (Abolito HFmrEF!) & Screening',
+        action: 'HFrEF (FE < 50%) vs HFpEF (FE ≥ 50%) + Stadi A–D + eGFR & UACR',
+        detail: 'La fascia intermedia HFmrEF (41-49%) confluisce in HFrEF (< 50%). Dosare BNP/NT-proBNP (con ARNI solo NT-proBNP!) ed eseguire sempre screening cardiorenale basale con eGFR + UACR (ESC/ERA 2026).'
       },
       {
-        stage: 'Pilastro 2: Beta-Bloccante Evidence-Based',
-        action: 'Bisoprololo, Carvedilolo, Metoprololo succinato o Nebivololo',
-        detail: 'Avviare a basse dosi in paziente euvolemico ("start low, go slow") e titolare ogni 2-4 settimane. Mai iniziare in edema polmonare acuto o shock cardiogeno.'
+        stage: 'HFrEF (< 50%) — Foundational Medical Therapy (FMT — 4 Pilastri Classe I)',
+        action: 'ARNI (o ACE-i) + Beta-Bloccante + MRA + SGLT2-inibitore',
+        detail: 'Avvio rapido e titolazione dei 4 pilastri: 1) Sacubitril/Valsartan (wash-out 36h da ACE-i) o ACE-i; 2) Bisoprololo/Carvedilolo/Metoprololo succinato; 3) Spironolattone/Eplerenone; 4) Dapagliflozin o Empagliflozin 10 mg/die.'
       },
       {
-        stage: 'Pilastro 3: Antagonista Mineralcorticoidi (MRA)',
-        action: 'Spironolattone (25-50 mg) o Eplerenone',
-        detail: 'Effetto antifibrotico e riduzione mortalità. Monitoraggio stretto di K+ (attenzione se > 5.0-5.5 mEq/L) e creatinina/eGFR; Eplerenone se ginecomastia da Spironolattone.'
+        stage: 'HFpEF (≥ 50%) — Terapia Fondamentale ESC 2026',
+        action: 'SGLT2-i (Classe I) + Finerenone MRA non steroideo (Classe I) + Diuretici',
+        detail: 'Finerenone guadagna raccomandazione di Classe I nell\'HFpEF accanto agli SGLT2-inibitori per ridurre ospedalizzazioni ed eventi CV. Aggiungere diuretici dell\'ansa solo per controllo della congestione.'
       },
       {
-        stage: 'Pilastro 4: Inibitore SGLT2 (Gliflozine — Classe I su TUTTO lo spettro FE)',
-        action: 'Dapagliflozin 10 mg o Empagliflozin 10 mg/die',
-        detail: 'Dose fissa senza titolazione, efficaci nei diabetici e nei NON diabetici. Unica classe in Classe I per ridurre ospedalizzazioni e mortalità CV anche nell\'HFmrEF e nell\'HFpEF (FE ≥ 50%)!',
-        alert: 'Furosemide è essenziale per la congestione acuta/cronica, ma NON riduce la mortalità a lungo termine.'
+        stage: 'Obesità & Scompenso (Novità ESC 2026) + Dispositivi (GDIT)',
+        action: 'Semaglutide / Tirzepatide (Classe IIa se FE ≥ 45% e BMI ≥ 30) • ICD / CRT',
+        detail: 'Gli agonisti GLP-1/GIP (Semaglutide, Tirzepatide) migliorano sintomi e capacità funzionale nello scompenso correlato a obesità. Valutare ICD/CRT (GDIT) dopo ≥ 3 mesi di FMT ottimizzata e riabilitazione cardiologica strutturata (ESC 2026).',
+        alert: 'Furosemide risolve la congestione ma NON riduce la mortalità. Mai iniziare beta-bloccanti in edema polmonare acuto o shock!'
       }
     ]
   },
