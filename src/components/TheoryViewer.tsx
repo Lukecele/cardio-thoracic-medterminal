@@ -75,11 +75,8 @@ const ANATOMY_LABELS: Record<string, string> = {
 const isBulletLine = (line: string) =>
   line.startsWith('•') || line.startsWith('◦') || line.startsWith('‣') || line.startsWith('- ');
 
-const isGuidelineCallout = (line: string) => line.startsWith('[AGGIORNAMENTO ');
-
 const isSubheadingLine = (line: string) =>
   !isBulletLine(line) &&
-  !isGuidelineCallout(line) &&
   line.length < 90 &&
   ((line === line.toUpperCase() && line.replace(/[^A-Z]/g, '').length > 4) ||
     line.endsWith(':') ||
@@ -87,7 +84,7 @@ const isSubheadingLine = (line: string) =>
 
 /**
  * Cleans PDF-extracted line breaks so mid-sentence wraps become smooth, readable prose
- * while preserving bullets, subheadings, guideline callouts, and deliberate paragraph breaks.
+ * while preserving bullets, subheadings, and deliberate paragraph breaks.
  */
 const formatReadableBlocks = (raw: string): string[] => {
   if (!raw) return [];
@@ -106,8 +103,6 @@ const formatReadableBlocks = (raw: string): string[] => {
     const prevEndsSentence = /[.!?:;)\]]$/.test(prev);
     const currStartsLower = /^[a-zàèéìòù(]/.test(line);
     const shouldMerge =
-      !isGuidelineCallout(line) &&
-      !isGuidelineCallout(prev) &&
       !isBulletLine(line) &&
       !isSubheadingLine(line) &&
       !isSubheadingLine(prev) &&
@@ -415,26 +410,6 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
   };
 
   const renderBlock = (para: string, keyId: string, recallSeed: number) => {
-    if (isGuidelineCallout(para)) {
-      const match = para.match(/^\[AGGIORNAMENTO ([^\]]+)\]\s*(.*)$/);
-      const label = match ? match[1] : 'LINEE GUIDA AGGIORNATE';
-      const body = match ? match[2] : para;
-      return (
-        <div
-          key={keyId}
-          className="my-4 p-4 rounded-xl bg-emerald-950/35 border border-emerald-500/40 border-l-4 border-l-emerald-400 shadow-md space-y-1.5"
-        >
-          <div className="flex items-center gap-2 text-emerald-300 font-mono text-[11px] font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-            <span>Aggiornamento {label}</span>
-          </div>
-          <div className="text-[14px] sm:text-[14.5px] leading-relaxed text-emerald-50/95 font-sans">
-            {renderActiveRecallParagraph(body, recallSeed)}
-          </div>
-        </div>
-      );
-    }
-
     if (isSubheadingLine(para)) {
       return (
         <div
@@ -976,28 +951,18 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
                 <span className="text-[10px] font-mono text-slate-500">{formattedSections.length} §</span>
               </div>
               <div className="space-y-1.5">
-                {formattedSections.map((sec: any, sIdx: number) => {
-                  const hasUpdate = (sec.content || '').includes('[AGGIORNAMENTO ');
-                  return (
-                    <button
-                      key={`side-toc-${sec.id}`}
-                      onClick={() => jumpToSection(sec.id)}
-                      className="w-full text-left px-3 py-2 rounded-xl bg-slate-950/50 hover:bg-slate-900 border border-slate-800/60 hover:border-cyan-500/35 text-xs text-slate-300 hover:text-white transition flex items-start justify-between gap-2 group"
-                    >
-                      <div className="flex items-start gap-2.5 min-w-0">
-                        <span className="text-cyan-400 font-mono text-[11px] font-bold shrink-0 mt-0.5">
-                          §{sIdx + 1}
-                        </span>
-                        <span className="leading-snug">{sec.title}</span>
-                      </div>
-                      {hasUpdate && (
-                        <span className="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 shrink-0 mt-0.5">
-                          NEW
-                        </span>
-                      )}
-                    </button>
-                  );
-                })}
+                {formattedSections.map((sec: any, sIdx: number) => (
+                  <button
+                    key={`side-toc-${sec.id}`}
+                    onClick={() => jumpToSection(sec.id)}
+                    className="w-full text-left px-3 py-2 rounded-xl bg-slate-950/50 hover:bg-slate-900 border border-slate-800/60 hover:border-cyan-500/35 text-xs text-slate-300 hover:text-white transition flex items-start gap-2.5 group"
+                  >
+                    <span className="text-cyan-400 font-mono text-[11px] font-bold shrink-0 mt-0.5">
+                      §{sIdx + 1}
+                    </span>
+                    <span className="leading-snug">{sec.title}</span>
+                  </button>
+                ))}
               </div>
             </div>
           )}
