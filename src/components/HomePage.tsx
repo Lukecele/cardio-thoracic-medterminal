@@ -221,7 +221,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <Stethoscope className="w-5 h-5" />
                 </div>
                 <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-purple-300 font-bold">
-                  5 STAZIONI
+                  9 STAZIONI
                 </span>
               </div>
               <h3 className="text-sm font-bold text-white group-hover:text-purple-300 transition-colors">

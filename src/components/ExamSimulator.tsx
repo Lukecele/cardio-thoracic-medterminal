@@ -315,7 +315,7 @@ export const ExamSimulator: React.FC<Props> = ({
 
           {/* Question Topic & Stem */}
           <div className="bg-slate-950 border border-slate-800 rounded-xl p-4">
-            <div className="flex items-center justify-between mb-2">
+            <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
               <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 bg-cyan-950/40 px-2 py-0.5 rounded border border-cyan-800/40 font-semibold">
                 {currentQ.topic}
               </span>

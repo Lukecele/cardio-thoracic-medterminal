@@ -512,7 +512,7 @@ export const Anatomy3DViewport: React.FC<Anatomy3DViewportProps> = ({
                 onPointerMove={handlePointerMove}
                 onPointerUp={handlePointerUp}
                 onPointerLeave={handlePointerUp}
-                className={`flex-1 w-full h-full flex items-center justify-center overflow-hidden p-4 select-none ${
+                className={`flex-1 w-full h-full flex items-center justify-center overflow-hidden pt-12 pb-3 px-4 lg:p-4 select-none ${
                   zoomLevel > 1.01 ? 'cursor-grab active:cursor-grabbing' : 'cursor-default'
                 }`}
               >
