@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
-  Layers, RefreshCw, ExternalLink, Sparkles, Image as ImageIcon,
-  Box, AlertTriangle, CheckCircle2, ZoomIn, ZoomOut, Maximize2,
-  Minimize2, ChevronRight, Info, Eye
+  Layers, RefreshCw, Sparkles, Image as ImageIcon,
+  Box, CheckCircle2, ZoomIn, ZoomOut, ChevronRight,
+  Eye, EyeOff, MapPin, RotateCcw
 } from 'lucide-react';
 
 export interface Anatomy3DViewportProps {
@@ -19,13 +19,14 @@ export interface LandmarkItem {
   structure: string;
   detail: string;
   clinicalNote: string;
+  x: number; // % from left on 1:1 plate
+  y: number; // % from top on 1:1 plate
 }
 
 export interface ModelConfig {
   id: Model3DKey;
   name: string;
   badge: string;
-  color: string;
   category: string;
   embedUrl: string;
   posterImage: string;
@@ -39,211 +40,286 @@ const MODEL_CONFIGS: Record<Model3DKey, ModelConfig> = {
   heart: {
     id: 'heart',
     name: 'Cuore Interno & Apparato Valvolare',
-    badge: 'CARDIO-3D',
-    color: 'rose',
+    badge: 'CARDIO-HD',
     category: 'Anatomia Clinica & Valvole',
     embedUrl: 'https://sketchfab.com/models/9f48eaa481cc4a43baeb9e1f03882cff/embed?autostart=1&ui_theme=dark&ui_hint=0&ui_infos=0&ui_watermark=0&ui_help=0&ui_settings=0&ui_inspector=0&dnt=1',
-    posterImage: '/anatomy/model_heart.png',
-    description: 'Dissezione tridimensionale completa delle 4 camere cardiache. Visualizzazione dettagliata del miocardio di lavoro, setto interventricolare, apparato sottovalvolare mitro-tricuspidale e radice aortica.',
+    posterImage: '/anatomy/atlas_heart.webp',
+    description: 'Sezione coronale volumetrica delle 4 camere cardiache: miocardio ventricolare, setto interventricolare, apparato sottovalvolare mitro-tricuspidale e radice aortica.',
     landmarks: [
       {
         structure: 'Ventricolo Sinistro (LV)',
-        detail: 'Pareti ad alto spessore miocardico (normale 8-11 mm) calibrate per sopportare il carico pressorio sistemico arterioso.',
-        clinicalNote: 'Sviluppa ipertrofia concentrica da stenosi aortica o ipertensione cronica.'
+        detail: 'Pareti ad alto spessore miocardico (normale 8-11 mm) calibrate per il regime pressorio sistemico arterioso.',
+        clinicalNote: 'Sviluppa ipertrofia concentrica nella stenosi aortica o ipertensione cronica; dilatazione eccentrica nei rigurgiti.',
+        x: 66,
+        y: 71,
       },
       {
         structure: 'Ventricolo Destro (RV)',
-        detail: 'Camera semilunare a bassa pressione e ad elevata distensibilità per il circolo polmonare.',
-        clinicalNote: 'Vulnerabile al sovraccarico acuto di pressione (es. cuore polmonare da embolia polmonare massiva).'
+        detail: 'Camera semilunare a bassa pressione ed elevata distensibilità per il piccolo circolo polmonare.',
+        clinicalNote: 'Vulnerabile al sovraccarico acuto di pressione (cuore polmonare in embolia polmonare massiva) e all\'infarto inferiore (V4R).',
+        x: 42,
+        y: 69,
       },
       {
         structure: 'Valvola Mitrale & Apparato Sottovalvolare',
-        detail: 'Lembo anteriore (aortico) e posteriore ancorati a corde tendinee di I, II e III ordine e muscoli papillari.',
-        clinicalNote: 'Rottura del papillare postero-mediale in corso di STEMI causa rigurgito massivo acuto ed edema polmonare.'
+        detail: 'Lembo anteriore (aortico) e posteriore ancorati tramite corde tendinee ai muscoli papillari antero-laterale e postero-mediale.',
+        clinicalNote: 'La rottura del papillare postero-mediale (vascolarizzato dalla sola CDx) post-STEMI provoca IM acuta massiva ed edema polmonare.',
+        x: 63,
+        y: 53,
       },
       {
-        structure: 'Radice Aortica & Seni di Valsalva',
-        detail: 'Tre cuspidi semilunari con emergenza degli osti coronarici destro e sinistro nei corrispondenti seni valvolari.',
-        clinicalNote: 'Sede di ectasia annulo-aortica e dissezione acuta di Stanford Tipo A.'
-      }
+        structure: 'Radice Aortica & Arco',
+        detail: 'Valvola semilunare tricuspide con seni di Valsalva da cui originano gli osti coronarici destro e sinistro.',
+        clinicalNote: 'Sede di stenosi aortica calcifica degenerativa, ectasia annulo-aortica e dissezione Stanford Tipo A.',
+        x: 49,
+        y: 27,
+      },
     ],
-    clinicalExamYield: 'Fondamentale per comprendere la differenza tra stenosi mitralica (fusione commissurale reumatica ad alta frequenza), insufficienza mitralica (rigurgito olosistolico continuo) e stenosi aortica calcifica.',
-    examQuestionsFocus: ['Quesiti su STEMI con rottura di papillare', 'Semeiotica dei soffi valvolari', 'Insufficienza aortica da ectasia radice']
+    clinicalExamYield: 'Fondamentale per correlare anatomia e semeiotica: stenosi mitralica (rullio diastolico + opening snap), insufficienza mitralica (soffio olosistolico all\'apice) e stenosi aortica calcifica (soffio a diamante irradiato alle carotidi).',
+    examQuestionsFocus: ['Rottura papillare post-STEMI', 'Semeiotica dei soffi valvolari', 'Insufficienza aortica & radice'],
   },
   beating: {
     id: 'beating',
-    name: 'Battito Cardiaco & Ciclo Dinamico',
-    badge: 'FISIOLOGIA-3D',
-    color: 'amber',
-    category: 'Emodinamica & Fisiologia',
+    name: 'Ciclo Cardiaco & Emodinamica',
+    badge: 'FISIOLOGIA-HD',
+    category: 'Emodinamica & Flussi',
     embedUrl: 'https://sketchfab.com/models/09ce20e146b24f71943b13dcdf099db9/embed?autostart=1&ui_theme=dark&ui_hint=0&ui_infos=0&ui_watermark=0&ui_help=0&ui_settings=0&ui_inspector=0&dnt=1',
-    posterImage: '/anatomy/model_beating.png',
-    description: 'Ricostruzione dinamica in tempo reale del ciclo cardiaco: successione temporale tra contrazione isovolumetrica, eiezione rapida, rilasciamento isovolumetrico e riempimento ventricolare.',
+    posterImage: '/anatomy/atlas_beating.webp',
+    description: 'Mappatura volumetrica dei flussi emodinamici (sangue venoso blu a destra → polmonare; ossigenato rosso a sinistra → aorta) e delle fasi meccaniche del ciclo cardiaco.',
     landmarks: [
       {
-        structure: 'Sistole Ventricolare & Eiezione',
-        detail: 'Accorciamento dell\'asse longitudinale base-apice combinato a torsione radiale ed ispessimento parietale.',
-        clinicalNote: 'Definisce la Frazione di Eiezione (FE = SV / EDV x 100); FE < 40% indica insufficienza cardiaca HFrEF.'
+        structure: 'Sistole Ventricolare & Eiezione (LV → Aorta)',
+        detail: 'Contrazione isovolumetrica seguita da eiezione rapida attraverso la valvola aortica verso il circolo sistemico.',
+        clinicalNote: 'Definisce la Frazione di Eiezione (FE = SV / EDV × 100); FE ≤ 40% identifica lo scompenso HFrEF (4 pilastri Classe I ESC).',
+        x: 59,
+        y: 62,
       },
       {
         structure: 'Diastole & Riempimento Rapido',
-        detail: 'Rilasciamento attivo miocardico mediato dal riassorbimento di calcio nel reticolo sarcoplasmatico.',
-        clinicalNote: 'Genesi del terzo tono (S3): impatto della colonna ematica contro pareti dilatate e poco complianti.'
+        detail: 'Rilasciamento attivo ATP-dipendente (SERCA2a) e riempimento protodiastolico rapido ventricolare.',
+        clinicalNote: 'Genesi del galoppo protodiastolico S3: brusco arresto della colonna ematica in un ventricolo dilatato e sovraccarico.',
+        x: 44,
+        y: 71,
       },
       {
         structure: 'Sistole Atriale ("Atrial Kick")',
-        detail: 'Contrazione atriale telediastolica che fornisce il 20-30% del volume telediastolico ventricolare totale.',
-        clinicalNote: 'Genesi del quarto tono (S4); la perdita dell\'atrial kick in Fibrillazione Atriale provoca instabilità emodinamica.'
-      }
+        detail: 'Contrazione atriale telediastolica responsabile del 20-30% del riempimento ventricolare finale.',
+        clinicalNote: 'Genesi del quarto tono (S4, ventricolo rigido/ipertrofico); la sua perdita in Fibrillazione Atriale precipita lo scompenso.',
+        x: 65,
+        y: 41,
+      },
     ],
-    clinicalExamYield: 'Permette di visualizzare le curve pressione-volume del ventricolo sinistro, il meccanismo di Frank-Starling e la cascata fisiopatologica dello scompenso cardiaco a ridotta FE.',
-    examQuestionsFocus: ['Frazione di Eiezione e volumi ventricolari', 'Genesi semiologica di S3 ed S4', 'Perdita della sistole atriale in FA']
-  },
-  lungs: {
-    id: 'lungs',
-    name: 'Albero Respiratorio & Lobi Polmonari',
-    badge: 'PNEUMO-3D',
-    color: 'sky',
-    category: 'Anatomia Pneumologica & Toracica',
-    embedUrl: 'https://sketchfab.com/models/250911151757489da1cf5501b791f363/embed?autostart=1&ui_theme=dark&ui_hint=0&ui_infos=0&ui_watermark=0&ui_help=0&ui_settings=0&ui_inspector=0&dnt=1',
-    posterImage: '/anatomy/model_lungs.png',
-    description: 'Mappatura tridimensionale dell\'albero tracheo-bronchiale e dell\'architettura lobare: trachea cervicale e toracica, sperone carenale di Louis (T4-T5) e ramificazione lobare/segmentaria.',
-    landmarks: [
-      {
-        structure: 'Trachea & Carena T4-T5',
-        detail: 'Condotto fibrocartilagineo con 16-20 anelli a C aperti posteriormente sulla parete membranosa.',
-        clinicalNote: 'Invasione neoplastica a meno di 2 cm dalla carena definisce lo stadio T4 (criterio di inoperabilità chirurgica).'
-      },
-      {
-        structure: 'Bronco Principale Destro vs Sinistro',
-        detail: 'Il destro è più corto (2-2.5 cm), più ampio e più verticale (angolo di ~25°); il sinistro è lungo 5 cm e orizzontale (~45°).',
-        clinicalNote: 'Corpi estranei inalati e polmoniti ab ingestis si localizzano selettivamente nel bronco intermedio/lobo inferiore destro.'
-      },
-      {
-        structure: 'Polmone Destro (3 Lobi)',
-        detail: 'Lobo superiore, medio e inferiore separati dalla scissura orizzontale e dalla scissura obliqua.',
-        clinicalNote: 'Sede per lobectomia d\'elezione nel carcinoma polmonare non a piccole cellule (NSCLC).'
-      },
-      {
-        structure: 'Polmone Sinistro (2 Lobi)',
-        detail: 'Lobo superiore (con lingula) e lobo inferiore separati da un\'unica scissura obliqua; ampia incisura cardiaca.',
-        clinicalNote: 'La lingula rappresenta l\'omologo anatomico del lobo medio destro.'
-      }
-    ],
-    clinicalExamYield: 'Essenziale per la stadiazione TNM dell\'adenocarcinoma polmonare, la broncoscopia operativa e la chirurgia toracica resettiva (lobectomia vs pneumonectomia).',
-    examQuestionsFocus: ['Stadiazione TNM del carcinoma polmonare', 'Anatomia chirurgica della carena tracheale', 'Complicanze della broncoaspirazione']
-  },
-  aorta: {
-    id: 'aorta',
-    name: 'Aorta Toracica & Aneurisma (TAA)',
-    badge: 'VASCOLARE-3D',
-    color: 'emerald',
-    category: 'Chirurgia Vascolare & Emergenze',
-    embedUrl: 'https://sketchfab.com/models/bcf37e4072de48b0aabd2e62db815cbd/embed?autostart=1&ui_theme=dark&ui_hint=0&ui_infos=0&ui_watermark=0&ui_help=0&ui_settings=0&ui_inspector=0&dnt=1',
-    posterImage: '/anatomy/model_aorta.png',
-    description: 'Modello volumetrico dell\'aorta toracica con visualizzazione della radice aortica, aorta ascendente, arco con emergenza dei 3 tronchi sovraortici, istmo e dilatazione aneurismatica.',
-    landmarks: [
-      {
-        structure: 'Radice & Aorta Ascendente',
-        detail: 'Tratto compreso tra il piano valvolare e il tronco brachiocefalico anonimo (diametro fisiologico < 35 mm).',
-        clinicalNote: 'Dissezione di Stanford Tipo A: emergenza cardiochirurgica assoluta con mortalità dell\'1-2% ogni ora.'
-      },
-      {
-        structure: 'Arco Aortico & Tronchi Sovraortici',
-        detail: 'Origine del tronco anonimo brachiocefalico, carotide comune sinistra e arteria succlavia sinistra.',
-        clinicalNote: 'Coinvolgimento dei tronchi provoca asimmetria dei polsi periferici (>20 mmHg tra le braccia) e deficit neurologici focali.'
-      },
-      {
-        structure: 'Istmo Aortico & Zona Aneurismatica',
-        detail: 'Punto di transizione fisso tra arco mobile e aorta toracica discendente ancorata al rachide.',
-        clinicalNote: 'Punto critico di rottura traumatica da decelerazione; secondo la Legge di Laplace (T = P x r / 2h), il rischio di rottura cresce esponenzialmente per diametri > 5.5 cm.'
-      }
-    ],
-    clinicalExamYield: 'Cruciale per la classificazione di Stanford (Tipo A vs Tipo B) e le indicazioni alla riparazione chirurgica a cielo aperto con tubo protesico vs TEVAR endovascolare.',
-    examQuestionsFocus: ['Classificazione di Stanford e DeBakey', 'Legge di Laplace e cut-off chirurgico di 5.5 cm', 'Diagnosi differenziale del dolore toracico lacerante']
+    clinicalExamYield: 'Collega il loop pressione-volume, la legge di Frank-Starling e di Laplace alla clinica dello scompenso cardiaco, dei galoppi S3/S4 e dello shock cardiogeno.',
+    examQuestionsFocus: ['FE e classificazione HFrEF/HFpEF', 'Genesi di S3 ed S4', 'Impatto della FA sul riempimento'],
   },
   coronary: {
     id: 'coronary',
     name: 'Circolo Arterioso Coronarico',
-    badge: 'CORONARICO-3D',
-    color: 'blue',
-    category: 'Emodinamica & Cardiologia Interventistica',
+    badge: 'CORONARICO-HD',
+    category: 'Emodinamica & STEMI',
     embedUrl: 'https://sketchfab.com/models/00b5f4ec0b984325b453f8df07cd0cb5/embed?autostart=1&ui_theme=dark&ui_hint=0&ui_infos=0&ui_watermark=0&ui_help=0&ui_settings=0&ui_inspector=0&dnt=1',
-    posterImage: '/anatomy/model_coronary.png',
-    description: 'Mappatura tridimensionale dell\'albero coronarico epicardico: Tronco Comune, Arteria Interventricolare Anteriore (IVA / LAD), Arteria Circonflessa (LCx) e Arteria Coronaria Destra (CDX).',
+    posterImage: '/anatomy/atlas_coronary.webp',
+    description: 'Albero arterioso coronarico epicardico: Tronco Comune, Arteria Interventricolare Anteriore (IVA / LAD) con rami diagonali, Circonflessa (LCx) e Coronaria Destra (CDx).',
     landmarks: [
       {
         structure: 'Arteria Interventricolare Anteriore (IVA / LAD)',
-        detail: 'Origina dal Tronco Comune, decorre nel solco interventricolare anteriore ed emette rami diagonali e settali per i 2/3 anteriori del setto.',
-        clinicalNote: 'Occlusione acuta causa STEMI Anteriore / Antero-Settale con sopraslivellamento ST nelle derivazioni precordiali V1-V4.'
+        detail: 'Decorre nel solco interventricolare anteriore irrorando parete anteriore, apice e 2/3 anteriori del setto interventricolare.',
+        clinicalNote: 'Occlusione acuta → STEMI Antero-Settale (V1-V4); stenosi critica sub-occlusiva prossimale → Sindrome di Wellens (T invertite/bifasiche V2-V3).',
+        x: 59,
+        y: 63,
       },
       {
         structure: 'Arteria Circonflessa (LCx)',
-        detail: 'Percorre il solco atrioventricolare sinistro ed emette rami marginali ottusi (OM) che irrorano la parete laterale libera del ventricolo sinistro.',
-        clinicalNote: 'Occlusione acuta causa STEMI Laterale con sopraslivellamento ST in DI, aVL, V5-V6.'
+        detail: 'Decorre nel solco atrioventricolare sinistro emettendo i rami marginali ottusi per la parete laterale e infero-basale.',
+        clinicalNote: 'Occlusione acuta → STEMI Laterale (DI, aVL, V5-V6) o Posteriore (ST depresso V1-V3 con ST sopraslivellato in V7-V9).',
+        x: 69,
+        y: 49,
       },
       {
-        structure: 'Arteria Coronaria Destra (CDX)',
-        detail: 'Origina dal seno di Valsalva destro, decorre nel solco AV destro e irrora il ventricolo destro, nodo senoatriale, nodo AV e parete inferiore.',
-        clinicalNote: 'Occlusione acuta causa STEMI Inferiore (DII, DIII, aVF) frequentemente associato a bradiaritmie e blocco AV avanzato.'
-      }
+        structure: 'Arteria Coronaria Destra (CDx)',
+        detail: 'Origina dal seno di Valsalva destro, irrora ventricolo destro, nodo SA/AV e (nell\'85% dominanza dx) la parete inferiore.',
+        clinicalNote: 'Occlusione acuta → STEMI Inferiore (DII, DIII, aVF) + rischio di Infarto del VD (V4R: EVITARE nitrati!) e BAV.',
+        x: 31,
+        y: 60,
+      },
     ],
-    clinicalExamYield: 'Correlazione fondamentale tra la sede anatomica dell\'occlusione aterotrombotica coronarica e le derivazioni elettrocardiografiche dello STEMI all\'ECG.',
-    examQuestionsFocus: ['Correlazione tra coronaria occlusa e derivazioni ECG', 'Complicanze dello STEMI inferiore da CDX', 'Anatomia coronarica per angioplastica primaria PCI']
-  }
+    clinicalExamYield: 'Correlazione diretta tra vaso coronarico colpevole, territorio miocardico, derivazioni ECG e scelta del condotto di bypass (LIMA su IVA gold standard).',
+    examQuestionsFocus: ['Correlazione coronaria → derivazioni ECG', 'Infarto VD & derivazioni V4R', 'LIMA su IVA nel CABG'],
+  },
+  lungs: {
+    id: 'lungs',
+    name: 'Albero Respiratorio & Lobi Polmonari',
+    badge: 'PNEUMO-HD',
+    category: 'Pneumologia & Chirurgia Toracica',
+    embedUrl: 'https://sketchfab.com/models/250911151757489da1cf5501b791f363/embed?autostart=1&ui_theme=dark&ui_hint=0&ui_infos=0&ui_watermark=0&ui_help=0&ui_settings=0&ui_inspector=0&dnt=1',
+    posterImage: '/anatomy/atlas_lungs.webp',
+    description: 'Anatomia tracheo-bronchiale e lobare: trachea a C cartilaginee, carena (T4-T5), polmone destro trilobato con scissure e polmone sinistro traslucido con albero bronchiale segmentario.',
+    landmarks: [
+      {
+        structure: 'Trachea & Carena (T4-T5)',
+        detail: '16-20 anelli cartilaginei a C con parete membranosa posteriore; biforcazione carenale all\'angolo sternale di Louis.',
+        clinicalNote: 'Coinvolgimento tumorale della carena definisce lo stadio T4 nella stadiazione TNM 9ª Edizione (NSCLC).',
+        x: 50,
+        y: 36,
+      },
+      {
+        structure: 'Bronco Principale Destro vs Sinistro',
+        detail: 'Il destro è più corto (2-2.5 cm), ampio e verticale (~25°); il sinistro è più lungo (5 cm) e orizzontale (~45°).',
+        clinicalNote: 'I corpi estranei inalati e le polmoniti ab ingestis finiscono selettivamente nel bronco/lobo inferiore destro.',
+        x: 58,
+        y: 43,
+      },
+      {
+        structure: 'Polmone Destro (3 Lobi — 10 Segmenti)',
+        detail: 'Lobo superiore (3 seg.), medio (2 seg.) e inferiore (5 seg.) separati da scissura orizzontale e obliqua.',
+        clinicalNote: 'Base del calcolo ppo-FEV1 / ppo-DLCO pre-lobectomia (su 19 segmenti polmonari totali).',
+        x: 29,
+        y: 54,
+      },
+      {
+        structure: 'Polmone Sinistro (2 Lobi — 9 Segmenti)',
+        detail: 'Lobo superiore (con lingula, omologa del lobo medio) e inferiore separati dall\'unica scissura obliqua.',
+        clinicalNote: 'L\'albero segmentario guida la segmentectomia anatomica VATS nei tumori periferici ≤ 2 cm (T1a-T1b N0).',
+        x: 72,
+        y: 56,
+      },
+    ],
+    clinicalExamYield: 'Indispensabile per la stadiazione TNM 9ª Ed. (stazioni linfonodali N1/N2a/N2b/N3), il calcolo dei segmenti resecati (ppo-FEV1) e la broncoscopia.',
+    examQuestionsFocus: ['TNM 9ª Ed. (N2a vs N2b)', 'Segmenti polmonari & ppo-FEV1', 'Broncoaspirazione a destra'],
+  },
+  aorta: {
+    id: 'aorta',
+    name: 'Aorta Toracica & Aneurisma (TAA)',
+    badge: 'VASCOLARE-HD',
+    category: 'Chirurgia Vascolare & Aorta',
+    embedUrl: 'https://sketchfab.com/models/bcf37e4072de48b0aabd2e62db815cbd/embed?autostart=1&ui_theme=dark&ui_hint=0&ui_infos=0&ui_watermark=0&ui_help=0&ui_settings=0&ui_inspector=0&dnt=1',
+    posterImage: '/anatomy/atlas_aorta.webp',
+    description: 'Anatomia volumetrica dell\'aorta toracica su silhouette cardiaca: radice, aorta ascendente, arco con i 3 tronchi sovraortici, istmo e dilatazione aneurismatica discendente.',
+    landmarks: [
+      {
+        structure: 'Radice & Aorta Ascendente',
+        detail: 'Tratto compreso tra anulus valvolare aortico ed emergenza del tronco anonimo brachiocefalico (calibro normale < 35 mm).',
+        clinicalNote: 'Dissezione Stanford Tipo A: emergenza cardiochirurgica assoluta (intervento di Bentall / Tirone David).',
+        x: 42,
+        y: 41,
+      },
+      {
+        structure: 'Arco Aortico & 3 Tronchi Sovraortici',
+        detail: 'Origine in sequenza di: 1) Tronco brachiocefalico anonimo, 2) Carotide comune sinistra, 3) Arteria succlavia sinistra.',
+        clinicalNote: 'La dissezione dei tronchi causa differenza di PA > 20 mmHg tra i due arti superiori e sintomi neurologici/ictus.',
+        x: 49,
+        y: 20,
+      },
+      {
+        structure: 'Istmo Aortico & Aneurisma Discendente (TAA)',
+        detail: 'Zona di transizione subito a valle della succlavia sinistra (legamento arterioso), sede tipica di lesioni da decelerazione e TAA.',
+        clinicalNote: 'Legge di Laplace (T = P·r / 2h): indicazione a riparazione (TEVAR / open) a ≥ 5.5 cm (o più precoce in Marfan/Loeys-Dietz).',
+        x: 60,
+        y: 37,
+      },
+    ],
+    clinicalExamYield: 'Fondamentale per la classificazione di Stanford (Tipo A chirurgica vs Tipo B medica/TEVAR), Legge di Laplace e diagnosi differenziale del dolore toracico lacerante.',
+    examQuestionsFocus: ['Stanford Tipo A vs Tipo B', 'Legge di Laplace & cut-off 5.5 cm', 'TEVAR vs chirurgia open'],
+  },
 };
 
 export const Anatomy3DViewport: React.FC<Anatomy3DViewportProps> = ({
   focusTarget,
   onSelectTarget,
-  isMaximized,
-  onToggleMaximize
 }) => {
   const [activeModelKey, setActiveModelKey] = useState<Model3DKey>('heart');
-  const [viewMode, setViewMode] = useState<'3d' | 'hd'>(() => {
-    if (typeof window !== 'undefined' && window.innerWidth < 768) {
-      return 'hd';
-    }
-    return '3d';
-  });
-  const [mobileTab, setMobileTab] = useState<'split' | '3d' | 'info'>('split');
+  const [viewMode, setViewMode] = useState<'atlas' | '3d'>('atlas');
+  const [mobileTab, setMobileTab] = useState<'split' | 'view' | 'info'>('split');
   const [isIframeLoading, setIsIframeLoading] = useState(true);
-  const [selectedLandmarkIdx, setSelectedLandmarkIdx] = useState<number | null>(null);
-  const [zoomLevel, setZoomLevel] = useState<number>(1.0);
+  const [selectedLandmarkIdx, setSelectedLandmarkIdx] = useState<number | null>(0);
+  const [showPins, setShowPins] = useState(true);
+  const [quizMode, setQuizMode] = useState(false);
+  const [revealedQuizPins, setRevealedQuizPins] = useState<Set<number>>(new Set());
 
-  // Sync with prop
+  // Smooth Zoom & Pan state
+  const [zoomLevel, setZoomLevel] = useState<number>(1.0);
+  const [pan, setPan] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+  const isDraggingRef = useRef(false);
+  const dragStartRef = useRef<{ x: number; y: number; panX: number; panY: number }>({ x: 0, y: 0, panX: 0, panY: 0 });
+
   useEffect(() => {
     if (!focusTarget) return;
-    if (focusTarget === 'lungs' || focusTarget === 'thorax') {
-      setActiveModelKey('lungs');
-    } else if (focusTarget === 'aorta' || focusTarget === 'vessels') {
-      setActiveModelKey('aorta');
-    } else if (focusTarget === 'coronary') {
-      setActiveModelKey('coronary');
-    } else if (focusTarget === 'beating') {
-      setActiveModelKey('beating');
-    } else if (focusTarget === 'heart') {
-      setActiveModelKey('heart');
-    }
+    if (focusTarget === 'lungs' || focusTarget === 'thorax') setActiveModelKey('lungs');
+    else if (focusTarget === 'aorta' || focusTarget === 'vessels') setActiveModelKey('aorta');
+    else if (focusTarget === 'coronary') setActiveModelKey('coronary');
+    else if (focusTarget === 'beating') setActiveModelKey('beating');
+    else if (focusTarget === 'heart') setActiveModelKey('heart');
+    setSelectedLandmarkIdx(0);
+    setZoomLevel(1.0);
+    setPan({ x: 0, y: 0 });
+    setRevealedQuizPins(new Set());
   }, [focusTarget]);
 
   const activeConfig = MODEL_CONFIGS[activeModelKey] || MODEL_CONFIGS.heart;
+  const activeLandmark =
+    selectedLandmarkIdx !== null ? activeConfig.landmarks[selectedLandmarkIdx] : null;
 
   const handleSelectModel = (key: Model3DKey) => {
     setActiveModelKey(key);
     setIsIframeLoading(true);
-    setSelectedLandmarkIdx(null);
+    setSelectedLandmarkIdx(0);
     setZoomLevel(1.0);
+    setPan({ x: 0, y: 0 });
+    setRevealedQuizPins(new Set());
     onSelectTarget?.(key);
+  };
+
+  const resetView = () => {
+    setZoomLevel(1.0);
+    setPan({ x: 0, y: 0 });
+  };
+
+  const handlePointerDown = (e: React.PointerEvent) => {
+    if (zoomLevel <= 1.01) return;
+    isDraggingRef.current = true;
+    dragStartRef.current = { x: e.clientX, y: e.clientY, panX: pan.x, panY: pan.y };
+  };
+
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (!isDraggingRef.current) return;
+    const dx = e.clientX - dragStartRef.current.x;
+    const dy = e.clientY - dragStartRef.current.y;
+    const limit = (zoomLevel - 1) * 180;
+    setPan({
+      x: Math.max(-limit, Math.min(limit, dragStartRef.current.panX + dx)),
+      y: Math.max(-limit, Math.min(limit, dragStartRef.current.panY + dy)),
+    });
+  };
+
+  const handlePointerUp = () => {
+    isDraggingRef.current = false;
+  };
+
+  const handleWheel = (e: React.WheelEvent) => {
+    if (viewMode !== 'atlas') return;
+    e.preventDefault();
+    const delta = e.deltaY < 0 ? 0.15 : -0.15;
+    setZoomLevel((prev) => {
+      const next = Math.max(1.0, Math.min(2.2, Number((prev + delta).toFixed(2))));
+      if (next <= 1.01) setPan({ x: 0, y: 0 });
+      return next;
+    });
+  };
+
+  const toggleRevealQuizPin = (idx: number) => {
+    setRevealedQuizPins((prev) => {
+      const next = new Set(prev);
+      if (next.has(idx)) next.delete(idx);
+      else next.add(idx);
+      return next;
+    });
   };
 
   return (
     <div className="flex flex-col h-full bg-[#07090e] text-slate-100 overflow-hidden">
-      
+
       {/* 1. TOP HEADER & MODEL SWITCHER BAR */}
       <div className="p-3 sm:p-3.5 border-b border-slate-800 bg-slate-950/95 shrink-0 space-y-2.5">
-        
-        {/* Row 1: Model Title & Dual-Engine Mode Toggle */}
         <div className="flex flex-wrap items-center justify-between gap-2.5">
           <div className="flex items-center space-x-2">
             <div className="w-7 h-7 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
@@ -251,48 +327,50 @@ export const Anatomy3DViewport: React.FC<Anatomy3DViewportProps> = ({
             </div>
             <div>
               <div className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-300 flex items-center gap-1.5">
-                <span>Atlante Anatomico Cardio-Toracico</span>
-                <span className="text-[10px] px-1.5 py-0.2 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 font-normal">
-                  360° / HD
+                <span>Atlante Anatomico Volumetrico HD</span>
+                <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 font-bold">
+                  ISTANTANEO
                 </span>
               </div>
-              <p className="text-[11px] text-slate-400 hidden sm:block">Reperti anatomo-chirurgici e correlazioni fisiopatologiche d'esame</p>
+              <p className="text-[11px] text-slate-400 hidden sm:block">
+                Tavole 3D volumetriche ad alta definizione con pin interattivi sincronizzati e quiz anatomico
+              </p>
             </div>
           </div>
 
-          {/* Engine Selector: 3D WebGL vs Atlante HD */}
+          {/* Mode Toggle: Fast Interactive HD Atlas (Default) vs Optional 3D 360° */}
           <div className="flex items-center space-x-1 bg-slate-900 p-1 rounded-xl border border-slate-800">
             <button
-              onClick={() => setViewMode('3d')}
+              onClick={() => setViewMode('atlas')}
               className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold transition ${
-                viewMode === '3d'
-                  ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 shadow-sm'
+                viewMode === 'atlas'
+                  ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/35 shadow-sm'
                   : 'text-slate-400 hover:text-slate-200'
               }`}
-              title="Modello 3D interattivo con rotazione a 360° e zoom"
-            >
-              <Box className="w-3.5 h-3.5" />
-              <span>3D WebGL</span>
-            </button>
-            <button
-              onClick={() => setViewMode('hd')}
-              className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold transition ${
-                viewMode === 'hd'
-                  ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 shadow-sm'
-                  : 'text-slate-400 hover:text-slate-200'
-              }`}
-              title="Tavola anatomica volumetrica HD anti-crash: velocissima, zero memoria GPU"
+              title="Tavola volumetrica HD istantanea con pin interattivi e zoom fluido"
             >
               <ImageIcon className="w-3.5 h-3.5" />
               <span>Atlante HD</span>
-              <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-emerald-500/30 text-emerald-200">
-                LITE
-              </span>
+            </button>
+            <button
+              onClick={() => {
+                setViewMode('3d');
+                setIsIframeLoading(true);
+              }}
+              className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold transition ${
+                viewMode === '3d'
+                  ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/35 shadow-sm'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+              title="Carica modello esterno Sketchfab 360° (richiede qualche secondo di rete)"
+            >
+              <Box className="w-3.5 h-3.5" />
+              <span>3D 360° (Esterno)</span>
             </button>
           </div>
         </div>
 
-        {/* Row 2: Horizontal Scrollable Models Selector */}
+        {/* Horizontal Scrollable Models Selector */}
         <div className="flex items-center gap-1.5 overflow-x-auto pb-1 custom-scrollbar">
           {Object.values(MODEL_CONFIGS).map((cfg) => {
             const isSelected = cfg.id === activeModelKey;
@@ -320,65 +398,231 @@ export const Anatomy3DViewport: React.FC<Anatomy3DViewportProps> = ({
           })}
         </div>
 
-        {/* Row 3: Mobile Layout Tabs (Only visible on screens < lg) */}
+        {/* Mobile Layout Tabs */}
         <div className="flex lg:hidden items-center justify-between pt-1 border-t border-slate-800/80">
           <div className="text-[11px] text-slate-400 font-mono">Vista mobile:</div>
           <div className="flex items-center gap-1 bg-slate-900 p-0.5 rounded-lg border border-slate-800">
-            <button
-              onClick={() => setMobileTab('split')}
-              className={`px-2.5 py-0.5 rounded text-[11px] font-medium transition ${
-                mobileTab === 'split' ? 'bg-slate-800 text-white font-bold' : 'text-slate-400'
-              }`}
-            >
-              📱 Divisa
-            </button>
-            <button
-              onClick={() => setMobileTab('3d')}
-              className={`px-2.5 py-0.5 rounded text-[11px] font-medium transition ${
-                mobileTab === '3d' ? 'bg-cyan-500/20 text-cyan-300 font-bold' : 'text-slate-400'
-              }`}
-            >
-              🎮 Solo Vista
-            </button>
-            <button
-              onClick={() => setMobileTab('info')}
-              className={`px-2.5 py-0.5 rounded text-[11px] font-medium transition ${
-                mobileTab === 'info' ? 'bg-rose-500/20 text-rose-300 font-bold' : 'text-slate-400'
-              }`}
-            >
-              📋 Solo Teoria
-            </button>
+            {([
+              { id: 'split', label: 'Divisa' },
+              { id: 'view', label: 'Solo Tavola' },
+              { id: 'info', label: 'Solo Reperi' },
+            ] as const).map((t) => (
+              <button
+                key={t.id}
+                onClick={() => setMobileTab(t.id)}
+                className={`px-2.5 py-0.5 rounded text-[11px] font-medium transition ${
+                  mobileTab === t.id ? 'bg-cyan-500/20 text-cyan-300 font-bold' : 'text-slate-400'
+                }`}
+              >
+                {t.label}
+              </button>
+            ))}
           </div>
         </div>
-
       </div>
 
       {/* 2. MAIN WORKSTATION BODY: SPLIT VIEW */}
       <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 overflow-hidden min-h-0">
-        
-        {/* LEFT COLUMN: VIEWPORT (3D WebGL or Volumetric HD) */}
-        <div className={`lg:col-span-7 flex flex-col bg-black relative border-r border-slate-800/80 overflow-hidden ${
-          mobileTab === 'info' ? 'hidden lg:flex' : 'flex'
-        } ${mobileTab === 'split' ? 'h-[280px] sm:h-[340px] lg:h-full shrink-0' : 'flex-1 lg:h-full'}`}>
-          
-          {viewMode === '3d' ? (
-            /* 3D WebGL Iframe Mode */
-            <div className="relative w-full h-full flex flex-col">
+
+        {/* LEFT COLUMN: INTERACTIVE HD PLATE (OR OPTIONAL 3D IFRAME) */}
+        <div
+          className={`lg:col-span-7 flex flex-col bg-[#07090e] relative border-r border-slate-800/80 overflow-hidden ${
+            mobileTab === 'info' ? 'hidden lg:flex' : 'flex'
+          } ${mobileTab === 'split' ? 'h-[310px] sm:h-[380px] lg:h-full shrink-0' : 'flex-1 lg:h-full'}`}
+        >
+          {viewMode === 'atlas' ? (
+            <div className="relative w-full h-full flex flex-col bg-[#07090e] overflow-hidden">
+
+              {/* Top Floating Controls */}
+              <div className="absolute top-3 left-3 right-3 z-20 flex flex-wrap items-center justify-between gap-2 pointer-events-none">
+                <div className="flex items-center gap-1.5 pointer-events-auto">
+                  <button
+                    onClick={() => setShowPins(!showPins)}
+                    className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-bold border transition backdrop-blur-md ${
+                      showPins
+                        ? 'bg-cyan-500/20 text-cyan-200 border-cyan-500/40'
+                        : 'bg-slate-900/90 text-slate-400 border-slate-700 hover:text-white'
+                    }`}
+                    title="Mostra o nascondi i pin numerati sull'organo"
+                  >
+                    <MapPin className="w-3.5 h-3.5" />
+                    <span>Pin {showPins ? 'ON' : 'OFF'}</span>
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      const next = !quizMode;
+                      setQuizMode(next);
+                      setRevealedQuizPins(new Set());
+                      if (next) setShowPins(true);
+                    }}
+                    className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-bold border transition backdrop-blur-md ${
+                      quizMode
+                        ? 'bg-amber-500/25 text-amber-200 border-amber-400/50'
+                        : 'bg-slate-900/90 text-slate-300 border-slate-700 hover:text-white'
+                    }`}
+                    title="Nasconde i nomi dei reperi per interrogarsi sui numeri"
+                  >
+                    {quizMode ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
+                    <span>{quizMode ? 'Quiz Cieco ON' : 'Quiz Anatomico'}</span>
+                  </button>
+                </div>
+
+                {/* Zoom & Reset Controls */}
+                <div className="flex items-center gap-1 bg-slate-900/90 border border-slate-800 p-1 rounded-lg backdrop-blur-md pointer-events-auto">
+                  <button
+                    onClick={() => setZoomLevel((z) => Math.min(2.2, Number((z + 0.25).toFixed(2))))}
+                    className="p-1 text-slate-300 hover:text-white rounded"
+                    title="Ingrandisci"
+                  >
+                    <ZoomIn className="w-3.5 h-3.5" />
+                  </button>
+                  <span className="text-[10px] font-mono text-slate-300 px-1 min-w-[36px] text-center">
+                    {Math.round(zoomLevel * 100)}%
+                  </span>
+                  <button
+                    onClick={() =>
+                      setZoomLevel((z) => {
+                        const n = Math.max(1.0, Number((z - 0.25).toFixed(2)));
+                        if (n <= 1.01) setPan({ x: 0, y: 0 });
+                        return n;
+                      })
+                    }
+                    className="p-1 text-slate-300 hover:text-white rounded"
+                    title="Riduci"
+                  >
+                    <ZoomOut className="w-3.5 h-3.5" />
+                  </button>
+                  {zoomLevel > 1.01 && (
+                    <button
+                      onClick={resetView}
+                      className="p-1 text-slate-400 hover:text-white border-l border-slate-700 pl-1.5"
+                      title="Ripristina vista"
+                    >
+                      <RotateCcw className="w-3.5 h-3.5" />
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* Interactive Zoomable / Pannable 1:1 Plate Stage */}
+              <div
+                onWheel={handleWheel}
+                onPointerDown={handlePointerDown}
+                onPointerMove={handlePointerMove}
+                onPointerUp={handlePointerUp}
+                onPointerLeave={handlePointerUp}
+                className={`flex-1 w-full h-full flex items-center justify-center overflow-hidden p-4 select-none ${
+                  zoomLevel > 1.01 ? 'cursor-grab active:cursor-grabbing' : 'cursor-default'
+                }`}
+              >
+                <div
+                  style={{
+                    transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoomLevel})`,
+                    transition: isDraggingRef.current ? 'none' : 'transform 0.18s ease-out',
+                  }}
+                  className="relative aspect-square h-full max-h-full max-w-full flex items-center justify-center"
+                >
+                  <img
+                    src={activeConfig.posterImage}
+                    alt={activeConfig.name}
+                    draggable={false}
+                    className="w-full h-full object-contain rounded-xl pointer-events-none"
+                  />
+
+                  {/* Synchronized Anatomical Landmark Pins */}
+                  {showPins &&
+                    activeConfig.landmarks.map((lm, idx) => {
+                      const isActive = selectedLandmarkIdx === idx;
+                      const isQuizHidden = quizMode && !revealedQuizPins.has(idx);
+                      return (
+                        <button
+                          key={`${activeModelKey}-pin-${idx}`}
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedLandmarkIdx(idx);
+                          }}
+                          style={{ left: `${lm.x}%`, top: `${lm.y}%` }}
+                          className="absolute -translate-x-1/2 -translate-y-1/2 group z-10 focus:outline-none"
+                          title={isQuizHidden ? `Repere #${idx + 1} (clicca per verificare)` : lm.structure}
+                        >
+                          {isActive && (
+                            <span className="absolute inset-0 -m-1.5 rounded-full bg-cyan-400/40 animate-ping pointer-events-none" />
+                          )}
+                          <span
+                            className={`relative flex items-center justify-center w-7 h-7 rounded-full text-xs font-mono font-bold shadow-lg border-2 transition-transform ${
+                              isActive
+                                ? 'bg-cyan-400 text-slate-950 border-white scale-115 shadow-cyan-400/50'
+                                : 'bg-slate-950/90 text-cyan-300 border-cyan-400/80 hover:scale-110 hover:bg-cyan-500 hover:text-slate-950'
+                            }`}
+                          >
+                            {idx + 1}
+                          </span>
+                        </button>
+                      );
+                    })}
+                </div>
+              </div>
+
+              {/* Active Landmark Floating Callout Bar */}
+              <div className="bg-slate-950/95 border-t border-slate-800 px-3.5 py-2.5 flex flex-wrap items-center justify-between gap-2 shrink-0">
+                {activeLandmark && selectedLandmarkIdx !== null ? (
+                  quizMode && !revealedQuizPins.has(selectedLandmarkIdx) ? (
+                    <div className="flex items-center justify-between w-full gap-2">
+                      <div className="text-xs text-amber-200 font-mono">
+                        <strong>Repere #{selectedLandmarkIdx + 1}:</strong> nomina la struttura e il significato clinico prima di rivelare!
+                      </div>
+                      <button
+                        onClick={() => toggleRevealQuizPin(selectedLandmarkIdx)}
+                        className="px-3 py-1 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-mono font-bold shrink-0 transition"
+                      >
+                        Rivela #{selectedLandmarkIdx + 1}
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="flex items-center justify-between w-full gap-3">
+                      <div className="min-w-0">
+                        <div className="text-xs font-bold text-cyan-300 flex items-center gap-1.5 truncate">
+                          <span className="px-1.5 py-0.2 rounded bg-cyan-500/20 border border-cyan-500/35 font-mono text-[10px]">
+                            #{selectedLandmarkIdx + 1}
+                          </span>
+                          <span className="truncate">{activeLandmark.structure}</span>
+                        </div>
+                        <p className="text-[11px] text-slate-400 truncate mt-0.5">
+                          {activeLandmark.clinicalNote}
+                        </p>
+                      </div>
+                      <span className="text-[10px] font-mono text-slate-500 hidden sm:inline shrink-0">
+                        Rotella: zoom • Trascina: sposta
+                      </span>
+                    </div>
+                  )
+                ) : (
+                  <div className="text-[11px] text-slate-400">
+                    Clicca un pin numerato sulla tavola anatomica per evidenziare il repere clinico
+                  </div>
+                )}
+              </div>
+            </div>
+          ) : (
+            /* Optional 3D Sketchfab Iframe (Only loaded on explicit click) */
+            <div className="relative w-full h-full flex flex-col bg-black">
               {isIframeLoading && (
                 <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-slate-950/90 backdrop-blur-sm space-y-3 p-4 text-center">
                   <RefreshCw className="w-7 h-7 text-cyan-400 animate-spin" />
                   <div>
-                    <p className="text-xs font-mono font-bold text-slate-200">Caricamento Modello 3D WebGL...</p>
+                    <p className="text-xs font-mono font-bold text-slate-200">Caricamento Modello 3D Esterno...</p>
                     <p className="text-[11px] text-slate-400 mt-1 max-w-xs">
-                      Inizializzazione shader e geometria ad alta definizione
+                      Streaming da Sketchfab WebGL (può richiedere alcuni secondi)
                     </p>
                   </div>
                   <button
-                    onClick={() => setViewMode('hd')}
-                    className="mt-2 text-xs text-emerald-400 hover:text-emerald-300 underline font-mono flex items-center gap-1"
+                    onClick={() => setViewMode('atlas')}
+                    className="mt-2 px-3 py-1.5 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/35 text-xs font-mono font-bold flex items-center gap-1.5"
                   >
                     <ImageIcon className="w-3.5 h-3.5" />
-                    Passa subito ad Atlante HD (Zero attesa)
+                    <span>Torna ad Atlante HD Istantaneo</span>
                   </button>
                 </div>
               )}
@@ -390,171 +634,116 @@ export const Anatomy3DViewport: React.FC<Anatomy3DViewportProps> = ({
                 onLoad={() => setIsIframeLoading(false)}
                 className="w-full flex-1 border-0"
                 allow="autoplay; fullscreen; xr-spatial-tracking"
-                loading="lazy"
               />
 
-              {/* Bottom Mobile Safety & WebGL Assistance Bar */}
               <div className="bg-slate-950/90 border-t border-slate-800/90 px-3 py-2 flex flex-wrap items-center justify-between gap-2 shrink-0">
                 <div className="flex items-center gap-1.5 text-[11px] text-slate-300">
                   <Sparkles className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                  <span>Ruota 360° con mouse/touch • Zoom con rotella o pinch</span>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => setViewMode('hd')}
-                    className="flex items-center gap-1 px-2.5 py-1 rounded bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/20 text-[11px] font-semibold transition"
-                    title="Se il modello è lento o dà errore WebGL sul telefono, tocca qui"
-                  >
-                    <AlertTriangle className="w-3 h-3 text-amber-400" />
-                    <span>Errore o Lentezza? Atlante HD</span>
-                  </button>
-
-                  <button
-                    onClick={() => {
-                      setIsIframeLoading(true);
-                      const iframe = document.querySelector('iframe');
-                      if (iframe) iframe.src = activeConfig.embedUrl;
-                    }}
-                    className="p-1 rounded bg-slate-900 text-slate-400 hover:text-white border border-slate-800"
-                    title="Ricarica Modello 3D"
-                  >
-                    <RefreshCw className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          ) : (
-            /* Volumetric HD Poster Mode (Anti-Crash, Instant, Zero GPU) */
-            <div className="relative w-full h-full flex flex-col bg-slate-950 items-center justify-center p-3 overflow-hidden">
-              <div className="absolute top-3 left-3 z-10 flex items-center gap-2">
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                  ATLANTE VOLUMETRICO HD • ANTI-CRASH
-                </span>
-              </div>
-
-              {/* Zoom Controls */}
-              <div className="absolute top-3 right-3 z-10 flex items-center gap-1 bg-slate-900/90 border border-slate-800 p-1 rounded-lg">
-                <button
-                  onClick={() => setZoomLevel(Math.min(1.6, zoomLevel + 0.2))}
-                  className="p-1 text-slate-300 hover:text-white rounded"
-                  title="Ingrandisci"
-                >
-                  <ZoomIn className="w-3.5 h-3.5" />
-                </button>
-                <span className="text-[10px] font-mono text-slate-400 px-1">{Math.round(zoomLevel * 100)}%</span>
-                <button
-                  onClick={() => setZoomLevel(Math.max(0.8, zoomLevel - 0.2))}
-                  className="p-1 text-slate-300 hover:text-white rounded"
-                  title="Riduci"
-                >
-                  <ZoomOut className="w-3.5 h-3.5" />
-                </button>
-                <button
-                  onClick={() => setZoomLevel(1.0)}
-                  className="text-[10px] text-slate-400 hover:text-white px-1.5 py-0.5 border-l border-slate-700 font-mono"
-                  title="Reset Zoom"
-                >
-                  100%
-                </button>
-              </div>
-
-              {/* HD Render Image */}
-              <div className="flex-1 w-full h-full flex items-center justify-center overflow-auto custom-scrollbar">
-                <img
-                  src={activeConfig.posterImage}
-                  alt={activeConfig.name}
-                  style={{ transform: `scale(${zoomLevel})`, transition: 'transform 0.2s ease-out' }}
-                  className="max-h-full max-w-full object-contain rounded-xl shadow-2xl drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)]"
-                />
-              </div>
-
-              {/* Bottom Bar: Switch to 3D */}
-              <div className="w-full bg-slate-900/90 border-t border-slate-800 px-3 py-2 flex items-center justify-between shrink-0">
-                <div className="text-[11px] text-slate-400">
-                  Immagine ad alta definizione del modello reale senza consumo di memoria WebGL
+                  <span>Ruota 360° con mouse/touch • Zoom con rotella</span>
                 </div>
                 <button
-                  onClick={() => setViewMode('3d')}
-                  className="flex items-center gap-1.5 px-3 py-1 rounded bg-cyan-500/20 text-cyan-300 hover:bg-cyan-500/30 border border-cyan-500/40 text-xs font-semibold transition"
+                  onClick={() => setViewMode('atlas')}
+                  className="px-2.5 py-1 rounded bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/30 text-[11px] font-semibold transition"
                 >
-                  <Box className="w-3.5 h-3.5" />
-                  <span>Attiva 3D WebGL (360°)</span>
+                  ← Torna ad Atlante HD
                 </button>
               </div>
             </div>
           )}
-
         </div>
 
-        {/* RIGHT COLUMN: RICH CLINICAL DOSSIER & LANDMARKS (NO SQUISHING!) */}
-        <div className={`lg:col-span-5 flex flex-col bg-slate-950/95 overflow-y-auto custom-scrollbar p-4 sm:p-5 space-y-4 ${
-          mobileTab === '3d' ? 'hidden lg:flex' : 'flex'
-        } ${mobileTab === 'split' ? 'flex-1' : ''}`}>
-          
+        {/* RIGHT COLUMN: CLINICAL DOSSIER & SYNCHRONIZED LANDMARKS */}
+        <div
+          className={`lg:col-span-5 flex flex-col bg-slate-950/95 overflow-y-auto custom-scrollbar p-4 sm:p-5 space-y-4 ${
+            mobileTab === 'view' ? 'hidden lg:flex' : 'flex'
+          } ${mobileTab === 'split' ? 'flex-1' : ''}`}
+        >
           {/* Active Model Header Card */}
           <div className="bg-slate-900/70 border border-slate-800 rounded-xl p-4 space-y-2">
             <div className="flex items-center justify-between">
               <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 font-bold">
                 {activeConfig.badge} • {activeConfig.category}
               </span>
-              <span className="text-[10px] font-mono text-slate-500">
-                MedTerminal 2.0 3D
-              </span>
             </div>
-            
             <h3 className="text-base sm:text-lg font-bold text-white leading-tight">
               {activeConfig.name}
             </h3>
-
-            <p className="text-xs text-slate-300 leading-relaxed pt-1">
+            <p className="text-xs text-slate-300 leading-relaxed pt-0.5">
               {activeConfig.description}
             </p>
           </div>
 
-          {/* Key Landmarks Breakdown (Reperi Anatomici Chiave) */}
+          {/* Synchronized Key Landmarks Breakdown */}
           <div className="space-y-2.5">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-1.5 text-cyan-400">
                 <CheckCircle2 className="w-4 h-4" />
                 <h4 className="text-xs font-bold font-mono uppercase tracking-wider text-slate-200">
-                  Reperi Anatomici & Strutture Chiave
+                  Reperi Anatomici & Pin ({activeConfig.landmarks.length})
                 </h4>
               </div>
-              <span className="text-[10px] text-slate-500 font-mono">
-                {activeConfig.landmarks.length} strutture
-              </span>
+              {quizMode && (
+                <button
+                  onClick={() => {
+                    if (revealedQuizPins.size === activeConfig.landmarks.length) {
+                      setRevealedQuizPins(new Set());
+                    } else {
+                      setRevealedQuizPins(new Set(activeConfig.landmarks.map((_, i) => i)));
+                    }
+                  }}
+                  className="text-[10px] font-mono text-amber-300 hover:text-amber-200 underline"
+                >
+                  {revealedQuizPins.size === activeConfig.landmarks.length ? 'Nascondi tutti' : 'Rivela tutti'}
+                </button>
+              )}
             </div>
 
             <div className="space-y-2">
               {activeConfig.landmarks.map((item, idx) => {
                 const isSelected = selectedLandmarkIdx === idx;
+                const isHiddenInQuiz = quizMode && !revealedQuizPins.has(idx);
                 return (
                   <div
                     key={idx}
-                    onClick={() => setSelectedLandmarkIdx(isSelected ? null : idx)}
+                    onClick={() => {
+                      setSelectedLandmarkIdx(idx);
+                      if (quizMode && !revealedQuizPins.has(idx)) {
+                        toggleRevealQuizPin(idx);
+                      }
+                    }}
                     className={`p-3 rounded-xl border transition cursor-pointer ${
                       isSelected
-                        ? 'bg-cyan-950/30 border-cyan-500/50 ring-1 ring-cyan-500/20 shadow-md'
+                        ? 'bg-cyan-950/30 border-cyan-500/50 ring-1 ring-cyan-500/25 shadow-md'
                         : 'bg-slate-900/50 border-slate-800/80 hover:bg-slate-900 hover:border-slate-700'
                     }`}
                   >
                     <div className="flex items-start justify-between gap-2">
-                      <div className="font-semibold text-xs text-cyan-300 flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0" />
-                        <span>{item.structure}</span>
+                      <div className="font-semibold text-xs text-cyan-300 flex items-center gap-2">
+                        <span
+                          className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-mono font-bold shrink-0 ${
+                            isSelected
+                              ? 'bg-cyan-400 text-slate-950'
+                              : 'bg-slate-800 text-cyan-300 border border-cyan-500/30'
+                          }`}
+                        >
+                          {idx + 1}
+                        </span>
+                        <span>{isHiddenInQuiz ? `Repere #${idx + 1} — Clicca per rivelare` : item.structure}</span>
                       </div>
-                      <ChevronRight className={`w-3.5 h-3.5 text-slate-500 transition-transform ${isSelected ? 'rotate-90 text-cyan-400' : ''}`} />
+                      <ChevronRight className={`w-3.5 h-3.5 text-slate-500 transition-transform shrink-0 ${isSelected ? 'rotate-90 text-cyan-400' : ''}`} />
                     </div>
 
-                    <p className="text-xs text-slate-300 mt-1 leading-relaxed">
-                      {item.detail}
-                    </p>
-
-                    <div className="mt-2 pt-2 border-t border-slate-800/60 flex items-start gap-1.5 text-[11px] text-rose-300/90 leading-normal">
-                      <span className="font-mono font-bold text-rose-400 shrink-0">📌 Clinica:</span>
-                      <span>{item.clinicalNote}</span>
-                    </div>
+                    {!isHiddenInQuiz && (
+                      <>
+                        <p className="text-xs text-slate-300 mt-1.5 leading-relaxed">
+                          {item.detail}
+                        </p>
+                        <div className="mt-2 pt-2 border-t border-slate-800/60 flex items-start gap-1.5 text-[11px] text-rose-300/90 leading-normal">
+                          <span className="font-mono font-bold text-rose-400 shrink-0">📌 Clinica:</span>
+                          <span>{item.clinicalNote}</span>
+                        </div>
+                      </>
+                    )}
                   </div>
                 );
               })}
@@ -566,15 +755,14 @@ export const Anatomy3DViewport: React.FC<Anatomy3DViewportProps> = ({
             <div className="flex items-center space-x-2 text-blue-300">
               <Sparkles className="w-4 h-4 text-blue-400 shrink-0" />
               <h5 className="text-xs font-bold font-mono uppercase tracking-wider text-blue-200">
-                Rendimento d'Esame Clinico
+                Rendimento d&apos;Esame Clinico
               </h5>
             </div>
-            
+
             <p className="text-xs text-slate-200 leading-relaxed">
               {activeConfig.clinicalExamYield}
             </p>
 
-            {/* Questions tags */}
             <div className="pt-2 flex flex-wrap gap-1.5">
               {activeConfig.examQuestionsFocus.map((tag, i) => (
                 <span
@@ -588,11 +776,8 @@ export const Anatomy3DViewport: React.FC<Anatomy3DViewportProps> = ({
           </div>
 
           <div className="pb-4" />
-
         </div>
-
       </div>
-
     </div>
   );
 };
