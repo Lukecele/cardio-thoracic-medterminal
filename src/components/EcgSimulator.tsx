@@ -75,7 +75,7 @@ const ECG_CASES: EcgCase[] = [
       'Complessi QRS stretti (< 120 ms) salvo conduzione aberrante',
       'Frequenza ventricolare media tachicardica (> 100 bpm)'
     ],
-    clinicalAction: 'Valutazione stabilità emodinamica: se instabile (shock, EPA) -> Cardioversione Elettrica Sincronizzata immediata. Se stabile: controllo della frequenza con Beta-bloccante EV (Metoprololo) e calcolo dello score CHA2DS2-VASc per anticoagulazione orale con DOAC.',
+    clinicalAction: 'Valutazione stabilità emodinamica: se instabile (shock, EPA) -> Cardioversione Elettrica Sincronizzata immediata. Se stabile: controllo della frequenza con Beta-bloccante EV (Metoprololo) e calcolo dello score CHA2DS2-VA (ESC 2024) per anticoagulazione orale con DOAC.',
     svgType: 'afib'
   },
   {

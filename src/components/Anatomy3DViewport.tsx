@@ -90,7 +90,7 @@ const MODEL_CONFIGS: Record<Model3DKey, ModelConfig> = {
       {
         structure: 'Sistole Ventricolare & Eiezione (LV → Aorta)',
         detail: 'Contrazione isovolumetrica seguita da eiezione rapida attraverso la valvola aortica verso il circolo sistemico.',
-        clinicalNote: 'Definisce la Frazione di Eiezione (FE = SV / EDV × 100); FE ≤ 40% identifica lo scompenso HFrEF (4 pilastri Classe I ESC).',
+        clinicalNote: 'Definisce la Frazione di Eiezione (FE = SV / EDV × 100); secondo ESC 2026 FE < 50% identifica HFrEF (4 pilastri Classe I) e FE ≥ 50% identifica HFpEF.',
         x: 59,
         y: 62,
       },

@@ -52,7 +52,7 @@
       },
       {
         "question": "3. Risolta la fase acuta e ottenuta l'euvolemia, quali sono i 4 pilastri farmacologici in Classe I (ESC) da impostare prima della dimissione?",
-        "expectedAnswer": "1) ARNI (Sacubitril/Valsartan — con wash-out di 36h se proveniva da ACE-i); 2) Beta-bloccante evidence-based (Bisoprololo, Carvedilolo o Metoprololo succinato, titolato gradualmente); 3) MRA (Spironolattone o Eplerenone, controllando K+ e creatinina); 4) SGLT2-inibitore (Dapagliflozin o Empagliflozin 10 mg/die, anche senza diabete).",
+        "expectedAnswer": "1) ARNI (Sacubitril/Valsartan — con wash-out di 36h se proveniva da ACE-i); 2) Beta-bloccante evidence-based (Bisoprololo, Carvedilolo o Metoprololo succinato, titolato gradualmente); 3) MRA (Spironolattone o Eplerenone, controllando K+ e creatinina); 4) SGLT2-inibitore (Dapagliflozin o Empagliflozin 10 mg/die, anche senza diabete). (Nota ESC 2026: la classificazione abolisce HFmrEF unificando HFrEF a FE < 50% vs HFpEF ≥ 50%, dove sono in Classe I SGLT2-i + Finerenone, più Semaglutide/Tirzepatide in Classe IIa se BMI ≥ 30; valutare sempre eGFR + UACR secondo ESC/ERA 2026).",
         "fatalTrap": "Elencare la Furosemide tra i farmaci che riducono la mortalità (è solo sintomatica/decongestiva) o dimenticare gli SGLT2-inibitori."
       },
       {

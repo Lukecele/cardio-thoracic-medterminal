@@ -1635,7 +1635,7 @@
     "id": "q-crd-52",
     "branch": "cardio-medica",
     "topic": "Scompenso Cardiaco (4 Pilastri HFrEF)",
-    "question": "Quali sono i 4 pilastri farmacologici in Classe I (Linee Guida ESC) che riducono la mortalità nello Scompenso Cardiaco a FE ridotta (HFrEF ≤ 40%)?",
+    "question": "Quali sono i 4 pilastri farmacologici in Classe I (Foundational Medical Therapy — Linee Guida ESC) che riducono la mortalità nello Scompenso Cardiaco a FE ridotta (HFrEF, FE < 50% secondo ESC 2026)?",
     "options": [
       {
         "label": "a",
@@ -1661,7 +1661,7 @@
     "correctAnswer": "b",
     "explanation": "Le Linee Guida ESC raccomandano l'avvio rapido e combinato dei 4 pilastri disease-modifying nell'HFrEF: 1) ARNI (Sacubitril/Valsartan) o ACE-i; 2) Beta-bloccante evidence-based; 3) MRA (Spironolattone/Eplerenone); 4) SGLT2-i (Dapagliflozin/Empagliflozin). Furosemide e digossina migliorano i sintomi ma non la mortalità.",
     "examSession": "Cardiologia - Alta Resa d'Esame",
-    "oralLink": "All'orale: quale classe tra queste è in Classe I anche nello scompenso a FE preservata (HFpEF ≥ 50%)? Gli SGLT2-inibitori!"
+    "oralLink": "All'orale: secondo ESC 2026 nell'HFpEF (FE ≥ 50%) sono in Classe I sia gli SGLT2-inibitori sia Finerenone (MRA non steroideo), + Semaglutide/Tirzepatide (Classe IIa) se obesità!"
   },
   {
     "id": "q-crd-53",
