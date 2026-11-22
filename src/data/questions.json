@@ -2494,5 +2494,197 @@
     "explanation": "L'Angina Vasospastica di Prinzmetal è causata da spasmo focale transitorio di una coronaria epicardica (tipicamente a riposo/notte, fortemente associata al fumo). Si tratta con cessazione del fumo + Calcio-antagonisti (diidropiridinici o non-DHP) + Nitrati a lunga durata. I beta-bloccanti non selettivi bloccano i recettori beta-2 coronarici favorendo la vasocostrizione alfa-mediata!",
     "examSession": "Cardiologia - Alta Resa d'Esame",
     "oralLink": "All'orale: come si provoca in sala di emodinamica la diagnosi certa di angina vasospastica? Test provocativo intracoronarico con Acetilcolina o Ergonovina."
+  },
+  {
+    "id": "q-crd-79",
+    "branch": "cardio-medica",
+    "topic": "Ipertensione Arteriosa (ESC 2024)",
+    "question": "Quale nuova categoria pressoria e quale target terapeutico sistolico principale hanno introdotto le Linee Guida ESC 2024 sull'Ipertensione Arteriosa?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Categoria 'Pre-ipertensione' (>135/85) con target unico < 145/90 mmHg"
+      },
+      {
+        "label": "b",
+        "text": "Nuova categoria 'Pressione Elevata' (120-139 / 70-89 mmHg) e target terapeutico unificato di PAS 120-129 mmHg (e PAD < 80 mmHg) nella maggioranza dei pazienti se ben tollerato"
+      },
+      {
+        "label": "c",
+        "text": "Soglia diagnostica di ipertensione abbassata a ≥ 120/80 mmHg per tutti"
+      },
+      {
+        "label": "d",
+        "text": "Abolizione della terapia di combinazione a favore della monoterapia"
+      },
+      {
+        "label": "e",
+        "text": "Target sistolico fisso < 110 mmHg indipendentemente dall'età e dalla tollerabilità"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "Le Linee Guida ESC 2024 classificano la PA in 3 fasce: Non elevata (< 120/70 mmHg), Pressione Elevata (120-139 / 70-89 mmHg, che attiva interventi sullo stile di vita e terapia farmacologica se rischio CV elevato) e Ipertensione (≥ 140/90 mmHg). Il target terapeutico raccomandato per la maggioranza degli adulti in trattamento è PAS 120-129 mmHg (principio ALARA: As Low As Reasonably Achievable se tollerato).",
+    "examSession": "Aggiornamento Linee Guida ESC 2024",
+    "oralLink": "All'orale: citare la categoria 'Pressione Elevata' (120-139/70-89) e il target 120-129 mmHg delle ESC 2024 dimostra aggiornamento da 30 e lode!"
+  },
+  {
+    "id": "q-crd-80",
+    "branch": "cardio-medica",
+    "topic": "Fibrillazione Atriale (Percorso AF-CARE ESC 2024)",
+    "question": "Nelle Linee Guida ESC 2024 sulla Fibrillazione Atriale, cosa rappresenta l'acronimo 'AF-CARE' che sostituisce il precedente schema ABC?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Anticoagulation, Fibrinolysis, Cardioversion, Ablation, Rate, Echocardiography"
+      },
+      {
+        "label": "b",
+        "text": "C: Comorbidità e fattori di rischio; A: Avoid stroke (anticoagulazione con CHA2DS2-VA); R: Riduzione sintomi con controllo frequenza/ritmo; E: Evaluation e rivalutazione dinamica"
+      },
+      {
+        "label": "c",
+        "text": "Atrial Flutter Care and Arrhythmia Emergency"
+      },
+      {
+        "label": "d",
+        "text": "Un punteggio emorragico alternativo all'HAS-BLED"
+      },
+      {
+        "label": "e",
+        "text": "Un algoritmo riservato esclusivamente ai pazienti candidati ad ablazione"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "Le Linee Guida ESC 2024 organizzano la gestione integrata della FA nel percorso AF-CARE: C (Comorbidity & risk factor management: ipertensione, obesità, OSAS, alcol, scompenso), A (Avoid stroke & thromboembolism con DOAC guidati da CHA2DS2-VA), R (Reduce symptoms via rate & rhythm control, con enfasi sul controllo precoce del ritmo), E (Evaluation & dynamic reassessment periodico).",
+    "examSession": "Aggiornamento Linee Guida ESC 2024",
+    "oralLink": "All'orale: abbina sempre AF-CARE + CHA2DS2-VA quando ti chiedono l'impostazione terapeutica della Fibrillazione Atriale!"
+  },
+  {
+    "id": "q-crd-81",
+    "branch": "cardio-medica",
+    "topic": "Miocarditi & Pericarditi (ESC 2025)",
+    "question": "Secondo le Linee Guida ESC 2025 su Miocarditi e Pericarditi (spettro IMPS), qual è l'esame di imaging cardine per la diagnosi non invasiva di miocardite/pericardite e quale terapia mirata è indicata nella pericardite ricorrente cortico-dipendente e colchicina-resistente?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Radiografia del torace; Aspirina a basse dosi in monoterapia"
+      },
+      {
+        "label": "b",
+        "text": "Risonanza Magnetica Cardiaca (CMR, criteri di Lake Louise); bloccanti dell'Interleuchina-1 (Anakinra o Rilonacept)"
+      },
+      {
+        "label": "c",
+        "text": "Scintigrafia miocardica da sforzo; Ciclosporina in prima linea"
+      },
+      {
+        "label": "d",
+        "text": "Coronarografia obbligatoria con stent; Warfarin per 6 mesi"
+      },
+      {
+        "label": "e",
+        "text": "Solo dosaggio PCR; Beta-bloccanti ad alte dosi"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "Le Linee Guida ESC 2025 unificano miocarditi e pericarditi nello spettro IMPS (Inflammatory Myopericardial Syndrome), ponendo la RMN Cardiaca (CMR con mappatura T1/T2 e LGE) al centro del percorso diagnostico non invasivo (riservando la biopsia endomiocardica alle forme complicate/fulminanti). Nelle pericarditi ricorrenti cortico-dipendenti e refrattarie a FANS + Colchicina, i bloccanti IL-1 (Anakinra, Rilonacept) sono raccomandati per indurre remissione e sospendere gli steroidi.",
+    "examSession": "Aggiornamento Linee Guida ESC 2025",
+    "oralLink": "All'orale: ricorda che nella pericardite acuta semplice restano 1ª linea FANS + Colchicina, mentre gli anti-IL-1 (Anakinra) sono la rivoluzione ESC 2025 per le forme ricorrenti refrattarie!"
+  },
+  {
+    "id": "q-crd-82",
+    "branch": "cardio-medica",
+    "topic": "Dislipidemie & Prevenzione CV (Focused Update ESC/EAS 2025)",
+    "question": "Secondo il Focused Update ESC/EAS 2025 sulle Dislipidemie, quale strategia è raccomandata nel paziente a rischio cardiovascolare molto alto (es. post-SCA) e quale parametro lipidico genetico va dosato almeno una volta nella vita?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Iniziare sempre con statina a bassa intensità e ricontrollare dopo 1 anno; dosare solo i trigliceridi"
+      },
+      {
+        "label": "b",
+        "text": "Terapia di combinazione ipolipemizzante precoce (Statina alta intensità + Ezetimibe, con escalation a PCSK9i / Inclisiran / Acido Bempedoico per raggiungere rapidamente LDL < 55 mg/dL) e dosaggio della Lipoproteina(a) [Lp(a)] almeno una volta nella vita"
+      },
+      {
+        "label": "c",
+        "text": "Sospendere le statine se LDL scende sotto 70 mg/dL; non serve dosare Lp(a)"
+      },
+      {
+        "label": "d",
+        "text": "Usare fibrati in prima linea al posto delle statine"
+      },
+      {
+        "label": "e",
+        "text": "Target LDL-C unico < 116 mg/dL per tutti i pazienti post-infarto"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "Il Focused Update ESC/EAS 2025 spinge sull'approccio 'strike early and strong': nei pazienti post-SCA / rischio molto alto (target LDL < 55 mg/dL e riduzione ≥ 50%), iniziare subito la combinazione Statina ad alta intensità + Ezetimibe (aggiungendo PCSK9i, Inclisiran o Acido Bempedoico se non a target). La Lipoproteina(a) [Lp(a) > 50 mg/dL] è un fattore causale genetico indipendente di aterosclerosi e stenosi aortica da dosare almeno una volta nella vita.",
+    "examSession": "Aggiornamento Linee Guida ESC/EAS 2025",
+    "oralLink": "All'orale: cita l'Acido Bempedoico come opzione orale nei pazienti intolleranti alle statine e l'importanza della Lp(a)!"
+  },
+  {
+    "id": "q-pnm-83",
+    "branch": "pneumo",
+    "topic": "BPCO — Novità Biologici (GOLD 2025–2026)",
+    "question": "Quale storica novità terapeutica hanno introdotto i report GOLD 2025–2026 per i pazienti con BPCO che continuano a riacutizzare nonostante la triplice terapia inalatoria massimale (LABA + LAMA + ICS)?",
+    "options": [
+      {
+        "label": "a",
+        "text": "La reintroduzione della teofillina orale come prima scelta"
+      },
+      {
+        "label": "b",
+        "text": "L'ingresso dei farmaci Biologici (Dupilumab anti-IL-4Rα nei fenotipi con bronchite cronica ed eosinofili ematici ≥ 300 cell/μL; Mepolizumab anti-IL-5 in fenotipi eosinofilici selezionati)"
+      },
+      {
+        "label": "c",
+        "text": "La sospensione completa dei broncodilatatori LAMA nei pazienti del gruppo E"
+      },
+      {
+        "label": "d",
+        "text": "Il ritorno alla vecchia classificazione ABCD al posto di ABE"
+      },
+      {
+        "label": "e",
+        "text": "L'uso di corticosteroidi orali cronici a vita in tutti i pazienti GOLD 3"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "I report GOLD 2025–2026 mantengono il raggruppamento ABE e integrano per la prima volta i farmaci biologici nell'algoritmo BPCO: in particolare Dupilumab (anticorpo anti-IL-4Rα) in aggiunta a LABA+LAMA+ICS nei pazienti con riacutizzazioni persistenti, fenotipo bronchitico cronico ed eosinofili ≥ 300 cell/μL (e Mepolizumab anti-IL-5 in popolazioni eosinofiliche mirate), oltre ai concetti di Pre-COPD ed Early COPD.",
+    "examSession": "Aggiornamento Report GOLD 2025–2026",
+    "oralLink": "All'orale: ricordare che oggi anche la BPCO ha i biologici (Dupilumab se EOS ≥ 300 + bronchite cronica su triplice) è un dettaglio da lode!"
+  },
+  {
+    "id": "q-pnm-84",
+    "branch": "pneumo",
+    "topic": "Asma Bronchiale — Track 1 & Track 2 (GINA 2025–2026)",
+    "question": "Secondo i report GINA 2025–2026 per l'Asma nell'adulto/adolescente, qual è la posizione ufficiale sul SABA (es. salbutamolo) in monoterapia allo Step 1?",
+    "options": [
+      {
+        "label": "a",
+        "text": "Resta il trattamento di prima scelta assoluta nell'asma lieve intermittente"
+      },
+      {
+        "label": "b",
+        "text": "NON è più raccomandato in monoterapia per aumentato rischio di riacutizzazioni severe: Track 1 preferito con ICS-formoterolo al bisogno (MART), oppure Track 2 alternativo con combinazione ICS-SABA al bisogno"
+      },
+      {
+        "label": "c",
+        "text": "È raccomandato solo in associazione con corticosteroidi orali giornalieri"
+      },
+      {
+        "label": "d",
+        "text": "Deve essere sostituito dal LAMA in monoterapia allo Step 1"
+      },
+      {
+        "label": "e",
+        "text": "È consentito fino a 12 inalazioni al giorno prima di aggiungere un ICS"
+      }
+    ],
+    "correctAnswer": "b",
+    "explanation": "GINA 2025–2026 ribadisce lo stop definitivo al SABA in monoterapia in TUTTI gli step (anche Step 1): ogni sollievo sintomatico deve includere un corticosteroide inalatorio (ICS) antinfiammatorio. Il Track 1 preferito usa ICS-formoterolo a bassa dose al bisogno (strategia MART); il Track 2 alternativo allo Step 1 prevede ICS-SABA combinato. Allo Step 5 sono indicati triplice ICS-LABA-LAMA e biologici mirati (anti-IgE, anti-IL5/5R, anti-IL4R, anti-TSLP Tezepelumab) per azzerare gli steroidi orali (OCS stewardship).",
+    "examSession": "Aggiornamento Report GINA 2025–2026",
+    "oralLink": "All'orale: mai dire 'salbutamolo da solo allo Step 1 dell'asma'! Cita sempre Track 1 (ICS-formoterolo) e Track 2 (ICS-SABA) GINA 2025–2026."
   }
 ]

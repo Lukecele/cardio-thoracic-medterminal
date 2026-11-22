@@ -18,12 +18,13 @@
             "definizione": "Valutazione clinica dell'attività cardiaca: auscultazione sistematica dei 5 focolai (Aortico II dx, Polmonare II sx, Erb III sx, Tricuspide IV-V parasternale sx, Mitrale V spazio emiclaveare sx). Analisi di toni fondamentali, clicks, schiocchi, soffi e dinamica dei polsi.",
             "segniCardine": "S1 (chiusura AV: aumentato in stenosi mitralica, ridotto in BAV1 e IM), S2 (chiusura semilunari: sdoppiamento fisiologico in inspirazione, sdoppiamento fisso nel DIA), S3 (galoppo protodiastolico da riempimento ventricolare rapido, fisiologico < 30 anni, patologico nello scompenso), S4 (galoppo telediastolico atriale contro ventricolo rigido da ipertrofia).",
             "diagnostica": "Auscultazione fonocardiografica, polso parvus et tardus (stenosi aortica), polso celere e scoccante di Corrigan (insufficienza aortica), polso paradosso (caduta PAS > 10 mmHg in inspirazione nel tamponamento).",
-            "terapia": "Orientamento diagnostico differenziale immediato per valvulopatie, versamento pericardico, tamponamento e scompenso."
+            "terapia": "Orientamento differenziale immediato per valvulopatie, tamponamento (pericardiocentesi urgente) e pericarditi/miocarditi. Aggiornamento ESC 2025 (spettro IMPS): RMN cardiaca (CMR) cardine diagnostico; pericardite acuta con FANS + Colchicina (3 mesi); nelle pericarditi ricorrenti cortico-dipendenti/refrattarie indicati bloccanti IL-1 (Anakinra / Rilonacept)."
           },
           "examTraps": [
             "Il polso paradosso NON è una variazione della frequenza cardiaca, ma una caduta anomala della pressione arteriosa sistolica > 10 mmHg durante l'inspirazione spontanea (tipico del tamponamento cardiaco).",
             "S1 aumenta di intensità nella stenosi mitralica per il forte gradiente pressorio transmitralico che spalanca i lembi mobili prima della chiusura.",
-            "Lo sdoppiamento FISSO di S2 (che non varia né in inspirazione né in espirazione) è il reperto patognomonico del Difetto Interatriale (DIA)."
+            "Lo sdoppiamento FISSO di S2 (che non varia né in inspirazione né in espirazione) è il reperto patognomonico del Difetto Interatriale (DIA).",
+            "Novità ESC 2025 Pericarditi/Miocarditi (IMPS): RMN cardiaca cardine per diagnosi non invasiva e anti-IL-1 (Anakinra/Rilonacept) nelle pericarditi ricorrenti refrattarie a FANS + Colchicina."
           ],
           "clozeTokens": [
             "chiusura valvole atrio-ventricolari",
@@ -45,7 +46,8 @@
               "q-crd-56",
               "q-crd-59",
               "q-crd-61",
-              "q-crd-77"
+              "q-crd-77",
+              "q-crd-81"
             ],
             "oralStationId": 4,
             "oralStationIds": [
@@ -82,14 +84,15 @@
           "badge": "CARDIO-MED",
           "icon": "Activity",
           "highYieldSummary": {
-            "definizione": "Pressione arteriosa clinica persistentemente ≥ 140/90 mmHg (o ABPM medio 24h ≥ 130/80 mmHg). Emergenza ipertensiva: PAS ≥ 180 e/o PAD ≥ 120 mmHg associata a danno d'organo acuto minaccioso di vita (encefalopatia, dissezione aortica, SCA, EPA, insufficienza renale acuta).",
+            "definizione": "Aggiornamento ESC 2024: 3 categorie pressorie — Non elevata (< 120/70 mmHg), nuova categoria 'Pressione Elevata' (120-139 / 70-89 mmHg) e Ipertensione (≥ 140/90 mmHg clinica o ABPM 24h ≥ 130/80 mmHg). Emergenza ipertensiva: PAS ≥ 180 e/o PAD ≥ 120 mmHg con danno d'organo acuto.",
             "segniCardine": "Asintomatica nelle forme croniche ('killer silenzioso'); cefalea occipitale, deficit neurologici focali, dispnea acuta, dolore toracico o visivo nelle crisi ed emergenze.",
             "diagnostica": "Elettrocardiogramma (criteri di Sokolow-Lyon per ipertrofia ventricolare sinistra > 35 mm), esami ematochimici (creatinina, eGFR, sodio, potassio), esame urine per microalbuminuria, fundus oculi (stadiazione Keith-Wagener I-IV), EcoColorDoppler arterie renali se sospetto nefrovascolare.",
-            "terapia": "Terapia cronica di prima linea: associazione fissa a basso dosaggio (ACEi o ARB + Calcioantagonista DHP o Tiazidico). Emergenza ipertensiva: ricovero in UTIC e farmaci EV titolabili (Labetalolo, Nitroprussiato di sodio, Urapidil, Nitroglicerina EV) con riduzione controllata della PAM di non oltre il 25% nella prima ora (eccetto nella dissezione aortica acuta dove PAS deve scendere < 120 mmHg in 20 minuti)."
+            "terapia": "Aggiornamento ESC 2024: target terapeutico unificato PAS 120-129 mmHg (e PAD < 80 mmHg) nella maggioranza dei pazienti se tollerato (principio ALARA). Prima linea cronica: combinazione fissa a basso dosaggio (ACEi o ARB + CCB DHP o Tiazidico). Emergenza ipertensiva: ricovero e farmaci EV titolabili (Labetalolo, Nicardipina, Nitroglicerina; ridurre PAM ≤ 25% nella 1ª ora)."
           },
           "examTraps": [
             "Nell'emergenza ipertensiva la pressione NON deve mai essere abbattuta bruscamente a valori normali: un calo eccessivo oltre il 25% rischia di precipitare un ictus o un infarto renale da ipoperfusione acuta!",
-            "Unica eccezione alla regola della riduzione graduale: la DISSEZIONE AORTICA ACUTA, in cui la PAS va abbattuta immediatamente sotto 120 mmHg (e FC < 60 bpm con beta-bloccanti EV) per arrestare la propagazione del flap intimale."
+            "Unica eccezione alla regola della riduzione graduale: la DISSEZIONE AORTICA ACUTA, in cui la PAS va abbattuta immediatamente sotto 120 mmHg (e FC < 60 bpm con beta-bloccanti EV) per arrestare la propagazione del flap intimale.",
+            "Novità ESC 2024: ricordare la nuova fascia 'Pressione Elevata' (120-139/70-89 mmHg) e il target sistolico unificato 120-129 mmHg se ben tollerato!"
           ],
           "clozeTokens": [
             "danno d organo acuto",
@@ -103,7 +106,8 @@
               "q-crd-73",
               "q-crd-74",
               "q-crd-75",
-              "q-crd-76"
+              "q-crd-76",
+              "q-crd-79"
             ],
             "oralStationId": 2,
             "oralStationIds": [
@@ -151,12 +155,13 @@
             "definizione": "Spettro clinico causato da instabilità e rottura o erosione di placca aterosclerotica con sovrapposizione trombotica intracoronarica acuta. STEMI: occlusione trombotica transmurale totale. NSTEMI / Angina Instabile: ischemia subendocardica da occlusione subtotale o embolizzazione distale.",
             "segniCardine": "Dolore toracico anginoso tipico oppressivo retrosternale/precordiale, irradiato a braccio sinistro, collo, mandibola o epigastrio, di durata > 20 minuti a riposo, non responsivo a nitroderivati sublinguali, associato a sintomi vegetativi (diaforesi fredda, nausea, vomito, angoscia di morte).",
             "diagnostica": "ECG 12 derivazioni entro 10 minuti dal primo contatto medico: sopraslivellamento del tratto ST al punto J in derivazioni contigue (≥ 1 mm, o ≥ 2-2.5 mm in V2-V3) o Blocco di Branca Sinistra di nuova insorgenza (criteri di Sgarbossa). Biomarcatori: Troponina cardiaca ad alta sensibilità (hs-cTnI o hs-cTnT) con curva cinetica di incremento/decremento (differenzia NSTEMI da Angina Instabile dove troponina è negativa).",
-            "terapia": "STEMI: Riperfusione immediata! Coronarografia e Angioplastica Primaria (PCI) con stent medicato (DES) se tempo primo contatto-pallone ≤ 120 minuti; altrimenti Fibrinolisi EV entro 10 minuti e trasferimento. Terapia medica di supporto: ASA + inibitore P2Y12 (Ticagrelor o Prasugrel) per 12 mesi (DAPT) + anticoagulante (Eparina/Bivalirudina) + beta-bloccanti + statina ad alta intensità (Atorvastatina 80 mg)."
+            "terapia": "STEMI: Riperfusione immediata! Coronarografia e Angioplastica Primaria (PCI) con stent medicato (DES) se tempo primo contatto-pallone ≤ 120 minuti; altrimenti Fibrinolisi EV entro 10 minuti e trasferimento. Terapia medica di supporto: ASA + inibitore P2Y12 (Ticagrelor o Prasugrel) per 12 mesi (DAPT) + anticoagulante (Eparina/Bivalirudina) + beta-bloccanti + statina ad alta intensità (Atorvastatina 80 mg). Aggiornamento Dislipidemie ESC/EAS 2025: combinazione precoce Statina alta intensità + Ezetimibe subito post-SCA (+ PCSK9i / Inclisiran / Acido Bempedoico per LDL < 55 mg/dL) e dosaggio Lp(a) almeno una volta nella vita."
           },
           "examTraps": [
             "Il blocco di branca sinistra di NUOVA insorgenza in presenza di dolore toracico anginoso tipico equivale formalmente a uno STEMI ed è indicazione a coronarografia d'emergenza immediata!",
             "Nell'angina instabile i biomarcatori di miocardiocitolisi (Troponina) sono NEGATIVI: la positività anche minima della troponina con rialzo tipico trasforma la diagnosi in NSTEMI.",
-            "Nei pazienti diabetici e anziani l'infarto miocardico può presentarsi in forma del tutto indolore (equivalenti anginosi: dispnea acuta isolata o sincope)."
+            "Nei pazienti diabetici e anziani l'infarto miocardico può presentarsi in forma del tutto indolore (equivalenti anginosi: dispnea acuta isolata o sincope).",
+            "Novità ESC/EAS 2025 Dislipidemie: approccio 'strike early & strong' (Statina alta intensità + Ezetimibe subito in post-SCA) e dosaggio Lp(a) almeno una volta nella vita."
           ],
           "clozeTokens": [
             "sopraslivellamento ST al punto J",
@@ -175,7 +180,8 @@
               "q-crd-70",
               "q-crd-71",
               "q-crd-72",
-              "q-crd-78"
+              "q-crd-78",
+              "q-crd-82"
             ],
             "oralStationId": 1,
             "oralStationIds": [
@@ -285,12 +291,13 @@
             "definizione": "Alterazioni della formazione e/o conduzione dell'impulso elettrico cardiaco. Tachiaritmie sopraventricolari (FA, Flutter, TPSV da rientro nodale), tachiaritmie ventricolari (TV monomorfe/polimorfe, Torsione di Punta, FV), bradiaritmie (malattia del nodo del seno, blocchi atrio-ventricolari BAV I-III).",
             "segniCardine": "Palpitazioni/cardiopalmo, astenia, lipotimia, sincope, arresto cardiocircolatorio. FA: polso 'completamente aritmico' (aritmia totale), deficit di polso (FC centrale auscultata > FC periferica radiale).",
             "diagnostica": "ECG standard a 12 derivazioni: FA con assenza di onde P, onde f caotiche e intervalli R-R irregolari; Flutter con onde F 'a dente di sega' a 300 bpm e conduzione AV fissa o variabile; TPSV con FC 150-220 bpm a complessi stretti regolari; TV con complessi QRS larghi > 120 ms regolari; BAV I con PR allungato > 0.20s costante; BAV II Mobitz 1 con allungamento progressivo del PR fino a un'onda P bloccata (Wenckebach); Mobitz 2 con onde P bloccate improvvisamente a intervallo PR fisso; BAV III con completa dissociazione atrio-ventricolare (onde P e QRS indipendenti).",
-            "terapia": "FA: Prevenzione del tromboembolismo cerebrale con anticoagulanti orali diretti (DOAC: Apixaban, Rivaroxaban, Dabigatran, Edoxaban) calcolata sullo Score CHA2DS2-VASc (indicati se score ≥ 2 maschio, ≥ 3 femmina). Controllo della frequenza (Beta-bloccanti, Digitale) o del ritmo (Cardioversione elettrica o farmacologica con Amiodarone/Flecainide, ablazione transcatetere delle vene polmonari). TPSV acuta: manovre vagali seguite da bolo rapido di Adenosina EV. BAV avanzati (Mobitz 2 e BAV III): impianto di Pacemaker definitivo endocavitario."
+            "terapia": "Aggiornamento ESC 2024 (Percorso AF-CARE): C (Comorbidità/fattori di rischio) → A (Avoid stroke: DOAC guidati dal nuovo score CHA2DS2-VA senza sesso femminile — Classe I se ≥ 2, Classe IIa se = 1) → R (Rate & Rhythm control precoce: beta-bloccanti/diltiazem, cardioversione, antiaritmici o ablazione) → E (Evaluation dinamica). FV/TV senza polso: Defibrillazione elettrica immediata + RCP."
           },
           "examTraps": [
             "Nel BAV di II grado Mobitz 2 il PR è costante e le onde P cadono improvvisamente: ha un elevatissimo rischio di progressione verso il BAV III ed è indicazione TASSATIVA a Pacemaker definitivo, a differenza del Mobitz 1 (Wenckebach) che è spesso benigno!",
             "Nei pazienti con FA lo score CHA2DS2-VASc include: Insufficienza cardiaca (1), Ipertensione (1), Età ≥ 75 anni (2 punti!), Diabete (1), Ictus/TIA pregresso (2 punti!), Vasculopatia (1), Età 65-74 (1), Sesso femminile (1).",
-            "L'adenosina EV nelle TPSV blocca transitoriamente il nodo AV con emivita di pochi secondi: va iniettata in bolo rapidissimo seguito da flush di soluzione fisiologica."
+            "L'adenosina EV nelle TPSV blocca transitoriamente il nodo AV con emivita di pochi secondi: va iniettata in bolo rapidissimo seguito da flush di soluzione fisiologica.",
+            "Novità ESC 2024 FA: il percorso integrato è ora AF-CARE e lo score tromboembolico è CHA2DS2-VA (rimosso il punto del sesso femminile, soglie uguali per M e F: ≥ 2 Classe I)."
           ],
           "clozeTokens": [
             "assenza di onde P e intervalli RR irregolari",
@@ -312,7 +319,8 @@
               "q-crd-66",
               "q-crd-67",
               "q-crd-68",
-              "q-crd-69"
+              "q-crd-69",
+              "q-crd-80"
             ],
             "oralStationId": 3,
             "oralStationIds": [
@@ -367,12 +375,13 @@
             "definizione": "Ostruzione all'efflusso ventricolare sinistro per ispessimento e calcificazione progressiva dei lembi della valvola aortica (degenerativa senile o su valvola bicuspide congenita).",
             "segniCardine": "Triade clinica classica dello scompenso avanzato: Angina da discrepanza, Sincope da sforzo e Dispnea (quando compaiono i sintomi la mortalità a 2-3 anni senza intervento è > 50%). Soffio sistolico a diamante in crescendo-decrescendo al focolaio aortico irradiato ai vasi del collo/carotidi, S2 ipofonetico o assente, polso parvus et tardus.",
             "diagnostica": "Ecocardiografia Color-Doppler transtoracica (TTE): Criteri di Stenosi Aortica Severa: 1) Area Valvolare Aortica (AVA) < 1.0 cm2 (o indicizzata < 0.6 cm2/m2); 2) Gradiente pressorio medio transmitralico > 40 mmHg; 3) Velocità di picco transvalvolare > 4.0 m/s. Score di calcificazione alla TC.",
-            "terapia": "Nei pazienti sintomatici o asintomatici con disfunzione ventricolare (FE < 50%): Trattamento chirurgico convenzionale con Sostituzione Valvolare Aortica a cielo aperto (SAVR con protesi meccanica o biologica) nei pazienti giovani (< 75 anni) e a basso rischio chirurgico; Impianto Transcatetere di Valvola Aortica (TAVI per via femorale percutanea) nei pazienti anziani (≥ 75 anni) o ad alto rischio chirurgico (STS / EuroSCORE II elevato)."
+            "terapia": "Nei pazienti sintomatici o asintomatici con disfunzione ventricolare (FE < 50%): Trattamento chirurgico convenzionale con Sostituzione Valvolare Aortica a cielo aperto (SAVR con protesi meccanica o biologica) nei pazienti giovani (< 75 anni) e a basso rischio chirurgico; Impianto Transcatetere di Valvola Aortica (TAVI per via femorale percutanea) nei pazienti anziani (≥ 75 anni) o ad alto rischio chirurgico (STS / EuroSCORE II elevato). Aggiornamento Valvulopatie ESC/EACTS 2025: focus su 'lifetime management' protesico in Heart Team, imaging multimodale (Eco + TC/CMR) e valutazione di intervento precoce anche in selezionati pazienti con stenosi aortica severa asintomatica ad alto rischio."
           },
           "examTraps": [
             "Nella stenosi aortica severa la comparsa della sincope da sforzo ha un significato prognostico gravissimo: la sopravvivenza media senza sostituzione valvolare scende a meno di 3 anni!",
             "Il trattamento medico farmacologico nella stenosi aortica severa sintomatica è solo palliativo: i vasodilatatori sono pericolosi perché possono provocare sincope da crollo della pressione!",
-            "La TAVI è ormai indicata di prima scelta dai 75 anni in su o in chiunque abbia rischio operatorio STS/EuroSCORE II intermedio-alto."
+            "La TAVI è ormai indicata di prima scelta dai 75 anni in su o in chiunque abbia rischio operatorio STS/EuroSCORE II intermedio-alto.",
+            "Novità ESC/EACTS 2025 Valvulopatie: pianificazione 'lifetime management' in Heart Team (sequenza SAVR/TAVI nel lungo termine) e attenzione ai criteri di intervento nella stenosi severa asintomatica."
           ],
           "clozeTokens": [
             "area valvolare aortica minore di 1 cm2",
@@ -630,12 +639,14 @@
             "definizione": "Patologie croniche delle vie aeree: Asma (infiammazione cronica variabile, iperreattività bronchiale ed ostruzione reversibile) e BPCO (ostruzione bronchiale persistente non completamente reversibile correlata al fumo con enfisema e bronchite cronica). Polmonite acquisita in comunità (CAP): infezione acuta del parenchima polmonare.",
             "segniCardine": "Asma: tosse secca, dispnea accessionale notturna/mattutina, respiro sibilante ('fischi nel petto'). BPCO: tosse produttiva cronica, dispnea da sforzo progressiva, espirazione prolungata, torace a botte (Pink Puffer enfisematoso magro con dispnea vs Blue Bloater bronchitico pletorico cianotico edematoso). CAP: febbre alta con brivido, tosse con espettorato rugginoso, dolore toracico pleuritico trafittivo, rantoli crepitanti inspiratori.",
             "diagnostica": "Asma: Test di provocazione bronchiale alla Metacolina (positivo se calo FEV1 ≥ 20% a concentrazioni PD20 < 16 mg/ml). BPCO: Spirometria post-broncodilatatore con Tiffeneau < 70%; classificazione GOLD (stadi 1-4 per FEV1 e gruppi A, B, E per sintomi e riacutizzazioni). CAP: RX Torace con addensamento lobare e broncogramma aereo; Score di gravità CURB-65 per indicazione a ricovero.",
-            "terapia": "Asma (Step GINA): terapia di fondo con ICS-Formoterolo al bisogno (Step 1-2) o continuativo (Step 3-5), LAMA, biologici anti-IgE (Omalizumab) o anti-IL5 (Mepolizumab). BPCO: LAMA (Tiotropio) + LABA; tripla terapia inalatoria (LAMA + LABA + ICS) nei fenotipi con eosinofili ematici ≥ 300/µl o riacutizzatori frequenti. CAP: terapia antibiotica empirica con Amoxicillina/Clavulanato + Macrolide (Azitromicina) o fluorochinolone respiratorio (Levofloxacina)."
+            "terapia": "ASMA (GINA 2025-2026): STOP definitivo al SABA in monoterapia anche allo Step 1! Track 1 preferito: ICS-formoterolo a bassa dose al bisogno (MART); Track 2 alternativo: ICS-SABA combinato; Step 5: triplice ICS-LABA-LAMA + biologici mirati (anti-IgE, anti-IL5/5R, anti-IL4R, anti-TSLP Tezepelumab) per OCS stewardship. BPCO (GOLD 2025-2026): gruppi ABE (LABA+LAMA base; +ICS se EOS ≥ 300/μL o riacutizzazioni); NOVITÀ STORICA: ingresso dei Biologici (Dupilumab anti-IL-4Rα / Mepolizumab anti-IL-5) nei riacutizzatori persistenti su triplice terapia con EOS ≥ 300/μL."
           },
           "examTraps": [
             "Nella CAP atipica da Mycoplasma o Legionella l'RX torace mostra infiltrati interstiziali reticolo-nodulari che risparmiano l'interstizio alveolare puro e creano una marcata discrepanza tra obiettività povera e radiologia marcata!",
             "Lo score CURB-65 valuta: Confusione (1), Urea > 7 mmol/L (1), Frequenza respiratoria ≥ 30/min (1), Pressione < 90/60 mmHg (1), Età ≥ 65 anni (1). Se score ≥ 2 è indicato ricovero ospedaliero!",
-            "Nel trattamento della BPCO gli steroidi inalatori (ICS) NON vanno dati in monoterapia: aumentano il rischio di polmonite e sono indicati solo in combinazione tripla nei pazienti con frequenti riacutizzazioni ed eosinofilia."
+            "Nel trattamento della BPCO gli steroidi inalatori (ICS) NON vanno dati in monoterapia: aumentano il rischio di polmonite e sono indicati solo in combinazione tripla nei pazienti con frequenti riacutizzazioni ed eosinofilia.",
+            "Novità GOLD 2025-2026 BPCO: gruppo ABE (non più ABCD) + ingresso dei Biologici (Dupilumab in bronchite cronica con EOS ≥ 300 su triplice LABA+LAMA+ICS) e concetti di Pre-COPD / Early COPD.",
+            "Novità GINA 2025-2026 Asma: vietato prescrivere SABA da solo allo Step 1! Usare Track 1 (ICS-formoterolo al bisogno) o Track 2 (ICS-SABA combinato)."
           ],
           "clozeTokens": [
             "test alla metacolina con calo FEV1 maggiore del 20 percento",
@@ -652,7 +663,9 @@
               "q-pnm-04",
               "q-pnm-08",
               "q-pnm-10",
-              "q-pnm-11"
+              "q-pnm-11",
+              "q-pnm-83",
+              "q-pnm-84"
             ],
             "oralStationId": 7,
             "oralStationIds": [

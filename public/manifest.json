@@ -2,7 +2,7 @@
   "id": "/",
   "name": "MedTerminal // Cardio-Thoracic Cockpit",
   "short_name": "MedTerminal",
-  "description": "Piattaforma didattica per studenti di medicina: 16 capitoli di teoria completa, 78 MCQ, 9 casi orali, TNM 9ª ed., fonoteca auscultatoria e modelli 3D.",
+  "description": "Piattaforma didattica per studenti di medicina: 16 capitoli di teoria ESC/GOLD/GINA 2024–2026, 84 MCQ, 9 casi orali, TNM 9ª ed., fonoteca auscultatoria e atlante HD.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

@@ -131,7 +131,7 @@ export function App() {
     { id: 'pfr' as TabType, label: 'Spirometria PFR', badge: 'CURVA', desc: 'Flusso-Volume & Tiffeneau', icon: Wind, color: 'text-sky-400' },
     { id: 'ega' as TabType, label: 'EGA Arteriosa', badge: 'GAS', desc: 'Equilibrio Acido-Base & ARDS', icon: Droplets, color: 'text-rose-400' },
     { id: 'tnm' as TabType, label: 'Stadiazione TNM', badge: '9ª ED', desc: 'NSCLC 2025 & ppo-FEV1', icon: ShieldCheck, color: 'text-amber-400' },
-    { id: 'flowcharts' as TabType, label: 'Algoritmi Decisionali', badge: 'FLOW', desc: 'STEMI, Scompenso, Ischemia', icon: Network, color: 'text-blue-400' },
+    { id: 'flowcharts' as TabType, label: 'Algoritmi Decisionali', badge: '7 FLOW', desc: 'ESC 2024–25 & GOLD/GINA', icon: Network, color: 'text-blue-400' },
     { id: 'pharma' as TabType, label: 'Prontuario Farmaci', badge: '16 DRUGS', desc: '4 Pilastri, Aritmie, DAPT, DOAC', icon: Pill, color: 'text-pink-400' },
     { id: 'imaging' as TabType, label: 'Atlante Imaging', badge: 'RAD', desc: 'Segni RX, TC & Angio-TC', icon: ImageIcon, color: 'text-indigo-400' },
     { id: 'calculators' as TabType, label: 'Score Clinici', badge: '10 SCORE', desc: 'CHA2DS2-VA, HAS-BLED, HEART, QTc...', icon: Calculator, color: 'text-teal-400' },

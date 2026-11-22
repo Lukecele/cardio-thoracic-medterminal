@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Award, CheckCircle2, XCircle, RefreshCw, HelpCircle, ArrowRight, ArrowLeft, Trophy } from 'lucide-react';
+import { Award, CheckCircle2, XCircle, RefreshCw, HelpCircle, ArrowRight, ArrowLeft, Trophy, Shuffle, RotateCcw } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import questionsData from '../data/questions.json';
 
@@ -115,6 +115,45 @@ export const ExamSimulator: React.FC<Props> = ({
     setWrongAnswers([]);
   };
 
+  const handleStartQuickSim = () => {
+    const pool = selectedBranch === 'all'
+      ? [...questionsData]
+      : questionsData.filter((q) => q.branch === selectedBranch);
+    for (let i = pool.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [pool[i], pool[j]] = [pool[j], pool[i]];
+    }
+    const picked = pool.slice(0, Math.min(15, pool.length)).map((q) => q.id);
+    const branchLabel = BRANCH_TABS.find((t) => t.id === selectedBranch)?.label || 'Tutte';
+    setTopicFilterIds(picked);
+    setTopicFilterTitle(`Simulazione Rapida (${branchLabel})`);
+    setSelectedAnswers({});
+    setShowExplanation({});
+    setWrongAnswers([]);
+    setIsExamCompleted(false);
+    setCurrentIndex(0);
+  };
+
+  const handleReviewErrors = () => {
+    if (wrongAnswers.length === 0) return;
+    const errIds = [...wrongAnswers];
+    setTopicFilterIds(errIds);
+    setTopicFilterTitle(`Ripasso Errori (${errIds.length})`);
+    setSelectedAnswers((prev) => {
+      const next = { ...prev };
+      errIds.forEach((id) => delete next[id]);
+      return next;
+    });
+    setShowExplanation((prev) => {
+      const next = { ...prev };
+      errIds.forEach((id) => delete next[id]);
+      return next;
+    });
+    setWrongAnswers([]);
+    setIsExamCompleted(false);
+    setCurrentIndex(0);
+  };
+
   if (!currentQ) {
     return <div className="text-slate-400 p-6">Nessuna domanda disponibile per questo filtro.</div>;
   }
@@ -159,6 +198,24 @@ export const ExamSimulator: React.FC<Props> = ({
               {tab.label}
             </button>
           ))}
+          <button
+            onClick={handleStartQuickSim}
+            className="px-2.5 py-1 rounded-lg text-xs font-mono font-bold transition border bg-cyan-500/15 border-cyan-500/40 text-cyan-300 hover:bg-cyan-500/25 flex items-center gap-1.5"
+            title="Avvia 15 domande casuali dalla disciplina selezionata"
+          >
+            <Shuffle className="w-3.5 h-3.5" />
+            <span>Rapida 15</span>
+          </button>
+          {wrongAnswers.length > 0 && (
+            <button
+              onClick={handleReviewErrors}
+              className="px-2.5 py-1 rounded-lg text-xs font-mono font-bold transition border bg-rose-500/15 border-rose-500/40 text-rose-300 hover:bg-rose-500/25 flex items-center gap-1.5"
+              title="Rifai solo le domande sbagliate in questa sessione"
+            >
+              <RotateCcw className="w-3.5 h-3.5" />
+              <span>Ripassa Errori ({wrongAnswers.length})</span>
+            </button>
+          )}
           <button
             onClick={handleReset}
             className="p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white transition"
@@ -208,7 +265,16 @@ export const ExamSimulator: React.FC<Props> = ({
               : 'Ripassa gli argomenti critici con i compendi ufficiali di teoria prima del prossimo tentativo.'}
           </p>
 
-          <div className="pt-4 flex justify-center space-x-4">
+          <div className="pt-4 flex flex-wrap justify-center gap-3">
+            {wrongAnswers.length > 0 && (
+              <button
+                onClick={handleReviewErrors}
+                className="px-5 py-2.5 rounded-lg bg-rose-500 text-white font-bold text-sm hover:bg-rose-400 transition flex items-center gap-2"
+              >
+                <RotateCcw className="w-4 h-4" />
+                <span>Ripassa Solo gli Errori ({wrongAnswers.length})</span>
+              </button>
+            )}
             <button
               onClick={handleReset}
               className="px-5 py-2.5 rounded-lg bg-emerald-500 text-slate-950 font-bold text-sm hover:bg-emerald-400 transition"
