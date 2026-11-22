@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   BrainCircuit,
   Eye,
@@ -19,16 +19,110 @@ import {
   Lightbulb,
   ChevronDown,
   ChevronUp,
-  Type
+  Type,
+  ArrowUpRight
 } from 'lucide-react';
 import theoryDataRaw from '../data/theory.json';
+import oralCasesData from '../data/oralCases.json';
 
 const theoryData = theoryDataRaw as any;
+
+const TOOL_LABELS: Record<string, string> = {
+  ecg: 'Monitor ECG & Telemetria',
+  pfr: 'Spirometria PFR & Curva F-V',
+  ega: 'EGA Arteriosa Interpreter',
+  tnm: 'Stadiazione TNM 9ª Ed.',
+  flowcharts: 'Algoritmi Decisionali',
+  pharma: 'Prontuario Farmaci (16)',
+  imaging: 'Atlante Imaging RX / TC',
+  scanner: 'Scanner Diagnostico DDx',
+};
+
+const CALC_LABELS: Record<string, string> = {
+  'cha2ds2-vasc': 'CHA2DS2-VASc / VA & HAS-BLED',
+  'has-bled': 'HAS-BLED (Sanguinamento)',
+  heart: 'HEART Score (Dolore Toracico)',
+  qtc: 'QTc (Bazett & Fridericia)',
+  'euroscore-2': 'EuroSCORE II (Cardiochirurgia)',
+  'curb-65': 'CURB-65 (Polmoniti CAP)',
+  'light-criteria': 'Criteri di Light (Pleura)',
+  abi: 'Indice ABI (AOCP)',
+  'wells-dvt': 'Score di Wells (TVP / EP)',
+};
+
+const AUDIO_LABELS: Record<string, string> = {
+  's1-s2': 'Toni S1 / S2 Normali',
+  s3: 'Galoppo Protodiastolico S3',
+  s4: 'Galoppo Telediastolico S4',
+  'aortic-stenosis': 'Soffio Stenosi Aortica',
+  'aortic-regurgitation': 'Soffio Insufficienza Aortica',
+  'mitral-regurgitation': 'Soffio Insufficienza Mitralica',
+  'mitral-stenosis': 'Rullio Stenosi Mitralica',
+  'pericardial-rub': 'Sfregamento Pericardico',
+  wheezing: 'Sibili & Fischi (Wheezing)',
+  crackles: 'Crepitii / Rantoli (Crackles)',
+  'bronchial-breath': 'Soffio Bronchiale',
+};
+
+const ANATOMY_LABELS: Record<string, string> = {
+  heart: 'Cuore & Valvole 3D',
+  beating: 'Ciclo Cardiaco 3D',
+  coronary: 'Albero Coronarico 3D',
+  aorta: 'Aorta & Grossi Vasi 3D',
+  lungs: 'Polmoni & Albero Bronchiale 3D',
+};
+
+const isBulletLine = (line: string) =>
+  line.startsWith('•') || line.startsWith('◦') || line.startsWith('‣') || line.startsWith('- ');
+
+const isSubheadingLine = (line: string) =>
+  !isBulletLine(line) &&
+  line.length < 90 &&
+  ((line === line.toUpperCase() && line.replace(/[^A-Z]/g, '').length > 4) ||
+    line.endsWith(':') ||
+    line.includes('=='));
+
+/**
+ * Cleans PDF-extracted line breaks so mid-sentence wraps become smooth, readable prose
+ * while preserving bullets, subheadings, arrows, and deliberate paragraph breaks.
+ */
+const formatReadableBlocks = (raw: string): string[] => {
+  if (!raw) return [];
+  const rawLines = raw
+    .split('\n')
+    .map((l) => l.replace(/\s+/g, ' ').replace(/\s+([,.;:?!])/g, '$1').trim())
+    .filter((l) => l.length > 0);
+
+  const blocks: string[] = [];
+  for (const line of rawLines) {
+    if (blocks.length === 0) {
+      blocks.push(line);
+      continue;
+    }
+    const prev = blocks[blocks.length - 1];
+    const prevEndsSentence = /[.!?:;)\]]$/.test(prev);
+    const currStartsLower = /^[a-zàèéìòù(]/.test(line);
+    const shouldMerge =
+      !isBulletLine(line) &&
+      !isSubheadingLine(line) &&
+      !isSubheadingLine(prev) &&
+      !prevEndsSentence &&
+      (currStartsLower || prev.length > 45);
+
+    if (shouldMerge) {
+      blocks[blocks.length - 1] = `${prev} ${line}`;
+    } else {
+      blocks.push(line);
+    }
+  }
+  return blocks;
+};
 
 interface TheoryViewerProps {
   activeTopicId?: string | null;
   onSelectTopic?: (id: string) => void;
   onOpenQuestion?: (id: string) => void;
+  onOpenTopicQuiz?: (ids: string[], topicTitle: string) => void;
   onOpenOralStation?: (stationId: number) => void;
   onOpenCalculator?: (calcId: string) => void;
   onOpenSpecialistTool?: (toolId: string) => void;
@@ -40,6 +134,7 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
   activeTopicId,
   onSelectTopic,
   onOpenQuestion,
+  onOpenTopicQuiz,
   onOpenOralStation,
   onOpenCalculator,
   onOpenSpecialistTool,
@@ -73,17 +168,30 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
     currentTopic = currentModule.topics[0];
   }
 
-  // Hooks MUST be called unconditionally before any early return (fixes react-hooks/rules-of-hooks)
+  const currentTopicId = currentTopic?.id as string | undefined;
+
+  // Reset per-chapter reading state when switching topics
+  useEffect(() => {
+    setCollapsedSections(new Set());
+    setRevealedClozes(new Set());
+    setFilterSearch('');
+  }, [currentTopicId]);
+
   const clozeTokens = useMemo(() => {
     return currentTopic?.clozeTokens || [];
   }, [currentTopic]);
 
   const paragraphs = useMemo(() => {
     if (!currentTopic?.fullText) return [];
-    return currentTopic.fullText
-      .split('\n')
-      .map((p: string) => p.trim())
-      .filter((p: string) => p.length > 0);
+    return formatReadableBlocks(currentTopic.fullText);
+  }, [currentTopic]);
+
+  const formattedSections = useMemo(() => {
+    if (!currentTopic?.sections || currentTopic.sections.length === 0) return [];
+    return currentTopic.sections.map((sec: any) => ({
+      ...sec,
+      blocks: formatReadableBlocks(sec.content || ''),
+    }));
   }, [currentTopic]);
 
   const filteredParagraphs = useMemo(() => {
@@ -96,20 +204,19 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
     if (!filterSearch.trim() || !currentTopic) return 0;
     const q = filterSearch.toLowerCase().trim();
     let count = 0;
-    if (currentTopic.sections && currentTopic.sections.length > 0) {
-      for (const sec of currentTopic.sections) {
-        const paras = (sec.content || '').split('\n').map((p: string) => p.trim()).filter((p: string) => p.length > 0);
-        for (const p of paras) {
+    if (formattedSections.length > 0) {
+      for (const sec of formattedSections) {
+        for (const p of sec.blocks) {
           if (p.toLowerCase().includes(q)) count++;
         }
       }
-    } else if (paragraphs) {
+    } else {
       for (const p of paragraphs) {
         if (p.toLowerCase().includes(q)) count++;
       }
     }
     return count;
-  }, [filterSearch, currentTopic, paragraphs]);
+  }, [filterSearch, currentTopic, formattedSections, paragraphs]);
 
   const readingMinutes = useMemo(() => {
     if (!currentTopic) return 1;
@@ -129,7 +236,7 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
   }
 
   const toggleSection = (secId: string) => {
-    setCollapsedSections(prev => {
+    setCollapsedSections((prev) => {
       const next = new Set(prev);
       if (next.has(secId)) next.delete(secId);
       else next.add(secId);
@@ -149,11 +256,11 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
     fontSize === 'sm'
       ? 'text-[14px] leading-[1.85]'
       : fontSize === 'lg'
-        ? 'text-[17px] sm:text-[18px] leading-[1.95]'
-        : 'text-[15.5px] sm:text-[16px] leading-[1.9]';
+        ? 'text-[17px] leading-[1.95]'
+        : 'text-[15px] sm:text-[15.5px] leading-[1.9]';
 
   const toggleCloze = (idx: number) => {
-    setRevealedClozes(prev => {
+    setRevealedClozes((prev) => {
       const next = new Set(prev);
       if (next.has(idx)) next.delete(idx);
       else next.add(idx);
@@ -198,7 +305,7 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
 
     clozeTokens.forEach((token: string, tokenIdx: number) => {
       if (!token || token.length < 3) return;
-      
+
       const newFragments: React.ReactNode[] = [];
       const regex = new RegExp(`(${token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
 
@@ -265,17 +372,79 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
   };
 
   const lt = currentTopic.linkedTools || {};
+  const oralStationIds: number[] = Array.isArray(lt.oralStationIds) && lt.oralStationIds.length > 0
+    ? lt.oralStationIds
+    : lt.oralStationId
+      ? [lt.oralStationId]
+      : [];
+
   const hasLinkedTools = Boolean(
     (lt.quizIds && lt.quizIds.length > 0) ||
-    lt.oralStationId ||
+    oralStationIds.length > 0 ||
     lt.specialistTool ||
     lt.calculatorId ||
     lt.audioKey ||
     lt.anatomy3dTarget
   );
 
+  const handleOpenChapterQuiz = () => {
+    if (!lt.quizIds || lt.quizIds.length === 0) return;
+    if (onOpenTopicQuiz) {
+      onOpenTopicQuiz(lt.quizIds, currentTopic.title);
+    } else {
+      onOpenQuestion?.(lt.quizIds[0]);
+    }
+  };
+
+  const getOralLabel = (stId: number) => {
+    const c = oralCasesData[stId - 1];
+    return c ? `#${stId} · ${c.discipline}` : `Stazione #${stId}`;
+  };
+
+  const jumpToSection = (secId: string) => {
+    if (collapsedSections.has(secId)) toggleSection(secId);
+    setTimeout(() => {
+      const el = document.getElementById(secId);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 30);
+  };
+
+  const renderBlock = (para: string, keyId: string, recallSeed: number) => {
+    if (isSubheadingLine(para)) {
+      return (
+        <div
+          key={keyId}
+          className="pt-4 pb-1.5 text-xs sm:text-[13px] font-bold uppercase tracking-wider text-cyan-300 font-mono border-b border-cyan-500/15"
+        >
+          {para}
+        </div>
+      );
+    }
+
+    if (isBulletLine(para)) {
+      const bulletText = para.replace(/^[•◦‣-]\s*/, '');
+      return (
+        <div
+          key={keyId}
+          className="flex items-start gap-3 pl-2 text-slate-200/95"
+        >
+          <span className="text-cyan-400/80 text-xs mt-1.5 shrink-0">•</span>
+          <div className="flex-1">
+            {renderActiveRecallParagraph(bulletText, recallSeed)}
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <p key={keyId} className="text-left text-slate-200/95">
+        {renderActiveRecallParagraph(para, recallSeed)}
+      </p>
+    );
+  };
+
   return (
-    <div className="max-w-5xl mx-auto space-y-6 animate-in fade-in duration-300 pb-16">
+    <div className="max-w-6xl mx-auto space-y-6 animate-in fade-in duration-300 pb-16">
       
       {/* 1. DISCRETE, CALM NAVIGATION: MODULES & TOPICS */}
       <div className="bg-[#0b101c]/90 border border-slate-800/80 rounded-2xl p-3 sm:p-4 shadow-sm">
@@ -320,8 +489,8 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
         </div>
       </div>
 
-      {/* 2. CHAPTER HERO BANNER (RELAXED & INFORMATIVE) */}
-      <div className="bg-[#0c1220] border border-slate-800 rounded-2xl p-6 sm:p-7 shadow-lg relative overflow-hidden">
+      {/* 2. CHAPTER HERO BANNER */}
+      <div className="bg-[#0c1220] border border-slate-800 rounded-2xl p-5 sm:p-7 shadow-lg relative overflow-hidden">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div className="flex flex-wrap items-center gap-2 mb-2">
@@ -330,6 +499,9 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
               </span>
               <span className="text-xs text-slate-400 font-mono">
                 {currentTopic.category}
+              </span>
+              <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-900 text-slate-400 border border-slate-800">
+                ~{readingMinutes} min lettura
               </span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
@@ -386,49 +558,47 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
         )}
       </div>
 
-      {/* 3. CALM HIGH-YIELD DIGEST CARD (IL SUCCO PER MENTI PIGRE E INTELLIGENTI) */}
+      {/* 3. HIGH-YIELD DIGEST CARD (4 PUNTI CARDINE / TRABOCCHETTI / STRUMENTI) */}
       <div className="bg-[#0b101c] border border-slate-800/80 rounded-2xl p-5 shadow-md">
-        
-        {/* Tab Switcher: Points vs Traps vs Linked Tools */}
-        <div className="flex items-center justify-between border-b border-slate-800/70 pb-3 mb-4">
-          <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/70 pb-3 mb-4">
+          <div className="flex flex-wrap items-center gap-2">
             <button
               onClick={() => setActiveDigestTab('points')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition whitespace-nowrap ${
                 activeDigestTab === 'points'
                   ? 'bg-blue-600/20 text-blue-300 border border-blue-500/30'
-                  : 'text-slate-400 hover:text-slate-200'
+                  : 'text-slate-400 hover:text-slate-200 border border-transparent'
               }`}
             >
-              <Lightbulb className="w-3.5 h-3.5 text-blue-400" />
-              <span>4 Punti Cardine d'Esame</span>
+              <Lightbulb className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+              <span>4 Punti Cardine</span>
             </button>
 
             {currentTopic.examTraps && currentTopic.examTraps.length > 0 && (
               <button
                 onClick={() => setActiveDigestTab('traps')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition whitespace-nowrap ${
                   activeDigestTab === 'traps'
                     ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
-                    : 'text-slate-400 hover:text-slate-200'
+                    : 'text-slate-400 hover:text-slate-200 border border-transparent'
                 }`}
               >
-                <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />
-                <span>Trabocchetti Docenti ({currentTopic.examTraps.length})</span>
+                <AlertTriangle className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                <span>Trabocchetti ({currentTopic.examTraps.length})</span>
               </button>
             )}
 
             {hasLinkedTools && (
               <button
                 onClick={() => setActiveDigestTab('tools')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition whitespace-nowrap ${
                   activeDigestTab === 'tools'
                     ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30'
-                    : 'text-slate-400 hover:text-slate-200'
+                    : 'text-slate-400 hover:text-slate-200 border border-transparent'
                 }`}
               >
-                <Network className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Quiz & Strumenti Collegati</span>
+                <Network className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                <span>Quiz & Strumenti</span>
               </button>
             )}
           </div>
@@ -442,41 +612,41 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
         {activeDigestTab === 'points' && currentTopic.highYieldSummary && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
             <div className="bg-slate-950/60 border border-slate-800 p-4 rounded-xl">
-              <div className="text-xs font-bold text-blue-400 mb-1 flex items-center gap-1.5">
+              <div className="text-xs font-bold text-blue-400 mb-1.5 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
                 <span>1. Definizione & Fisiopatologia</span>
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <p className="text-[13px] text-slate-300 leading-relaxed">
                 {currentTopic.highYieldSummary.definizione}
               </p>
             </div>
 
             <div className="bg-slate-950/60 border border-slate-800 p-4 rounded-xl">
-              <div className="text-xs font-bold text-amber-400 mb-1 flex items-center gap-1.5">
+              <div className="text-xs font-bold text-amber-400 mb-1.5 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
                 <span>2. Segni Cardine & Semeiotica</span>
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <p className="text-[13px] text-slate-300 leading-relaxed">
                 {currentTopic.highYieldSummary.segniCardine}
               </p>
             </div>
 
             <div className="bg-slate-950/60 border border-slate-800 p-4 rounded-xl">
-              <div className="text-xs font-bold text-emerald-400 mb-1 flex items-center gap-1.5">
+              <div className="text-xs font-bold text-emerald-400 mb-1.5 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span>3. Diagnostica & Valori Soglia (Cut-off)</span>
+                <span>3. Diagnostica & Valori Soglia</span>
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <p className="text-[13px] text-slate-300 leading-relaxed">
                 {currentTopic.highYieldSummary.diagnostica}
               </p>
             </div>
 
             <div className="bg-slate-950/60 border border-slate-800 p-4 rounded-xl">
-              <div className="text-xs font-bold text-rose-400 mb-1 flex items-center gap-1.5">
+              <div className="text-xs font-bold text-rose-400 mb-1.5 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-rose-400" />
                 <span>4. Terapia di Prima Linea</span>
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <p className="text-[13px] text-slate-300 leading-relaxed">
                 {currentTopic.highYieldSummary.terapia}
               </p>
             </div>
@@ -493,7 +663,7 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
               {currentTopic.examTraps.map((trap: string, idx: number) => (
                 <div
                   key={idx}
-                  className="p-3 rounded-xl bg-slate-950/60 border border-amber-500/20 flex items-start gap-2.5 text-xs text-slate-300 leading-relaxed"
+                  className="p-3.5 rounded-xl bg-slate-950/60 border border-amber-500/20 flex items-start gap-2.5 text-[13px] text-slate-300 leading-relaxed"
                 >
                   <span className="text-amber-400 font-bold shrink-0">⚠</span>
                   <span>{trap}</span>
@@ -508,60 +678,48 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
             {lt.quizIds && lt.quizIds.length > 0 && (
               <button
-                onClick={() => onOpenQuestion?.(lt.quizIds[0])}
+                onClick={handleOpenChapterQuiz}
                 className="p-3 rounded-xl bg-slate-950/60 hover:bg-slate-900 border border-slate-800 hover:border-yellow-500/40 text-left transition flex items-center gap-3"
               >
                 <div className="p-2 rounded-lg bg-yellow-500/10 text-yellow-400 shrink-0">
                   <Trophy className="w-4 h-4" />
                 </div>
-                <div>
-                  <div className="text-xs font-bold text-yellow-300">Quiz Database Scritti</div>
-                  <div className="text-[10px] text-slate-400">{lt.quizIds.length} domande</div>
+                <div className="min-w-0">
+                  <div className="text-xs font-bold text-yellow-300">Quiz Scritti del Capitolo</div>
+                  <div className="text-[11px] text-slate-400">{lt.quizIds.length} domande mirate</div>
                 </div>
               </button>
             )}
 
-            {lt.oralStationId && (
+            {oralStationIds.map((stId) => (
               <button
-                onClick={() => onOpenOralStation?.(lt.oralStationId)}
+                key={`oral-tab-${stId}`}
+                onClick={() => onOpenOralStation?.(stId)}
                 className="p-3 rounded-xl bg-slate-950/60 hover:bg-slate-900 border border-slate-800 hover:border-purple-500/40 text-left transition flex items-center gap-3"
               >
                 <div className="p-2 rounded-lg bg-purple-500/10 text-purple-400 shrink-0">
                   <Stethoscope className="w-4 h-4" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <div className="text-xs font-bold text-purple-300">Simulatore Orale</div>
-                  <div className="text-[10px] text-slate-400">Stazione #{lt.oralStationId}</div>
+                  <div className="text-[11px] text-slate-400 truncate">{getOralLabel(stId)}</div>
                 </div>
               </button>
-            )}
+            ))}
 
-            {lt.audioKey && (
+            {lt.specialistTool && (
               <button
-                onClick={() => onOpenAudio?.(lt.audioKey)}
-                className="p-3 rounded-xl bg-slate-950/60 hover:bg-slate-900 border border-slate-800 hover:border-rose-500/40 text-left transition flex items-center gap-3"
+                onClick={() => onOpenSpecialistTool?.(lt.specialistTool)}
+                className="p-3 rounded-xl bg-slate-950/60 hover:bg-slate-900 border border-slate-800 hover:border-emerald-500/40 text-left transition flex items-center gap-3"
               >
-                <div className="p-2 rounded-lg bg-rose-500/10 text-rose-400 shrink-0">
-                  <Volume2 className="w-4 h-4" />
+                <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 shrink-0">
+                  <Activity className="w-4 h-4" />
                 </div>
-                <div>
-                  <div className="text-xs font-bold text-rose-300">Auscultazione Audio</div>
-                  <div className="text-[10px] text-slate-400 font-mono">{lt.audioKey}</div>
-                </div>
-              </button>
-            )}
-
-            {lt.anatomy3dTarget && (
-              <button
-                onClick={() => onFocus3D?.(lt.anatomy3dTarget)}
-                className="p-3 rounded-xl bg-slate-950/60 hover:bg-slate-900 border border-slate-800 hover:border-blue-500/40 text-left transition flex items-center gap-3"
-              >
-                <div className="p-2 rounded-lg bg-blue-500/10 text-blue-400 shrink-0">
-                  <Eye className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-blue-300">Atlante 3D & HD</div>
-                  <div className="text-[10px] text-slate-400 font-mono">{lt.anatomy3dTarget}</div>
+                <div className="min-w-0">
+                  <div className="text-xs font-bold text-emerald-300">Strumento Clinico</div>
+                  <div className="text-[11px] text-slate-400 truncate">
+                    {TOOL_LABELS[lt.specialistTool] || lt.specialistTool}
+                  </div>
                 </div>
               </button>
             )}
@@ -574,24 +732,45 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
                 <div className="p-2 rounded-lg bg-teal-500/10 text-teal-400 shrink-0">
                   <Calculator className="w-4 h-4" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <div className="text-xs font-bold text-teal-300">Calcolatore Score</div>
-                  <div className="text-[10px] text-slate-400 font-mono">{lt.calculatorId}</div>
+                  <div className="text-[11px] text-slate-400 truncate">
+                    {CALC_LABELS[lt.calculatorId] || lt.calculatorId}
+                  </div>
                 </div>
               </button>
             )}
 
-            {lt.specialistTool && (
+            {lt.audioKey && (
               <button
-                onClick={() => onOpenSpecialistTool?.(lt.specialistTool)}
-                className="p-3 rounded-xl bg-slate-950/60 hover:bg-slate-900 border border-slate-800 hover:border-emerald-500/40 text-left transition flex items-center gap-3"
+                onClick={() => onOpenAudio?.(lt.audioKey)}
+                className="p-3 rounded-xl bg-slate-950/60 hover:bg-slate-900 border border-slate-800 hover:border-rose-500/40 text-left transition flex items-center gap-3"
               >
-                <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 shrink-0">
-                  <Activity className="w-4 h-4" />
+                <div className="p-2 rounded-lg bg-rose-500/10 text-rose-400 shrink-0">
+                  <Volume2 className="w-4 h-4" />
                 </div>
-                <div>
-                  <div className="text-xs font-bold text-emerald-300">Strumento Specialistico</div>
-                  <div className="text-[10px] text-slate-400 font-mono">{lt.specialistTool}</div>
+                <div className="min-w-0">
+                  <div className="text-xs font-bold text-rose-300">Auscultazione Audio</div>
+                  <div className="text-[11px] text-slate-400 truncate">
+                    {AUDIO_LABELS[lt.audioKey] || lt.audioKey}
+                  </div>
+                </div>
+              </button>
+            )}
+
+            {lt.anatomy3dTarget && (
+              <button
+                onClick={() => onFocus3D?.(lt.anatomy3dTarget)}
+                className="p-3 rounded-xl bg-slate-950/60 hover:bg-slate-900 border border-slate-800 hover:border-blue-500/40 text-left transition flex items-center gap-3"
+              >
+                <div className="p-2 rounded-lg bg-blue-500/10 text-blue-400 shrink-0">
+                  <Eye className="w-4 h-4" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-xs font-bold text-blue-300">Atlante 3D WebGL</div>
+                  <div className="text-[11px] text-slate-400 truncate">
+                    {ANATOMY_LABELS[lt.anatomy3dTarget] || lt.anatomy3dTarget}
+                  </div>
                 </div>
               </button>
             )}
@@ -599,110 +778,103 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
         )}
       </div>
 
-      {/* 4. CHAPTER TEXT BODY (AIRY, RELAXED READING COLUMN) */}
-      <div className="bg-[#0b101c] border border-slate-800/80 rounded-2xl shadow-sm p-5 sm:p-9 space-y-7">
-        
-        {/* Header with Reading Controls, Font Size & Search */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between pb-4 border-b border-slate-800/70 gap-3">
-          <div className="flex flex-wrap items-center gap-2.5">
-            <FileText className="w-4 h-4 text-cyan-400" />
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-200 font-mono">
-              Trattazione Completa
-            </h3>
-            <span className="text-[11px] font-mono px-2 py-0.5 rounded-md bg-slate-900 text-slate-400 border border-slate-800">
-              ~{readingMinutes} min lettura
-            </span>
-          </div>
+      {/* 4. EDITORIAL 2-COLUMN READING LAYOUT (TEXT + STICKY STUDY COMPANION) */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
 
-          <div className="flex flex-wrap items-center gap-2">
-            {/* Font Size Switcher for comfortable reading */}
-            <div className="flex items-center bg-slate-950 border border-slate-800 rounded-xl p-0.5" title="Dimensione testo">
-              <Type className="w-3.5 h-3.5 text-slate-500 mx-1.5" />
-              {(['sm', 'md', 'lg'] as const).map((sz, i) => (
-                <button
-                  key={sz}
-                  onClick={() => setFontSize(sz)}
-                  className={`px-2 py-1 rounded-lg text-[11px] font-mono font-bold transition ${
-                    fontSize === sz
-                      ? 'bg-cyan-500/20 text-cyan-300'
-                      : 'text-slate-400 hover:text-slate-200'
-                  }`}
-                >
-                  {i === 0 ? 'A-' : i === 1 ? 'A' : 'A+'}
-                </button>
-              ))}
+        {/* Left Main Reading Column (8 cols on desktop) */}
+        <div className="lg:col-span-8 bg-[#0b101c] border border-slate-800/80 rounded-2xl shadow-sm p-5 sm:p-7 space-y-6">
+          
+          {/* Reading Toolbar */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-800/70 gap-3">
+            <div className="flex items-center gap-2">
+              <FileText className="w-4 h-4 text-cyan-400 shrink-0" />
+              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-200 font-mono">
+                Trattazione Completa
+              </h3>
             </div>
 
-            {currentTopic.sections && currentTopic.sections.length > 1 && (
-              <button
-                onClick={() => toggleAllSections(collapsedSections.size === 0)}
-                className="px-2.5 py-1.5 rounded-xl bg-slate-950 hover:bg-slate-900 border border-slate-800 text-[11px] font-mono text-slate-300 hover:text-white transition"
-              >
-                {collapsedSections.size === 0 ? 'Comprimi §' : 'Espandi §'}
-              </button>
-            )}
+            <div className="flex flex-wrap items-center gap-2">
+              {/* Font Size Switcher */}
+              <div className="flex items-center bg-slate-950 border border-slate-800 rounded-xl p-0.5" title="Dimensione testo">
+                <Type className="w-3.5 h-3.5 text-slate-500 mx-1.5" />
+                {(['sm', 'md', 'lg'] as const).map((sz, i) => (
+                  <button
+                    key={sz}
+                    onClick={() => setFontSize(sz)}
+                    className={`px-2 py-1 rounded-lg text-[11px] font-mono font-bold transition ${
+                      fontSize === sz
+                        ? 'bg-cyan-500/20 text-cyan-300'
+                        : 'text-slate-400 hover:text-slate-200'
+                    }`}
+                  >
+                    {i === 0 ? 'A-' : i === 1 ? 'A' : 'A+'}
+                  </button>
+                ))}
+              </div>
 
-            <div className="relative min-w-[200px]">
-              <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
-              <input
-                type="text"
-                placeholder="Filtra nel testo..."
-                value={filterSearch}
-                onChange={(e) => setFilterSearch(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-8 pr-7 py-1.5 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-500"
-              />
-              {filterSearch && (
+              {formattedSections.length > 1 && (
                 <button
-                  onClick={() => setFilterSearch('')}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 p-0.5"
-                  title="Azzera"
+                  onClick={() => toggleAllSections(collapsedSections.size === 0)}
+                  className="px-2.5 py-1.5 rounded-xl bg-slate-950 hover:bg-slate-900 border border-slate-800 text-[11px] font-mono text-slate-300 hover:text-white transition"
                 >
-                  <X className="w-3 h-3" />
+                  {collapsedSections.size === 0 ? 'Comprimi §' : 'Espandi §'}
                 </button>
               )}
-            </div>
-            {filterSearch.trim() && (
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
-                {totalFilteredMatches}
-              </span>
-            )}
-          </div>
-        </div>
 
-        {/* Quick-Jump Table of Contents (Discrete chips) */}
-        {currentTopic.sections && currentTopic.sections.length > 1 && (
-          <div className="bg-slate-950/50 border border-slate-800/60 rounded-xl p-3.5">
-            <div className="text-[10px] font-mono font-bold uppercase text-slate-400 mb-2 flex items-center gap-1.5">
-              <Bookmark className="w-3 h-3 text-cyan-400" />
-              <span>Indice Rapido Paragrafi</span>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {currentTopic.sections.map((sec: any, sIdx: number) => (
-                <button
-                  key={sec.id}
-                  onClick={() => {
-                    if (collapsedSections.has(sec.id)) toggleSection(sec.id);
-                    setTimeout(() => {
-                      const el = document.getElementById(sec.id);
-                      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 30);
-                  }}
-                  className="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 text-xs transition flex items-center gap-1.5"
-                >
-                  <span className="text-cyan-400 font-mono text-[10px]">{sIdx + 1}.</span>
-                  <span>{sec.title}</span>
-                </button>
-              ))}
+              <div className="relative flex-1 sm:flex-none sm:w-48">
+                <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
+                <input
+                  type="text"
+                  placeholder="Filtra nel testo..."
+                  value={filterSearch}
+                  onChange={(e) => setFilterSearch(e.target.value)}
+                  className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-8 pr-7 py-1.5 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-500"
+                />
+                {filterSearch && (
+                  <button
+                    onClick={() => setFilterSearch('')}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 p-0.5"
+                    title="Azzera"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                )}
+              </div>
+              {filterSearch.trim() && (
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                  {totalFilteredMatches}
+                </span>
+              )}
             </div>
           </div>
-        )}
 
-        {/* Sections Content — Comfortable centered reading column (max-w-3xl) */}
-        <div className="max-w-3xl mx-auto">
+          {/* Mobile-only Compact TOC (on desktop it sits neatly in the right sticky column) */}
+          {formattedSections.length > 1 && (
+            <div className="lg:hidden bg-slate-950/50 border border-slate-800/60 rounded-xl p-3.5">
+              <div className="text-[10px] font-mono font-bold uppercase text-slate-400 mb-2 flex items-center gap-1.5">
+                <Bookmark className="w-3 h-3 text-cyan-400" />
+                <span>Indice Paragrafi</span>
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {formattedSections.map((sec: any, sIdx: number) => (
+                  <button
+                    key={sec.id}
+                    onClick={() => jumpToSection(sec.id)}
+                    className="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 text-xs transition flex items-center gap-1.5"
+                  >
+                    <span className="text-cyan-400 font-mono text-[10px]">{sIdx + 1}.</span>
+                    <span>{sec.title}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Sections Content */}
           {filterSearch.trim() && totalFilteredMatches === 0 ? (
             <div className="p-8 text-center bg-slate-950/40 border border-slate-800/60 rounded-xl space-y-2">
               <p className="text-xs font-semibold text-slate-300">
-                Nessun riscontro per "{filterSearch}"
+                Nessun riscontro per &quot;{filterSearch}&quot;
               </p>
               <button
                 onClick={() => setFilterSearch('')}
@@ -711,17 +883,12 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
                 Azzera filtro
               </button>
             </div>
-          ) : currentTopic.sections && currentTopic.sections.length > 0 ? (
-            <div className="space-y-6">
-              {currentTopic.sections.map((sec: any, sIdx: number) => {
-                const secParas = sec.content
-                  .split('\n')
-                  .map((p: string) => p.trim())
-                  .filter((p: string) => p.length > 0);
-
+          ) : formattedSections.length > 0 ? (
+            <div className="space-y-5">
+              {formattedSections.map((sec: any, sIdx: number) => {
                 const filteredSecParas = filterSearch.trim()
-                  ? secParas.filter((p: string) => p.toLowerCase().includes(filterSearch.toLowerCase()))
-                  : secParas;
+                  ? sec.blocks.filter((p: string) => p.toLowerCase().includes(filterSearch.toLowerCase()))
+                  : sec.blocks;
 
                 if (filterSearch.trim() && filteredSecParas.length === 0) return null;
                 const isCollapsed = !filterSearch.trim() && collapsedSections.has(sec.id);
@@ -732,7 +899,6 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
                     id={sec.id}
                     className="scroll-mt-24 rounded-2xl bg-slate-950/45 border border-slate-800/70 p-5 sm:p-6 transition"
                   >
-                    {/* Collapsible Section Header */}
                     <button
                       type="button"
                       onClick={() => toggleSection(sec.id)}
@@ -751,52 +917,11 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
                       </span>
                     </button>
 
-                    {/* Airy Paragraphs */}
                     {!isCollapsed && (
-                      <div className={`mt-5 pt-4 border-t border-slate-800/60 space-y-4 text-slate-200/95 font-sans ${textSizeClass}`}>
-                        {filteredSecParas.map((para: string, pIdx: number) => {
-                          const isBullet = para.startsWith('•') || para.startsWith('◦') || para.startsWith('‣') || para.startsWith('-');
-                          const isSubheading = !isBullet && para.length < 90 && (
-                            (para === para.toUpperCase() && para.replace(/[^A-Z]/g, '').length > 4) ||
-                            para.endsWith(':') ||
-                            para.includes('==')
-                          );
-
-                          if (isSubheading) {
-                            return (
-                              <div
-                                key={`p-${pIdx}`}
-                                className="pt-4 pb-1 text-xs sm:text-[13px] font-bold uppercase tracking-wider text-cyan-300 font-mono border-b border-cyan-500/15"
-                              >
-                                {para}
-                              </div>
-                            );
-                          }
-
-                          if (isBullet) {
-                            const bulletText = para.replace(/^[•◦‣-]\s*/, '');
-                            return (
-                              <div
-                                key={`p-${pIdx}`}
-                                className="flex items-start gap-3 pl-2 text-slate-200/95"
-                              >
-                                <span className="text-cyan-400/80 text-xs mt-1.5 shrink-0">•</span>
-                                <div className="flex-1">
-                                  {renderActiveRecallParagraph(bulletText, sIdx * 1000 + pIdx)}
-                                </div>
-                              </div>
-                            );
-                          }
-
-                          return (
-                            <p
-                              key={`p-${pIdx}`}
-                              className="text-left text-slate-200/95"
-                            >
-                              {renderActiveRecallParagraph(para, sIdx * 1000 + pIdx)}
-                            </p>
-                          );
-                        })}
+                      <div className={`mt-4 pt-4 border-t border-slate-800/60 space-y-3.5 text-slate-200/95 font-sans ${textSizeClass}`}>
+                        {filteredSecParas.map((para: string, pIdx: number) =>
+                          renderBlock(para, `p-${sIdx}-${pIdx}`, sIdx * 1000 + pIdx)
+                        )}
                       </div>
                     )}
                   </div>
@@ -804,40 +929,158 @@ export const TheoryViewer: React.FC<TheoryViewerProps> = ({
               })}
             </div>
           ) : (
-            <div className={`space-y-4 text-slate-200/95 font-sans ${textSizeClass}`}>
-              {filteredParagraphs.map((para: string, idx: number) => (
-                <p key={idx} className="text-left">
-                  {renderActiveRecallParagraph(para, idx)}
-                </p>
-              ))}
+            <div className={`space-y-3.5 text-slate-200/95 font-sans ${textSizeClass}`}>
+              {filteredParagraphs.map((para: string, idx: number) =>
+                renderBlock(para, `fb-${idx}`, idx)
+              )}
             </div>
           )}
         </div>
 
-        {/* 5. EASTER EGG: GOLLUM E IL CUORE (PAUSA NOTTURNA DELLO STUDENTE) */}
-        <div className="mt-12 pt-6 border-t border-slate-800/80">
-          <div className="p-5 rounded-2xl bg-[#090d18] border border-slate-800/90 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left shadow-sm">
-            <img
-              src="/easter-eggs/gollum_cuore.jpg"
-              alt="Gollum e il cuore"
-              className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl object-cover border border-slate-700/80 shadow-md shrink-0"
-            />
-            <div className="space-y-1">
-              <div className="text-[10px] font-mono text-amber-400 font-bold uppercase tracking-wider flex items-center justify-center sm:justify-start gap-1.5">
-                <span>🌙 Pausa Studio Notturno • Monito di Gollum</span>
+        {/* Right Sticky Companion Column (4 cols on desktop): Indice + Verifiche del Capitolo */}
+        <aside className="lg:col-span-4 lg:sticky lg:top-6 space-y-4">
+          
+          {/* Sticky Table of Contents */}
+          {formattedSections.length > 0 && (
+            <div className="bg-[#0b101c] border border-slate-800/80 rounded-2xl p-4 shadow-sm space-y-3">
+              <div className="flex items-center justify-between border-b border-slate-800/70 pb-2.5">
+                <div className="text-[11px] font-mono font-bold uppercase tracking-wider text-cyan-300 flex items-center gap-1.5">
+                  <Bookmark className="w-3.5 h-3.5" />
+                  <span>Indice del Capitolo</span>
+                </div>
+                <span className="text-[10px] font-mono text-slate-500">{formattedSections.length} §</span>
               </div>
-              <p className="text-xs sm:text-sm font-serif italic text-slate-100">
-                « Non vede dove il cuore lo porta, quando il sole è calato e la luna è morta »
-              </p>
-              <p className="text-[11px] text-slate-400 leading-relaxed font-sans">
-                Tipica reazione dello studente di medicina alle 03:45 di notte prima dell'appello di cardiologia: se inizi ad accarezzare il miocardio sul tablet chiamandolo "il mio tesssoro"... fai una pausa, bevi un goccio d'acqua e riposati!
-              </p>
+              <div className="space-y-1.5">
+                {formattedSections.map((sec: any, sIdx: number) => (
+                  <button
+                    key={`side-toc-${sec.id}`}
+                    onClick={() => jumpToSection(sec.id)}
+                    className="w-full text-left px-3 py-2 rounded-xl bg-slate-950/50 hover:bg-slate-900 border border-slate-800/60 hover:border-cyan-500/35 text-xs text-slate-300 hover:text-white transition flex items-start gap-2.5 group"
+                  >
+                    <span className="text-cyan-400 font-mono text-[11px] font-bold shrink-0 mt-0.5">
+                      §{sIdx + 1}
+                    </span>
+                    <span className="leading-snug">{sec.title}</span>
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
-        </div>
+          )}
 
+          {/* Sticky Connected Exam Practice & Tools Panel */}
+          {hasLinkedTools && (
+            <div className="bg-[#0b101c] border border-slate-800/80 rounded-2xl p-4 shadow-sm space-y-3">
+              <div className="border-b border-slate-800/70 pb-2.5 flex items-center justify-between">
+                <div className="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-200 flex items-center gap-1.5">
+                  <Network className="w-3.5 h-3.5 text-cyan-400" />
+                  <span>Verifiche & Strumenti</span>
+                </div>
+                <span className="text-[10px] font-mono text-slate-500">Collegati</span>
+              </div>
+
+              <div className="space-y-2">
+                {lt.quizIds && lt.quizIds.length > 0 && (
+                  <button
+                    onClick={handleOpenChapterQuiz}
+                    className="w-full p-3 rounded-xl bg-yellow-500/10 hover:bg-yellow-500/15 border border-yellow-500/30 text-left transition flex items-center justify-between gap-2 group"
+                  >
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <div className="p-2 rounded-lg bg-yellow-500/15 text-yellow-400 shrink-0">
+                        <Trophy className="w-4 h-4" />
+                      </div>
+                      <div className="min-w-0">
+                        <div className="text-xs font-bold text-yellow-200">Quiz Scritti Capitolo</div>
+                        <div className="text-[11px] text-slate-400">{lt.quizIds.length} domande mirate</div>
+                      </div>
+                    </div>
+                    <ArrowUpRight className="w-4 h-4 text-yellow-400/70 group-hover:text-yellow-300 shrink-0" />
+                  </button>
+                )}
+
+                {oralStationIds.map((stId) => (
+                  <button
+                    key={`side-oral-${stId}`}
+                    onClick={() => onOpenOralStation?.(stId)}
+                    className="w-full p-3 rounded-xl bg-purple-500/10 hover:bg-purple-500/15 border border-purple-500/30 text-left transition flex items-center justify-between gap-2 group"
+                  >
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <div className="p-2 rounded-lg bg-purple-500/15 text-purple-400 shrink-0">
+                        <Stethoscope className="w-4 h-4" />
+                      </div>
+                      <div className="min-w-0">
+                        <div className="text-xs font-bold text-purple-200">Caso Orale Collegato</div>
+                        <div className="text-[11px] text-slate-400 truncate">{getOralLabel(stId)}</div>
+                      </div>
+                    </div>
+                    <ArrowUpRight className="w-4 h-4 text-purple-400/70 group-hover:text-purple-300 shrink-0" />
+                  </button>
+                ))}
+
+                {lt.specialistTool && (
+                  <button
+                    onClick={() => onOpenSpecialistTool?.(lt.specialistTool)}
+                    className="w-full p-2.5 rounded-xl bg-slate-950/60 hover:bg-slate-900 border border-slate-800 hover:border-emerald-500/40 text-left transition flex items-center justify-between gap-2 group"
+                  >
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <Activity className="w-4 h-4 text-emerald-400 shrink-0" />
+                      <span className="text-xs font-medium text-slate-200 truncate">
+                        {TOOL_LABELS[lt.specialistTool] || lt.specialistTool}
+                      </span>
+                    </div>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-emerald-400 shrink-0" />
+                  </button>
+                )}
+
+                {lt.calculatorId && (
+                  <button
+                    onClick={() => onOpenCalculator?.(lt.calculatorId)}
+                    className="w-full p-2.5 rounded-xl bg-slate-950/60 hover:bg-slate-900 border border-slate-800 hover:border-teal-500/40 text-left transition flex items-center justify-between gap-2 group"
+                  >
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <Calculator className="w-4 h-4 text-teal-400 shrink-0" />
+                      <span className="text-xs font-medium text-slate-200 truncate">
+                        {CALC_LABELS[lt.calculatorId] || lt.calculatorId}
+                      </span>
+                    </div>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-teal-400 shrink-0" />
+                  </button>
+                )}
+
+                {lt.audioKey && (
+                  <button
+                    onClick={() => onOpenAudio?.(lt.audioKey)}
+                    className="w-full p-2.5 rounded-xl bg-slate-950/60 hover:bg-slate-900 border border-slate-800 hover:border-rose-500/40 text-left transition flex items-center justify-between gap-2 group"
+                  >
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <Volume2 className="w-4 h-4 text-rose-400 shrink-0" />
+                      <span className="text-xs font-medium text-slate-200 truncate">
+                        {AUDIO_LABELS[lt.audioKey] || lt.audioKey}
+                      </span>
+                    </div>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-rose-400 shrink-0" />
+                  </button>
+                )}
+
+                {lt.anatomy3dTarget && (
+                  <button
+                    onClick={() => onFocus3D?.(lt.anatomy3dTarget)}
+                    className="w-full p-2.5 rounded-xl bg-slate-950/60 hover:bg-slate-900 border border-slate-800 hover:border-blue-500/40 text-left transition flex items-center justify-between gap-2 group"
+                  >
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <Eye className="w-4 h-4 text-blue-400 shrink-0" />
+                      <span className="text-xs font-medium text-slate-200 truncate">
+                        {ANATOMY_LABELS[lt.anatomy3dTarget] || lt.anatomy3dTarget}
+                      </span>
+                    </div>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-blue-400 shrink-0" />
+                  </button>
+                )}
+              </div>
+            </div>
+          )}
+
+        </aside>
       </div>
-
     </div>
   );
 };

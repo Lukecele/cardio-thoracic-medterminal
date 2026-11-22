@@ -77,6 +77,8 @@ export function App() {
   // Cross-link state
   const [activeTopicId, setActiveTopicId] = useState<string | null>(null);
   const [targetQuestionId, setTargetQuestionId] = useState<string | null>(null);
+  const [targetQuestionIds, setTargetQuestionIds] = useState<string[] | null>(null);
+  const [targetQuizTopicTitle, setTargetQuizTopicTitle] = useState<string | null>(null);
   const [targetOralStationId, setTargetOralStationId] = useState<number | null>(null);
   const [targetCalculatorId, setTargetCalculatorId] = useState<string | null>(null);
   const [targetAudioTrackId, setTargetAudioTrackId] = useState<string | null>(null);
@@ -292,6 +294,8 @@ export function App() {
           subtitle: quest.examSession || 'Database Scritti Moodle',
           snippet,
           action: () => {
+            setTargetQuestionIds(null);
+            setTargetQuizTopicTitle(null);
             setTargetQuestionId(quest.id);
             setActiveTab('quiz');
             setSearchModalOpen(false);
@@ -666,7 +670,11 @@ export function App() {
                     key={tab.id}
                     onClick={() => {
                       setActiveTab(tab.id);
-                      if (tab.id !== 'quiz') setTargetQuestionId(null);
+                      if (tab.id !== 'quiz') {
+                        setTargetQuestionId(null);
+                        setTargetQuestionIds(null);
+                        setTargetQuizTopicTitle(null);
+                      }
                     }}
                     className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl transition-all text-left ${
                       isActive
@@ -800,7 +808,15 @@ export function App() {
                     setActiveTopicId(id);
                   }}
                   onOpenQuestion={(qId) => {
+                    setTargetQuestionIds(null);
+                    setTargetQuizTopicTitle(null);
                     setTargetQuestionId(qId);
+                    setActiveTab('quiz');
+                  }}
+                  onOpenTopicQuiz={(qIds, topicTitle) => {
+                    setTargetQuestionId(qIds[0] || null);
+                    setTargetQuestionIds(qIds);
+                    setTargetQuizTopicTitle(topicTitle);
                     setActiveTab('quiz');
                   }}
                   onOpenOralStation={(stId) => {
@@ -826,7 +842,15 @@ export function App() {
               )}
 
               {activeTab === 'quiz' && (
-                <ExamSimulator initialQuestionId={targetQuestionId} />
+                <ExamSimulator
+                  initialQuestionId={targetQuestionId}
+                  initialQuestionIds={targetQuestionIds}
+                  initialTopicTitle={targetQuizTopicTitle}
+                  onClearTopicFilter={() => {
+                    setTargetQuestionIds(null);
+                    setTargetQuizTopicTitle(null);
+                  }}
+                />
               )}
 
               {activeTab === 'oral' && (

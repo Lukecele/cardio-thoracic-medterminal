@@ -5,6 +5,9 @@ import questionsData from '../data/questions.json';
 
 interface Props {
   initialQuestionId?: string | null;
+  initialQuestionIds?: string[] | null;
+  initialTopicTitle?: string | null;
+  onClearTopicFilter?: () => void;
 }
 
 const BRANCH_TABS = [
@@ -18,32 +21,52 @@ const BRANCH_TABS = [
 
 type BranchTabId = typeof BRANCH_TABS[number]['id'];
 
-export const ExamSimulator: React.FC<Props> = ({ initialQuestionId }) => {
+export const ExamSimulator: React.FC<Props> = ({
+  initialQuestionId,
+  initialQuestionIds,
+  initialTopicTitle,
+  onClearTopicFilter,
+}) => {
   const [selectedBranch, setSelectedBranch] = useState<BranchTabId>('all');
+  const [topicFilterIds, setTopicFilterIds] = useState<string[] | null>(initialQuestionIds || null);
+  const [topicFilterTitle, setTopicFilterTitle] = useState<string | null>(initialTopicTitle || null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [selectedAnswers, setSelectedAnswers] = useState<{ [key: string]: string }>({});
   const [showExplanation, setShowExplanation] = useState<{ [key: string]: boolean }>({});
   const [isExamCompleted, setIsExamCompleted] = useState<boolean>(false);
   const [wrongAnswers, setWrongAnswers] = useState<string[]>([]);
 
-  // When initialQuestionId changes, jump to that question seamlessly
+  // Sync topic-level quiz filter when opened from a specific theory chapter
   React.useEffect(() => {
-    if (initialQuestionId) {
+    if (initialQuestionIds && initialQuestionIds.length > 0) {
+      setTopicFilterIds(initialQuestionIds);
+      setTopicFilterTitle(initialTopicTitle || 'Capitolo selezionato');
+      setSelectedBranch('all');
+      setCurrentIndex(0);
+      setIsExamCompleted(false);
+    } else if (initialQuestionId) {
+      setTopicFilterIds(null);
+      setTopicFilterTitle(null);
       const targetQ = questionsData.find((q) => q.id === initialQuestionId);
       if (targetQ) {
         setSelectedBranch(targetQ.branch as BranchTabId);
         const branchList = questionsData.filter((q) => q.branch === targetQ.branch);
         const targetIdx = branchList.findIndex((q) => q.id === initialQuestionId);
         setCurrentIndex(targetIdx >= 0 ? targetIdx : 0);
+        setIsExamCompleted(false);
       }
     }
-  }, [initialQuestionId]);
+  }, [initialQuestionId, initialQuestionIds, initialTopicTitle]);
 
-  // Filter questions based on branch
+  // Filter questions based on active chapter filter OR branch tab
   const filteredQuestions = React.useMemo(() => {
+    if (topicFilterIds && topicFilterIds.length > 0) {
+      const byId = new Map(questionsData.map((q) => [q.id, q]));
+      return topicFilterIds.map((id) => byId.get(id)).filter(Boolean) as typeof questionsData;
+    }
     if (selectedBranch === 'all') return questionsData;
     return questionsData.filter((q) => q.branch === selectedBranch);
-  }, [selectedBranch]);
+  }, [selectedBranch, topicFilterIds]);
 
   const currentQ = filteredQuestions[currentIndex] || filteredQuestions[0];
 
@@ -121,11 +144,14 @@ export const ExamSimulator: React.FC<Props> = ({ initialQuestionId }) => {
             <button
               key={tab.id}
               onClick={() => {
+                setTopicFilterIds(null);
+                setTopicFilterTitle(null);
+                onClearTopicFilter?.();
                 setSelectedBranch(tab.id);
                 setCurrentIndex(0);
               }}
               className={`px-2.5 py-1 rounded-lg text-xs font-mono font-semibold transition border ${
-                selectedBranch === tab.id
+                !topicFilterIds && selectedBranch === tab.id
                   ? 'bg-emerald-500/20 border-emerald-400 text-emerald-300'
                   : 'bg-slate-800/60 border-slate-700/60 text-slate-400 hover:text-white'
               }`}
@@ -142,6 +168,29 @@ export const ExamSimulator: React.FC<Props> = ({ initialQuestionId }) => {
           </button>
         </div>
       </div>
+
+      {/* Active Chapter Filter Banner (when launched from TheoryViewer) */}
+      {topicFilterIds && topicFilterIds.length > 0 && (
+        <div className="mb-5 p-3 rounded-xl bg-cyan-950/35 border border-cyan-500/35 flex flex-wrap items-center justify-between gap-2 text-xs">
+          <div className="text-cyan-200">
+            <span className="font-mono uppercase text-[10px] px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-bold mr-2">
+              QUIZ CAPITOLO
+            </span>
+            <strong>{topicFilterTitle}</strong> ({filteredQuestions.length} quesiti mirati)
+          </div>
+          <button
+            onClick={() => {
+              setTopicFilterIds(null);
+              setTopicFilterTitle(null);
+              onClearTopicFilter?.();
+              setCurrentIndex(0);
+            }}
+            className="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 hover:text-white font-mono text-[11px] transition"
+          >
+            Mostra tutte ({questionsData.length})
+          </button>
+        </div>
+      )}
 
       {isExamCompleted ? (
         /* Result Screen */

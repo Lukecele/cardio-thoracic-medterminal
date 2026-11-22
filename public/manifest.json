@@ -1,18 +1,38 @@
 {
+  "id": "/",
   "name": "MedTerminal // Cardio-Thoracic Cockpit",
   "short_name": "MedTerminal",
-  "description": "Piattaforma didattica per studenti di medicina: teoria completa, simulatore esame scritto e orale, fonoteca auscultatoria e modelli 3D.",
+  "description": "Piattaforma didattica per studenti di medicina: 16 capitoli di teoria completa, 78 MCQ, 9 casi orali, TNM 9ª ed., fonoteca auscultatoria e modelli 3D.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#07090e",
-  "theme_color": "#07090e",
+  "theme_color": "#0a1322",
   "orientation": "any",
   "icons": [
     {
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
       "src": "/favicon.svg",
-      "sizes": "192x192 512x512",
+      "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ]
 }
